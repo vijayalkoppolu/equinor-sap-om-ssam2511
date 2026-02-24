@@ -1,0 +1,246 @@
+
+{
+ 
+  "ActionBar": {
+    "Items": [
+      {
+        "Position": "Left",
+        "SystemItem": "Cancel",
+        "Caption": "$(L,cancel)",
+        "OnPress": "/SAPAssetManager/Actions/Page/CancelPage.action"
+      },
+      {
+        "Position": "Right",
+        "SystemItem": "/SAPAssetManager/Rules/Filter/FilterSystemItem.js",
+        "Text": "/SAPAssetManager/Rules/Filter/FilterText.js",
+        "OnPress": "/SAPAssetManager/Rules/Filter/ApplyFilterAndSave.js"
+      }
+    ]
+  },
+  "Caption": "$(L,filter)",
+  "Result": "/SAPAssetManager/Rules/FL/WorkOrders/ReservationItems/ListView/FLResvItemsSearchFilterResults.js",
+  "Controls": [
+    {
+      "Sections": [
+        {
+          "Controls": [
+            {
+              "_Type": "Fragment",
+              "Fragment": "/SAPAssetManager/Pages/Fragments/Filter/MultiSortByFilter.fragment",
+              "Properties": {
+                "Items": [
+                  {
+                    "ReturnValue": "ReservationItem",
+                    "DisplayValue": "$(L,fld_reservation_item)"
+                  },
+                  {
+                    "ReturnValue": "StorageBin",
+                    "DisplayValue": "$(L,storage_bin)"
+                  },
+                  {
+                    "ReturnValue": "RemoteStorageLocation",
+					          "DisplayValue": "$(L,storage_location)"
+                  },
+                  {
+                    "ReturnValue": "PurchaseReq",
+                    "DisplayValue": "$(L,purchase_requisition)"
+                  },
+                  {
+                    "ReturnValue": "PurchaseOrd",
+	          				"DisplayValue": "$(L,purchase_order)"
+                  },
+                  {
+                    "ReturnValue": "WBSInternalID",
+			          		"DisplayValue": "$(L,fld_wbs_element)"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "Caption": "$(L,filter_by)",
+          "Controls": [
+            {
+              "_Name": "FLProductFilter",
+              "_Type": "Control.Type.FormCell.ListPicker",
+              "Caption": "$(L,fld_product)",
+              "AllowMultipleSelection": true,
+              "IsPickerDismissedOnSelection": true,
+              "IsSearchCancelledAfterSelection": true,
+              "Search": {
+                "Enabled": true,
+                "Delay": 500,
+                "MinimumCharacterThreshold": 3,
+                "Placeholder": "$(L,search)",
+                "BarcodeScanner": true
+              },
+              "FilterProperty": "Product",
+              "PickerItems": {
+                                "DisplayValue" : "{Product}",
+                                "ReturnValue" : "{Product}",
+                                "Target":
+                                {
+                                    "EntitySet" : "{{#Property:@odata.readLink}}/FldLogsWoResvItem_Nav",
+                                    "Service" : "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions" : "$orderby=Product"
+                                }
+                            },
+              "OnValueChange": "/SAPAssetManager/Rules/Filter/RedrawFilterToolbar.js"
+            },
+            {
+              "_Name": "FLResvItemFilter",
+              "_Type": "Control.Type.FormCell.ListPicker",
+              "Caption": "$(L,fld_reservation_item)",
+              "AllowMultipleSelection": true,
+              "IsPickerDismissedOnSelection": true,
+              "IsSearchCancelledAfterSelection": true,
+              "Search": {
+                "Enabled": true,
+                "Delay": 500,
+                "MinimumCharacterThreshold": 3,
+                "Placeholder": "$(L,search)",
+                "BarcodeScanner": true
+              },
+              "FilterProperty": "ReservationItem",
+                "PickerItems": {
+                                "DisplayValue" : "{ReservationItem}",
+                                "ReturnValue" : "{ReservationItem}",
+                                "Target":
+                                {
+                                    "EntitySet" : "{{#Property:@odata.readLink}}/FldLogsWoResvItem_Nav",
+                                    "Service" : "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions" : "$orderby=ReservationItem"
+                                }
+                            },
+              "OnValueChange": "/SAPAssetManager/Rules/Filter/RedrawFilterToolbar.js"
+            },
+			      {
+              "_Name": "FLStorageBinFilter",
+              "_Type": "Control.Type.FormCell.ListPicker",
+              "Caption": "$(L,storage_bin)",
+              "AllowMultipleSelection": true,
+              "IsPickerDismissedOnSelection": true,
+              "IsSearchCancelledAfterSelection": true,
+              "Search": {
+                "Enabled": true,
+                "Delay": 500,
+                "MinimumCharacterThreshold": 3,
+                "Placeholder": "$(L,search)",
+                "BarcodeScanner": true
+              },
+              "FilterProperty": "StorageBin",
+                "PickerItems": "/SAPAssetManager/Rules/FL/WorkOrders/ReservationItems/FLStorageBinValues.js",
+              "OnValueChange": "/SAPAssetManager/Rules/Filter/RedrawFilterToolbar.js"
+            },
+             {
+              "_Name": "FLStorageLocationFilter",
+              "_Type": "Control.Type.FormCell.ListPicker",
+              "Caption": "$(L,storage_location)",
+              "AllowMultipleSelection": true,
+              "IsPickerDismissedOnSelection": true,
+              "IsSearchCancelledAfterSelection": true,
+              "Search": {
+                "Enabled": true,
+                "Delay": 500,
+                "MinimumCharacterThreshold": 3,
+                "Placeholder": "$(L,search)",
+                "BarcodeScanner": true
+              },
+              "FilterProperty": "RemoteStorageLocation",
+                "PickerItems": "/SAPAssetManager/Rules/FL/WorkOrders/ReservationItems/FLStorageLocationValues.js",
+              "OnValueChange": "/SAPAssetManager/Rules/Filter/RedrawFilterToolbar.js"
+            },
+            {
+              "_Name": "FLPurchaseReqFilter",
+              "_Type": "Control.Type.FormCell.ListPicker",
+              "Caption": "$(L,purchase_requisition)",
+              "AllowMultipleSelection": true,
+              "IsPickerDismissedOnSelection": true,
+              "IsSearchCancelledAfterSelection": true,
+              "Search": {
+                "Enabled": true,
+                "Delay": 500,
+                "MinimumCharacterThreshold": 3,
+                "Placeholder": "$(L,search)",
+                "BarcodeScanner": true
+              },
+              "FilterProperty": "PurchaseReq",
+                "PickerItems": "/SAPAssetManager/Rules/FL/WorkOrders/ReservationItems/FLPurchaseReqValues.js",
+              "OnValueChange": "/SAPAssetManager/Rules/Filter/RedrawFilterToolbar.js"
+            },
+            {
+              "_Name": "FLPurchaseOrdFilter",
+              "_Type": "Control.Type.FormCell.ListPicker",
+              "Caption": "$(L,purchase_order)",
+              "AllowMultipleSelection": true,
+              "IsPickerDismissedOnSelection": true,
+              "IsSearchCancelledAfterSelection": true,
+              "Search": {
+                "Enabled": true,
+                "Delay": 500,
+                "MinimumCharacterThreshold": 3,
+                "Placeholder": "$(L,search)",
+                "BarcodeScanner": true
+              },
+              "FilterProperty": "PurchaseOrd",
+                "PickerItems": "/SAPAssetManager/Rules/FL/WorkOrders/ReservationItems/FLPurchaseOrdValues.js",
+              "OnValueChange": "/SAPAssetManager/Rules/Filter/RedrawFilterToolbar.js"
+            },
+            {
+              "_Name": "FLOpActivityFilter",
+              "_Type": "Control.Type.FormCell.ListPicker",
+              "Caption": "$(L,operation)",
+              "AllowMultipleSelection": true,
+              "IsPickerDismissedOnSelection": true,
+              "IsSearchCancelledAfterSelection": true,
+              "Search": {
+                "Enabled": true,
+                "Delay": 500,
+                "MinimumCharacterThreshold": 3,
+                "Placeholder": "$(L,search)",
+                "BarcodeScanner": true
+              },
+              "FilterProperty": "Operation",
+                "PickerItems": "/SAPAssetManager/Rules/FL/WorkOrders/ReservationItems/FLResvItemsOperationValues.js",
+              "OnValueChange": "/SAPAssetManager/Rules/Filter/RedrawFilterToolbar.js"
+            },
+            {
+              "_Name": "FLWBSElementFilter",
+              "_Type": "Control.Type.FormCell.ListPicker",
+              "Caption": "$(L,reservation_item_wbs_element)",
+              "AllowMultipleSelection": true,
+              "IsPickerDismissedOnSelection": true,
+              "IsSearchCancelledAfterSelection": true,
+              "Search": {
+                "Enabled": true,
+                "Delay": 500,
+                "MinimumCharacterThreshold": 3,
+                "Placeholder": "$(L,search)",
+                "BarcodeScanner": true
+              },
+              "FilterProperty": "WBSInternalID",
+                "PickerItems": "/SAPAssetManager/Rules/FL/WorkOrders/ReservationItems/FLResvItemsWBSValues.js",
+              "OnValueChange": "/SAPAssetManager/Rules/Filter/RedrawFilterToolbar.js"
+            }
+      
+          ]
+        }
+      ],
+      "_Name": "FormCellContainer",
+      "_Type": "Control.Type.FormCellContainer"
+    }
+  ],
+  "FioriToolbar": {
+    "_Name": "OrderProductSearchFilterFioriToolbar",
+    "_Type": "Control.Type.FioriToolbar",
+    "Items": [
+      {
+        "_Type": "Fragment",
+        "Fragment": "/SAPAssetManager/Pages/Fragments/Filter/ResetFilterToolbarItem.fragment"
+      }
+    ]
+  },
+  "_Type": "Page",
+  "_Name": "FLOrderResvItemsFilter"
+}

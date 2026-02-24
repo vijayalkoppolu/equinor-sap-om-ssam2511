@@ -1,0 +1,24 @@
+{
+"_Type": "Control.Type.ObjectCell",
+"AccessoryType": "DisclosureIndicator",
+"PreserveIconStackSpacing": false,
+"Title": "#Property:VoyageNumber",
+"Subhead": "/SAPAssetManager/Rules/FL/Voyages/VoyageSubhead.js",
+"Footnote": "/SAPAssetManager/Rules/FL/Voyages/VoyageFootnote.js",
+"Description": "/SAPAssetManager/Rules/FL/Voyages/VoyageObjectCellDescription.js",
+"StatusText": "#Property:FldLogsVoyageStatus_Nav/Description",
+"AccessoryButtonIcon":"sap-icon://overflow",
+"Styles": {
+        "AccessoryButtonIcon": "AccessoryButtonIcon"
+    },  
+"OnAccessoryButtonPress": "/SAPAssetManager/Actions/FL/Voyages/VoyagePopOver.action",
+"OnPress": "/SAPAssetManager/Rules/FL/Voyages/Details/VoyageDetailsPageNav.js",
+ "AvatarStack": {
+		"Avatars": [{
+            "Image": "$(PLT, sap-icon://cargo-train, sap-icon://cargo-train, '', sap-icon://cargo-train)",
+            "Style": "$(PLT, FLVoyageIcon, FLVoyageIconAndroid)"
+        }], 
+        "ImageHasBorder": true,
+        "ImageIsCircular": false
+    }
+}

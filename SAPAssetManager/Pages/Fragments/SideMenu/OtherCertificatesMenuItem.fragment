@@ -1,0 +1,13 @@
+{
+    "Title": "/SAPAssetManager/Rules/SideDrawer/SideDrawerOtherCertificatesCount.js",
+    "OnPress": "/SAPAssetManager/Rules/WCM/SafetyCertificates/OtherCertificatesListViewNav.js",
+    "_Name": "OtherCertificates",
+    "ResetIfPressedWhenActive": true,
+    "Image":"sap-icon://shield",
+        "Styles": {
+        "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+        "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+        "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+    },
+    "Visible": "/SAPAssetManager/Rules/UserFeatures/IsWCMSafetyCertificateEnabled.js"
+}

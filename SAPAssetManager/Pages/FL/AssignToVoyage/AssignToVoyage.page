@@ -1,0 +1,69 @@
+{
+    "Caption": "$(L, assign_to_voyage)",
+    "ActionBar": {
+        "Items": [
+           
+            {
+                "Position": "Right",
+				"Icon": "sap-icon://filter",
+                "Caption": "/SAPAssetManager/Rules/Filter/FilterButtonCaption.js",
+                "_Name": "FilterButton",
+                "OnPress": "/SAPAssetManager/Actions/FL/Voyages/AssignToVoyageFilterViewNav.action"
+            }
+        ]
+    },
+    "Controls": [
+        {
+            "Sections": [
+                {
+					"EmptySection": {
+						"Caption": "$(L,no_fld_voyages)"
+					},
+					"Header": {
+						"Caption": "/SAPAssetManager/Rules/FL/Voyages/AssignToVoyage/AssignToVoyageListCaption.js",
+						"UseTopPadding": false
+					},
+                    "Selection": {
+                        "ExitOnLastDeselect": false,
+                        "Mode": "Multiple"
+                    },
+                    "OnSelectionChanged": "/SAPAssetManager/Rules/FL/Voyages/AssignToVoyage/AssignToVoyageOnDocumentSelectedOrUnselected.js",
+                    "ObjectCell": "/SAPAssetManager/Pages/Fragments/FL/AssignToVoyageCell.fragment",
+					"Target": {
+						"EntitySet": "FldLogsVoyageMasters",
+						"QueryOptions":"/SAPAssetManager/Rules/FL/Voyages/AssignToVoyage/AssignToVoyageQuery.js",
+						"Service": "/SAPAssetManager/Services/AssetManager.service"
+					},
+                    "Search": {
+                        "Enabled": true,
+                        "Delay": 500,
+                        "MinimumCharacterThreshold": 3,
+                        "Placeholder": "$(L,search)",
+                        "BarcodeScanner": true
+                    },
+                    "_Name": "SectionObjectTable",
+                    "_Type": "Section.Type.ObjectTable"
+                }
+            ],
+            "_Name": "SectionedTable",
+            "_Type": "Control.Type.SectionedTable"
+        }
+    ],
+        "FioriToolbar": {
+        "_Name": "AssignToVoyageFioriToolbar",
+        "_Type": "Control.Type.FioriToolbar",
+        "Items": [
+            {
+            "_Name": "FLAssignToVoyageButton",
+            "_Type": "FioriToolbarItem.Type.Button",
+            "Title": "$(L, assign_to_voyage)",
+            "Enabled": false,
+            "ButtonType": "Primary",
+            "OnPress": "/SAPAssetManager/Rules/FL/Voyages/AssignToVoyage/AssignToVoyageSubmit.js"
+            }
+        ]
+    },
+    "_Type": "Page",
+    "_Name": "AssignToVoyagePage",
+    "OnLoaded": "/SAPAssetManager/Rules/Filter/ListPageWithFilterOnLoaded.js"
+}

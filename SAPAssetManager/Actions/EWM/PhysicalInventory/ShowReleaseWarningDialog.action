@@ -1,0 +1,8 @@
+{
+    "_Type": "Action.Type.Message",
+    "Title": "$(L, pi_confirm_unassign)",
+    "Message": "$(L, pi_unassign_resource_message)",
+    "OKCaption": "$(L,ok)",
+    "CancelCaption": "$(L,cancel)",
+    "OnOK": "/SAPAssetManager/Rules/EWM/PhysicalInventory/PhysicalInventoryReleaseResource.js"
+}

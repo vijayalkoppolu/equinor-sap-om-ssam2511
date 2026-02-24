@@ -1,0 +1,152 @@
+{
+  "OnActivityBackPressed": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/CancelCheckOnBackNavAndroid.js",
+  "ActionBar": {
+    "Items": [
+      {
+        "_Type": "Fragment",
+        "Fragment": "/SAPAssetManager/Pages/Fragments/DoneButton.fragment",
+        "Properties": {
+          "OnPress": "/SAPAssetManager/Rules/EWM/InboundDelivery/SingleEdit/OnPressSingleEditDoneButton.js"
+        }
+      }
+    ]
+  },
+  "Caption": "$(L,edit_item)",
+  "OnLoaded": "/SAPAssetManager/Rules/EWM/InboundDelivery/SingleEdit/EditItemPageOnloaded.js",
+  "Controls": [
+    {
+      "_Type": "Control.Type.SectionedTable",
+      "_Name": "EditInboundDeliveryTable",
+      "OnRendered": "/SAPAssetManager/Rules/EWM/InboundDelivery/SingleEdit/EditItemOnRendered.js",
+      "Sections": [
+        {
+          "_Type": "Section.Type.SimplePropertyCollection",
+          "Layout": {
+            "NumberOfColumns": 1
+          },
+          "SimplePropertyCells": [
+            {
+              "SimplePropertyCell": {
+                "KeyName": "$(L,item_number)",
+                "Value": "$(DV,{ItemNumber},'-')"
+              }
+            },
+            {
+              "SimplePropertyCell": {
+                "KeyName": "$(L,product)",
+                "Value": "$(DV,{Product},'-')"
+              }
+            },
+            {
+              "SimplePropertyCell": {
+                "KeyName": "$(L,open_packable_quantity)",
+                "Value": "$(DV,{OpenPackableQuantity},'-') $(DV,{UnitofMeasure},'-')"
+              }
+            },
+            {
+              "SimplePropertyCell": {
+                "KeyName": "$(L,packed_quantity)",
+                "Value": "$(DV,{PackedQuantity},'-') $(DV,{UnitofMeasure},'-')"
+              }
+            }
+          ]
+        },
+        {
+        "_Type": "Section.Type.FormCell",
+        "_Name": "WarehouseTaskSection",
+        "Controls": [
+            {
+            "_Name": "CreateWHTaskButton",
+            "_Type": "Control.Type.FormCell.Button",
+            "Title": "$(L,create_whtask)",
+            "OnPress": "/SAPAssetManager/Rules/EWM/WarehouseTask/WarehouseTaskCreateNavAction.js",
+            "Enabled": "/SAPAssetManager/Rules/EWM/WarehouseTask/IsWarehouseTaskCreateEnabled.js"
+            }
+        ]
+        },
+        {
+          "_Type": "Section.Type.FormCell",
+          "_Name": "FormCellSection",
+          "Controls": [
+            {
+              "_Name": "QuantityInput",
+              "_Type": "Control.Type.FormCell.SimpleProperty",
+              "Caption": "$(L,quantity)",
+              "Value": "$(DV,{Quantity},'-')",
+              "KeyboardType": "Number",
+              "IsEditable": "/SAPAssetManager/Rules/EWM/Inbound/Items/Quantity/IsQuantityEditablePostGR.js",
+              "OnValueChange": "/SAPAssetManager/Rules/EWM/InboundDelivery/SingleEdit/OnQuantityChanged.js"
+            },
+            {
+              "_Name": "UOM",
+              "_Type": "Control.Type.FormCell.ListPicker",
+              "Caption": "$(L,uom)",
+              "Value": "$(DV,{UnitofMeasure},'-')",
+              "PickerItems": "/SAPAssetManager/Rules/EWM/InboundDelivery/SingleEdit/UOMPickerItems.js",
+              "AllowMultipleSelection": false,
+              "AllowEmptySelection": false,
+              "IsPickerDismissedOnSelection": true,
+              "PickerPrompt": "$(L,select_single_item)",
+              "OnValueChange": "/SAPAssetManager/Rules/EWM/InboundDelivery/SingleEdit/OnUOMChanged.js"
+            },
+            {
+              "_Name": "StockType",
+              "_Type": "Control.Type.FormCell.ListPicker",
+              "Caption": "$(L,stock_type)",
+              "Value": "$(DV,{StockType},'-')",
+              "PickerItems": "/SAPAssetManager/Rules/EWM/InboundDelivery/SingleEdit/StockTypePickerItems.js",
+              "AllowMultipleSelection": false,
+              "IsPickerDismissedOnSelection": true,
+              "PickerPrompt": "$(L,select_single_item)",
+              "OnValueChange": "/SAPAssetManager/Rules/EWM/InboundDelivery/SingleEdit/OnStockTypeChanged.js"
+            },
+            {
+              "_Name": "Batch",
+              "_Type": "Control.Type.FormCell.ListPicker",
+              "Caption": "$(L,batch)",
+              "Value": "$(DV,{BatchNumber},'-')",
+              "PickerItems": {
+                "Target": {
+                  "Service": "/SAPAssetManager/Services/AssetManager.service",
+                  "EntitySet": "WarehouseProductBatches",
+                  "QueryOptions": "$filter=Product eq '{Product}'&$select=Batch&$orderby=Batch"
+                },
+                "DisplayValue": "{Batch}",
+                "ReturnValue": "{Batch}"
+              },
+              "AllowMultipleSelection": false,
+              "AllowEmptySelection": false,
+              "IsPickerDismissedOnSelection": true,
+              "PickerPrompt": "$(L,select_single_item)",
+              "IsVisible": "/SAPAssetManager/Rules/EWM/InboundDelivery/SingleEdit/EDTIsBatchVisible.js",
+              "OnValueChange": "/SAPAssetManager/Rules/EWM/InboundDelivery/SingleEdit/OnBatchChanged.js"
+            },
+            {
+              "_Name": "CreatePackButton",
+              "_Type": "Control.Type.FormCell.Button",
+              "OnPress": "/SAPAssetManager/Rules/EWM/Inbound/Items/HandlingUnit/WHHandlingUnitCreateNav.js",
+              "Enabled": "/SAPAssetManager/Rules/EWM/Inbound/Items/HandlingUnit/WHHandlingUnitCreateButtonEnabled.js",
+              "Title": "$(L, create_handling_unit)"
+            }
+          ]
+        },
+        {
+          "_Type": "Section.Type.FormCell",
+          "_Name": "SerialManagementSection",
+          "Visible": "/SAPAssetManager/Rules/EWM/InboundDelivery/SingleEdit/EDTIsManageSerialsVisible.js",
+          "Controls": [
+            {
+              "_Name": "ManageSerialsButton",
+              "_Type": "Control.Type.FormCell.Button",
+              "Title": "$(L,manage_serial_numbers)",
+              "OnPress": "/SAPAssetManager/Actions/EWM/Inbound/IBDEditSingleItemSerialNumbersNav.action"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "OnReturning": "/SAPAssetManager/Rules/EWM/InboundDelivery/SingleEdit/OnEditItemReturning.js",
+  "_Name": "EditInboundDeliveryItemPage",
+  "_Type": "Page"
+}

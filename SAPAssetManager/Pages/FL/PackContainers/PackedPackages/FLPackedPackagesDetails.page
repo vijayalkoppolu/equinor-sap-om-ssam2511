@@ -1,0 +1,56 @@
+{
+    "Caption": "$(L, fld_package_details)",
+    "ActionBar": {
+        "Items": [
+            "/SAPAssetManager/Pages/Fragments/SyncButton.fragment"
+        ]
+    },
+    "Controls": [{
+            "Sections": [{
+                    "ObjectHeader": {
+                        "HeadlineText": "$(DV, '{FldLogsContainerID}', '-')",
+                        "StatusText": "$(DV, '{FldLogsCtnPkgPackingStatus_Nav/CtnPkgPackingStatusText}', '-')",
+                        "SubstatusText": "/SAPAssetManager/Rules/FL/PackedPackages/FormatMetricsSubstatusText.js",
+                        "Subhead": "$(DV, '{FldLogsContainerCategoryText}', '-')",
+                        "Description": "/SAPAssetManager/Rules/FL/PackedPackages/PackedPackageDescription.js",
+                        "DetailImage": "sap-icon://table-view",
+                        "Styles": {
+                                    "DetailImage": "$(PLT, FLPackageIcon, FLPackageIconAndroid)"
+                                    },
+                        "Tags": "/SAPAssetManager/Rules/FL/ReadyToPack/FLReadyToPackTags.js",
+                        "DetailImageIsCircular": false
+                    },
+                    "_Type": "Section.Type.ObjectHeader",
+                    "_Name": "ObjectHeaderSectionTable"
+                }],
+            "_Name": "SectionedTable",
+            "_Type": "Control.Type.SectionedTable"
+        },
+        {
+            "Items": [  {
+                "_Name": "HeaderListTab",
+                "Caption": "$(L, header)",
+                "PageToOpen" : "/SAPAssetManager/Pages/FL/PackContainers/PackedPackages/PackedPackagesHeader.page",
+                "PageMetadata": "/SAPAssetManager/Rules/FL/PackedPackages/FLPackedPackagesHeaderPageMetadata.js",
+                "_Type": "Control.Type.TabItem"
+            },
+            {
+                "_Name": "PackageItemsListTab",
+                "Caption": "$(L, fld_package_items)",
+                "PageToOpen" : "/SAPAssetManager/Pages/FL/PackContainers/PackedPackages/FLPackedPackagesItemsList.page",
+                "_Type": "Control.Type.TabItem"
+            },
+            {
+                "_Name": "VoyagesListTab",
+                "Caption": "$(L, fld_voyages)",
+                "PageToOpen" : "/SAPAssetManager/Pages/FL/PackContainers/PackedPackages/PackedPackagesVoyages.page",
+                "_Type": "Control.Type.TabItem"
+            }],
+            "Position": "Top",
+            "_Type": "Control.Type.Tabs",
+            "_Name": "TabsControl"
+        }
+    ],
+    "_Name": "FLPackedPackagesDetailsPage",
+    "_Type": "Page"
+}

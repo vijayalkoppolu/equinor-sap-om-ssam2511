@@ -1,0 +1,61 @@
+{
+    "_Name": "FSMS4CrewMemberDetails",
+	"_Type": "Page",
+	"Caption": "$(L,crew_member)",
+    "Controls": [
+        {
+            "_Name": "CrewMemberDetailsSectionTable",
+            "_Type": "Control.Type.SectionedTable",
+            "Sections": [
+                {
+                    "_Name": "CrewMemberDetailsSection",
+                    "_Type": "Section.Type.KeyValue",
+                    "Header": {
+                        "Caption": "$(L,details)",
+                        "UseTopPadding": true
+                    },
+                    "Layout": {
+                        "NumberOfColumns": 2
+                    },
+                    "KeyAndValues": [
+                        {
+                            "_Name": "BusinessPartner_Nav.FullName",
+                            "KeyName": "$(L,name)",
+                            "Value": "/SAPAssetManager/Rules/Crew/FSM/S4/FSMS4CrewMemberName.js"
+                        },
+                        {
+                            "_Name": "BusinessPartner_Nav.PersonNum",
+                            "KeyName": "$(L,ID)",
+                            "Value": "{{#Property:BusinessPartner_Nav/#Property:PersonNum}}"
+                        },
+                        {
+                            "_Name": "BusinessPartner_Nav.Address_Nav.City",
+                            "KeyName": "$(L,address)",
+                            "Value": "/SAPAssetManager/Rules/Crew/FSM/S4/FSMS4CrewMemberAddress.js"
+                        },
+                        {
+                            "_Name": "BusinessPartner_Nav.Address_Nav.Building",
+                            "KeyName": "$(L,office_location)",
+                            "Value": "/SAPAssetManager/Rules/Crew/FSM/S4/FSMS4CrewMemberOffice.js"
+                        },
+                        {
+                            "_Name": "BusinessPartner_Nav.Address_Nav.AddressCommunication.EMailAddress",
+                            "KeyName": "$(L,email)",
+                            "Value": "/SAPAssetManager/Rules/Crew/FSM/S4/FSMS4CrewMemberEmail.js"
+                        },
+                        {
+                            "_Name": "BusinessPartner_Nav.Address_Nav.AddressCommunication.Telephone",
+                            "KeyName": "$(L,phone)",
+                            "Value": "/SAPAssetManager/Rules/Crew/FSM/S4/FSMS4CrewMemberPhone.js"
+                        },
+                        {
+                            "_Name": "BusinessPartner_Nav.Address_Nav.AddressCommunication.CellPhone",
+                            "KeyName": "$(L,mobile)",
+                            "Value": "/SAPAssetManager/Rules/Crew/FSM/S4/FSMS4CrewMemberMessage.js"
+                        }
+                    ]
+                }
+            ]
+        } 
+    ]
+}

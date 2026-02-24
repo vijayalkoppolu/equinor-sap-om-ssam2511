@@ -1,0 +1,9 @@
+{
+    "Message": "$(L,ai_success)",
+    "Icon": "$(PLT,'',/SAPAssetManager/Images/confirm.android.png, '', /SAPAssetManager/Images/confirm.android.png)",
+    "IsIconHidden": false,
+    "NumberOfLines": 2,
+    "Duration": 1,
+    "Animated": true,
+    "_Type": "Action.Type.ToastMessage"
+}

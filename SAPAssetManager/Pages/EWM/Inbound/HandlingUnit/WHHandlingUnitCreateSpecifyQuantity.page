@@ -1,0 +1,70 @@
+{
+	"OnActivityBackPressed": "/SAPAssetManager/Rules/EWM/Inbound/Items/HandlingUnit/WHHandlingUnitSpecifyQtyOnBackButtonPressed.js",
+	"ActionBar": {
+		"Caption": "$(L, specify_handling_unit_quantity)",
+		"OnBackButtonPressed": "/SAPAssetManager/Rules/EWM/Inbound/Items/HandlingUnit/WHHandlingUnitSpecifyQtyOnBackButtonPressed.js",
+		"Items": [
+            {
+                "_Type": "Fragment",
+				"Fragment": "/SAPAssetManager/Pages/Fragments/DoneButton.fragment",
+				"Properties": {
+					"OnPress": "/SAPAssetManager/Rules/EWM/Inbound/Items/HandlingUnit/WHHandlingUnitCreateSpecifyQuantityOnSave.js",
+					"SystemItem":"$(PLT,'Save', '', '', 'Save')",
+					"Caption": "$(L, save)",
+					"_Name": "SaveButton"
+				}
+            }
+		]
+	},
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"Header": {
+						"Items": [
+							{
+								"_Type": "SectionHeaderItem.Type.Label",
+								"Title": "$(L, handling_units_x, {items/length})",
+								"Position": "Left",
+								"_Name": "HandlingUnitCreateEDTSectionLabel"
+							},
+							{
+								"_Type": "SectionHeaderItem.Type.Icon",
+								"Position": "Right",
+								"Icon": "sap-icon://hint",
+								"OnPress": "/SAPAssetManager/Actions/EWM/Inbound/HandlingUnit/WHHandlingUnitCreateEDTInfoMessage.action",
+								"_Name": "HandlingUnitCreateEDTSectionIcon",
+								"Styles": {
+									"Icon": "AccessoryButtonIcon"
+								}
+							}
+						]
+					},
+					"Module": "extension-EditableDataTable",
+					"Control": "EditableDataTableViewExtension",
+					"Class": "EditableDataTableViewExtension",
+					"ExtensionProperties": {
+
+						"Configuration": {
+							"IsStickyHeaderRow": false,
+							"IsHeaderRowVisible": true,
+							"IsSelectionModeEnabled": false,
+							"IsSelectionColumnAlwaysVisible": false,
+							"IsCellBackgroundClear": true,
+							"IsValueChangeOnCellEdit": true,
+							"IsSortingIconVisible": false,
+							"MaxLinesPerRow": 3
+						},
+						"TableContent": "/SAPAssetManager/Rules/EWM/Inbound/Items/HandlingUnit/WHHandlingUnitCreateSpecifyQuantityTableContent.js"
+					},
+					"_Name": "HandlingUnitCreateEDTSection",
+					"_Type": "Section.Type.Extension"
+				}
+			],
+			"_Name": "SectionedTable",
+			"_Type": "Control.Type.SectionedTable"
+		}
+	],
+	"_Name": "WHHandlingUnitCreateSpecifyQuantityPage",
+	"_Type": "Page"
+}

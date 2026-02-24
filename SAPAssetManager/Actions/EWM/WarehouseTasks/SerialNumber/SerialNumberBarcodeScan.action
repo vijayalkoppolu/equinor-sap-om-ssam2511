@@ -1,0 +1,8 @@
+{
+    "_Type": "Action.Type.OpenBarcodeScanner",
+    "OnSuccess": "/SAPAssetManager/Rules/EWM/WarehouseTask/SerialNumber/SerialNumberBarcodeScanSuccess.js",
+    "OnFailure": "/SAPAssetManager/Actions/EWM/WarehouseTasks/SerialNumber/SerialNumberScanFailed.action",
+    "ActionResult": {
+        "_Name": "BarcodeScanner"
+    }
+}

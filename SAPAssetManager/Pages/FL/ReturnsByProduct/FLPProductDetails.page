@@ -1,0 +1,65 @@
+{
+	"Caption": "$(L, fld_product_details)",
+	"ActionBar": {
+		"Items": [
+			"/SAPAssetManager/Pages/Fragments/SyncButton.fragment",
+
+			 {
+                 "Position": "Left",
+                "_Name": "Edit",
+                "Icon": "sap-icon://edit",
+                "Caption": "$(L,edit)",
+				"Visible": "/SAPAssetManager/Rules/FL/ReturnsByProduct/FLPProductEditEnabled.js",
+                "OnPress":  "/SAPAssetManager/Rules/FL/ReturnsByProduct/OnProductCellAccessoryButtonPress.js"
+            }
+			
+		]
+	},
+	
+	"Controls": [
+		{
+          "Sections": [
+                {
+				 "ObjectHeader": {
+                        "HeadlineText": "{Product}",
+						"Subhead": "/SAPAssetManager/Rules/FL/ReturnsByProduct/FormatProductSubHead.js",
+						"DetailImage": "sap-icon://product",
+						"Styles": {
+							"DetailImage": "$(PLT, FLProductIcon, FLProductIconAndroid)"
+						},
+						"StatusText": "{FldLogsReturnStatus_Nav/FldLogsReturnStatusText}",
+						"SubstatusText": "{{#Property:RetblQtyInBaseUnit}} {{#Property:RetblQtyBaseUnit}}",
+						"FootNote": "/SAPAssetManager/Rules/FL/ReturnsByProduct/ProductDetailDescription.js"
+                    },
+                    "_Name": "SectionObjectHeader",
+                    "_Type": "Section.Type.ObjectHeader"  
+                }
+            ],
+            "_Name": "SectionedTable",   
+            "_Type": "Control.Type.SectionedTable"
+		},
+		{
+			"Items": [{
+				"_Name": "GeneralInfo",
+				"Caption": "$(L, fld_general_information)",
+				"_Type": "Control.Type.TabItem",
+				"PageToOpen" : "/SAPAssetManager/Pages/FL/ReturnsByProduct/FLPProductGenInfo.page",
+				"OnPress": "/SAPAssetManager/Rules/Filter/ListPageWithFilterOnLoaded.js"
+			},
+			{ 
+				"_Name": "BusinessDocs", 
+				"Caption": "$(L,fld_business_documents)",
+				"_Type": "Control.Type.TabItem",
+				"PageToOpen" : "/SAPAssetManager/Pages/FL/ReturnsByProduct/FLPProductBusinessDocs.page",
+				"OnPress": "/SAPAssetManager/Rules/FL/ReturnsByProduct/ListPageWithFilterOnLoaded.js"
+			}],
+			"Position": "Top",
+			"_Type": "Control.Type.Tabs",
+			"_Name": "TabsControl"
+  		}
+	],
+	
+	"DataSubscriptions": ["FldLogsInitRetProducts", "StorageLocations", "FldLogsPlants", "MaterialValuations", "FldLogsRecommendedActions", "FldLogsReturnStatuses", "FldLogsShippingPoints", "FldLogsRefDocTypes"],
+	"_Name": "FLPProductDetailsPage",
+	"_Type": "Page"
+}

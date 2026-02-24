@@ -1,0 +1,60 @@
+{
+	"Caption": "$(L, ewm_handling_units)",
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"EmptySection": {
+						"Caption": "$(L, ewm_no_handling_units)"
+					},
+					"Header": {
+						"Caption": "/SAPAssetManager/Rules/EWM/Inbound/Items/HandlingUnit/WHHandlingUnitCaptionCount.js",
+						"UseTopPadding": false,
+						"Items": [
+							{
+								"_Type": "SectionHeaderItem.Type.Label",
+								"_Name": "CaptionLabel",
+								"Title": "/SAPAssetManager/Rules/EWM/Inbound/Items/HandlingUnit/WHHandlingUnitCaptionCount.js",
+								"Position": "Left",
+								"Visible": true
+							}
+                        ]
+					},
+					"Search": {
+						"BarcodeScanner": true,
+						"Enabled": true,
+						"MinimumCharacterThreshold": 2,
+						"Placeholder": "$(L,search)",
+						"Delay": 500
+					},
+					"ObjectCell":"/SAPAssetManager/Pages/Fragments/EWM/HandlingUnitCell.fragment",
+					"Target": {
+						"EntitySet": "HandlingUnitItems",
+						"QueryOptions": "/SAPAssetManager/Rules/EWM/Inbound/Items/HandlingUnit/WHHandlingUnitListQuery.js",
+						"Service": "/SAPAssetManager/Services/AssetManager.service"
+					},
+					"_Name": "SectionObjectTable",
+					"_Type": "Section.Type.ObjectTable"
+				}
+			],
+			"_Name": "SectionedTable",
+			"_Type": "Control.Type.SectionedTable"
+		}
+	],
+	"FioriToolbar": {
+		"_Name": "HUFioriToolbar",
+        "_Type": "Control.Type.FioriToolbar",
+		"Items": [
+			{
+				"_Type": "FioriToolbarItem.Type.Button",
+				"_Name": "CreateHandlingUnitButton",
+				"ButtonType": "Secondary",
+				"Title": "$(L, create_handling_unit)",
+				"OnPress": "/SAPAssetManager/Rules/EWM/Inbound/Items/HandlingUnit/WHHandlingUnitCreateNav.js",
+				"Enabled": "/SAPAssetManager/Rules/EWM/Inbound/Items/HandlingUnit/WHHandlingUnitCreateButtonEnabled.js"
+			}
+		]
+	},
+	"_Name": "EWMHandlingUnitListPage",
+	"_Type": "Page"
+}

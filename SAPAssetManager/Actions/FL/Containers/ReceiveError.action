@@ -1,0 +1,8 @@
+{
+"Animated": true,
+"Duration": 2,
+"Message": "$(L,container_action_not_allowed)",
+"IsIconHidden": false,
+"MaxNumberOfLines": 1,
+"_Type": "Action.Type.ToastMessage"
+}

@@ -1,0 +1,37 @@
+{
+    "EmptySection": {
+        "Caption": "$(L,no_inbound_delivery_item)"
+    },
+    "Header": {
+        "Caption": "/SAPAssetManager/Rules/EWM/Inbound/Items/WHInboundDeliveryItemCaptionCount.js",
+        "UseTopPadding": false,
+        "Items": [
+            {
+                "_Type": "SectionHeaderItem.Type.Label",
+                "_Name": "CaptionLabel",
+                "Title": "/SAPAssetManager/Rules/EWM/Inbound/Items/WHInboundDeliveryItemCaptionCount.js",
+                "Position": "Left",
+                "Visible": true
+            }
+        ]
+    },
+    "Selection": {	
+        "LongPressToEnable": "Multiple",
+        "ExitOnLastDeselect": true			
+    },
+    "Search": {
+        "BarcodeScanner": true,
+        "Enabled": true,
+        "MinimumCharacterThreshold": 2,
+        "Placeholder": "$(L,search)",
+        "Delay": 500
+    },
+    "ObjectCell":"/SAPAssetManager/Pages/Fragments/EWM/InboundDeliveryItemCell.fragment",
+    "Target": {
+        "EntitySet": "WarehouseInboundDeliveryItems",
+        "QueryOptions": "/SAPAssetManager/Rules/EWM/Inbound/Items/WHInboundDeliveryItemListQuery.js",
+        "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "_Name": "SectionObjectTable",
+    "_Type": "Section.Type.ObjectTable"
+}

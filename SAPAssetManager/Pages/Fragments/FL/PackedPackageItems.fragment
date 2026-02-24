@@ -1,0 +1,8 @@
+{
+    "_Type": "Control.Type.ObjectCell",
+    "PreserveIconStackSpacing": false,
+    "Title": "{MaterialName}",
+    "Subhead": "/SAPAssetManager/Rules/FL/PackedPackages/FLPackedPagesItemsSubhead.js",
+    "StatusText": "{QuantityInBaseUnit} {OrderQuantityUnit}",
+    "Footnote": "/SAPAssetManager/Rules/FL/PackedPackages/FLPackedPackagesItemsFootNote.js"
+}

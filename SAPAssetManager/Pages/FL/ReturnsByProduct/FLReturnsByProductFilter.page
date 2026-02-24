@@ -1,0 +1,283 @@
+{
+  "OnActivityBackPressed": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/CancelCheckOnBackNavAndroid.js",
+  "ActionBar": {
+    "Items": [
+      {
+        "Position": "Left",
+        "SystemItem": "Cancel",
+        "Caption": "$(L,cancel)",
+        "OnPress": "/SAPAssetManager/Actions/Page/CancelPage.action"
+      },
+      {
+        "Position": "Right",
+        "SystemItem": "/SAPAssetManager/Rules/Filter/FilterSystemItem.js",
+        "Text": "/SAPAssetManager/Rules/Filter/FilterText.js",
+        "OnPress": "/SAPAssetManager/Rules/Filter/ApplyFilterAndSave.js"
+      }
+    ]
+  },
+  "Caption": "$(L,filter)",
+  "Result": "/SAPAssetManager/Rules/FL/ReturnsByProduct/ReturnsByProductSearchFilterResults.js",
+  "Controls": [
+    {
+      "Sections": [
+        {
+          "Controls": [
+            {
+              "_Type": "Fragment",
+              "Fragment": "/SAPAssetManager/Pages/Fragments/Filter/MultiSortByFilter.fragment",
+              "Properties": {
+                "Items": [
+                  {
+                    "ReturnValue": "Product",
+                    "DisplayValue": "$(L,product)"
+                  },
+                  {
+                    "ReturnValue": "FldLogsReferenceDocCategory",
+                    "DisplayValue": "$(L,reference_doc_type)"
+                  },
+                  {
+                    "ReturnValue": "FldLogsSupplyProcess",
+                    "DisplayValue": "$(L,supply_process)"
+                  },
+                  {
+                    "ReturnValue": "RequestedShippingDate",
+                    "DisplayValue": "$(L,requested_delivery_date)"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "Caption": "$(L,filter_by)",
+          "Controls": [
+            {
+              "_Name": "FLReturnsByProductFilter",
+              "_Type": "Control.Type.FormCell.ListPicker",
+              "Caption": "$(L,product)",
+              "AllowMultipleSelection": true,
+              "IsPickerDismissedOnSelection": true,
+              "IsSearchCancelledAfterSelection": true,
+              "Search": {
+                "Enabled": true,
+                "Delay": 500,
+                "MinimumCharacterThreshold": 3,
+                "Placeholder": "$(L,search)",
+                "BarcodeScanner": true
+              },
+              "PickerItems": {
+                                "DisplayValue" : "{Product}",
+                                "ReturnValue" : "{Product}",
+                                "Target":
+                                {
+                                    "EntitySet" : "FldLogsInitRetProducts",
+                                    "Service" : "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions" : "$orderby=Product"
+                                }
+                            },
+              "FilterProperty": "Product",
+              "OnValueChange": "/SAPAssetManager/Rules/Filter/RedrawFilterToolbar.js"
+            },
+            {
+              "Caption": "$(L,reference_doc_number)",
+							"IsEditable": true,
+							"KeyboardType": "Default",
+							"AlternateInput": "Barcode",
+							"_Name": "FLReferenceDocumentNumberFilter",
+              "Value": "/SAPAssetManager/Rules/FL/ReturnsByProduct/FLReferenceDocumentNumberValue.js",
+							"_Type": "Control.Type.FormCell.SimpleProperty",
+              "FilterProperty": "FldLogsReferenceDocumentNumber",
+              "OnValueChange": "/SAPAssetManager/Rules/Filter/RedrawFilterToolbar.js"
+            },
+            {
+              "_Name": "FLReferenceDocumentTypeFilter",
+              "_Type": "Control.Type.FormCell.ListPicker",
+              "Caption": "$(L,reference_doc_type)",
+              "AllowMultipleSelection": true,
+              "IsPickerDismissedOnSelection": true,
+              "IsSearchCancelledAfterSelection": true,
+              "Search": {
+                "Enabled": true,
+                "Delay": 500,
+                "MinimumCharacterThreshold": 3,
+                "Placeholder": "$(L,search)",
+                "BarcodeScanner": true
+              },
+                "PickerItems": {
+                                "DisplayValue" : "{ReferenceDocumentCategoryName} - {FldLogsReferenceDocCategory}",
+                                "ReturnValue" : "{FldLogsReferenceDocCategory}",
+                                "Target":
+                                {
+                                    "EntitySet" : "FldLogsRefDocTypes",
+                                    "Service" : "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions" : "$orderby=FldLogsReferenceDocCategory"
+                                }
+                            },
+              "FilterProperty": "FldLogsReferenceDocCategory",
+              "OnValueChange": "/SAPAssetManager/Rules/Filter/RedrawFilterToolbar.js"
+            },
+            {
+              "_Name": "FLSupplyProcessFilter",
+              "_Type": "Control.Type.FormCell.ListPicker",
+              "Caption": "$(L,supply_process)",
+              "AllowMultipleSelection": true,
+              "IsPickerDismissedOnSelection": true,
+              "IsSearchCancelledAfterSelection": true,
+              "Search": {
+                "Enabled": true,
+                "Delay": 500,
+                "MinimumCharacterThreshold": 3,
+                "Placeholder": "$(L,search)",
+                "BarcodeScanner": true
+              },
+                "PickerItems": {
+                                "DisplayValue" : "{SupplyProcessText} - {SupplyProcess}",
+                                "ReturnValue" : "{SupplyProcess}",
+                                "Target":
+                                {
+                                    "EntitySet" : "FldLogsSupprocs",
+                                    "Service" : "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions" : "$orderby=SupplyProcess"
+                                }
+                            },
+              "FilterProperty": "FldLogsSupplyProcess",
+              "OnValueChange": "/SAPAssetManager/Rules/Filter/RedrawFilterToolbar.js"
+            },
+            {
+              "_Name": "FLRecommendedActionFilter",
+              "_Type": "Control.Type.FormCell.ListPicker",
+              "Caption": "$(L,recommended_action)",
+              "AllowMultipleSelection": true,
+              "IsPickerDismissedOnSelection": true,
+              "IsSearchCancelledAfterSelection": true,
+              "Search": {
+                "Enabled": true,
+                "Delay": 500,
+                "MinimumCharacterThreshold": 3,
+                "Placeholder": "$(L,search)",
+                "BarcodeScanner": true
+              },
+                "PickerItems": {
+                                "DisplayValue" : "{FldLogsRecommendedActionText} - {FldLogsRecommendedAction}",
+                                "ReturnValue" : "{FldLogsRecommendedAction}",
+                                "Target":
+                                {
+                                    "EntitySet" : "FldLogsRecommendedActions",
+                                    "Service" : "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions" : "$orderby=FldLogsRecommendedAction"
+                                }
+                            },
+              "FilterProperty": "FldLogsRecommendedAction",
+              "OnValueChange": "/SAPAssetManager/Rules/Filter/RedrawFilterToolbar.js"
+            },
+            {
+              "_Name": "FLDestinationStorageLocationFilter",
+              "_Type": "Control.Type.FormCell.ListPicker",
+              "Caption": "$(L,destination_storage_location)",
+              "AllowMultipleSelection": true,
+              "IsPickerDismissedOnSelection": true,
+              "IsSearchCancelledAfterSelection": true,
+              "Search": {
+                "Enabled": true,
+                "Delay": 500,
+                "MinimumCharacterThreshold": 3,
+                "Placeholder": "$(L,search)",
+                "BarcodeScanner": true
+              },
+                "PickerItems": {
+                                "DisplayValue" : "{StorageLocation} - {StorageLocationDesc}",
+                                "ReturnValue" : "{StorageLocation}",
+                                "Target":
+                                {
+                                    "EntitySet" : "StorageLocations",
+                                    "Service" : "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions" :"$orderby=StorageLocation"
+                                }
+                            },
+              "FilterProperty": "SupplyingStorageLocation",
+              "OnValueChange": "/SAPAssetManager/Rules/Filter/RedrawFilterToolbar.js"
+            },
+            {
+              "_Name": "FLDestinationPlantFilter",
+              "_Type": "Control.Type.FormCell.ListPicker",
+              "Caption": "$(L,destination_plant)",
+              "AllowMultipleSelection": true,
+              "IsPickerDismissedOnSelection": true,
+              "IsSearchCancelledAfterSelection": true,
+              "Search": {
+                "Enabled": true,
+                "Delay": 500,
+                "MinimumCharacterThreshold": 3,
+                "Placeholder": "$(L,search)",
+                "BarcodeScanner": true
+              },
+                "PickerItems": {
+                                "DisplayValue" : "{PlantName} - {Plant}",
+                                "ReturnValue" : "{Plant}",
+                                "Target":
+                                {
+                                    "EntitySet" : "FldLogsPlants",
+                                    "Service" : "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions" : "$orderby=Plant"
+                                }
+                            },
+              "FilterProperty": "FieldLogisticsTransferPlant",
+              "OnValueChange": "/SAPAssetManager/Rules/Filter/RedrawFilterToolbar.js"
+            },
+            {
+                            "_Type": "Control.Type.FormCell.Switch",
+                            "_Name": "DispatchPeriodSwitch",
+                            "Caption":"$(L,dispatch_period)",
+                            "Value": false,
+                            "OnValueChange": "/SAPAssetManager/Rules/FL/ReturnsByProduct/FLReturnsByProductDispatchDateFilterPage.js"
+                        },
+                        {
+                            "_Type": "Control.Type.FormCell.DatePicker",
+                            "_Name": "DispatchedStartDate",
+                            "Caption": "$(L,date_from)",
+                            "Mode": "Date",
+                            "IsVisible": false
+                        },
+                        {
+                            "_Type": "Control.Type.FormCell.DatePicker",
+                            "_Name": "DispatchedEndDate",
+                            "Caption": "$(L,date_to)",
+                            "Mode": "Date",
+                            "IsVisible": false
+                        },
+                        {
+                            "_Type": "Control.Type.FormCell.Switch",
+                            "_Name": "RequestedDeliveryDateSwitch",
+                            "Caption": "$(L,requested_delivery_date)",
+                            "Value": false,
+                            "OnValueChange": "/SAPAssetManager/Rules/FL/ReturnsByProduct/FLReturnsByProductRequestedDeliveryDateFilterPage.js"
+                        },
+                        {
+                            "_Type": "Control.Type.FormCell.DatePicker",
+                            "_Name": "RequestedDeliveryDate",
+                            "Caption": "$(L,requested_delivery_date)",
+                            "Mode": "Date",
+                            "IsVisible": false
+                        }                      
+          ]
+        }
+      ],
+      "_Name": "FormCellContainer",
+      "_Type": "Control.Type.FormCellContainer"
+    }
+  ],
+  "FioriToolbar": {
+    "_Name": "FLReturnsByProductSearchFilterFioriToolbar",
+    "_Type": "Control.Type.FioriToolbar",
+    "Items": [
+      {
+        "_Type": "Fragment",
+        "Fragment": "/SAPAssetManager/Pages/Fragments/Filter/ResetFilterToolbarItem.fragment"
+      }
+    ]
+  },
+  "_Type": "Page",
+  "_Name": "FLReturnsByProductFilterPage",
+  "OnLoaded": "/SAPAssetManager/Rules/FL/WorkOrders/ListView/FLWorkOrdersSearchFilterOnLoaded.js"
+}

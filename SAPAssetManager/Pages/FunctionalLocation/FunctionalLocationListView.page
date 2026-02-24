@@ -1,0 +1,88 @@
+{
+	"OnLoaded": "/SAPAssetManager/Rules/Filter/ListPageWithFilterOnLoaded.js",
+	"_Type": "Page",
+	"_Name": "FunctionalLocationListViewPage",
+	"ActionBar":
+	{
+		"_Name": "FunctionalLocationList",
+		"Items": [
+			"/SAPAssetManager/Pages/Fragments/SyncButton.fragment",
+			{
+				"Position": "Right",
+				"_Name": "Filter",
+				"Icon": "$(PLT,sap-icon://filter,sap-icon://filter, '' , sap-icon://filter)",
+				"Caption": "/SAPAssetManager/Rules/Filter/FilterButtonCaption.js",
+				"OnPress": "/SAPAssetManager/Actions/FunctionalLocation/FunctionalLocationFilter.action"
+			},
+			{
+				"Position": "Right",
+				"_Name": "Add",
+				"Icon": "sap-icon://add",
+				"Caption": "$(L,add)",
+				"Text": "$(L,add)",
+				"OnPress": "/SAPAssetManager/Rules/FunctionalLocation/CreateUpdate/FunctionalLocationCreateNav.js",
+				"Visible": "/SAPAssetManager/Rules/UserAuthorizations/FunctionalLocations/EnableFunctionalLocationCreate.js"
+			},
+			{
+				"Position": "Right",
+				"Text": "$(L, online_search)",
+				"Icon": "sap-icon://world",
+				"OnPress": "/SAPAssetManager/Rules/OnlineSearch/FuncLoc/OnlineSearchFromFuncLocNav.js",
+				"Visible": "/SAPAssetManager/Rules/OnlineSearch/IsOnlineSearchEnabled.js"
+			}
+		]
+	},
+	"Controls": [
+		{
+			"LoadingIndicator": {
+				"Enabled": true
+			},
+			"Sections": [
+				{
+					"Search": {
+						"Enabled": true,
+						"Delay": 500,
+						"MinimumCharacterThreshold": 3,
+						"Placeholder": "$(L,search)",
+						"BarcodeScanner": true
+					},
+					"EmptySection": {
+						"Caption": "$(L,no_functional_location_available)"
+					},
+					"Header": {
+		 				"UseTopPadding": false
+    				},
+					"ObjectCell": {
+						"_Type": "Fragment",
+        				"Fragment": "/SAPAssetManager/Pages/Fragments/FunctionalLocation/FunctionalLocationObjectCell.fragment",
+						"Properties":{
+							"ContextMenu": {
+								"PerformFirstActionWithFullSwipe": true,
+								"Items":"/SAPAssetManager/Rules/ContextMenuTable.js",
+								"LeadingItems": "/SAPAssetManager/Rules/ContextMenuLeadingItems.js",
+								"TrailingItems": "/SAPAssetManager/Rules/ContextMenuTrailingItems.js"
+							}
+						}
+					},
+					"Target": {
+						"EntitySet": "MyFunctionalLocations",
+						"Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "/SAPAssetManager/Rules/FunctionalLocation/FunctionalLocationQueryOptions.js"
+					},
+					"_Type": "Section.Type.ObjectTable",
+					"_Name" : "FunctionalLocationListView"
+				}
+			],
+			"Filters": "/SAPAssetManager/Rules/FunctionalLocation/DefaultFlocListFilters.js",
+			"FilterFeedbackBar": {
+				"_Type": "Control.Type.FilterFeedbackBar",
+				"_Name": "FilterFeedback",
+				"ShowAllFilters": true,
+				"FastFilters": "/SAPAssetManager/Rules/FunctionalLocation/FunctionalLocationFastFiltersItems.js"
+			},
+			"_Type": "Control.Type.SectionedTable",
+			"_Name" : "SectionedTable"
+		}
+	],
+	"DataSubscriptions": ["MyFunctionalLocations", "MyFuncLocDocuments", "PMMobileStatuses", "MyWorkOrderHeaders", "MyWorkOrderOperations", "MyWorkOrderSubOperations"]
+}

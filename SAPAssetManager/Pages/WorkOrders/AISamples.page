@@ -1,0 +1,99 @@
+{
+	"Caption": "$(L, ai_guidelines)",
+    "OnLoaded": "/SAPAssetManager/Rules/WorkOrders/Complete/AIService/AISamplesPageOnLoaded.js",
+	"Controls": [
+		{
+			"Sections": [
+                {
+                    "_Type": "Section.Type.KeyValue",
+                    "_Name": "AISamples",
+					"Header": {
+            			"UseTopPadding": true,
+						"Caption": "$(L, ai_samples)"
+          			},
+                    "KeyAndValues": [
+                        {
+
+                            "KeyName": "$(L,mileage) $(L,expenses_service)",
+                            "Value": "Traveled 37 miles to the food processing plant to service the chiller unit. Cleaned the coils and replaced the air filter—total expenses amounted to $75.00, including $15.00 for cleaning supplies. Drove 2.5 miles to acquire the cleaning supplies. Add a note that to do maintenance every three months to prevent future issues.",
+                            "Visible": "/SAPAssetManager/Rules/WorkOrders/Complete/Note/SetWONoteVisible.js"
+                        },
+                        {
+                            "KeyName": "$(L,time)",
+                            "Value": "Worked for 3 hours on hydraulic pump repair. Conducted full inspection, replaced clogged filter, and tested system performance.",
+                            "Visible": "/SAPAssetManager/Rules/Operations/IsTimeStepVisible.js"
+                        },
+                        
+                        {
+                            "KeyName": "$(L, default_operations)",
+                            "Value": "/SAPAssetManager/Rules/WorkOrders/Complete/AIService/GetRelatedOperations.js",
+                            "Visible": "/SAPAssetManager/Rules/WorkOrders/Complete/Note/SetWONoteVisible.js"
+                        },
+                        {
+                            "KeyName": "$(L,expenses_service)",
+                            "Value": "Inspected conveyor belt motor, found worn-out bearings, replaced them with new ones for $78.99, and applied fresh grease for $14.50. Tested successfully.",
+                            "Visible": "/SAPAssetManager/Rules/WorkOrders/Complete/Note/SetWONoteVisible.js"
+                        },
+                        {
+                            "KeyName": "$(L,notification)",
+                            "Value": "Observed an issue with the pump assembly. The inlet/outlet section has visible deformation, possibly due to excessive pressure buildup. Needs inspection and potential replacement",
+                            "Visible": "/SAPAssetManager/Rules/WorkOrders/Complete/Notification/SetWONotificationVisible.js"
+                        }
+
+                    ],
+					"Layout": {
+						"NumberOfColumns": 1
+					}
+                },
+				{
+                    "_Type": "Section.Type.KeyValue",
+                    "_Name": "AISchemaKeyVal",
+                    "Header": {
+                        "UseTopPadding": false,
+                        "Caption": "$(L, ai_schemas)"
+                    },
+                    "KeyAndValues": [
+                        {
+                            "KeyName": "$(L,time)",
+                            "Value": "/SAPAssetManager/Rules/WorkOrders/Complete/AIService/GetTimeSchema.js",
+                            "Visible": "/SAPAssetManager/Rules/Operations/IsTimeStepVisible.js"
+                        },
+                        {
+                            "KeyName": "$(L,expenses_service)",
+                            "Value": "/SAPAssetManager/Rules/WorkOrders/Complete/AIService/GetExpenseSchema.js",
+                            "Visible": "/SAPAssetManager/Rules/WorkOrders/Complete/Expenses/SetWOExpenseVisible.js"
+                        },
+                        {
+                            "KeyName": "$(L,mileage)",
+                            "Value": "/SAPAssetManager/Rules/WorkOrders/Complete/AIService/GetMileageSchema.js",
+                            "Visible": "/SAPAssetManager/Rules/WorkOrders/Complete/Mileage/SetWOMileageVisible.js"
+                        },
+                        {
+                            "KeyName": "$(L,default_operations)",
+                            "Value": "/SAPAssetManager/Rules/WorkOrders/Complete/AIService/GetRelatedOperations.js",
+                            "Visible": "/SAPAssetManager/Rules/WorkOrders/Complete/Note/SetWONoteVisible.js"
+                        },
+                        {
+                            "KeyName": "$(L,notes)",
+                            "Value": "/SAPAssetManager/Rules/WorkOrders/Complete/AIService/GetNoteSchema.js",
+                            "Visible": "/SAPAssetManager/Rules/WorkOrders/Complete/Note/SetWONoteVisible.js"
+                        },
+                        {
+                            "KeyName": "$(L,notifications)",
+                            "Value": "/SAPAssetManager/Rules/WorkOrders/Complete/AIService/GetNotificationSchema.js",
+                            "Visible": "/SAPAssetManager/Rules/WorkOrders/Complete/Notification/SetWONotificationVisible.js"
+
+                        }
+                    ],
+                    "Layout": {
+                        "NumberOfColumns": 1
+                    }
+                }		
+			],
+			"_Name": "SectionedTable0",
+			"_Type": "Control.Type.SectionedTable"
+		}
+	],
+	"_Name": "AISamplesPage",
+	"_Type": "Page"
+}

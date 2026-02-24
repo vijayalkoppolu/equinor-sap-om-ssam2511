@@ -1,0 +1,58 @@
+{
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"_Type": "Fragment",
+					"Fragment": "/SAPAssetManager/Pages/Fragments/EWM/InboundDeliverySection.fragment",
+					"Properties": {
+						"Header": {
+							"Caption": "$(L, inbound_deliveries)",
+            				"UseTopPadding": true
+						},
+						"Footer": {
+							"Caption": "$(L,see_all)",
+							"AccessoryType": "DisclosureIndicator",
+							"AttributeLabel": "/SAPAssetManager/Rules/EWM/OverviewPage/OverviewAttributeLabel.js",
+							"FooterStyle": "Attribute",
+							"OnPress": "/SAPAssetManager/Rules/EWM/InboundDelivery/InboundDeliveryListPageNav.js",
+							"Visible": true
+						},
+						"DataSubscriptions": [
+							"WarehouseInboundDeliveries"
+						],
+						"_Name": "InboundDeliverySection"
+					}
+				},
+				{
+					"_Type": "Fragment",
+					"Fragment": "/SAPAssetManager/Pages/Fragments/EWM/InboundDeliveryItemSection.fragment",
+					"Properties": {
+						"Header": {
+							"Caption": "$(L, inbound_delivery_items_title)",
+            				"UseTopPadding": true,
+							"Items": null
+						},
+						"Selection": null,
+						"Footer": {
+							"Caption": "$(L,see_all)",
+							"AccessoryType": "DisclosureIndicator",
+							"AttributeLabel": "/SAPAssetManager/Rules/EWM/OverviewPage/OverviewAttributeLabel.js",
+							"FooterStyle": "Attribute",
+							"OnPress": "/SAPAssetManager/Rules/EWM/Inbound/Items/WHInboundDeliveryItemsListNav.js",
+							"Visible": true
+						},
+						"DataSubscriptions": [
+							"WarehouseInboundDeliveryItems"
+						],
+						"_Name": "InboundDeliveryItemSection"
+					}
+				}
+			],
+			"_Name": "SectionedTable",
+			"_Type": "Control.Type.SectionedTable"
+		}
+	],
+	"_Name": "InboundTab",
+	"_Type": "Page"
+}

@@ -1,0 +1,15 @@
+{
+    "Title": "$(L, view_operational_item_details)",
+    "Icon": "sap-icon://show",
+    "Type": "View",
+    "CallbackInfo": {
+        "Action": "/SAPAssetManager/Actions/WCM/OperationalItems/OperationalItemDetailsNav.action",
+        "Target": {
+            "EntitySet": "WCMDocumentItems",
+            "Service": "/SAPAssetManager/Services/AssetManager.service",
+            "QueryOptions": "$expand=WCMDocumentHeaders,WCMDocumentHeaders/WCMDocumentUsages,PMMobileStatus&$filter=ObjectNumber eq '{ObjectNumber}'",
+            "Properties": [],
+            "KeyProperties": []
+        }
+    }
+}

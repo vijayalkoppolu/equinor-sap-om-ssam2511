@@ -1,0 +1,8 @@
+{
+	"_Type": "Action.Type.Message",
+	"Title": "$(L, personalize_title)",
+	"Message": "$(L, personalize_message)",
+	"OKCaption": "$(L, personalize)",
+	"CancelCaption": "$(L, later)",
+	"OnOK": "/SAPAssetManager/Rules/UserProfile/PersonalizationNav.js"
+}

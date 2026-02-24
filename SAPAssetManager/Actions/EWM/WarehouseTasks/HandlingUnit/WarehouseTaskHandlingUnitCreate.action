@@ -1,0 +1,29 @@
+{
+    "_Type": "Action.Type.ODataService.CreateEntity",
+    "Target":
+    {
+        "EntitySet" : "WarehousePickHUs",
+        "Service" : "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "Properties":
+    {
+        "WarehouseNo": "#Property:WarehouseNo",
+        "WarehouseOrder": "#Property:WarehouseOrder",
+        "WarehouseTask": "#Property:WarehouseTask",
+        "HuNoInWho": "/SAPAssetManager/Rules/EWM/WarehouseTask/HandlingUnit/GetHuNoInWho.js",
+        "WarehouseTaskItem": "",
+        "HandlingUnit": "#Control:WhPickHandlingUnitSimple/#Value",
+        "StorageBin": "#Control:WhDestinationBinSimple/#Value",
+        "Resource": "",
+        "PackMaterial": "#Control:PackagingMaterialPicker/#SelectedValue",
+        "Product": "",
+        "PackMatType": "/SAPAssetManager/Rules/EWM/WarehouseTask/HandlingUnit/GetHandlingUnitPackagingMaterialType.js",
+        "PackMatTypeDescription": "",
+        "HUType": "",
+        "HUTypeDescription": ""
+    },
+    "Headers": {
+        "OfflineOData.RemoveAfterUpload": "/SAPAssetManager/Rules/Common/RemoveAfterUploadValue.js",
+        "OfflineOData.TransactionID": "{{#Property:WarehouseOrder}}"    
+    }     
+}

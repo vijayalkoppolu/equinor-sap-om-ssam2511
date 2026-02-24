@@ -1,0 +1,30 @@
+{
+    "Caption": "$(L, physical_inventory_label)",
+    "Controls": [{
+            "Sections": [{
+                    "Header": {
+                        "Caption": "/SAPAssetManager/Rules/EWM/PhysicalInventory/EWMGetSerialNumbersCount.js"
+                    },
+                    "EmptySection": {
+                        "Caption": "$(L,no_serial_numbers)"
+                    },
+                    "ObjectCell": {
+                        "Title": "{SerialNumber}",
+                        "PreserveIconStackSpacing": false
+                    },
+                    "Target": {
+                        "EntitySet": "{{#Property:@odata.readLink}}/WarehousePhysicalInventoryItemSerial_Nav",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "$filter=Selected eq 'X'"
+                    },
+                    "_Type": "Section.Type.ObjectTable",
+                    "_Name": "EWMSerialNumbersSection"
+                }
+            ],
+            "_Type": "Control.Type.SectionedTable",
+            "_Name": "SectionedTable"
+        }
+    ],
+    "_Name": "EWMPhysicalInventorySerialNumbersPage",
+    "_Type": "Page"
+}

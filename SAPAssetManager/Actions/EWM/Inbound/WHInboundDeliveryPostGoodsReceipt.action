@@ -1,0 +1,16 @@
+{
+  "_Type": "Action.Type.ODataService.CreateEntity",
+  "Target": {
+    "EntitySet": "WarehouseGoodsReceipts",
+    "Service": "/SAPAssetManager/Services/OnlineAssetManager.service"
+  },
+  "Properties": {
+    "DocumentCat": "#Property:DocCategory",
+    "DocumentID": "#Property:DocumentID"
+  },
+  "ActionResult": {
+    "_Name": "WarehouseGoodsReceipt"
+  },
+  "OnSuccess": "/SAPAssetManager/Actions/EWM/Inbound/WHInboundDeliveryItemGoodsReceiptCreationSuccess.action",
+  "OnFailure": "/SAPAssetManager/Actions/EWM/Inbound/WHInboundDeliveryPostGoodReceiptError.action"
+}

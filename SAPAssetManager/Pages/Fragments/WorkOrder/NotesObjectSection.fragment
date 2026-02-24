@@ -1,0 +1,34 @@
+{
+    "EmptySection": {
+        "Caption": "$(L,no_notes)"
+    },
+    "ObjectCell": {
+        "PreserveIconStackSpacing": false,
+        "Icons": "/SAPAssetManager/Rules/Parts/PartsItemIconImages.js",
+        "AvatarStack": {
+            "Avatars": [{
+                "Image": "sap-icon://notes",
+                "Style": "NoteThumbnail"
+            }],
+                "ImageHasBorder": true,
+                "ImageIsCircular": false
+        },
+        "Title": "/SAPAssetManager/Rules/Notes/List/NoteString.js",
+        "AccessoryType": "DisclosureIndicator",
+        "Styles": {
+            "Title": "QABSettingsObjectCellTitle"
+        },
+        "OnPress": "/SAPAssetManager/Rules/WorkOrders/Operations/Details/OperationNotesNav.js"
+    },
+    "Header": {
+        "Caption": "$(L,notes)"
+    },
+    "Target": {
+        "EntitySet": "{@odata.readLink}/OperationLongText",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "QueryOptions": "$filter=TextString ne ''"
+    },
+    "MaxItemCount": 2,
+    "_Type": "Section.Type.ObjectTable",
+    "_Name": "NotesList"
+}

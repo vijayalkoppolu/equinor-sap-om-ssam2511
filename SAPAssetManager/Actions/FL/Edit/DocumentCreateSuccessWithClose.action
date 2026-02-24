@@ -1,0 +1,6 @@
+{
+    "CancelPendingActions": false,
+    "OnSuccess": "/SAPAssetManager/Rules/FL/Edit/UpdatedMessage.js",
+    "DismissModal": "Action.Type.ClosePage.Completed",
+    "_Type": "Action.Type.ClosePage"
+}

@@ -1,0 +1,50 @@
+{
+    "_Type": "Fragment",
+    "Fragment": "/SAPAssetManager/Pages/Fragments/WorkOrder/NotesObjectSection.fragment",
+    "Properties": {
+        "Header": {
+            "Items": [
+                {
+                    "_Type": "SectionHeaderItem.Type.Label",
+                    "_Name": "notes_section_caption",
+                    "Title": "$(L,notes)",
+                    "Position": "Left"
+                },
+                {
+                    "_Name": "add_note_btn_label",
+                    "Title": "$(L,add)",
+                    "_Type": "SectionHeaderItem.Type.Button",
+                    "Position": "Right",
+                    "OnPress": "/SAPAssetManager/Rules/Notes/NoteCreateNav.js",
+                    "Visible": "/SAPAssetManager/Rules/Notes/ShowS4NoteCreateButton.js",
+                    "Styles": {
+                        "Button": "HeaderItemButtonText"
+                    }
+                }
+            ]
+        },
+        "Target": {
+            "EntitySet": "{{#Property:@odata.readLink}}/LongText_Nav"
+        },
+        "ObjectCell": {
+            "Title": "/SAPAssetManager/Rules/Notes/List/NoteType.js",
+            "Subhead": "{TextString}",
+            "AccessoryButtonIcon": "/SAPAssetManager/Rules/Notes/List/NoteAccessoryButtonIcon.js",
+            "OnAccessoryButtonPress": "/SAPAssetManager/Rules/Notes/List/NoteEditNavFromList.js",
+            "Footnote": "/SAPAssetManager/Rules/Notes/List/NoteTime.js",
+            "OnPress": "/SAPAssetManager/Rules/Notes/List/NoteDetailsNavFromList.js",
+            "Styles": {
+                "Title": ""
+            }
+        },
+        "Footer": {
+            "Caption": "$(L,see_all)",
+            "AccessoryType": "DisclosureIndicator",
+            "AttributeLabel": "/SAPAssetManager/Rules/ServiceOrders/Details/ServiceOrderNoteSectionFooterAttributeLabel.js",
+            "FooterStyle": "Attribute",
+            "Visible": "/SAPAssetManager/Rules/ServiceOrders/Details/ServiceOrderNoteSectionFooterIsVisible.js",
+            "OnPress": "/SAPAssetManager/Actions/Notes/NotesListViewNav.action"
+        },
+        "DataSubscriptions": ["S4ServiceOrderLongTexts"]
+    }
+}

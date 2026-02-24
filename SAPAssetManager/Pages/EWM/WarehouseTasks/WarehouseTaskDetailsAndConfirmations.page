@@ -1,0 +1,59 @@
+{
+	"Caption": "$(L, warehouse_task)",
+	"ActionBar": {
+		"Items": [
+			{
+				"Position": "Right",
+				"Icon": "$(PLT, sap-icon://edit, sap-icon://edit, '', sap-icon://edit)",
+				"Caption": "$(L, ewm_confirm_task)",
+				"Visible": "/SAPAssetManager/Rules/EWM/WarehouseTask/Confirmation/IsVisibleEditIcon.js",
+				"OnPress": "/SAPAssetManager/Rules/EWM/WarehouseTask/Confirmation/OnPressTaskConfirmationButton.js"
+			},
+			"/SAPAssetManager/Pages/Fragments/SyncButton.fragment"
+		]
+	},
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"ObjectHeader": {
+						"HeadlineText": "/SAPAssetManager/Rules/EWM/WarehouseTask/WarehouseTaskNumberWithoutLeadingZeros.js",
+						"Subhead": "{Product}",
+						"Footnote": "/SAPAssetManager/Rules/EWM/WarehouseTask/ListView/WarehouseTaskStatusText.js",
+						"DetailImage": "sap-icon://multi-select",
+						"Styles": {
+							"DetailImage": "$(PLT, WarehouseTaskIcon, WarehouseTaskIconAndroid)"
+						},
+						"DetailImageIsCircular": false
+					},
+					"_Type": "Section.Type.ObjectHeader",
+					"_Name": "ObjectHeaderSectionTable"
+				}
+			],
+			"_Name": "SectionedTable",
+			"_Type": "Control.Type.SectionedTable"
+		},
+		{
+			"Items": [			
+				{
+					"_Name": "WarehouseTaskDetailsTab",
+					"Caption": "$(L, task_details)",
+					"PageToOpen": "/SAPAssetManager/Pages/EWM/WarehouseTasks/WarehouseTaskDetails.page",
+					"PageMetadata": "/SAPAssetManager/Rules/EWM/WarehouseTask/Details/WarehouseTaskDetailsPageMetadata.js",
+					"_Type": "Control.Type.TabItem"
+				},
+				{
+					"_Name": "WarehouseTaskConfirmationsTab",
+					"Caption": "$(L, local_confirmations)",
+					"PageToOpen" : "/SAPAssetManager/Pages/EWM/WarehouseTasks/WarehouseTaskLocalConfirmations.page",
+					"_Type": "Control.Type.TabItem"
+				}
+			],
+			"Position": "Top",
+			"_Type": "Control.Type.Tabs",
+			"_Name": "TabsControl"
+		}
+	],
+	"_Name": "WarehouseTaskDetailsAndConfirmationsPage",
+	"_Type": "Page"
+}

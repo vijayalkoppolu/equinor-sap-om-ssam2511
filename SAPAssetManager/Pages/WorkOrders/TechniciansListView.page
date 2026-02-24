@@ -1,0 +1,38 @@
+{
+	"Caption": "$(L,assigned_technicians)",
+	"ActionBar": {
+        "Items": [
+            {
+                "Position": "Left",
+                "SystemItem": "$(PLT,'','Cancel','','Cancel')",
+                "Caption": "$(L,close)",
+                "OnPress": "/SAPAssetManager/Actions/Page/ClosePage.action"
+            }
+        ]
+    },
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"_Name": "TechniciansSection",
+					"_Type": "Section.Type.ContactCell",
+					"ContactCell": {
+						"DetailImage": "",
+						"Headline": "/SAPAssetManager/Rules/WorkOrders/Operations/TechnicianHeadline.js",
+                        "Subheadline": "/SAPAssetManager/Rules/WorkOrders/Operations/TechnicianSubheadline.js",
+                    	"ActivityItems": "/SAPAssetManager/Rules/WorkOrders/Operations/TechnicianActivityItems.js"
+					},
+					"Target": {
+                        "EntitySet": "{@odata.readLink}/MyWorkOrderOperationCapacityRequirement_",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "$orderby=SplitNumber&$expand=PMMobileStatus_Nav,Employee_Nav/EmployeeAddress_Nav,Employee_Nav/EmployeeCommunications_Nav"
+					}
+				}
+			],
+			"_Name": "TechniciansSectionTable",
+			"_Type": "Control.Type.SectionedTable"
+		}
+	],
+	"_Name": "TechniciansListView",
+	"_Type": "Page"
+}

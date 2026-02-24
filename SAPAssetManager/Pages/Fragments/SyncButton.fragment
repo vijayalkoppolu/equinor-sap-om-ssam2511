@@ -1,0 +1,8 @@
+{
+    "Position": "Right",
+    "_Name": "Sync",
+    "Caption": "/SAPAssetManager/Rules/Sync/SyncLabel.js",
+    "Icon": "/SAPAssetManager/Rules/Sync/SyncIcon.js",
+    "OnPress": "/SAPAssetManager/Rules/ApplicationEvents/ApplicationOnSyncWrapper.js",
+    "Visible": "/SAPAssetManager/Rules/Sync/IsAutoSyncNotInProgress.js"
+}

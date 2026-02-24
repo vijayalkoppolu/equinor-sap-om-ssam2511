@@ -1,0 +1,12 @@
+{
+  "_Type": "Action.Type.ODataService.UpdateEntity",
+  "Target": {
+    "Service": "/SAPAssetManager/Services/AssetManager.service",
+    "EntitySet": "{Target.EntitySet}"
+  },
+  "Properties": {
+  },
+  "ShowActivityIndicator": true,
+  "OnSuccess": "/SAPAssetManager/Actions/CreateUpdateDelete/UpdateEntitySuccessMessage.action",
+  "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/UpdateEntityFailureMessage.action"
+}

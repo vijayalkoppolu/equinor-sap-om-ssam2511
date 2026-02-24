@@ -1,0 +1,191 @@
+
+{
+ 
+  "ActionBar": {
+    "Items": [
+      {
+        "Position": "Left",
+        "SystemItem": "Cancel",
+        "Caption": "$(L,cancel)",
+        "OnPress": "/SAPAssetManager/Actions/Page/CancelPage.action"
+      },
+      {
+        "Position": "Right",
+        "SystemItem": "/SAPAssetManager/Rules/Filter/FilterSystemItem.js",
+        "Text": "/SAPAssetManager/Rules/Filter/FilterText.js",
+        "OnPress": "/SAPAssetManager/Rules/Filter/ApplyFilterAndSave.js"
+      }
+    ]
+  },
+  "Caption": "$(L,filter)",
+  "Result": "/SAPAssetManager/Rules/FL/PackedPackages/FLPackedPackagesFilterResults.js",
+  "Controls": [
+    {
+      "Sections": [
+        {
+          "Controls": [
+            {
+              "_Type": "Fragment",
+              "Fragment": "/SAPAssetManager/Pages/Fragments/Filter/MultiSortByFilter.fragment",
+              "Properties": {
+                "Items": [
+                  {
+                    "ReturnValue": "FldLogsContainerID",
+                    "DisplayValue": "$(L,fl_container_id)"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "Caption": "$(L,filter_by)",
+          "Controls": [
+            {
+                            "_Type": "Control.Type.FormCell.SimpleProperty",
+                            "_Name": "DeliveryDocument",
+                            "AlternateInput": "Barcode",
+                            "FilterProperty": "DeliveryDocument",
+                            "Caption": "$(L,delivery_document)"
+            },
+            {
+              "_Name": "DestinationPlantFilter",
+              "_Type": "Control.Type.FormCell.ListPicker",
+              "Caption": "$(L,destination_plant)",
+              "AllowMultipleSelection": false,
+              "IsPickerDismissedOnSelection": true,
+              "IsSearchCancelledAfterSelection": true,
+              "Search": {
+                "Enabled": true,
+                "Delay": 500,
+                "MinimumCharacterThreshold": 3,
+                "Placeholder": "$(L,search)",
+                "BarcodeScanner": true
+              },
+              "FilterProperty": "FldLogsDestPlnt",
+              "PickerItems": {
+                                "DisplayValue": "{{#Property:Plant}} - {{#Property:PlantName}}",
+                                "ReturnValue": "{Plant}",
+                                "Target": {
+                                    "EntitySet": "FldLogsPlants",
+                                    "Service": "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions": "$orderby=Plant"
+                                }
+                            },
+              "OnValueChange": "/SAPAssetManager/Rules/Filter/RedrawFilterToolbar.js"
+            },
+            {
+              "_Name": "SourcePlantFilter",
+              "_Type": "Control.Type.FormCell.ListPicker",
+              "Caption": "$(L,fld_source_plant)",
+              "AllowMultipleSelection": false,
+              "IsPickerDismissedOnSelection": true,
+              "IsSearchCancelledAfterSelection": true,
+              "Search": {
+                "Enabled": true,
+                "Delay": 500,
+                "MinimumCharacterThreshold": 3,
+                "Placeholder": "$(L,search)",
+                "BarcodeScanner": true
+              },
+              "FilterProperty": "FldLogsSrcePlnt",
+              "PickerItems": {
+                                "DisplayValue": "{{#Property:Plant}} - {{#Property:PlantName}}",
+                                "ReturnValue": "{Plant}",
+                                "Target": {
+                                    "EntitySet": "FldLogsPlants",
+                                    "Service": "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions": "$orderby=Plant"
+                                }
+                            },
+              "OnValueChange": "/SAPAssetManager/Rules/Filter/RedrawFilterToolbar.js"
+            },
+            {
+              "_Name": "ItemStatusFilter",
+              "_Type": "Control.Type.FormCell.ListPicker",
+              "Caption": "$(L,fld_packed_packages_status)",
+              "AllowMultipleSelection": false,
+              "IsPickerDismissedOnSelection": true,
+              "IsSearchCancelledAfterSelection": true,
+              "Search": {
+                "Enabled": true,
+                "Delay": 500,
+                "MinimumCharacterThreshold": 3,
+                "Placeholder": "$(L,search)",
+                "BarcodeScanner": true
+              },
+              "FilterProperty": "FldLogsCtnPackgStsCode",
+              "PickerItems": {
+                                "DisplayValue": "{{#Property:CtnPkgPackingStatus}} - {{#Property:CtnPkgPackingStatusText}}",
+                                "ReturnValue": "{CtnPkgPackingStatus}",
+                                "Target": {
+                                    "EntitySet": "FldLogsCtnPkgPackingStatuses",
+                                    "Service": "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions": "$orderby=CtnPkgPackingStatus"
+                                }
+                            },
+              "OnValueChange": "/SAPAssetManager/Rules/Filter/RedrawFilterToolbar.js"
+            },
+            {
+              "_Name": "VoyageAsignStatusFilter",
+              "_Type": "Control.Type.FormCell.ListPicker",
+              "Caption": "$(L,fld_voyage_assignment_status)",
+              "AllowMultipleSelection": false,
+              "IsPickerDismissedOnSelection": true,
+              "IsSearchCancelledAfterSelection": true,
+              "Search": {
+                "Enabled": true,
+                "Delay": 500,
+                "MinimumCharacterThreshold": 3,
+                "Placeholder": "$(L,search)",
+                "BarcodeScanner": true
+              },
+              "FilterProperty": "FldLogsVoyAssgmtStatusText",
+              "PickerItems": "/SAPAssetManager/Rules/FL/PackedPackages/FLVoyageAsignStatusPickerItems.js",
+              "OnValueChange": "/SAPAssetManager/Rules/Filter/RedrawFilterToolbar.js"
+            },
+             {
+              "_Name": "TransportStatusFilter",
+              "_Type": "Control.Type.FormCell.ListPicker",
+              "Caption": "$(L,fld_transport_status)",
+              "AllowMultipleSelection": false,
+              "IsPickerDismissedOnSelection": true,
+              "IsSearchCancelledAfterSelection": true,
+              "Search": {
+                "Enabled": true,
+                "Delay": 500,
+                "MinimumCharacterThreshold": 3,
+                "Placeholder": "$(L,search)",
+                "BarcodeScanner": true
+              },
+              "FilterProperty": "FldLogsCtnIntTranspStsCode",
+              "PickerItems": "/SAPAssetManager/Rules/FL/PackedPackages/FLTransportStatusesPickerItems.js",
+              "OnValueChange": "/SAPAssetManager/Rules/Filter/RedrawFilterToolbar.js"
+            },
+            {
+              "_Type": "Control.Type.FormCell.SimpleProperty",
+              "_Name": "ContainerId",
+              "AlternateInput": "Barcode",
+              "FilterProperty": "FldLogsContainerID",
+              "Caption": "$(L,fl_container_id)"
+            }
+          ]
+        }
+      ],
+      "_Name": "FormCellContainer",
+      "_Type": "Control.Type.FormCellContainer"
+    }
+  ],
+  "FioriToolbar": {
+    "_Name": "OrderProductSearchFilterFioriToolbar",
+    "_Type": "Control.Type.FioriToolbar",
+    "Items": [
+      {
+        "_Type": "Fragment",
+        "Fragment": "/SAPAssetManager/Pages/Fragments/Filter/ResetFilterToolbarItem.fragment"
+      }
+    ]
+  },
+  "_Type": "Page",
+  "_Name": "FLPackedPackagesFilter"
+}

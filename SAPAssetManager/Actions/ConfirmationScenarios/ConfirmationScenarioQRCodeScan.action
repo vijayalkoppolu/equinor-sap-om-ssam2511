@@ -1,0 +1,8 @@
+{
+    "_Type": "Action.Type.OpenBarcodeScanner",
+    "OnSuccess": "/SAPAssetManager/Rules/ConfirmationScenarios/ConfirmationScenarioQRCodeScanSuccess.js",
+    "OnFailure": "/SAPAssetManager/Actions/ConfirmationScenarios/ConfirmationScenarioQRCodeScanFailed.action",
+    "ActionResult": {
+        "_Name": "BarcodeScanner"
+    }
+}

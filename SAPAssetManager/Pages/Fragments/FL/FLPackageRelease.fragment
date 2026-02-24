@@ -1,0 +1,8 @@
+{
+    "_Name": "FLPackageRelease",
+    "_Type": "FioriToolbarItem.Type.Button",
+    "Title": "$(L, release)",
+    "OnPress": "/SAPAssetManager/Rules/FL/Containers/ListView/ReleaseContainer.js",
+    "Enabled": false,
+    "ButtonType": "Text"
+}

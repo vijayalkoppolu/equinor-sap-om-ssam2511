@@ -1,0 +1,48 @@
+{
+    "Caption": "$(L, ibd_detail_title)",
+    "ActionBar": {
+        "Items": [
+            "/SAPAssetManager/Pages/Fragments/SyncButton.fragment"
+        ]
+    },
+    "Controls": [{
+            "Sections": [{
+                    "ObjectHeader": {
+                        "HeadlineText": "$(DV, '{EWMDeliveryNum}', '-')",
+                        "StatusText": "/SAPAssetManager/Rules/EWM/InboundDelivery/GetInboundDeliveryStatusText.js",
+                        "SubstatusText": "/SAPAssetManager/Rules/EWM/InboundDelivery/GetInboundDeliverySubstatusText.js",
+                        "Subhead": "$(DV, '{Vendor}', '-')",
+                        "DetailImage": "sap-icon://forward",
+                        "Tags": "/SAPAssetManager/Rules/EWM/InboundDelivery/GetInboundDeliveryTags.js",
+                        "Styles": {
+                            "DetailImage": "$(PLT, InboundDeliveryIcon, InboundDeliveryIconAndroid)"
+                        },
+                        "DetailImageIsCircular": false
+                    },
+                    "_Type": "Section.Type.ObjectHeader",
+                    "_Name": "ObjectHeaderSectionTable"
+                }],
+            "_Name": "SectionedTable",
+            "_Type": "Control.Type.SectionedTable"
+        },
+        {
+            "Items": [{
+                "_Name": "ItemListTab",
+                "Caption": "$(L, items)",
+                "PageToOpen" : "/SAPAssetManager/Pages/EWM/Inbound/WHInboundDeliveryItemsList.page",
+                "_Type": "Control.Type.TabItem"
+            },
+            {
+                "_Name": "HeaderTab",
+                "Caption": "$(L, header)",
+                "PageToOpen" : "/SAPAssetManager/Pages/EWM/Inbound/WHInboundDeliveryHeader.page",
+                "_Type": "Control.Type.TabItem"
+            }],
+            "Position": "Top",
+            "_Type": "Control.Type.Tabs",
+            "_Name": "TabsControl"
+        }
+    ],
+    "_Name": "WHInboundDeliveryDetailsPage",
+    "_Type": "Page"
+}

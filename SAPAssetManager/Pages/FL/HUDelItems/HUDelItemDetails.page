@@ -1,0 +1,61 @@
+{
+	"Caption": "$(L, fld_delivery_item_details)",
+	"ActionBar": {
+		"Items": [
+			"/SAPAssetManager/Pages/Fragments/SyncButton.fragment"
+		]
+	},
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"ObjectHeader": {
+						"HeadlineText": "{Material}",
+						"Subhead": "{ReferenceDocNumber}",
+						"DetailImage": "sap-icon://grid",
+						"Styles": {
+    								"DetailImage": "$(PLT, FLDeliveryIcon, FLDeliveryIconAndroid)"
+									},
+						"StatusText": "/SAPAssetManager/Rules/FL/HUDelItems/Details/HUDelItemsDetailsStatus.js"
+					},			
+					"_Name": "SectionObjectHeader",
+					"_Type": "Section.Type.ObjectHeader"
+				}
+			],
+			"_Name": "SectionedTable",
+			"_Type": "Control.Type.SectionedTable"
+		},
+		{
+			"Items": [{
+				"_Name": "GeneralInformationTab",
+				"Caption": "$(L, fld_general_information)",
+				"PageToOpen" : "/SAPAssetManager/Pages/FL/HUDelItems/HUDelItemsGeneralInformation.page",
+				"_Type": "Control.Type.TabItem"
+			},
+			{
+				"_Name": "BusinessDocumentsTab",
+				"Caption": "$(L, fld_business_documents)",
+				"PageToOpen" : "/SAPAssetManager/Pages/FL/HUDelItems/HUDelItemsBusinessDocuments.page",
+				"_Type": "Control.Type.TabItem"
+			},
+			{
+				"_Name": "ProductDetailsTab",
+				"Caption": "$(L, fld_product_details)",
+				"PageToOpen" : "/SAPAssetManager/Pages/FL/HUDelItems/HUDelItemsProductDetails.page",
+				"_Type": "Control.Type.TabItem"
+			},
+			{
+				"_Name": "HUDelItemsHeaderTab",
+				"Caption": "$(L, header)",
+				"PageToOpen" : "/SAPAssetManager/Pages/FL/HUDelItems/HUDelItemsHeader.page",
+				"PageMetadata": "/SAPAssetManager/Rules/FL/HUDelItems/Details/HUDelItemHeaderPageMetadata.js",
+				"_Type": "Control.Type.TabItem"
+			}],
+			"Position": "Top",
+			"_Type": "Control.Type.Tabs",
+			"_Name": "TabsControl"
+		}
+	],
+	"_Name": "HUDelItemDetailsPage",
+	"_Type": "Page"
+}

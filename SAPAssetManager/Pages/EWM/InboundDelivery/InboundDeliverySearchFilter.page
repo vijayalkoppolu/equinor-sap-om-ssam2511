@@ -1,0 +1,152 @@
+{
+  "_Type": "Page",
+  "_Name": "InboundDeliverySearchFilterPage",
+  "Caption": "$(L,filter)",
+  "OnLoaded": "/SAPAssetManager/Rules/EWM/InboundDelivery/SearchFilter/InboundDeliverySearchFilterOnLoaded.js",
+  "Result": "/SAPAssetManager/Rules/EWM/InboundDelivery/SearchFilter/InboundDeliverySearchFilterResults.js",
+  "ActionBar": {
+    "Items": [
+      {
+        "Position": "Left",
+        "SystemItem": "Cancel",
+        "Caption": "$(L,cancel)",
+        "OnPress": "/SAPAssetManager/Actions/Page/CancelPage.action"
+      },
+      {
+        "Position": "Right",
+        "SystemItem": "/SAPAssetManager/Rules/Filter/FilterSystemItem.js",
+        "Text": "/SAPAssetManager/Rules/Filter/FilterText.js",
+        "OnPress": "/SAPAssetManager/Rules/EWM/InboundDelivery/SearchFilter/InboundDeliverySearchFilterOnApply.js"
+      }
+    ]
+  },
+  "Controls": [
+    {
+      "_Type": "Control.Type.FormCellContainer",
+      "_Name": "FormCellContainer",
+      "Sections": [
+        {
+          "Controls": [
+            {
+              "_Type": "Fragment",
+              "Fragment": "/SAPAssetManager/Pages/Fragments/Filter/MultiSortByFilter.fragment",
+              "Properties": {
+                "Items": [
+                  {
+                    "ReturnValue": "PlannedDeliveryDate",
+                    "DisplayValue": "$(L, planned_delivery_date)"
+                  },
+                  {
+                    "ReturnValue": "GRStatus",
+                    "DisplayValue": "$(L,goods_receipt_status)"
+                  },
+                  {
+                    "ReturnValue": "PackingStatus",
+                    "DisplayValue": "$(L, packing_status)"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "Caption": "$(L,filter_by)",
+          "Controls": [
+            {
+              "_Type": "Fragment",
+              "Fragment": "/SAPAssetManager/Pages/Fragments/Inventory/ListPicker.fragment",
+              "Properties": {
+                "_Name": "Vendor",
+                "Caption": "$(L,vendor)",
+                "PickerItems": "/SAPAssetManager/Rules/EWM/InboundDelivery/SearchFilter/VendorPickerItems.js",
+                "FilterProperty": "Vendor"
+              }
+            },
+            {
+              "_Type": "Fragment",
+              "Fragment": "/SAPAssetManager/Pages/Fragments/Inventory/ListPicker.fragment",
+              "Properties": {
+                "_Name": "Product",
+                "Caption": "$(L,product)",
+                "PickerItems": "/SAPAssetManager/Rules/EWM/InboundDelivery/SearchFilter/ProductPickerItems.js"
+              }
+            },
+            {
+              "_Type": "Fragment",
+              "Fragment": "/SAPAssetManager/Pages/Fragments/Inventory/ListPicker.fragment",
+              "Properties": {
+                "_Name": "PurchaseOrder",
+                "Caption": "$(L,ewm_purchase_order_number)",
+                "PickerItems": "/SAPAssetManager/Rules/EWM/InboundDelivery/SearchFilter/PurchaseOrderPickerItems.js",
+                "FilterProperty": "PurchaseOrder"
+              }
+            },
+            {
+              "_Type": "Fragment",
+              "Fragment": "/SAPAssetManager/Pages/Fragments/Inventory/ListPicker.fragment",
+              "Properties": {
+                "_Name": "WorkOrder",
+                "Caption": "$(L,work_order_number)",
+                "PickerItems": "/SAPAssetManager/Rules/EWM/InboundDelivery/SearchFilter/WorkOrderPickerItems.js",
+                "FilterProperty": "MaintenanceOrder"
+              }
+            },
+                        {
+              "_Type": "Fragment",
+              "Fragment": "/SAPAssetManager/Pages/Fragments/Inventory/ListPicker.fragment",
+              "Properties": {
+                "_Name": "ASN",
+                "Caption": "$(L,asn_number)",
+                "PickerItems": "/SAPAssetManager/Rules/EWM/InboundDelivery/SearchFilter/ASNPickerItems.js",
+                "FilterProperty": "ASN"
+              }
+            },
+            {
+              "_Type": "Fragment",
+              "Fragment": "/SAPAssetManager/Pages/Fragments/Inventory/ListPicker.fragment",
+              "Properties": {
+                "_Name": "LEDeliveryNum",
+                "Caption": "$(L,le_delivery_number)",
+                "PickerItems": "/SAPAssetManager/Rules/EWM/InboundDelivery/SearchFilter/LEDeliveryPickerItems.js",
+                "FilterProperty": "LEDeliveryNum"
+              }
+            },                        
+            {
+              "_Type": "Control.Type.FormCell.Switch",
+              "_Name": "PlannedDeliveryDateSwitch",
+              "Caption": "$(L, planned_delivery_date)",
+              "Value": false,
+              "OnValueChange": "/SAPAssetManager/Rules/EWM/InboundDelivery/SearchFilter/PlannedDeliveryDateSwitchOnValueChange.js"
+            },
+            {
+              "_Type": "Control.Type.FormCell.DatePicker",
+              "_Name": "PlannedDeliveryDateFrom",
+              "Caption": "$(L,from_date)",
+              "Mode": "Date",
+              "IsVisible": false,
+              "OnValueChange": "/SAPAssetManager/Rules/Filter/Validation/CompareStartEndDateComponent.js"
+            },
+            {
+              "_Type": "Control.Type.FormCell.DatePicker",
+              "_Name": "PlannedDeliveryDateTo",
+              "Caption": "$(L,to_date)",
+              "Mode": "Date",
+              "IsVisible": false,
+              "OnValueChange": "/SAPAssetManager/Rules/Filter/Validation/CompareStartEndDateComponent.js"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "FioriToolbar": {
+    "_Type": "Control.Type.FioriToolbar",
+    "_Name": "InboundDeliverySearchFilterToolbar",
+    "Items": [
+      {
+        "_Type": "Fragment",
+        "Fragment": "/SAPAssetManager/Pages/Fragments/Filter/ResetFilterToolbarItem.fragment"
+      }
+    ]
+  }
+}

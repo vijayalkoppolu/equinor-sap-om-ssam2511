@@ -1,0 +1,47 @@
+{
+    "_Name": "SelectFormTemplate",
+    "_Type": "Page",
+    "Caption": "{ChecklistCategoryName} ({Count})",
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "Search": {
+                        "Enabled": true,
+                        "Delay": 500,
+                        "MinimumCharacterThreshold": 3,
+                        "Placeholder": "$(L,search)",
+                        "BarcodeScanner": false,
+                        "Mode": "Persistent"
+                    },
+                    "ObjectCell": {
+                        "PreserveIconStackSpacing": false,
+                        "Title": "{Name}",
+                        "Footnote": "$(L,form_version, {Version})",
+                        "AccessoryButtonIcon": "$(PLT,,/SAPAssetManager/Images/preview.android.png,)",	
+                        "AccessoryButtonText": "$(L,preview)",
+                        "OnAccessoryButtonPress": "/SAPAssetManager/Rules/Forms/FSM/AddSmartForm/Handlers/OnFormTemplatePreview.js",
+                        "Subhead": "{Description}",
+                        "AccessoryType": "None",
+                        "OnPress": "/SAPAssetManager/Rules/Forms/FSM/AddSmartForm/Handlers/OnFormTemplateSelected.js"
+                    },
+                    "Target": {
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "EntitySet": "FSMFormTemplates",
+                        "QueryOptions": "/SAPAssetManager/Rules/Forms/FSM/AddSmartForm/Data/GetTemplatesByCategoriesQueryOptions.js"
+                    },
+                    "EmptySection": {
+                        "Caption": "$(L,no_templates_available)"
+                    },
+                    "Header": {
+                        "UseTopPadding": false
+                    },
+                    "_Name": "TemplatesTable",
+                    "_Type": "Section.Type.ObjectTable"
+                } 
+            ],
+            "_Name": "SectionedTable",
+            "_Type": "Control.Type.SectionedTable"
+        }
+    ]
+}

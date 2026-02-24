@@ -1,0 +1,7 @@
+{
+    "_Name": "FLGoodsIssue",
+    "_Type": "FioriToolbarItem.Type.Button",
+    "Title": "$(L, goods_issue)",
+    "Enabled": false,
+    "ButtonType": "Primary"
+}

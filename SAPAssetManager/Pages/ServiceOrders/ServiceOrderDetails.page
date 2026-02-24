@@ -1,0 +1,296 @@
+{
+	"OnLoaded": "/SAPAssetManager/Rules/ServiceOrders/Details/ServiceOrdersDetailsOnPageLoad.js",
+	"OnReturning": "/SAPAssetManager/Rules/ServiceOrders/Details/ServiceOrderDetailsOnPageReturning.js",
+	"ActionBar": {
+		"Items": [
+			{
+				"Position": "Right",
+				"Icon": "sap-icon://edit",
+				"Caption": "$(L,edit)",
+				"Visible": "/SAPAssetManager/Rules/ServiceOrders/CreateUpdate/IsS4ServiceOrderEditEnabled.js",
+				"OnPress": "/SAPAssetManager/Rules/ServiceOrders/CreateUpdate/SericeOrderUpdateNav.js"
+			},
+			{
+				"Position": "Right",
+				"Icon": "sap-icon://add",
+				"Caption": "$(L,add)",
+				"OnPress": "/SAPAssetManager/Actions/ServiceOrders/AddServiceOrderActionsPopover.action"
+			}
+		]
+	},
+	"Caption": "/SAPAssetManager/Rules/ServiceOrders/Details/ServiceOrderCaption.js",
+	"Controls": [
+		{
+			"_Type": "Control.Type.SectionedTable",
+			"_Name": "SectionedTable",
+			"Sections": [
+                {
+                    "_Type": "Fragment",
+                    "Fragment": "/SAPAssetManager/Pages/Fragments/S4ServiceOrders/S4ServiceOrderObjectHeader.fragment",
+                    "Properties": {
+                        "ObjectHeader": {
+                            "AvatarStack": {
+                                "Avatars": [{
+                                    "Image": "sap-icon://wrench",
+                                    "Style": "$(PLT, WorkOrderThumbnail, WorkOrderThumbnailAndroid)"
+                                }],
+                            "ImageHasBorder": true,
+                            "ImageIsCircular": false
+                    }
+                        }
+                    }
+                },
+				{
+					"_Type": "Fragment",
+					"Fragment": "/SAPAssetManager/Pages/Fragments/QAB/QuickActionBarExtensionSection.fragment",
+					"Properties": {
+						"ExtensionProperties": {
+							"Chips": "/SAPAssetManager/Rules/ServiceOrders/Details/ServiceOrderQABChips.js"
+						}
+					}
+				},
+				"/SAPAssetManager/Pages/Fragments/WorkOrder/WorkOrderDetails/ProgressTrackerSectionWorkOrderDetails.fragment",
+				{
+					"_Type": "Fragment",
+					"Fragment": "/SAPAssetManager/Pages/Fragments/Equipment/ObjectTableSection.fragment",
+					"Properties": {
+						"Header": {
+							"UseTopPadding": "/SAPAssetManager/Rules/ServiceOrders/Details/IsTimelineVisible.js"
+						},
+						"MaxItemCount": 2,
+						"ObjectCell": {
+							"Title": "#Property:Equipment_Nav/#Property:EquipDesc",
+							"Subhead": "#Property:EquipID",
+							"StatusText": "#Property:Equipment_Nav/#Property:ObjectStatus_Nav/#Property:SystemStatus_Nav/#Property:StatusText",
+							"Description": "#Property:Equipment_Nav/#Property:TechnicalID",
+							"AvatarStack": {
+                                "Avatars": [{
+                                    "Image": "sap-icon://machine",
+                                    "Style": "$(PLT, EquipmentThumbnail, EquipmentThumbnailAndroid)"
+                                }],
+                            "ImageHasBorder": true,
+                            "ImageIsCircular": false
+                    }
+						},
+						"Target": {
+							"EntitySet": "{{#Property:@odata.readLink}}/RefObjects_Nav",
+							"QueryOptions": "$orderby=EquipID&$top=3&$expand=Equipment_Nav/ObjectStatus_Nav/SystemStatus_Nav&$filter=sap.entityexists(Equipment_Nav)"
+						},
+						"DataSubscriptions": ["S4ServiceOrderRefObjs"],
+						"Footer": {
+							"AttributeLabel": "/SAPAssetManager/Rules/Equipment/EquipmentCount.js",
+							"Visible": "/SAPAssetManager/Rules/Equipment/EquipmentsListFooterVisible.js"
+						}
+					}
+				},
+				{
+					"_Type": "Fragment",
+					"Fragment": "/SAPAssetManager/Pages/Fragments/FunctionalLocation/FunctionalLocationObjectTable.fragment",
+					"Properties": {
+						"ObjectCell": {
+							"Title": "#Property:FuncLoc_Nav/#Property:FuncLocDesc",
+        					"Subhead": "#Property:FuncLoc_Nav/#Property:FuncLocId",
+							"AvatarStack": {
+                                "Avatars": [{
+                                    "Image": "sap-icon://factory",
+                                    "Style": "$(PLT, FlocThumbnail, FlocThumbnailAndroid)"
+                                }],
+                            "ImageHasBorder": true,
+                            "ImageIsCircular": false
+                    }
+						},
+						"Footer": {
+							"Caption": "$(L,see_all)",
+							"AccessoryType": "DisclosureIndicator",
+							"FooterStyle": "Attribute",
+							"AttributeLabel": "/SAPAssetManager/Rules/FunctionalLocation/FunctionalLocationCount.js",
+							"OnPress": "/SAPAssetManager/Rules/FunctionalLocation/FunctionalLocationListViewNav.js",
+							"Visible": "/SAPAssetManager/Rules/FunctionalLocation/FunctionalLocationListFooterVisible.js"
+						},
+						"MaxItemCount": 2,
+						"DataSubscriptions": ["S4ServiceOrderRefObjs"],
+						"Target": {
+							"EntitySet": "{{#Property:@odata.readLink}}/RefObjects_Nav",
+							"QueryOptions": "$orderby=FLocID&$top=3&$expand=FuncLoc_Nav&$filter=sap.entityexists(FuncLoc_Nav)"
+						}
+					}
+				},
+				{
+					"_Type": "Fragment",
+					"Fragment": "/SAPAssetManager/Pages/Fragments/S4ServiceOrders/S4ServiceOrderLocation.fragment",
+					"Properties": {
+						"Header": {
+							"UseTopPadding": true
+						}
+					}
+				},
+				"/SAPAssetManager/Pages/Fragments/S4ServiceOrders/S4NotesObjectSection.fragment",
+				{
+					"_Type": "Fragment",
+					"Fragment": "/SAPAssetManager/Pages/ServiceOrders/ServiceItemsObjectTable.fragment",
+					"Properties": {
+						"Header": {
+							"UseTopPadding": true,
+							"Caption": "$(L, items)"
+						},
+						"ObjectCell": {
+							"PreserveIconStackSpacing": true,
+                            "AvatarStack": {
+                                "Avatars": [{
+                                "Image": "sap-icon://example",
+                                "Style": "$(PLT, Thumbnail, ThumbnailAndroid)"
+                                 }],
+                                "ImageHasBorder": true,
+                                "ImageIsCircular": false
+                            }
+						},
+						"MaxItemCount": 2,
+						"Target": {
+							"EntitySet": "{{#Property:@odata.readLink}}/ServiceItems_Nav",
+							"QueryOptions": "$expand=Category1_Nav,Category2_Nav,Category3_Nav,Category4_Nav,ItemCategory_Nav,ServiceType_Nav,Product_Nav,MobileStatus_Nav,AccountingInd_Nav,TransHistories_Nav/S4ServiceContract_Nav,ServiceProfile_Nav,S4ServiceErrorMessage_Nav&$top=3"
+						},
+						"Footer": {
+							"Caption": "$(L,see_all)",
+							"AccessoryType": "DisclosureIndicator",
+							"AttributeLabel": "/SAPAssetManager/Rules/ServiceOrders/Details/ServiceItemsByOrderCount.js",
+							"FooterStyle": "Attribute",
+							"OnPress": "/SAPAssetManager/Rules/ServiceOrders/Details/ServiceItemsByOrderNav.js",
+							"Visible": "/SAPAssetManager/Rules/ServiceOrders/Details/SeeAllIsVisible.js"
+						},
+						"DataSubscriptions": [
+							"S4ServiceItems",
+							"PMMobileStatuses",
+							"S4ServiceOrders"
+						],
+						"Visible": "/SAPAssetManager/Rules/ServiceOrders/ServiceItems/ServiceItemListViewVisible.js"
+					}
+				},
+				{
+					"_Type": "Fragment",
+					"Fragment": "/SAPAssetManager/Pages/Fragments/S4ServiceItems/ServiceItemsTableSection.fragment",
+					"Properties": {
+						"ExtensionProperties": {
+							"Configuration": {
+								"IsReadOnly": true
+							},
+							"Target": {
+								"QueryOptions": "$top=2&$orderby=ItemNo&$expand=Category1_Nav,Category2_Nav,Category3_Nav,Category4_Nav,ItemCategory_Nav,ServiceType_Nav,Product_Nav,MobileStatus_Nav,AccountingInd_Nav,TransHistories_Nav/S4ServiceContract_Nav,ServiceProfile_Nav,S4ServiceErrorMessage_Nav"
+							},
+							"Row": {
+								"Items": "/SAPAssetManager/Pages/Fragments/S4ServiceItems/ServiceItemsEDTItemsReadOnly.fragment"
+							}
+						},
+						"Footer": {
+							"Caption": "$(L,see_all)",
+							"AccessoryType": "DisclosureIndicator",
+							"FooterStyle": "Attribute",
+							"AttributeLabel": "/SAPAssetManager/Rules/ServiceOrders/Details/ServiceItemsByOrderCount.js",
+							"OnPress": "/SAPAssetManager/Actions/ServiceOrders/ServiceItemsTableViewNav.action",
+							"Visible": "/SAPAssetManager/Rules/ServiceOrders/Details/ServiceItemsTableFooterVisible.js"
+						}
+					}
+				},
+                "/SAPAssetManager/Pages/Fragments/Documents/DocumentsSection.fragment",
+				"/SAPAssetManager/Pages/Fragments/Forms/SDF/FormObjectTableSection.fragment",
+				"/SAPAssetManager/Pages/Fragments/S4ServiceOrders/S4ServiceOrderDetails.fragment",
+				"/SAPAssetManager/Pages/Fragments/S4ServiceOrders/S4ServiceOrderMainRefObject.fragment",
+				"/SAPAssetManager/Pages/Fragments/S4ServiceOrders/S4ServiceOrderSoldToParty.fragment",
+				"/SAPAssetManager/Pages/Fragments/Forms/FSM/FormInstanceObjectTableOperation.fragment",
+				"/SAPAssetManager/Pages/Fragments/S4ServiceOrders/S4ServiceOrderCategories.fragment",
+				{
+					"_Type": "Fragment",
+					"Fragment": "/SAPAssetManager/Pages/Fragments/S4ServiceOrders/S4ServiceOrderServiceRequests.fragment",
+					"Properties": {
+						"ObjectCell": {
+                            "AvatarStack": {
+                                "Avatars": [{
+                                "Image": "sap-icon://message-warning",
+                                "Style": "$(PLT, NotificationThumbnail, NotificationThumbnailAndroid)"
+                                 }],
+                                "ImageHasBorder": true,
+                                "ImageIsCircular": false
+                            }
+						}
+					}
+				},
+				{
+				   "_Type": "Section.Type.ObjectTable",
+				   "_Name": "ConfirmationsSection",
+				   "Visible": "/SAPAssetManager/Rules/ServiceConfirmations/IsS4ServiceConfirmationEnabled.js",
+					"Header": {
+						"UseTopPadding": true,
+						"Caption": "$(L, confirmation)"
+					},
+					"EmptySection": {
+						"Caption": "$(L, no_confirmations_available)"
+					},
+					"ObjectCell": {
+						"_Type": "Fragment",
+						"Fragment": "/SAPAssetManager/Pages/Fragments/S4Confirmations/S4ServiceConfirmationObjectCell.fragment",
+						"Properties": {
+							"AvatarStack": {
+                                "Avatars": [{
+                                "Image": "sap-icon://complete",
+                                "Style": "$(PLT, Thumbnail, ThumbnailAndroid)"
+                                 }],
+                                "ImageHasBorder": true,
+                                "ImageIsCircular": false
+                            }
+						}
+					},
+					"Target": "/SAPAssetManager/Rules/ServiceOrders/Details/ConfirmationsSectionValues.js",
+					"Footer": {
+						"Caption": "$(L,see_all)",
+						"AccessoryType": "DisclosureIndicator",
+						"AttributeLabel": "/SAPAssetManager/Rules/ServiceOrders/Details/ServiceConfirmationsSectionCount.js",
+						"FooterStyle": "Attribute",
+						"Visible": "/SAPAssetManager/Rules/ServiceOrders/Details/ConfirmationsSectionFooterVisible.js",
+						"OnPress": "/SAPAssetManager/Rules/ServiceConfirmations/ListView/ServiceConfirmationsSectionNav.js"
+					},
+					"DataSubscriptions": ["S4ServiceConfirmations"]
+				},
+				"/SAPAssetManager/Pages/Fragments/S4ServiceOrders/S4ServiceOrderServiceWarranty.fragment",
+				{
+					"SimplePropertyCells": [
+						{
+							"SimplePropertyCell": "/SAPAssetManager/Pages/Fragments/S4ServiceOrders/S4ServiceOrderSimplePropertyRefObjects.fragment"
+						},
+						{
+							"SimplePropertyCell": "/SAPAssetManager/Pages/Fragments/S4ServiceOrders/S4ServiceOrderSimpleBusinessPartners.fragment"
+						},
+						{
+							"SimplePropertyCell": "/SAPAssetManager/Pages/Fragments/S4ServiceOrders/S4ServiceOrderSimplePropertyContract.fragment"
+						},
+						{
+							"SimplePropertyCell": "/SAPAssetManager/Pages/Fragments/S4RelatedHistories/S4RelatedServiceConfirmationsFacet.fragment"
+						},
+						{
+							"SimplePropertyCell": "/SAPAssetManager/Pages/Fragments/S4ServiceOrders/S4ServiceOrderSimplePropertyOrgData.fragment"
+						},
+						{
+							"SimplePropertyCell": "/SAPAssetManager/Pages/Fragments/S4RelatedHistories/S4RelatedServiceRequestsFacet.fragment"
+						},
+						{
+							"SimplePropertyCell": "/SAPAssetManager/Pages/Fragments/S4Errors/S4ErrorsFacet.fragment"
+						}
+					],
+					"Layout": {
+						"NumberOfColumns": 2,
+						"MinimumInteritemSpacing": "$(PLT,66,0)"
+					},
+					"_Type": "Section.Type.SimplePropertyCollection",
+					"DataSubscriptions": ["Documents", "S4ServiceConfirmations", "S4ServiceOrderLongTexts", "S4ServiceOrderRefObjs", "S4ServiceOrderPartners"]
+				}
+			]
+		}
+	],
+	"FioriToolbar": {
+		"_Name": "ServiceOrderDetailsFioriToolbar",
+        "_Type": "Control.Type.FioriToolbar",
+        "Visible": "/SAPAssetManager/Rules/Common/DetailsPageToolbar/DetailsPageToolbarVisibility.js",
+		"Items": "/SAPAssetManager/Rules/Common/DetailsPageToolbar/DetailsPageToolbarItems.js"
+	},
+	"_Type": "Page",
+	"_Name": "ServiceOrderDetailsPage",
+	 "DataSubscriptions": ["S4ServiceItems", "S4ServiceOrders", "PMMobileStatuses"]
+}

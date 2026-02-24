@@ -1,0 +1,45 @@
+{
+	"Caption": "$(L,fld_business_documents)",
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"KeyAndValues": [
+						{
+                            "_Name": "InboundDelivery",
+                            "KeyName": "$(L,fld_inbound_delivery)",
+							"Value": "$(DV, {InboundDelivery}, '-')"
+                        },
+                        {
+                            "_Name": "OutboundDelivery",
+                            "KeyName": "$(L,fld_outbound_delivery)",
+							"Value": "$(DV, {OutboundDelivery}, '-')"
+                        },
+                        {
+                            "_Name": "ReferenceOrder",
+                            "KeyName": "$(L,fld_reference_maintainence_order)",
+							"Value": "$(DV, {ReferenceOrder}, '-')"
+                        },
+                        {
+                            "_Name": "StockTransportOrder",
+                            "KeyName": "$(L,fld_stock_transport_order)",
+							"Value": "$(DV, {ReferenceSDDocument}, '-')"
+                        },
+                        {
+                            "_Name": "ReferencePurchasingDocument",
+                            "KeyName": "$(L,fld_supply_purchase_order)",
+							"Value": "$(DV, {ReferencePurchasingDocument}, '-')"
+                        }
+
+					],
+					"_Type": "Section.Type.KeyValue",
+                    "_Name": "KeyValueTable"
+				}
+			],
+			"_Name": "SectionedTable0",
+			"_Type": "Control.Type.SectionedTable"
+		}
+	],
+	"_Name": "HUDelItemsBusinessDocuments",
+	"_Type": "Page"
+}

@@ -1,0 +1,62 @@
+{
+    "_Type": "ObjectCardCollection.Type.Card",
+    "Title": "/SAPAssetManager/Rules/OverviewPage/MyWorkSection/ObjectCardTitle.js",
+    "Subhead": "/SAPAssetManager/Rules/OverviewPage/MyWorkSection/ObjectCardSubhead.js",
+    "Footnote": "/SAPAssetManager/Rules/OverviewPage/MyWorkSection/ObjectCardPriority.js",
+    "StatusText": "/SAPAssetManager/Rules/OverviewPage/MyWorkSection/ObjectCardDueDate.js",
+    "OnPress" : "/SAPAssetManager/Rules/OverviewPage/MyWorkSection/ObjectCardDetailsNav.js",
+    "OverflowButtons": [
+        {
+            "_Name": "TertiaryButton",
+            "Title": "/SAPAssetManager/Rules/OverviewPage/MyWorkSection/ObjectCardTertiaryButtonTitle.js",
+            "Visible": "/SAPAssetManager/Rules/OverviewPage/MyWorkSection/ObjectCardTertiaryButtonVisible.js",
+            "OnPress": "/SAPAssetManager/Rules/OverviewPage/MyWorkSection/ObjectCardTertiaryButtonOnPress.js"
+        },
+        {
+            "_Name": "AddOrder",
+            "Title": "$(L,add_order)",
+            "Visible": "/SAPAssetManager/Rules/OverviewPage/MyWorkSection/ObjectCardOrderButtonVisible.js",
+            "OnPress": "/SAPAssetManager/Rules/OverviewPage/MyWorkSection/ObjectCardOrderCreate.js"
+        },
+        {
+            "_Name": "AddOperation",
+            "Title": "$(L,add_suboperation)",
+            "Visible": "/SAPAssetManager/Rules/OverviewPage/MyWorkSection/ObjectCardSuboperationButtonVisible.js",
+            "OnPress": "/SAPAssetManager/Rules/SubOperations/CreateUpdate/SubOperationCreateNav.js"
+        },
+        {
+            "_Name": "AddNotification",
+            "Title": "$(L,add_notification)",
+            "Visible": "/SAPAssetManager/Rules/OverviewPage/MyWorkSection/ObjectCardNotificationButtonVisible.js",
+            "OnPress": "/SAPAssetManager/Rules/OverviewPage/MyWorkSection/ObjectCardNotificationCreate.js"
+        },
+        {
+            "_Name": "Parts",
+            "Title": "$(L,parts)",
+            "Visible": "/SAPAssetManager/Rules/OverviewPage/MyWorkSection/ObjectCardPartVisible.js",
+            "OnPress": "/SAPAssetManager/Actions/Parts/PartsListViewNav.action"
+        },
+        {
+            "_Name": "AddTime",
+            "Title": "$(L,record_time)",
+            "Visible": "/SAPAssetManager/Rules/OverviewPage/MyWorkSection/ObjectCardTimeVisible.js",
+            "OnPress": "/SAPAssetManager/Rules/OverviewPage/MyWorkSection/ObjectCardTimeCreate.js"
+        }
+    ],
+    "PrimaryAction": {
+        "_Name": "Primary Button",
+        "Title": "/SAPAssetManager/Rules/OverviewPage/MyWorkSection/ObjectCardPrimaryButtonTitle.js",
+        "Visible": "/SAPAssetManager/Rules/OverviewPage/MyWorkSection/ObjectCardPrimaryButtonVisible.js",
+        "OnPress": "/SAPAssetManager/Rules/OverviewPage/MyWorkSection/ObjectCardPrimaryButtonOnPress.js"
+    },
+    "SecondaryAction": {
+        "_Name": "Secondary Button",
+        "Title": "/SAPAssetManager/Rules/OverviewPage/MyWorkSection/ObjectCardSecondaryButtonTitle.js",
+        "Visible": "/SAPAssetManager/Rules/OverviewPage/MyWorkSection/ObjectCardSecondaryButtonVisible.js",
+        "OnPress": "/SAPAssetManager/Rules/OverviewPage/MyWorkSection/ObjectCardSecondaryButtonOnPress.js",
+        "Style": "ObjectCardPrimaryAction"
+    },
+    "Styles": {
+        "Footnote":  "/SAPAssetManager/Rules/Priority/WOPriorityStatusStyle.js"
+    }
+}

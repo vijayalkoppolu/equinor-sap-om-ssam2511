@@ -1,0 +1,55 @@
+{
+    "Caption": "$(L, fld_delivery_item_details)",
+    "ActionBar": {
+        "Items": [
+            "/SAPAssetManager/Pages/Fragments/SyncButton.fragment"
+        ]
+    },
+    "Controls": [{
+            "Sections": [{
+                    "ObjectHeader": {
+                        "HeadlineText": "$(DV, '{DeliveryDocument}', '-')",
+                        "StatusText": "$(DV, '{FldLogsPackCtnItemStatus_Nav/FldLogsShptItmStsText}', '-')",
+                        "SubstatusText": "{QuantityInBaseUnit}  {OrderQuantityUnit}",
+                        "Subhead": "$(DV, '{FldLogsReferenceDocumentNumber}', '-')",
+                        "Description": "/SAPAssetManager/Rules/FL/ReadyToPack/ReadyToPackDescription.js",
+                        "DetailImage": "sap-icon://grid",
+                        "Styles": {
+                                    "DetailImage": "$(PLT, FLDeliveryIcon, FLDeliveryIconAndroid)"
+                                    },
+                        "Tags": "/SAPAssetManager/Rules/FL/ReadyToPack/FLReadyToPackTags.js",
+                        "DetailImageIsCircular": false
+                    },
+                    "_Type": "Section.Type.ObjectHeader",
+                    "_Name": "ObjectHeaderSectionTable"
+                }],
+            "_Name": "SectionedTable",
+            "_Type": "Control.Type.SectionedTable"
+        },
+        {
+            "Items": [  {
+                "_Name": "HeaderListTab",
+                "Caption": "$(L, header)",
+                "PageToOpen" : "/SAPAssetManager/Pages/FL/PackContainers/ReadyToPack/ReadyToPackHeaderPage.page",
+                "PageMetadata": "/SAPAssetManager/Rules/FL/ReadyToPack/FLReadyToPackHeaderPageMetadata.js",
+                "_Type": "Control.Type.TabItem"
+            },{
+                "_Name": "SerialNosListTab",
+                "Caption": "$(L, fld_serial_numbers)",
+                "PageToOpen" : "/SAPAssetManager/Pages/FL/PackContainers/ReadyToPack/ReadyToPackSerialNosPage.page",
+                "_Type": "Control.Type.TabItem"
+            },
+            {
+                "_Name": "VoyagesListTab",
+                "Caption": "$(L, fld_voyages)",
+                "PageToOpen" : "/SAPAssetManager/Pages/FL/PackContainers/ReadyToPack/ReadyToPackVoyagesPage.page",
+                "_Type": "Control.Type.TabItem"
+            }],
+            "Position": "Top",
+            "_Type": "Control.Type.Tabs",
+            "_Name": "TabsControl"
+        }
+    ],
+    "_Name": "FLReadyToPackDetailsPage",
+    "_Type": "Page"
+}

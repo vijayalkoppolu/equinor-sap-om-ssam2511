@@ -1,0 +1,128 @@
+
+{
+    "OnActivityBackPressed": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/CancelCheckOnBackNavAndroid.js",
+    "ActionBar": {
+        
+        "_Name": "FLOProductReturnStockActionBar",
+        "Items": [
+            {
+                "_Type": "Fragment",
+                "Fragment": "/SAPAssetManager/Pages/Fragments/CancelButton.fragment",
+                "Properties": {
+                    "Visible": "/SAPAssetManager/Rules/FL/ReturnsByProduct/FLProductUpdateCancelVisible.js"
+                }
+            },
+            {
+                "Position": "Right",
+                "_Name": "Done",
+                "SystemItem": "$(PLT,'Done','', '','Done')",
+                "Text": "/SAPAssetManager/Rules/Common/Platform/DoneText.js",
+                "OnPress": "/SAPAssetManager/Actions/FL/WorkOrders/FLOProductReturnRequired.action"
+            }
+        ]
+    },
+	"Caption": "$(L,fld_return_product)",
+    "Controls": [
+        {
+            "Sections":
+            [   
+               
+                {
+                "_Type": "Section.Type.FormCell",
+                "_Name": "FormCellSection1",
+                "Header": {
+                    "Caption": "/SAPAssetManager/Rules/Notifications/CreateUpdate/RequiredFieldsMessage.js",
+                    "UseTopPadding": false
+                },
+                "Separators": {
+                    "HeaderSeparator": false
+                },
+                "Controls":
+                [
+                {
+                    "AllowMultipleSelection": false,
+                    "IsPickerDismissedOnSelection": true,
+                    "IsSearchCancelledAfterSelection": true,
+                    "AllowDefaultValueIfOneItem": true,
+                    "Search": {
+                        "Enabled": true,
+                        "Delay": 500,
+                        "MinimumCharacterThreshold": 2,
+                        "Placeholder": "$(L,search)",
+                        "BarcodeScanner": true
+                    },
+                    "Caption": "/SAPAssetManager/Rules/FL/WorkOrders/FormatStorageLocationCaption.js",
+                    "Value":"{RemoteStorageLocation}",
+                     "PickerItems": {
+                        "DisplayValue": "{{#Property:StorageLocation}} {{#Property:StorageLocationDesc}}",
+                        "ReturnValue": "{StorageLocation}",
+                        "Target": {
+                            "EntitySet": "StorageLocations",
+                            "Service": "/SAPAssetManager/Services/AssetManager.service",
+                            "QueryOptions": "$filter=Plant eq '{{#Property:Plant}}'&$orderby=StorageLocation"
+                        }
+                    },
+                    
+                    "_Name": "StorageLocLstPkr",
+                    "_Type": "Control.Type.FormCell.ListPicker"
+                }]
+            },
+            
+			{
+                    "SimplePropertyCells": [
+                        {
+                            "SimplePropertyCell": {
+                                "AccessoryType": "None",
+                                "KeyName": "$(L,plant)",
+                                "Value": "/SAPAssetManager/Rules/FL/WorkOrders/ReservationItems/FormatPlantDescription.js",
+                                "Visible": true,
+                                "IsEditable": false
+                            }
+                        },
+                        {
+                            "SimplePropertyCell": {
+                                "AccessoryType": "None",
+                                "KeyName": "$(L,product_description)",
+                                "Value": "{ProductDescription}",
+                                "Visible": true,
+                                "IsEditable": false
+                            }
+                        },
+                        
+                        {
+                            "SimplePropertyCell": {
+                                "AccessoryType": "None",
+                                "KeyName":"$(L,fld_required_quantity)",
+                                "Value": "{{#Property:RequiredQty}} {{#Property:BaseUnit}} ",
+                                "IsEditable": false
+                            }
+                        },
+                        
+                        {
+                            "SimplePropertyCell": {
+                                "AccessoryType": "None",
+                                "KeyName": "$(L,fld_withdrawn_quantity)",
+                                "Value":  "{{#Property:WithdrawnQty}} {{#Property:BaseUnit}} ",
+                                "Visible": true,
+                                "IsEditable": false
+                            }
+                        }
+						
+                    ],
+                    "Layout": {
+                        "NumberOfColumns": 2,
+                        "MinimumInteritemSpacing": "$(PLT,66,0)"
+                    },
+                    "_Type": "Section.Type.SimplePropertyCollection",
+                    "_Name": "ResvItemSimplePropertyCollection"
+                }
+        ],
+        "_Name": "FormCellContainer",
+        "_Type": "Control.Type.SectionedTable"
+    }],
+    
+    "_Type": "Page",
+	"DataSubscriptions": ["StorageLocations", "MaterialBatchStockSet", "MaterialValuations"],
+    "OnLoaded": "/SAPAssetManager/Rules/FL/Edit/ValidateOnLoad.js",
+    "_Name": "FLOProductReturnStock"
+}

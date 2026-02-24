@@ -1,0 +1,8 @@
+{
+    "_Type": "FioriToolbarItem.Type.Button",
+    "_Name": "EditAllButton",
+    "Title": "$(L, edit_all_document)",
+    "Enabled": true,
+    "OnPress": "/SAPAssetManager/Rules/FL/PackedPackages/BulkUpdate/ReturnAllItems.js"
+}
+        

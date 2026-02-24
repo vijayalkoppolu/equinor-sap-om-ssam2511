@@ -1,0 +1,6 @@
+{
+    "Position": "Right",
+    "Icon": "$(PLT, sap-icon://document-text, sap-icon://document-text, '', sap-icon://document-text)",
+    "OnPress": "/SAPAssetManager/Rules/Inventory/Item/MaterialDetailsNav.js",
+    "Visible": "/SAPAssetManager/Rules/Inventory/Item/MaterialHeaderButtonVisible.js"
+}

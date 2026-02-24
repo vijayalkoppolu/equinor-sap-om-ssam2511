@@ -1,0 +1,6 @@
+{
+    "_Type": "Control.Type.ObjectCell",
+    "PreserveIconStackSpacing": false,
+    "Title": "{SerialNumber}",
+    "Subhead": "/SAPAssetManager/Rules/FL/ReadyToPack/ReadyToPackSerialNosSubhead.js"
+}

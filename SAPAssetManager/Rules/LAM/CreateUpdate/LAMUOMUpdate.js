@@ -1,0 +1,53 @@
+
+import libCom from '../../Common/Library/CommonLibrary';
+import libVal from '../../Common/Library/ValidationLibrary';
+import StartValidation from './ValidationRules/StartValidation';
+import EndValidation from './ValidationRules/EndValidation';
+import LengthValidation from './ValidationRules/LengthValidation';
+import ResetValidationOnInput from '../../Common/Validation/ResetValidationOnInput';
+import DecimalPlacesValidationBasedOnUom from './ValidationRules/DecimalPlacesValidationBasedOnUom';
+
+export default async function LAMUOMUpdate(context) {
+    ResetValidationOnInput(context);
+    let pageProxy = context.getPageProxy(context);
+    let controls = libCom.getControlDictionaryFromPage(pageProxy);
+    let start = libCom.getFieldValue(pageProxy, 'StartPoint');
+    let length_field = libCom.getFieldValue(pageProxy, 'Length');
+    let end = libCom.getFieldValue(pageProxy, 'EndPoint');
+    const uom = libCom.getControlValue(controls.UOMLstPkr);
+
+    StartValidation(context,controls.StartPoint,start, libCom.isDefined(uom));
+    EndValidation(context,controls.EndPoint,end, libCom.isDefined(uom));
+    LengthValidation(context,controls.Length,length_field);
+
+    let uomControl = libCom.getControlProxy(pageProxy, 'UOMLstPkr');
+    CheckListPickerValue(context,uomControl);
+
+    if (libCom.isDefined(uom)) {
+        if (start) {
+            await DecimalPlacesValidationBasedOnUom(context, uom, start, controls.StartPoint);
+        }
+
+        if (end) {
+            await DecimalPlacesValidationBasedOnUom(context, uom, end, controls.EndPoint);
+        }
+
+        if (length_field) {
+            await DecimalPlacesValidationBasedOnUom(context, uom, length_field, controls.Length);
+        }
+    }
+
+    if (libCom.isDefined(controls.MarkerUOMLstPkr)) {
+        StartValidation(context,controls.StartPoint,start,libCom.isDefined(controls.MarkerUOMLstPkr.getValue()));
+        EndValidation(context,controls.EndPoint,end,libCom.isDefined(controls.MarkerUOMLstPkr.getValue()));
+    }
+}
+
+function CheckListPickerValue(context,control) {
+    if (libVal.evalIsEmpty(libCom.getListPickerValue(control.getValue()) )) {
+        let message = context.localizeText('field_is_required');
+        libCom.executeInlineControlError(context,control, message);   
+    } else {
+        control.clearValidation();
+    }
+}

@@ -1,0 +1,80 @@
+{
+    "Caption": "$(L, fld_product_details)",
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "_Name": "DataTableSection",
+                    "StickyColumn": false,
+                    "_Type": "Section.Type.DataTable",
+                    "DataPaging": {
+                        "PageSize": "/SAPAssetManager/Rules/Common/DataTablePageSize.js"
+                    },
+                    "EmptySection": {
+                        "Caption": "$(L,no_fld_product_details)"
+                    },
+                    "Header": {
+                        "DataTable": {
+                            "Items": [
+                                {
+                                    "Text": "$(L,fld_batch)",
+                                    "Style": "GridTableHeaderText",
+                                    "TextAlignment": "Center"
+                                },
+                                {
+                                    "Text": "$(L,fld_valuationtype)",
+                                    "Style": "GridTableHeaderText",
+                                    "TextAlignment": "Center"
+                                },
+                                {
+                                    "Text": "$(L,fld_serialnumber)",
+                                    "Style": "GridTableHeaderText",
+                                    "TextAlignment": "Center"
+                                },
+                                {
+                                    "Text": "$(L,fld_quantity)",
+                                    "Style": "GridTableHeaderText",
+                                    "TextAlignment": "Center"
+                                }
+                            ]
+                        }
+					},
+                    "Row": {
+                        "Layout": {
+                            "ColumnWidth": [100,100,100,-1]
+                        },
+                        "Items": [
+                            {
+                                "Text": "{Batch}",
+                                "TextAlignment": "Center"
+                            },
+                            {
+                                "Text": "{ValuationType}",
+                                "TextAlignment": "Center"
+                            },
+                            {
+                                "Text": "{SerialNumber}",
+                                "TextAlignment": "Center"
+                            },
+                            {
+                                "Text": "/SAPAssetManager/Rules/FL/HUDelItems/Details/HUDelItemsSerialNoQuantity.js",
+                                "TextAlignment": "Center"
+                            }
+                        ],
+                        "AccessoryType": "DisclosureIndicator"
+                    },
+                    "Target": {
+                        "EntitySet": "/SAPAssetManager/Rules/FL/HUDelItems/Details/HUDelItemsProductDetailsEntitySet.js",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "/SAPAssetManager/Rules/FL/HUDelItems/Details/HUDelItemsProductDetailsQuery.js"
+                    }
+                }
+            ],
+            "_Type": "Control.Type.SectionedTable",
+            "_Name": "SerialNumberItemsSection"
+        }
+    ],
+    "_Type": "Page",
+    "_Name": "HUDelItemsProductDetails",
+    "DataSubscriptions": ["FldLogsHuDelSnItems"]
+}

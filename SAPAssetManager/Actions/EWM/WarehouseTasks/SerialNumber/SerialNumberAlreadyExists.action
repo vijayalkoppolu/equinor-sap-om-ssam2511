@@ -1,0 +1,7 @@
+{
+	"Animated": true,
+	"Duration": 2,
+	"Message": "",
+	"MaxNumberOfLines": 1,
+	"_Type": "Action.Type.ToastMessage"
+}

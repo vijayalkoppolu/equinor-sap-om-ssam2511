@@ -1,0 +1,11 @@
+{
+	"_Type": "Action.Type.ODataService.ChangeSet",
+	"Actions": [
+		"/SAPAssetManager/Actions/EWM/Inbound/HandlingUnit/WHHandlungUnitCreate.action",
+		"/SAPAssetManager/Rules/EWM/Inbound/Items/HandlingUnit/WHHandlingUnitItemCreate.js"
+	],
+	"Target": {
+        "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "OnFailure": "/SAPAssetManager/Rules/Common/ChangeSet/ChangeSetOnFailure.js"
+}

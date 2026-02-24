@@ -1,0 +1,30 @@
+{
+    "PopoverItems": [
+        {
+            "Title" : "$(L, add_note)",
+            "OnPress": "/SAPAssetManager/Rules/Notes/NoteCreateNav.js",
+            "Visible": "/SAPAssetManager/Rules/UserAuthorizations/WorkOrders/EnableWorkOrderEdit.js"
+        },
+        {
+            "Title": "$(L,add_notification)",
+            "OnPress": "/SAPAssetManager/Rules/SubOperations/SubOperationNotificationCreateNav.js",
+            "Visible": "/SAPAssetManager/Rules/UserAuthorizations/Notifications/EnableNotificationCreate.js"
+        },
+        {
+            "Title": "$(L,sdf_add_form)",
+            "OnPress": "/SAPAssetManager/Actions/Forms/SDF/FormCreateUpdateNav.action",
+            "Visible": "/SAPAssetManager/Rules/Forms/SDF/SDFCreateEnabled.js"
+	    },
+         {
+            "Title": "$(L,add_support)",
+            "OnPress": "/SAPAssetManager/Rules/ConfirmationScenarios/CooperationConfirmationNavWrapper.js",
+            "Visible": "/SAPAssetManager/Rules/ConfirmationScenarios/CooperationIsEnabledForWorkOrder.js"
+        },
+        {
+            "Title": "$(L,add_double_check)",
+            "OnPress": "/SAPAssetManager/Rules/ConfirmationScenarios/DoubleCheckConfirmationNavWrapper.js",
+            "Visible": "/SAPAssetManager/Rules/ConfirmationScenarios/DoubleCheckIsEnabledForWorkOrder.js"
+	    }
+    ],
+    "_Type": "Action.Type.PopoverMenu"
+}

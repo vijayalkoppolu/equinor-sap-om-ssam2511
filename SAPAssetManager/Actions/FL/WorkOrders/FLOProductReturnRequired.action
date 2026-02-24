@@ -1,0 +1,8 @@
+{
+	"_Type": "Action.Type.CheckRequiredFields",
+	"OnFailure": "/SAPAssetManager/Rules/Common/UpdateRequiredFailed.js",
+	"OnSuccess": "/SAPAssetManager/Rules/FL/WorkOrders/Products/FLOProductReturnToStock.js",
+	"RequiredFields": [
+		"StorageLocLstPkr"
+	]
+}

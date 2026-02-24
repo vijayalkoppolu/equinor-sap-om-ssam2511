@@ -1,0 +1,7 @@
+{
+	"PageToOpen": "/SAPAssetManager/Pages/FL/WorkOrders/EDT/FLBulkWOUpdate.page",
+	"_Type": "Action.Type.Navigation",
+	"PageMetadata": "/SAPAssetManager/Rules/FL/WorkOrders/BulkUpdate/BulkFLWOPageMetadataGenerator.js",
+	"ModalPage": true,
+	"ModalPageFullscreen": true
+}

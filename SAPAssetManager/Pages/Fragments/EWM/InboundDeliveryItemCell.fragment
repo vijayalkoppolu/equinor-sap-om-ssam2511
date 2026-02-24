@@ -1,0 +1,25 @@
+{
+    "_Type": "Control.Type.ObjectCell",
+    "AccessoryType": "DisclosureIndicator",
+	"AccessoryButtonIcon": "$(PLT, sap-icon://overflow, sap-icon://overflow, '', sap-icon://overflow)",
+	"Footnote": "/SAPAssetManager/Rules/EWM/Inbound/Items/WHInboundDeliveryItemBatchAndSer.js",
+	"Description": "/SAPAssetManager/Rules/EWM/Inbound/Items/WHInboundDeliveryItemHusAndTasks.js",
+	"Tags":"/SAPAssetManager/Rules/EWM/InboundDelivery/GetInboundDeliveryTags.js",
+	"OnAccessoryButtonPress": "/SAPAssetManager/Actions/EWM/Inbound/WHInboundDeliveryItemObjectCellPopoverMenu.action",
+	"PreserveIconStackSpacing": false,
+	"Selected": "/SAPAssetManager/Rules/EWM/Inbound/Items/WHInboundDeliveryItemIsSelected.js",
+	"OnPress": "/SAPAssetManager/Actions/EWM/Inbound/WHInboundDeliveryItemDetailsNav.action",
+    "StatusText": "/SAPAssetManager/Rules/EWM/Inbound/Items/WHInboundDeliveryItemStatus.js",
+	"SubstatusText": "/SAPAssetManager/Rules/EWM/Inbound/Items/WHInboundDeliveryItemPackedAndFullQty.js",
+	"Subhead": "{ProductDescription}",
+	"Icons": "/SAPAssetManager/Rules/EWM/Inbound/Items/WHInboundDeliveryItemIcon.js",
+	"Title": "/SAPAssetManager/Rules/EWM/Inbound/Items/WHInboundDeliveryItemNumAndProduct.js",
+	"Styles": {
+		"AccessoryButtonIcon": "AccessoryButtonIcon"
+	},
+	"AvatarStack": {
+        "Avatars": "/SAPAssetManager/Rules/EWM/Inbound/Items/WHInboundDeliveryItemAvatarIcon.js",
+        "ImageHasBorder": true,
+        "ImageIsCircular": false
+    }
+}

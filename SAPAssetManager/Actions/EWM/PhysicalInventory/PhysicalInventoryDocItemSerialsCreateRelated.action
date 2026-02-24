@@ -1,0 +1,25 @@
+{
+    "_Type": "Action.Type.ODataService.CreateRelatedEntity",
+    "Target": {
+      "EntitySet": "WarehousePhysicalInventoryItemSerials",
+      "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "Properties": {
+      "GUID": "#Property:TempSerial_GUID",
+      "ITEM_NO": "#Property:TempSerial_Item",
+      "SerialNumber":"#Property:TempSerial_SerialNumber",
+      "Selected": "#Property:TempSerial_Selected"
+    },
+    "Headers": {
+      "OfflineOData.RemoveAfterUpload": "true",
+      "OfflineOData.TransactionID": "#Property:TempHeader_Key"
+    },
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/CreateEntityFailureMessage.action",
+    "ParentLink": {
+        "Property": "WarehousePhysicalInventoryItemSerial_Nav",
+        "Target": {
+          "EntitySet": "WarehousePhysicalInventoryItems",
+          "ReadLink": "#Property:TempHeader_ReadLink"
+        }
+    }
+}

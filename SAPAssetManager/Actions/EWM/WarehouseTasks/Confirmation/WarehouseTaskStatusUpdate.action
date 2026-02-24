@@ -1,0 +1,17 @@
+{
+    "_Type": "Action.Type.ODataService.UpdateEntity",
+    "Target": {
+        "EntitySet": "WarehouseTasks",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "/SAPAssetManager/Rules/EWM/WarehouseTask/WarehouseTaskLink.js"
+    },
+    "Properties": {
+        "WTStatus": "/SAPAssetManager/Rules/EWM/WarehouseTask/WarehouseTaskWTStatus.js"
+    },
+    "Headers": {
+        "Transaction.Ignore": "true"
+    },
+    "RequestOptions": {
+        "UploadCategory": "/SAPAssetManager/Globals/EWM/TaskConfirmationUploadCategory.global"
+    }
+}

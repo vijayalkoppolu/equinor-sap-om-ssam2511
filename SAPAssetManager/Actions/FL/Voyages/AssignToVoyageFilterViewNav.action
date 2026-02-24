@@ -1,0 +1,8 @@
+{
+    "_Type" : "Action.Type.Filter",
+    "PageToOpen" : "/SAPAssetManager/Pages/FL/AssignToVoyage/AssignToVoyageFilter.page",
+    "Filterable" : "#Page:AssignToVoyagePage/#Control:SectionedTable",
+    "ActionResult": {
+        "_Name": "filterResult"
+    }
+}

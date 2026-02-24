@@ -1,0 +1,44 @@
+{
+	"Caption": "/SAPAssetManager/Rules/Operations/PRT/Documents/PRTDocumentListViewCaption.js",
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"Search": {
+						"Enabled" : true,
+						"Delay": 500,
+						"MinimumCharacterThreshold": 3,
+						"Placeholder": "$(L,search)",
+						"BarcodeScanner": true
+					},
+					"Header": {
+						"UseTopPadding": false
+					},
+					"EmptySection": {
+						"Caption": "$(L,no_prt_document_available)"
+					},
+					"ObjectCell": {
+						"ProgressIndicator": "open",
+						"DetailImage": "/SAPAssetManager/Rules/Documents/DocumentTypeIcon.js",
+						"DetailImageIsCircular": false,
+						"Title": "{FileName}",
+						"Subhead": "{DocDesc}",
+						"Footnote": "/SAPAssetManager/Rules/Operations/PRT/Documents/PRTDocumentFileSizeWrapper.js",
+						"OnAccessoryButtonPress": "/SAPAssetManager/Rules/Documents/OpenOnlineDocument.js"
+					},
+					"Target": {
+						"EntitySet": "{{#Property:@odata.readLink}}/Tools",
+						"Service": "/SAPAssetManager/Services/OnlineAssetManager.service",
+						"QueryOptions": "$filter=(PRTCategory eq 'D')"
+					},
+					"_Type" : "Section.Type.ObjectTable",
+					"_Name": "DocumentSection"
+				}
+			],
+			"_Type" : "Control.Type.SectionedTable",
+			"_Name": "SectionedTable"
+		}
+	],
+	"_Type": "Page",
+	"_Name": "OnlinePRTDocumentsListView"
+}

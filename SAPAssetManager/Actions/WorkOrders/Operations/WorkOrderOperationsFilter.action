@@ -1,0 +1,9 @@
+{
+    "_Type" : "Action.Type.Filter",
+    "PageToOpen" : "/SAPAssetManager/Pages/WorkOrders/Operations/WorkOrderOperationsFilter.page",
+    "Filterable" : "/SAPAssetManager/Rules/WorkOrders/Filterable.js",
+    "OnSuccess": "/SAPAssetManager/Rules/WorkOrders/Operations/WorkOrderOperationListViewFilter.js",
+    "ActionResult": {
+        "_Name": "filterResult"
+     }
+}

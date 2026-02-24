@@ -1,0 +1,9 @@
+{
+    "_Type": "Action.Type.ODataService.DeleteEntity",
+    "Target":
+    {
+        "EntitySet" : "WarehouseTaskConfirmations",
+        "Service" : "/SAPAssetManager/Services/AssetManager.service",
+        "QueryOptions": "$filter=(WarehouseTask eq '{{#Property:WarehouseTask}}') and (WarehouseNo eq '{{#Property:WarehouseNo}}') and (WarehouseTaskItem eq '{{#Property:WarehouseTaskItem}}')"
+    }        
+}

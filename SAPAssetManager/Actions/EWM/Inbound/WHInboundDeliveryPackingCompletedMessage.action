@@ -1,0 +1,6 @@
+{
+    "_Type": "Action.Type.Message",
+    "Title": "$(L,packed)",
+    "Message": "$(L,ewm_packing_already_done_message)",
+    "OKCaption": "$(L,ok)"
+}

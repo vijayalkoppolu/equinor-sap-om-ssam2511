@@ -1,0 +1,7 @@
+{
+    "_Name": "NotFoundItem",
+    "_Type": "FioriToolbarItem.Type.Button",
+    "Title": "$(L, not_found)",
+    "OnPress": "/SAPAssetManager/Rules/FL/ContainerItems/NotFoundItem.js",
+    "Enabled": false
+}

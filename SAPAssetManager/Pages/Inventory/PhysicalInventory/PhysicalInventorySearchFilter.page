@@ -1,0 +1,119 @@
+{
+    "OnActivityBackPressed": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/CancelCheckOnBackNavAndroid.js",
+    "ActionBar": {
+        "Items": [
+            {
+                "Position": "Left",
+                "SystemItem": "Cancel",
+                "Caption": "$(L,cancel)",
+                "OnPress": "/SAPAssetManager/Actions/Page/CancelPage.action"
+            },
+            {
+                "Position": "Right",
+                "SystemItem": "/SAPAssetManager/Rules/Filter/FilterSystemItem.js",
+                "Text": "/SAPAssetManager/Rules/Filter/FilterText.js",
+                "OnPress": "/SAPAssetManager/Rules/Filter/ApplyFilterAndSave.js"
+            }
+        ]
+    },
+    "Caption": "$(L,filter)",
+    "Result": "/SAPAssetManager/Rules/Inventory/PhysicalInventory/SearchFilter/PhysicalInventorySearchFilterResults.js",
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "Controls": [
+                        {
+                            "_Type": "Fragment",
+                            "Fragment": "/SAPAssetManager/Pages/Fragments/Filter/MultiSortByFilter.fragment",
+                            "Properties": {
+                                "Items": [
+                                    {
+                                        "ReturnValue": "Item",
+                                        "DisplayValue": "$(L,item)"
+                                    },
+                                    {
+                                        "ReturnValue": "ItemCounted",
+                                        "DisplayValue": "$(L,counted)"
+                                    }
+
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "Caption": "$(L,filter_by)",
+                    "Controls": [
+                        {
+                            "_Type": "Fragment",
+                            "Fragment": "/SAPAssetManager/Pages/Fragments/Inventory/ListPicker.fragment",
+                            "Properties": {
+                                "_Name": "Item",
+                                "Caption": "$(L,item_number)",
+                                "PickerItems": "/SAPAssetManager/Rules/Inventory/PhysicalInventory/SearchFilter/PhysicalInventoryItemPickerItems.js",
+                                "FilterProperty": "Item"
+                            }
+                        },
+                        {
+                            "_Type": "Fragment",
+                            "Fragment": "/SAPAssetManager/Pages/Fragments/Inventory/ListPicker.fragment",
+                            "Properties": {
+                                "_Name": "ItemCounted",
+                                "Caption": "$(L,counted)",
+                                "PickerItems": "/SAPAssetManager/Rules/Inventory/PhysicalInventory/SearchFilter/PhysicalInventoryCountedPickerItems.js",
+                                "FilterProperty": "ItemCounted"
+                            }
+                        },
+                        {
+                            "_Type": "Fragment",
+                            "Fragment": "/SAPAssetManager/Pages/Fragments/Inventory/ListPicker.fragment",
+                            "Properties": {
+                            "_Name": "Material",
+                                "_Type": "Control.Type.FormCell.ListPicker",
+                                "Caption": "$(L,material)",
+                                "PickerItems": "/SAPAssetManager/Rules/Inventory/PhysicalInventory/SearchFilter/PhysicalInventoryMaterialPickerItems.js",
+                                "FilterProperty": "Material"
+                            }
+                        },
+                        {
+                            "_Type": "Fragment",
+                            "Fragment": "/SAPAssetManager/Pages/Fragments/Inventory/ListPicker.fragment",
+                            "Properties": {
+                                "_Name": "Batch",
+                                "Caption": "$(L,batch)",
+                                "PickerItems": "/SAPAssetManager/Rules/Inventory/PhysicalInventory/SearchFilter/PhysicalInventoryBatchPickerItems.js",
+                                "FilterProperty": "Batch"
+                            }
+                        },
+                        {
+                            "_Type": "Fragment",
+                            "Fragment": "/SAPAssetManager/Pages/Fragments/Inventory/ListPicker.fragment",
+                            "Properties": {
+                                "_Name": "StorageBin",
+                                "Caption": "$(L,storage_bin)",
+                                "PickerItems": "/SAPAssetManager/Rules/Inventory/PhysicalInventory/SearchFilter/PhysicalInventoryStorageBinPickerItems.js",
+                                "FilterProperty": "StorageBin"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "_Name": "FormCellContainer",
+            "_Type": "Control.Type.FormCellContainer"
+        }
+    ],
+    "FioriToolbar": {
+        "_Name": "StockSearchFilterFioriToolbar",
+        "_Type": "Control.Type.FioriToolbar",
+        "Items": [
+            {
+                "_Type": "Fragment",
+                "Fragment": "/SAPAssetManager/Pages/Fragments/Filter/ResetFilterToolbarItem.fragment"
+            }
+        ]
+    },
+    "_Type": "Page",
+    "_Name": "PhysicalInventorySearchFilterPage",
+    "OnLoaded": "/SAPAssetManager/Rules/Filter/FilterOnLoaded.js"
+}

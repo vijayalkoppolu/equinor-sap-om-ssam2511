@@ -1,0 +1,122 @@
+{
+	"Caption": "FLPProductGenInfo",
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"Header": {
+                        "UseTopPadding": true,
+                        "Caption": "$(L, header_info)"
+                    },
+					"KeyAndValues": [
+						{
+							"_Name": "ProductDesc",
+							"KeyName": "Product Description",
+							"Value": "$(DV, {ProductDescription}, '-')"
+						},
+						{
+							"_Name": "BatchManaged",
+							"KeyName": "Batch Managed",
+							"Value": "/SAPAssetManager/Rules/FL/ReturnsByProduct/FormatIsBatchManaged.js"
+						},
+						{
+							"_Name": "Batch",
+							"KeyName": "Batch",
+							"Value": "$(DV, {Batch}, '-')"
+						},
+						{
+							"_Name": "SerialNum",
+							"KeyName": "Serial Number",
+							"Value": "$(DV, {SerialNumber}, '-')"
+						},
+						
+						{
+							"_Name": "SupplyProcess",
+							"KeyName": "Supply Process",
+							"Value":  "{FldLogsSupproc_Nav/SupplyProcessText}"
+						}
+					],
+					"_Type": "Section.Type.KeyValue",
+					"_Name": "HeaderKeyValueTable"
+				},
+				{
+					"Header": {
+                        "UseTopPadding": true,
+                        "Caption": "$(L, additional_information)"
+                    },
+					"KeyAndValues": [
+						{
+							"_Name": "RecommendedAction",
+							"KeyName": "Recommended Action",
+							"Value": "{FldLogsRecommendedAction_Nav/FldLogsRecommendedActionText}"
+						},
+						{
+							"_Name": "ReturnableQty",
+							"KeyName": "Returnable Quantity",
+							"Value": "{RetblQtyInBaseUnit} {RetblQtyBaseUnit}"
+						},
+						{
+							"_Name": "LoadQty",
+							"KeyName": "Load Quantity",
+							"Value": "{LoadingQtyInOrderUnit} {RetblQtyBaseUnit}"
+						},
+						{
+							"_Name": "DestStorageLocation",
+							"KeyName": "Destinaton Storage Location",
+							"Value": "/SAPAssetManager/Rules/FL/ReturnsByProduct/FormatDestinationStorageLocation.js"
+						},
+						
+						{
+							"_Name": "DestinationPlant",
+							"KeyName": "Destination Plant",
+							"Value":  "$(DV, {FieldLogisticsTransferPlant}, '-')"
+						},
+						{
+							"_Name": "SourceStorageLocation",
+							"KeyName": "Source Storage Location",
+							"Value": "/SAPAssetManager/Rules/FL/ReturnsByProduct/FormatSourceStorageLocation.js"
+						},
+						
+						{
+							"_Name": "StockType",
+							"KeyName": "Stock Type",
+							"Value":  "$(DV, {StockTypeName}, '-')"
+						},
+						{
+							"_Name": "Comments",
+							"KeyName": "Comments",
+							"Value":  "$(DV, {FldLogsReturnComment}, '-')"
+						},
+						{
+							"_Name": "ContainerID",
+							"KeyName": "Container ID",
+							"Value": "$(DV, {FldLogsTranspContainerID}, '-')"
+						},
+						{
+							"_Name": "ReqstDeliveryDate",
+							"KeyName": "Requested Delivery Date",
+							"Value": "/SAPAssetManager/Rules/FL/ReturnsByProduct/FormatRequestedDeliveryDate.js"
+						},
+						{
+							"_Name": "IsOutboundDelivery",
+							"KeyName": "$(L, fld_create_outbound_delivery)",
+							"Value": "$(L, yes)"
+						},
+						{
+							"_Name": "OutboundDelivery",
+							"KeyName": "$(L, obd_detail_title)",
+							"Value": "{OutboundDelivery}"
+						}
+					],
+					"_Type": "Section.Type.KeyValue",
+					"_Name": "HeaderKeyValueTable1"
+				}
+			],
+			"_Name": "SectionedTable0",
+			"_Type": "Control.Type.SectionedTable"
+		}
+	],
+	"DataSubscriptions": ["FldLogsInitRetProducts", "StorageLocations", "FldLogsPlants", "MaterialValuations", "FldLogsRecommendedActions", "FldLogsReturnStatuses", "FldLogsShippingPoints", "FldLogsRefDocTypes"],
+	"_Name": "FLPProductGenInfo",
+	"_Type": "Page"
+}

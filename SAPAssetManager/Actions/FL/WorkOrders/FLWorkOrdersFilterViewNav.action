@@ -1,0 +1,8 @@
+{
+  "_Type": "Action.Type.Filter",
+  "PageToOpen": "/SAPAssetManager/Pages/FL/WorkOrders/FLWorkOrdersFilter.page",
+  "Filterable" : "#Page:FLWorkOrdersListViewPage/#Control:SectionedTable",
+    "ActionResult": {
+        "_Name": "filterResult"
+    }
+}

@@ -1,0 +1,34 @@
+{
+    "_Type": "Action.Type.ODataService.UpdateEntity",
+    "Target":
+    {
+        "EntitySet" : "WarehouseTaskConfirmations",
+        "Service" : "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "WarehouseTaskConfirmations(WarehouseTask='{{#Property:WarehouseTask}}',WarehouseNo='{{#Property:WarehouseNo}}',WarehouseTaskItem='{{#Property:WarehouseTaskItem}}')"
+    },
+    "Properties":
+    {
+        "WarehouseTaskItem": "#Property:WarehouseTaskItem",
+        "Batch": "#Control:WhBatchSimple/#Value",
+        "SrcHU": "#Control:WhSourceHUSimple/#Value",
+        "DestinationBin": "#Control:WhDestinationBinSimple/#Value",
+        "DestHU": "#Control:WhDestinationHUSimple/#Value",
+        "ActualQuantity": "#Control:WhQuantitySimple/#Value",
+        "WithdrawHU": "/SAPAssetManager/Rules/EWM/WarehouseTask/Confirmation/SetRemoveHUProperty.js",
+        "WithdrawHUManual": "",
+        "MultiExceptionCodes": "/SAPAssetManager/Rules/EWM/WarehouseTask/Confirmation/SetMultiExceptionCodesProperty.js"
+    },
+    "Headers": {
+        "OfflineOData.TransactionID": "{{#Property:WarehouseTask}}{{#Property:WarehouseNo}}"        
+    },
+    "RequestOptions": {
+        "UploadCategory": "/SAPAssetManager/Globals/EWM/TaskConfirmationUploadCategory.global"
+    },
+    "UpdateLinks": "/SAPAssetManager/Rules/EWM/WarehouseTask/Confirmation/UpdateLinksForWHUpdate.js",
+    "CreateLinks": "/SAPAssetManager/Rules/EWM/WarehouseTask/Confirmation/CreateLinksForWHUpdate.js",
+    "ValidationRule": "/SAPAssetManager/Rules/EWM/WarehouseTask/Confirmation/WarehouseTaskConfirmationValidation.js",
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/UpdateEntityFailureMessage.action",
+    "OnSuccess": "/SAPAssetManager/Actions/CreateUpdateDelete/UpdateEntitySuccessMessage.action",
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText" : "  "    
+}

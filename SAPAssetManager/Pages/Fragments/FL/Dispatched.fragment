@@ -1,0 +1,7 @@
+{
+    "_Name": "FLDispatch",
+    "_Type": "FioriToolbarItem.Type.Button",
+    "Title": "$(L, dispatch)",
+    "Enabled": false,
+    "ButtonType": "Secondary"
+}

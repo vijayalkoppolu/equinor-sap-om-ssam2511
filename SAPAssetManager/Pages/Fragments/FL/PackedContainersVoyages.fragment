@@ -1,0 +1,16 @@
+{
+    "_Type": "Control.Type.ObjectCell",
+    "PreserveIconStackSpacing": false,
+    "Title": "{FldLogsShptVoyageNumber} , {FldLogsVoyageStageID}",
+    "Subhead": "/SAPAssetManager/Rules/FL/PackedPackages/FLVoyagesSubhead.js",
+    "StatusText": "{FldLogsShptVoyageTypeText}",
+    "AvatarStack": {
+    "Avatars": [{
+        "Image": "$(PLT, sap-icon://cargo-train, sap-icon://cargo-train, '', sap-icon://cargo-train)",
+        "Style": "$(PLT, FLVoyageIcon, FLVoyageIconAndroid)"
+    }], 
+    "ImageHasBorder": true,
+    "ImageIsCircular": false
+    },
+    "Footnote": "/SAPAssetManager/Rules/FL/PackedPackages/FLVoyagesFootNote.js"
+}

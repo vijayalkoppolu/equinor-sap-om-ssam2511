@@ -1,0 +1,69 @@
+{
+    "_Type": "Page",
+    "_Name": "PackedContainersSealPage",
+    "Caption": "$(L,fl_seal)",
+    "ActionBar": {
+        "Items": [
+            {
+                "_Name": "SaveButton",
+                "Position": "Right",
+                "SystemItem": "Save",
+                "Caption": "$(L,save)",
+                "Visible": true,
+                "OnPress": "/SAPAssetManager/Rules/FL/PackedContainers/FLSealPackedContainers.js"
+            },
+            {
+                "_Name": "CancelButton",
+                "Position": "Left",
+                "SystemItem": "Cancel",
+                "Caption": "$(L,cancel)",
+                "Visible": true,
+                "OnPress": "/SAPAssetManager/Actions/Page/CancelPage.action"
+            }
+        ]
+    },
+    "Controls": [
+        {
+            "_Name":"FLSealPageTable",
+            "_Type":"Control.Type.SectionedTable",
+            "Sections": [
+                {
+                     "_Name": "FLSealPageSection",
+                    "_Type": "Section.Type.FormCell",
+                    "Controls": [
+                        {
+                            "_Type": "Control.Type.FormCell.SimpleProperty",
+                            "_Name": "SealNumber1",
+                            "AlternateInput": "Barcode",
+                            "Caption":"$(L,fl_seal_number, '1')"
+                        },
+                        {
+                            "_Type": "Control.Type.FormCell.SimpleProperty",
+                            "_Name": "SealNumber2",
+                            "AlternateInput": "Barcode",
+                            "Caption":"$(L,fl_seal_number, '2')"
+                        },
+                        {
+                            "_Type": "Control.Type.FormCell.SimpleProperty",
+                            "_Name": "SealNumber3",
+                            "AlternateInput": "Barcode",
+                            "Caption":"$(L,fl_seal_number, '3')"
+                        },
+                        {
+                            "_Type": "Control.Type.FormCell.SimpleProperty",
+                            "_Name": "SealNumber4",
+                            "AlternateInput": "Barcode",
+                            "Caption":"$(L,fl_seal_number, '4')"
+                        },
+                        {
+                            "_Type": "Control.Type.FormCell.SimpleProperty",
+                            "_Name": "SealNumber5",
+                            "AlternateInput": "Barcode",
+                            "Caption":"$(L,fl_seal_number, '5')"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

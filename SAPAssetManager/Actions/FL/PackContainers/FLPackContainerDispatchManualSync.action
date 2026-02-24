@@ -1,0 +1,6 @@
+{
+    "Message": "$(L,dispatch_manual_sync)",
+    "Duration": 4,
+    "Animated": true,
+    "_Type": "Action.Type.BannerMessage"
+}

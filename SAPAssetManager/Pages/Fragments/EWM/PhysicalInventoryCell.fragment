@@ -1,0 +1,25 @@
+{
+    "_Type": "Control.Type.ObjectCell",
+    "AccessoryType": "DisclosureIndicator",
+    "PreserveIconStackSpacing": false,
+    "Title": "/SAPAssetManager/Rules/EWM/PhysicalInventory/PhysicalInventoryProduct.js",
+    "Subhead": "/SAPAssetManager/Rules/EWM/PhysicalInventory/PhysicalInventoryDetails.js",
+    "Footnote": "/SAPAssetManager/Rules/EWM/PhysicalInventory/GetWOandSerializedData.js",
+    "Description": "/SAPAssetManager/Rules/EWM/PhysicalInventory/GetCountDate.js",
+    "StatusText": "/SAPAssetManager/Rules/EWM/PhysicalInventory/GetCountStatus.js",
+    "SubstatusText": "/SAPAssetManager/Rules/EWM/PhysicalInventory/GetCountQuantity.js",
+    "OnPress": "/SAPAssetManager/Actions/EWM/PhysicalInventory/EWMPhysicalInventoryItemDetailsNav.action",
+    "AccessoryButtonIcon": "$(PLT, sap-icon://write-new, sap-icon://write-new, '', sap-icon://write-new)",
+    "OnAccessoryButtonPress": "/SAPAssetManager/Rules/EWM/PhysicalInventory/PICountNav.js",
+    "Styles": {
+		"AccessoryButtonIcon": "AccessoryButtonIcon"
+	},
+    "AvatarStack": {
+		"Avatars": [{
+            "Image": "$(PLT, sap-icon://customer-order-entry, sap-icon://customer-order-entry, '', sap-icon://customer-order-entry)",
+            "Style": "$(PLT, PhysicalInventoryIcon, PhysicalInventoryIconAndroid)"
+        }],        
+        "ImageHasBorder": true,
+        "ImageIsCircular": false
+    }
+}

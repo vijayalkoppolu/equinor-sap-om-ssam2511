@@ -1,0 +1,27 @@
+{
+	"_Type": "Action.Type.ODataService.UpdateEntity",
+	"Target": {
+	"EntitySet": "FldLogsPackCtnPkdPkgs",
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+    "ReadLink": "{@odata.readLink}"
+	},
+	"OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/UpdateEntityFailureMessage.action",
+	"Properties": {
+       "ActionType": "EDITALL",
+       "FldLogsVoyageSrceStage": "#Control:ShipppingPointListPkr/#SelectedValue",
+       "FldLogsVoyageDestStage": "#Control:ReceivingPointListPkr/#SelectedValue",
+       "FldLogsCtnActualWeight" : "#Control:ActualWeightSimple/#Value",
+       "FldLogsCtnActualWeightUnit" : "#Control:UOMListPicker/#SelectedValue",
+       "FldLogsShptLocationID" : "#Control:LocationIdListPkr/#SelectedValue",
+       "FldLogsContainerUnitExternalID" : "#Control:RefDocNumberSimple/#Value"
+	},
+	"Headers": {
+        "OfflineOData.TransactionID": "{{#Property:ObjectId}}"        
+    },
+     "RequestOptions": {
+         "UpdateMode": "Replace"
+    },
+	"OnSuccess": "/SAPAssetManager/Actions/FL/Common/UpdateEntitySuccessMessage.action",
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText" : "  " 
+}

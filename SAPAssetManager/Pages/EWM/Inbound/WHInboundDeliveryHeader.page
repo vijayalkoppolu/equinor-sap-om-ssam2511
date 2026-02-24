@@ -1,0 +1,104 @@
+{
+    "Controls": [
+        {
+            "Sections": [
+                {
+                   "_Type": "Section.Type.KeyValue",
+                    "_Name": "InboundDeliveryReferenceDocSection",
+                    "Header": {
+                        "Caption": "$(L,reference_doc_numbers)"
+                    },
+                    "KeyAndValues": [
+                        {
+                            "_Name": "EWMDeliveryNumber",
+                            "KeyName": "$(L, ewm_delivery_number)",
+                            "Value": "$(DV, {EWMDeliveryNum},'-')"
+                        },
+                        {
+                            "_Name": "LEDeliveryNumber",
+                            "KeyName": "$(L, wh_le_delivery_number)",
+                            "Value": "$(DV, {LEDeliveryNum},'-')"
+                        },
+                        {
+                            "_Name": "PurchaseOrderNumber",
+                            "KeyName": "$(L, ewm_po_purchase_order_number)",
+                            "Value": "$(DV, {PurchaseOrder},'-')"
+                        },
+                        {
+                            "_Name": "ASN",
+                            "KeyName": "$(L, asn)",
+                            "Value": "$(DV, {ASN},'-')"
+                        },
+                        {
+                            "_Name": "BillOfLading",
+                            "KeyName": "$(L, bol_bill_of_lading)",
+                            "Value": "$(DV, {BillOfLading},'-')"
+                        },
+                        {
+                            "_Name": "WorkOrderNumber",
+                            "KeyName": "$(L, wo_work_order_number)",
+                            "Value": "$(DV, {MaintenanceOrder},'-')"
+                        }
+                    ]
+                },
+                {
+                   "_Type": "Section.Type.KeyValue",
+                    "_Name": "InboundDeliveryHeaderSection",
+                    "Header": {
+                        "Caption": "$(L,header_info)"
+                    },
+                    "KeyAndValues": [
+                        {
+                            "_Name": "WHNum",
+                            "KeyName": "$(L, warehouse_num)",
+                            "Value": "$(DV, {WarehouseNum},'-')"
+                        },
+                        {
+                            "_Name": "Vendor",
+                            "KeyName": "$(L, vendor)",
+                            "Value": "$(DV, {Vendor},'-')"
+                        },
+                        {
+                            "_Name": "CompletionStatus",
+                            "KeyName": "$(L, completion_status)",
+                            "Value": "/SAPAssetManager/Rules/EWM/Inbound/GetInboundDeliveryCompletionStatusText.js"
+                        },
+                        {
+                            "_Name": "PackingStatus",
+                            "KeyName": "$(L, packing_status)",
+                            "Value": "/SAPAssetManager/Rules/EWM/Inbound/WHInboundDeliveryPackingStatus.js"
+                        },
+                        {
+                            "_Name": "PlannedDeliveryDate",
+                            "KeyName": "$(L, planned_delivery_date)",
+                            "Value": "/SAPAssetManager/Rules/EWM/Inbound/WHInboundDeliveryPlannedDlvDate.js"
+                        },
+                        {
+                            "_Name": "ManufacturingOrder",
+                            "KeyName": "$(L, manufacturing_order)",
+                            "Value": "$(DV, {ManufactOrder},'-')"
+                        },
+                        {
+                            "_Name": "NumberOfHUs",
+                            "KeyName": "$(L, number_of_hus)",
+                            "Value": "/SAPAssetManager/Rules/EWM/Inbound/WHInboundDeliveryNumberOfHandlingUints.js"
+                        },
+                        {
+                            "_Name": "DeliveryItemCount",
+                            "KeyName": "$(L, delivery_item_count)",
+                            "Value": "/SAPAssetManager/Rules/EWM/Inbound/Items/WHInboundDeliveryItemCount.js"
+                        },
+                        {
+                            "_Name": "UnloadingPoint",
+                            "KeyName": "$(L, unloading_point)",
+                            "Value": "$(DV, {UnloadingPoint},'-')"
+                        }
+                    ]
+                }],
+            "_Type": "Control.Type.SectionedTable",
+            "_Name": "SectionedTable"
+        }
+    ],
+    "_Name": "WHInboundDeliveryHeaderPage",
+    "_Type": "Page"
+}

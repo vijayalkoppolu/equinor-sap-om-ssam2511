@@ -1,0 +1,6 @@
+{
+    "_Type": "Action.Type.Message",
+    "Title": "$(L,received)",
+    "Message": "$(L,ewm_goods_received_done)",
+    "OKCaption": "$(L,ok)"
+}

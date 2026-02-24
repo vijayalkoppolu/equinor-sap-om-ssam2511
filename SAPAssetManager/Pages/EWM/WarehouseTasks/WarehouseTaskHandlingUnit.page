@@ -1,0 +1,157 @@
+{
+    "OnBackButtonPressed": "/SAPAssetManager/Rules/EWM/WarehouseTask/Confirmation/OnPickHUBackButtonPressed.js",
+    "ActionBar": {
+        "Items": [
+            {
+                "Position": "Right",
+                "SystemItem": "$(PLT,'Done','', '', 'Done')",
+                "Text": "/SAPAssetManager/Rules/Common/Platform/DoneText.js",
+                "OnPress": "/SAPAssetManager/Rules/EWM/WarehouseTask/HandlingUnit/OnDoneActions.js"
+            }
+        ]
+    },
+    "Caption": "$(L,maintain_pick_hu)",
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "Header": {
+                        "Caption": "$(L,required_fields)",
+                        "UseTopPadding": false
+                    },
+                    "Controls": [
+                        {
+                            "_Type": "Fragment",
+                            "Fragment": "/SAPAssetManager/Pages/Fragments/EWM/PackagingMaterialListPicker.fragment",
+                            "Properties": {
+                                "PickerPrompt": "$(L,select_single_item)",
+                                "Value": "/SAPAssetManager/Rules/EWM/WarehouseTask/HandlingUnit/GetHandlingUnitPackagingMaterial.js"
+                            }
+                        },
+                        {
+                            "Caption": "$(L,pick_handling_unit)*",
+                            "IsEditable": true,
+                            "KeyboardType": "Default",
+                            "AlternateInput": "Barcode",
+                            "_Name": "WhPickHandlingUnitSimple",
+                            "Value": "/SAPAssetManager/Rules/EWM/WarehouseTask/HandlingUnit/GetHandlingUnitValue.js",
+                            "_Type": "Control.Type.FormCell.SimpleProperty"
+                        },
+                        {
+                            "_Type": "Control.Type.FormCell.Button",
+                            "_Name": "MaintainPickHandlingUnit",
+                            "Title": "$(L,generate_hu_number)",
+                            "OnPress": "/SAPAssetManager/Rules/EWM/WarehouseTask/HandlingUnit/GenerateHandlingUnitLocalID.js",
+                            "TextAlignment": "Center",
+                            "ButtonType": "Text",
+                            "IsVisible": true
+                        }
+                    ],
+                    "_Type": "Section.Type.FormCell",
+                    "_Name": "FormCellSection0"
+                },
+                {
+                    "Controls": [
+                        {
+                            "_Type": "Control.Type.FormCell.SimpleProperty",
+                            "_Name": "WhTaskOrderSimple",
+                            "Caption": "$(L,warehouse_order)/$(L,warehouse_task)",
+                            "IsEditable": false,
+                            "Value": "$(DV, {WarehouseOrder}, '-') / $(DV, {WarehouseTask}, '-')"
+                        },
+                        {
+                            "Caption": "$(L,product)",
+                            "IsEditable": false,
+                            "KeyboardType": "Default",
+                            "Value": "$(DV,'/SAPAssetManager/Rules/EWM/WarehouseTask/ListView/WarehouseTaskTitle.js', '-')",
+                            "_Name": "WhProductDescriptionSimple",
+                            "_Type": "Control.Type.FormCell.SimpleProperty"
+                        },
+                        {
+                            "Caption": "$(L,source_bin)",
+                            "IsEditable": false,
+                            "KeyboardType": "Default",
+                            "Value": "/SAPAssetManager/Rules/EWM/WarehouseTask/Confirmation/GetSourceBinForHU.js",
+                            "_Name": "WhSourceBinSimple",
+                            "_Type": "Control.Type.FormCell.SimpleProperty"
+                        },
+                        {
+                            "_Type": "Control.Type.FormCell.SimpleProperty",
+                            "_Name": "WhDestinationBinSimple",
+                            "Caption": "$(L,destination_bin)",
+                            "IsEditable": false,
+                            "Value": "{DestinationBin}"
+                        }
+                    ],
+                    "_Type": "Section.Type.FormCell",
+                    "_Name": "FormCellSection1"
+                },
+                {
+                    "Header": {
+                        "DataTable": {
+                            "Items": [
+                                 {
+                                    "Text": "$(L,handling_unit)",
+                                    "TextAlignment": "Center"
+                                },
+                                {
+                                    "Text": "$(L,packaging_material)",
+                                    "TextAlignment": "Center"
+                                },
+                                {
+                                    "Text": "$(L,hu_id)",
+                                    "TextAlignment": "Center"
+                                },
+                                {
+                                    "Text": "$(L,hu_type)",
+                                    "TextAlignment": "Center"
+                                }
+
+                            ]
+                        }
+                    },
+                    "Row": {
+                        "Layout": {
+                            "ColumnWidth": [200,100,100,-1]
+                        },
+                        "Items": [
+                            {
+                                "Text": "{HandlingUnit}",
+                                "TextAlignment": "Center"
+                            },
+                            {
+                                "Text": "/SAPAssetManager/Rules/EWM/WarehouseTask/HandlingUnit/GetPackagingMaterial.js",
+                                "TextAlignment": "Center"
+                            },
+                            {
+                                "Text": "{HuNoInWho}",
+                                "TextAlignment": "Center"
+                            },
+                            {
+                                "Text": "{HUType}",
+                                "TextAlignment": "Center"
+                            }
+                        ]
+                    },
+                      "Target": {
+                        "EntitySet": "WarehousePickHUs",
+                        "QueryOptions": "$filter=WarehouseOrder eq '{{#Property:WarehouseOrder}}'&$orderby=HuNoInWho asc",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service"
+                    },
+                    "_Type": "Section.Type.DataTable",
+                    "DataPaging": {
+                        "PageSize": "/SAPAssetManager/Rules/Common/DataTablePageSize.js"
+                    },
+                    "StickyColumn": false,
+                    "_Name": "DataTableSection"
+                }
+            ],
+            "_Type": "Control.Type.SectionedTable",
+            "_Name": "SectionedTable"
+        }
+    ],
+    "OnLoaded": "/SAPAssetManager/Rules/Common/SaveInitialValuesOnLoaded.js",
+    "_Type": "Page",
+    "_Name": "WarehouseTaskHandlingUnitPage"
+}
+

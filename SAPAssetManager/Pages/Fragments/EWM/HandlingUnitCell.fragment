@@ -1,0 +1,23 @@
+{
+	"_Type": "Control.Type.ObjectCell",
+	"Icons": "/SAPAssetManager/Rules/EWM/Inbound/Items/HandlingUnit/WHHandlingUnitObjectCellIcons.js",
+	"Title": "$(DV, {Header_Nav/HandlingUnit}, {Header_Nav/GUID})",
+	"Description": "/SAPAssetManager/Rules/EWM/Inbound/Items/HandlingUnit/WHHandlingUnitLoadingWeight.js",
+	"AccessoryButtonIcon": "/SAPAssetManager/Rules/EWM/Inbound/Items/HandlingUnit/WHHandlingUnitObjectCellAccessoryButtonIcon.js",
+	"OnAccessoryButtonPress": "/SAPAssetManager/Rules/EWM/Inbound/Items/HandlingUnit/WHHandlingUnitDelete.js",
+	"PreserveIconStackSpacing": false,
+	"StatusText": "/SAPAssetManager/Rules/EWM/Inbound/Items/HandlingUnit/WHHandlingUnitPackedQuantity.js",
+	"Subhead": "/SAPAssetManager/Rules/EWM/Inbound/Items/HandlingUnit/WHHandlingUnitProductAndDesc.js",
+	"Footnote": "/SAPAssetManager/Rules/EWM/Inbound/Items/HandlingUnit/WHHandlingUnitType.js",
+	"Styles": {
+		"AccessoryButtonIcon": "AccessoryButtonIcon"
+	},
+	"AvatarStack": {
+		"Avatars": [{
+            "Image": "$(PLT, sap-icon://grid, sap-icon://grid, '', sap-icon://grid)",
+            "Style": "$(PLT, HandlingUnitIcon, HandlingUnitIconAndroid)"
+        }],
+        "ImageHasBorder": true,
+        "ImageIsCircular": false
+    }
+}

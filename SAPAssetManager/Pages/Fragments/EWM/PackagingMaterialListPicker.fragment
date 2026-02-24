@@ -1,0 +1,29 @@
+{
+    "_Name": "PackagingMaterialPicker",
+    "_Type": "Control.Type.FormCell.ListPicker",
+    "Caption": "$(L, packaging_material)*",
+    "AllowMultipleSelection": false,
+    "IsPickerDismissedOnSelection": true,
+    "AllowDefaultValueIfOneItem": true,
+    "IsSearchCancelledAfterSelection": true,
+    "Search": {
+        "Enabled": true,
+        "Delay": 500,
+        "MinimumCharacterThreshold": 2,
+        "Placeholder": "$(L,search)",
+        "BarcodeScanner": true
+    },
+    "PickerItems": {
+        "DisplayValue": "{{#Property:PackagingMaterial}} - {{#Property:PackagingMaterialDescription}}",
+        "ReturnValue": "{PackagingMaterial}",
+        "Target": {
+            "EntitySet": "WarehousePackagingMaterials",
+            "Service": "/SAPAssetManager/Services/AssetManager.service",
+            "QueryOptions": ""
+        },
+        "ObjectCell": {
+            "Title": "{{#Property:PackagingMaterial}}",
+            "Subhead": "{{#Property:PackagingMaterialDescription}}"
+        }
+    }
+}

@@ -1,0 +1,146 @@
+{
+  "OnActivityBackPressed": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/CancelCheckOnBackNavAndroid.js",
+  "ActionBar": {
+    "Items": [
+      {
+        "Position": "Left",
+        "SystemItem": "Cancel",
+        "Caption": "$(L,cancel)",
+        "OnPress": "/SAPAssetManager/Actions/Page/CancelPage.action"
+      },
+      {
+        "Position": "Right",
+        "SystemItem": "/SAPAssetManager/Rules/Filter/FilterSystemItem.js",
+        "Text": "/SAPAssetManager/Rules/Filter/FilterText.js",
+        "OnPress": "/SAPAssetManager/Rules/Filter/ApplyFilterAndSave.js"
+      }
+    ]
+  },
+  "Caption": "$(L,filter)",
+  "Result": "/SAPAssetManager/Rules/FL/Voyages/AssignToVoyage/AssignToVoyageFilterResults.js",
+  "Controls": [
+    {
+      "Sections": [
+        {
+          "Controls": [
+            {
+              "_Type": "Fragment",
+              "Fragment": "/SAPAssetManager/Pages/Fragments/Filter/MultiSortByFilter.fragment",
+              "Properties": {
+                "Items": [
+                  { 
+                    "ReturnValue": "VoyageNumber",     
+                    "DisplayValue": "$(L,fl_voyage_number)" 
+                  },
+                  {
+                    "ReturnValue": "VoyageTypeCode",
+                    "DisplayValue": "$(L,fl_mode_of_transport)"
+                  },
+                  { 
+                    "ReturnValue": "DestinationPlant", 
+                    "DisplayValue": "$(L,destination_plant)" 
+                  },
+                  { 
+                    "ReturnValue": "DestinationStage", 
+                    "DisplayValue": "$(L,fl_to_receiving_point)" 
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "Caption": "$(L,filter_by)",
+          "Controls": [
+            {
+                "Caption": "$(L,current_plant)",
+                "IsEditable": false,
+                "Value": "/SAPAssetManager/Rules/FL/Voyages/AssignToVoyage/GetCurrentPlantName.js",
+                "_Name": "CurrentPlantSimple",
+                "_Type": "Control.Type.FormCell.SimpleProperty"
+            },
+            {
+              "_Name": "VoyageNumberInput",
+              "_Type": "Control.Type.FormCell.SimpleProperty",
+              "Caption": "$(L,fl_voyage_number)",
+              "IsEditable": true,
+              "KeyboardType": "Default",
+              "FilterProperty": "VoyageNumber",
+              "AlternateInput": "Barcode",
+              "OnValueChange": "/SAPAssetManager/Rules/Filter/RedrawFilterToolbar.js"
+            },
+            {
+              "_Name": "VoyageTypeFilter",
+              "_Type": "Control.Type.FormCell.ListPicker",
+              "Caption": "$(L,fl_voyage_type)",
+              "AllowMultipleSelection": false,
+              "IsPickerDismissedOnSelection": true,
+              "IsSearchCancelledAfterSelection": true,
+              "PickerItems": {
+                "DisplayValue": "{{#Property:Description}}",
+                "ReturnValue": "{VoyageTypeCode}",
+                "Target": {
+                  "EntitySet": "FldLogsVoyageTypeCodes",
+                  "Service": "/SAPAssetManager/Services/AssetManager.service",
+                  "QueryOptions": "$orderby=Description"
+                }
+              },
+              "FilterProperty": "VoyageTypeCode",
+              "OnValueChange": "/SAPAssetManager/Rules/Filter/RedrawFilterToolbar.js"
+            },
+            {
+              "_Name": "FromShippingPointInput",
+              "_Type": "Control.Type.FormCell.SimpleProperty",
+              "Caption": "$(L,fl_from_shipping_point)",
+              "IsEditable": true,
+              "KeyboardType": "Default",
+              "FilterProperty": "SourceStage",
+			  "AlternateInput": "Barcode",
+              "OnValueChange": "/SAPAssetManager/Rules/Filter/RedrawFilterToolbar.js"
+            },
+            {
+              "_Name": "DestinationPlantFilter",
+              "_Type": "Control.Type.FormCell.ListPicker",
+              "Caption": "$(L,destination_plant)",
+              "AllowMultipleSelection": false,
+              "IsPickerDismissedOnSelection": true,
+              "IsSearchCancelledAfterSelection": true,
+              "Search": {
+                "Enabled": true,
+                "Delay": 500,
+                "MinimumCharacterThreshold": 3,
+                "Placeholder": "$(L,search)",
+                "BarcodeScanner": true
+              },
+              "FilterProperty": "DestinationPlant",
+              "PickerItems": "/SAPAssetManager/Rules/FL/Voyages/AssignToVoyage/GetDestinationPlantPickerItems.js",
+              "OnValueChange": "/SAPAssetManager/Rules/Filter/RedrawFilterToolbar.js"
+            },
+            {
+              "_Name": "ToReceivingPointInput",
+              "_Type": "Control.Type.FormCell.SimpleProperty",
+              "Caption": "$(L,fl_to_receiving_point)",
+              "IsEditable": true,
+              "KeyboardType": "Default",
+              "FilterProperty": "DestinationStage",
+			  "AlternateInput": "Barcode",
+              "OnValueChange": "/SAPAssetManager/Rules/Filter/RedrawFilterToolbar.js"
+            }
+          ]
+        }
+      ],
+      "_Name": "FormCellContainer",
+      "_Type": "Control.Type.FormCellContainer"
+    }
+  ],
+  "FioriToolbar": {
+    "_Name": "AssignToVoyageFilterToolbar",
+    "_Type": "Control.Type.FioriToolbar",
+    "Items": [
+      { "_Type": "Fragment", "Fragment": "/SAPAssetManager/Pages/Fragments/Filter/ResetFilterToolbarItem.fragment" }
+    ]
+  },
+  "_Type": "Page",
+  "_Name": "AssignToVoyageFilter",
+  "OnLoaded": "/SAPAssetManager/Rules/FL/Voyages/AssignToVoyage/AssignToVoyageFilterOnLoaded.js"
+}

@@ -1,0 +1,13 @@
+{
+  "_Type": "Action.Type.RestService.SendRequest",
+  "Target": {
+    "Service": "/SAPAssetManager/Services/AzureOpenAI.service",
+    "Path": "/api/v1.0/job-completion",
+    "RequestProperties": {
+      "Method": "POST",
+      "FetchCSRF": false
+    }
+  },
+  "ShowActivityIndicator": true,
+  "ActivityIndicatorText": "$(L, processing)"
+}

@@ -1,0 +1,59 @@
+{
+	"Caption": "$(L,app_display_name)",
+	"ActionBar": {
+		"Items": [
+			{
+			    "_Name": "FetchDocuments",
+				"Position": "Right",
+				"Icon":"$(PLT,sap-icon://download, sap-icon://download,'', sap-icon://download)",
+				"OnPress": "/SAPAssetManager/Actions/EWM/Fetch/FetchDocuments.action",
+				"Visible": "/SAPAssetManager/Rules/Common/IsDemoModeDisabled.js"
+			},
+			"/SAPAssetManager/Pages/Fragments/SyncButton.fragment"
+		]
+	},
+	"Controls": [
+		{
+			"_Type": "Control.Type.SectionedTable",
+			"_Name" : "SectionedTable",
+			"Sections": [
+				{
+					"ObjectCells":[
+						{
+						"ObjectCell":{ 
+                            "PreserveIconStackSpacing": false,
+                            "Title": "/SAPAssetManager/Rules/EWM/Resource/GetWarehouseWithLabel.js",
+                            "Subhead": "/SAPAssetManager/Rules/EWM/Resource/GetResourceText.js",
+						    "OnPress": "/SAPAssetManager/Actions/EWM/OverviewPage/ResourceListViewNav.action",
+						     "Styles": {
+                                "Subhead": "OverviewResourceText"
+                            }
+                        }		
+						}
+					],
+					"Header": {
+						"Caption": "",
+						"UseTopPadding": false
+					},
+				    "Search": {
+                        "Enabled": false
+                    },
+					"_Name": "EWMHeaderSection",
+                    "_Type": "Section.Type.ObjectTable"
+				}
+			]
+		},
+		{
+			"Items": "/SAPAssetManager/Rules/EWM/OverviewPage/OverviewTabItems.js",
+			"Position": "Top",
+			"_Type": "Control.Type.Tabs",
+			"_Name": "TabsControl"
+		}
+	],
+	"_Type": "Page",
+	"_Name": "EWMOverviewPage",
+  	"OnReturning": "/SAPAssetManager/Rules/EWM/OverviewPage/RefreshOverviewPage.js",
+	"OnLoaded": "/SAPAssetManager/Rules/EWM/OverviewPage/EWMOverviewPageOnLoaded.js",
+	"OnResume": "/SAPAssetManager/Rules/EWM/OverviewPage/EWMOverviewPageOnResume.js",
+	"DataSubscriptions": ["/SAPAssetManager/Services/AssetManager.service", "UserPreferences"]
+}

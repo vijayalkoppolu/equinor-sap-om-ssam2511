@@ -1,0 +1,6 @@
+{
+	"_Type": "Action.Type.Message",
+	"Title": "$(L, validation_error)",
+	"Message": "$(L,missing_personnel_number)",
+	"OKCaption": "$(L, ok)"
+}

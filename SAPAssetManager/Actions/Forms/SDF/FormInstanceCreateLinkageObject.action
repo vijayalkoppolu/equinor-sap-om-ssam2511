@@ -1,0 +1,23 @@
+{
+	"_Type": "Action.Type.ODataService.CreateEntity",
+    "Target": {
+        "EntitySet": "DynamicFormLinkages",
+        "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "Properties": {
+        "FormInstanceID": "{#ActionResults:CreateDynamicFormInstanceResult/#Property:data/#Property:FormInstanceID}",
+        "FormVersion": "{#ActionResults:CreateDynamicFormInstanceResult/#Property:data/#Property:FormVersion}",
+        "FormName": "{#ActionResults:CreateDynamicFormInstanceResult/#Property:data/#Property:FormName}",
+        "AppName": "{#ActionResults:CreateDynamicFormInstanceResult/#Property:data/#Property:AppName}",
+        "ObjectKey": "{#ActionResults:CreateDynamicFormInstanceResult/#Property:data/#Property:ObjectKey}",
+        "ObjectType": "{#ActionResults:CreateDynamicFormInstanceResult/#Property:data/#Property:ObjectType}",
+        "TechnicalEntityKey": "{#ActionResults:CreateDynamicFormInstanceResult/#Property:data/#Property:TechnicalEntityKey}",
+        "TechnicalEntityType": "{#ActionResults:CreateDynamicFormInstanceResult/#Property:data/#Property:TechnicalEntityType}"
+    },
+    "Headers": {
+        "Transaction.Ignore": "true"
+    },
+    "CreateLinks": "/SAPAssetManager/Rules/Forms/SDF/FormInstanceCreateLinks.js",
+    "OnSuccess": "/SAPAssetManager/Actions/CreateUpdateDelete/CreateEntitySuccessMessage.action",
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/CreateEntityFailureMessage.action"
+}

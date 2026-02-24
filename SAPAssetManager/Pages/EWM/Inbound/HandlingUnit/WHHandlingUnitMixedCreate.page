@@ -1,0 +1,46 @@
+{
+	"OnActivityBackPressed": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/CancelCheckOnBackNavAndroid.js",
+	"OnLoaded": "/SAPAssetManager/Rules/Common/SaveInitialValuesOnLoaded.js",
+	"ActionBar": {
+		"Caption": "$(L, create_mixed_handling_unit)",
+		"Items": [
+			"/SAPAssetManager/Pages/Fragments/CancelButton.fragment",
+            {
+                "_Type": "Fragment",
+				"Fragment": "/SAPAssetManager/Pages/Fragments/DoneButton.fragment",
+				"Properties": {
+					"OnPress": "/SAPAssetManager/Actions/EWM/Inbound/HandlingUnit/WHHandlingUnitCreateRequiredFields.action"
+				}
+            }
+		]
+	},
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"Header": {
+						"Caption": "$(L, indicates_required_fields)"
+					},
+					"Controls": [
+						{
+							"_Type": "Fragment",
+							"Fragment": "/SAPAssetManager/Pages/Fragments/EWM/PackagingMaterialListPicker.fragment",
+							"Properties": {
+								"Caption": "/SAPAssetManager/Rules/EWM/Inbound/Items/HandlingUnit/WHHandlingUnitControlsCaption.js",
+								"OnValueChange": "/SAPAssetManager/Rules/Common/Validation/ResetValidationOnInput.js"
+							}
+						},
+						"/SAPAssetManager/Pages/Fragments/EWM/HandlingUnitTypeListPicker.fragment",
+						"/SAPAssetManager/Pages/Fragments/EWM/HandlingUnitNumberSimpleProperty.fragment"
+					],
+					"_Type": "Section.Type.FormCell",
+					"_Name": "FormCellSection1"
+				}
+			],
+			"_Name": "FormCellContainer",
+			"_Type": "Control.Type.SectionedTable"
+		}
+	],
+	"_Name": "WHHandlingUnitMixedCreatePage",
+	"_Type": "Page"
+}

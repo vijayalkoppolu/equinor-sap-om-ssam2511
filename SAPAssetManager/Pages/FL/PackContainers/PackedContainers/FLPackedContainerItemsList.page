@@ -1,0 +1,50 @@
+{
+    "Caption": "$(L,fld_container_items)",
+    "ActionBar": {
+        "Items": [
+            "/SAPAssetManager/Pages/Fragments/SyncButton.fragment"
+        ]
+    },
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "Header": {
+                        "Caption": "/SAPAssetManager/Rules/FL/PackedPackages/FLPackedPackagesItemsHeaderCaption.js",
+                        "UseTopPadding": false
+                    },
+                    "EmptySection": {
+                        "Caption": "$(L,fld_no_container_items)"
+                    },
+                    "Selection": {
+                        "LongPressToEnable": "Multiple",
+                        "ExitOnLastDeselect": true,
+                        "Mode": "None"
+                    },
+                    "ObjectCell": "/SAPAssetManager/Pages/Fragments/FL/PackedPackageItems.fragment",
+                    "Search": {
+                        "Enabled": true,
+                        "Delay": 500,
+                        "MinimumCharacterThreshold": 3,
+                        "Placeholder": "$(L,search)",
+                        "BarcodeScanner": true
+                    },
+                    "Target": {
+                        "EntitySet": "{{#Property:@odata.readLink}}/FldLogsPackCtnContainerItem_Nav",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": ""
+                    },
+                    "_Name": "SectionObjectTable",
+                    "_Type": "Section.Type.ObjectTable"
+                }
+            ],
+            "_Name": "SectionedTable",
+            "_Type": "Control.Type.SectionedTable"
+        }
+    ],
+    "DataSubscriptions": [
+        "FldLogsPackCtnContainerItems"
+    ],
+    "_Type": "Page",
+    "_Name": "PackedContainerItemsPage"
+}

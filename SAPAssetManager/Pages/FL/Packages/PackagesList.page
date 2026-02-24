@@ -1,0 +1,172 @@
+{
+"Caption": "$(L,fld_packages)",
+"ActionBar": {
+		"Items": [
+            {
+                "Position": "Right",
+                "Icon": "$(PLT,sap-icon://filter,sap-icon://filter, '' , sap-icon://filter)",
+                "Caption": "/SAPAssetManager/Rules/Filter/FilterButtonCaption.js",
+                "OnPress": "/SAPAssetManager/Actions/FL/Packages/PackagesFilterViewNav.action",
+				"_Name": "FilterButton"
+            },
+			"/SAPAssetManager/Pages/Fragments/SyncButton.fragment"
+		]
+	},
+"Controls": [
+		{
+			"Sections": [
+				{
+					"EmptySection": {
+						"Caption": "$(L,no_fld_packages)"
+					},
+					"Header": {
+						"Caption": "/SAPAssetManager/Rules/FL/Packages/PackagesListCaption.js",
+						"UseTopPadding": false,
+						"Items": [
+							{
+								"_Type": "Fragment",
+								"Fragment": "/SAPAssetManager/Pages/Fragments/FL/ListCounterCaption.fragment",
+								"Properties": {
+									"Title": "/SAPAssetManager/Rules/FL/Packages/PackagesListCaption.js"
+								}
+							},
+                            {
+                                "_Type": "SectionHeaderItem.Type.Button",
+                                "_Name": "SelectItems",
+                                "Title": "$(L,select_items)",
+                                "Position": "Right",
+                                "Visible": true,
+                                "Enabled": "/SAPAssetManager/Rules/FL/Packages/ListView/IsSelectItemsButtonActive.js",
+                                "OnPress": "/SAPAssetManager/Rules/FL/ReadyToPack/SwitchSelect.js",
+								"Styles": {
+                                    "Button": "SelectItemsButtonLabelFontSize"
+                                }
+                            },
+							{
+                                "_Type": "SectionHeaderItem.Type.Button",
+                                "_Name": "DeselectAll",
+                                "Title": "$(L,deselect_all)",
+                                "Position": "Right",
+                                "Visible": false,
+                                "OnPress": "/SAPAssetManager/Rules/FL/ReadyToPack/SwitchSelect.js",
+								"Styles": {
+                                    "Button": "SelectItemsButtonLabelFontSize"
+                                }
+                            },
+                            {
+                                "_Type": "SectionHeaderItem.Type.Button",
+                                "_Name": "SelectAll",
+                                "Title": "$(L,select_all)",
+                                "Position": "Right",
+                                "Visible": false,
+                                "OnPress": "/SAPAssetManager/Rules/FL/ReadyToPack/SwitchSelect.js",
+								"Styles": {
+                                    "Button": "SelectItemsButtonLabelFontSize"
+                                }
+                            }]
+					},
+					"Selection": {
+					"LongPressToEnable": "Multiple",
+					"ExitOnLastDeselect": true,
+					"Mode": "None"
+					},
+					"OnSelectionChanged": "/SAPAssetManager/Rules/FL/Packages/OnDocumentSelectedOrUnselected.js",
+					"ObjectCell": "/SAPAssetManager/Pages/Fragments/FL/PackageCell.fragment",
+					"Search": {
+						"Enabled" : true,
+                        "Delay": 500,
+                        "MinimumCharacterThreshold": 3,
+                        "Placeholder": "$(L,search)",
+                        "BarcodeScanner": true
+					},
+					"Target": {
+						"EntitySet": "FldLogsPackages",
+						"QueryOptions":"/SAPAssetManager/Rules/FL/Packages/PackagesOnLoadQuery.js",
+						"Service": "/SAPAssetManager/Services/AssetManager.service"
+					},
+					"_Name": "SectionObjectTable",
+					"_Type": "Section.Type.ObjectTable"
+				}
+			],
+			"FilterFeedbackBar": {
+				"_Type": "Control.Type.FilterFeedbackBar",
+				"_Name": "FilterFeedback",
+				"ShowAllFilters": true,
+				"FastFilters": [
+	        		{ 
+						"_Name": "Open",
+						"_Type": "Control.Type.FastFilterItem",
+						"FilterType": "Filter",
+						"FilterProperty": "",
+						"CustomQueryGroup": "PackageList",
+						"DisplayValue": "/SAPAssetManager/Rules/FL/Packages/PackagesFilterCaptionOpen.js",
+						"ReturnValue": "/SAPAssetManager/Rules/FL/Packages/GetReturnValueforOpen.js"
+            		},
+            		{	 
+						"_Name": "Received",
+						"_Type": "Control.Type.FastFilterItem",
+						"FilterType": "Filter",
+						"FilterProperty": "",
+						"CustomQueryGroup": "PackageList",
+						"DisplayValue": "/SAPAssetManager/Rules/FL/Packages/PackagesFilterCaptionReceived.js",
+						"ReturnValue": "/SAPAssetManager/Rules/FL/Packages/GetReturnValueforReceived.js"       
+            		},
+					{
+						"_Name": "NotFoundPackages",
+						"_Type": "Control.Type.FastFilterItem",
+						"FilterType": "Filter",
+						"CustomQueryGroup": "PackageList",
+						"DisplayValue": "/SAPAssetManager/Rules/FL/Packages/PackagesFilterCaptionNotFound.js",
+						"ReturnValue": "/SAPAssetManager/Rules/FL/Packages/PackagesReturnValueFilterNotFound.js"
+					}
+				]
+			},
+			"Filters": "/SAPAssetManager/Rules/FL/Packages/GetPackagesPreSelectedFilter.js",
+			"_Name": "SectionedTable",
+			"_Type": "Control.Type.SectionedTable"
+		}
+],
+		"FioriToolbar": {
+		"_Name": "PackageDetailsFioriToolbar",
+        "_Type": "Control.Type.FioriToolbar",
+		"Items": [
+			{
+				"_Type": "Fragment",
+				 "Fragment": "/SAPAssetManager/Pages/Fragments/FL/ReceiveInFull.fragment",
+				 "Properties": {
+				 "_Name": "FLContainerReceiveinFullItem",
+				 "OnPress": "/SAPAssetManager/Rules/FL/Container/ReceiveContainer.js"
+				}
+			},
+			{
+				"_Type": "Fragment",
+				"Fragment": "/SAPAssetManager/Pages/Fragments/FL/NotFoundItem.fragment",
+				"Properties": {
+					"_Name": "FLPackageNotFoundItem",
+					"OnPress": "/SAPAssetManager/Rules/FL/Containers/ListView/NotFoundContainer.js"
+				}
+			},
+			{
+				"_Type": "Fragment",
+				"Fragment": "/SAPAssetManager/Pages/Fragments/FL/FLPackageRelease.fragment"
+			},
+			{
+				"_Type": "Fragment",
+				"Fragment": "/SAPAssetManager/Pages/Fragments/FL/FLDiscardButton.fragment",
+				"Properties": {
+					"_Name": "FLPackageDiscardItem",
+					"ButtonType": "Text"
+			}
+			}
+
+		]
+    },
+	"DataSubscriptions" : [
+    	"FldLogsPackages"
+	],
+
+	"_Name": "PackagesListPage",
+	"_Type": "Page",
+	"OnLoaded": "/SAPAssetManager/Rules/Filter/ListPageWithFilterOnLoaded.js",
+	"OnReturning": "/SAPAssetManager/Rules/FL/Containers/ListView/OnReturning.js"
+}

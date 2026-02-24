@@ -1,0 +1,14 @@
+{
+    "_Type": "Action.Type.ODataService.UpdateEntity",
+    "RequestOptions": {
+        "UpdateMode": "Replace"
+    },
+    "Headers":
+	{
+        "OfflineOData.TransactionID": "#Property:WarehouseOrder"
+    },
+    "Target": {
+        "EntitySet": "WarehouseOrders",
+        "Service": "/SAPAssetManager/Services/AssetManager.service"
+    }
+}

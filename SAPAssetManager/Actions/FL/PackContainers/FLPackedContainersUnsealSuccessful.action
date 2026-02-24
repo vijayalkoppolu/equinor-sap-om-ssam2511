@@ -1,0 +1,4 @@
+{
+	"_Type": "Action.Type.ToastMessage",
+	"Message": "$(L,fl_unseal_successful)"
+}

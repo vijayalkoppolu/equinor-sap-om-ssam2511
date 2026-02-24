@@ -1,0 +1,20 @@
+{
+	"PopoverItems": [
+        {
+            "Title": "$(L, add_quotation_item)",
+            "OnPress": "/SAPAssetManager/Rules/ServiceQuotations/Items/CreateUpdate/CreateServiceQuotationItemNav.js",
+            "Visible": "/SAPAssetManager/Rules/ServiceQuotations/IsS4ServiceQuotationCreateEnabled.js"
+        },
+        {
+            "Title": "$(L, add_note)",
+            "OnPress": "/SAPAssetManager/Rules/Notes/NoteCreateNav.js",
+            "Visible": "/SAPAssetManager/Rules/ServiceOrders/IsAddS4RelatedObjectEnabled.js"
+        },
+        {
+            "Title": "$(L,add_attachment)",
+            "OnPress": "/SAPAssetManager/Rules/Documents/Create/DocumentCreateBDSNav.js",
+            "Visible": "/SAPAssetManager/Rules/ServiceOrders/IsAddS4RelatedObjectEnabled.js"
+        }
+    ],
+	"_Type": "Action.Type.PopoverMenu"
+}

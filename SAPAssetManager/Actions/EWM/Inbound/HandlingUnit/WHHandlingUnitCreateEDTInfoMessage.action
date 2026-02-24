@@ -1,0 +1,6 @@
+{
+	"_Type": "Action.Type.Message",
+	"Title": "$(L, information)",
+	"OKCaption": "$(L, ok)",
+	"Message": "$(L, handling_unit_creation_info_message)"
+}

@@ -1,0 +1,999 @@
+{
+  "_Type": "Page",
+  "_Name": "SideMenuDrawer",
+  "Controls": [
+    {
+      "_Type": "Control.Type.SideDrawer",
+      "ClearHistory": true,
+      "DataSubscriptions": "/SAPAssetManager/Rules/Common/DataSubscriptions.js",
+      "DrawerButton":"$(PLT,sap-icon://menu2, sap-icon://menu2)",
+      "AlwaysShowDrawerButton": true,
+      "Header": {
+        "IconIsCircular": true,
+        "Icon":"sap-icon://customer",
+        "Headline": "#Application/#AppData/UserId",
+        "SubHeadline": "/SAPAssetManager/Rules/SideDrawer/SideDrawerHeadLine.js"
+      },
+      "Sections": [
+        {
+          "Items": [
+            {
+              "Title": "$(L,home)",
+              "PageToOpen":"/SAPAssetManager/Pages/ApplicationLandingPage.page",
+              "_Name": "OverviewBlank",
+              "ResetIfPressedWhenActive": true,
+              "Image":"sap-icon://home",
+               "Styles": {
+                  "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                  "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                  "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "Visible": "/SAPAssetManager/Rules/SideDrawer/EnableIfNoPersona.js"
+            },
+            {
+              "Title": "$(L,home)",
+              "_Name": "OverviewClassicMT",
+              "ResetIfPressedWhenActive": true,
+              "Image":"sap-icon://home",
+               "Styles": {
+                  "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                  "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                  "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "OnPress": "/SAPAssetManager/Rules/SideDrawer/MTHomeScreenClassicNav.js",
+              "Visible": "/SAPAssetManager/Rules/SideDrawer/MTClassicHomeScreenVisible.js"
+            },
+            {
+              "Title": "$(L,home)",
+              "_Name": "OverviewMTTab",
+              "ResetIfPressedWhenActive": true,
+              "Image":"sap-icon://home",
+               "Styles": {
+                  "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                  "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                  "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "OnPress": "/SAPAssetManager/Rules/SideDrawer/MTTabHomeScreenNav.js",
+              "Visible": "/SAPAssetManager/Rules/SideDrawer/MTTabHomeScreenVisible.js"
+            },
+            {
+              "Title": "$(L,home)",
+              "_Name": "OverviewMT",
+              "ResetIfPressedWhenActive": true,
+              "Image":"sap-icon://home",
+               "Styles": {
+                  "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                  "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                  "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "OnPress": "/SAPAssetManager/Rules/SideDrawer/MTHomeScreenNav.js",
+              "Visible": "/SAPAssetManager/Rules/SideDrawer/MTHomeScreenVisible.js"
+            },
+            {
+              "Title": "$(L,home)",
+              "PageToOpen":"/SAPAssetManager/Pages/OverviewMTStd.page",
+              "_Name": "OverviewMTStd",
+              "ResetIfPressedWhenActive": true,
+              "Image":"sap-icon://home",
+               "Styles": {
+                  "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                  "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                  "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "Visible": "/SAPAssetManager/Rules/SideDrawer/EnableMaintenanceTechnicianStd.js"
+            },
+            {
+              "Title": "$(L,home)",
+              "PageToOpen":"/SAPAssetManager/Pages/Inventory/InventoryOverview.page",
+              "_Name": "OverviewIC",
+              "ResetIfPressedWhenActive": true,
+              "Image":"sap-icon://home",
+               "Styles": {
+                  "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                  "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                  "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "Visible": "/SAPAssetManager/Rules/SideDrawer/EnableInventoryClerk.js"
+            },
+            {
+              "Title": "$(L,home)",
+              "PageToOpen": "/SAPAssetManager/Pages/EWM/OverviewPage/EWMOverview.page",
+              "_Name": "OverviewEWM",
+              "ResetIfPressedWhenActive": true,
+              "Image":"sap-icon://home",
+               "Styles": {
+                  "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                  "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                  "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "Visible": "/SAPAssetManager/Rules/SideDrawer/EnableExtendedWarehouseClerk.js"
+            },
+            {
+              "Title": "$(L,home)",
+              "PageToOpen":"/SAPAssetManager/Pages/FL/FLOverview.page",
+              "_Name": "OverviewFL",
+              "ResetIfPressedWhenActive": true,
+              "Image":"sap-icon://home",
+               "Styles": {
+                  "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                  "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                  "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "Visible": "/SAPAssetManager/Rules/SideDrawer/EnableFieldLogisticsOperator.js"
+            },
+            {
+              "Title": "$(L,home)",
+              "PageToOpen": "/SAPAssetManager/Pages/FieldService/FieldServiceOverviewClassic.page",
+              "_Name": "OverviewClassicST",
+              "ResetIfPressedWhenActive": true,
+              "Image":"sap-icon://home",
+               "Styles": {
+                  "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                  "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                  "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "Visible": "/SAPAssetManager/Rules/SideDrawer/FSTClassicHomeScreenVisible.js"
+            },
+            {
+              "Title": "$(L,home)",
+              "_Name": "OverviewST",
+              "ResetIfPressedWhenActive": true,
+              "Image":"sap-icon://home",
+               "Styles": {
+                  "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                  "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                  "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "Visible": "/SAPAssetManager/Rules/SideDrawer/FSTHomeScreenVisible.js",
+              "OnPress": "/SAPAssetManager/Rules/SideDrawer/FSTHomeScreenNav.js"
+            },
+            {
+              "Title": "$(L,home)",
+              "PageToOpen":"/SAPAssetManager/Pages/WCM/WCMOverview.page",
+              "_Name": "OverviewWCM",
+              "ResetIfPressedWhenActive": true,
+              "Image":"sap-icon://home",
+               "Styles": {
+                  "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                  "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                  "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "Visible": "/SAPAssetManager/Rules/WCM/IsWCMOperator.js"
+            },
+            {
+              "Title": "$(L, generate_qrcode)",
+              "ResetIfPressedWhenActive": true,
+              "Image":"sap-icon://qr-code",
+              "OnPress": "/SAPAssetManager/Actions/ConfirmationScenarios/GenerateQRCodeNav.action",
+              "Visible": "/SAPAssetManager/Rules/ConfirmationScenarios/GenerateQRCodeIsEnabled.js",
+              "_Name": "GenerateQRCode"
+            },
+            {
+              "Title": "$(L, upload)",
+              "ResetIfPressedWhenActive": true,
+              "Image":"sap-icon://upload",
+              "OnPress": "/SAPAssetManager/Rules/ApplicationEvents/ApplicationOnUpload.js",
+              "Styles": {
+                  "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                  "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                  "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "Visible": "/SAPAssetManager/Rules/UserPreferences/IsUploadOnlyPersonalized.js",
+              "_Name": "Upload"
+            },
+            {
+              "Title": "$(L, sync)",
+              "ResetIfPressedWhenActive": true,
+              "Image": "sap-icon://synchronize",
+              "OnPress": "/SAPAssetManager/Rules/ApplicationEvents/ApplicationOnSync.js",
+              "Styles": {
+                  "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                  "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                  "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "_Name": "Sync"
+            },
+            {
+              "Title": "$(L, switch_resource)",
+              "PageToOpen": "/SAPAssetManager/Pages/EWM/Resource/SwitchResource.page",          
+              "_Name": "EWMSwitchResource",
+              "ResetIfPressedWhenActive": true,
+              "Image":"sap-icon://step",
+               "Styles": {
+                  "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                  "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                  "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "Visible": "/SAPAssetManager/Rules/SideDrawer/EnableExtendedWarehouseClerk.js"
+            },
+            {
+              "Title": "$(L, document_download)",
+              "OnPress": "/SAPAssetManager/Actions/EWM/Fetch/FetchDocuments.action",
+              "_Name": "EWMWDownload",
+              "ResetIfPressedWhenActive": true,
+              "Image": "sap-icon://download",
+               "Styles": {
+                  "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                  "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                  "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "Visible": "/SAPAssetManager/Rules/SideDrawer/EnableExtendedWarehouseClerk.js"
+            },
+            {
+              "Title": "$(L, document_download)",
+              "OnPress": "/SAPAssetManager/Actions/FL/Fetch/FLFetchDocuments.action",
+              "_Name": "DownloadFL",
+              "ResetIfPressedWhenActive": true,
+              "Image": "sap-icon://download",
+               "Styles": {
+                  "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                  "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                  "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "Visible": "/SAPAssetManager/Rules/SideDrawer/IsDownloadFLVisible.js"
+            },
+            {
+              "Title": "$(L, online_search)",
+              "ResetIfPressedWhenActive": true,
+              "Image":"sap-icon://world",
+              "OnPress": "/SAPAssetManager/Rules/OnlineSearch/ExecuteNavToOnlineSearchPage.js",
+              "_Name": "OnlineSearch",
+              "Visible": "/SAPAssetManager/Rules/OnlineSearch/IsOnlineSearchEnabled.js",
+               "Styles": {
+                  "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                  "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                  "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+                }
+            },
+            {
+              "Title": "$(L,tagging)",
+              "OnPress": "/SAPAssetManager/Rules/WCM/OperationalItems/ListView/OperationalItemsTaggingListViewNav.js",
+              "_Name": "OperationalItemsTaggingList",
+              "ResetIfPressedWhenActive": true,
+              "Image":"sap-icon://locked",
+              "Styles": {
+                "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "Visible": "/SAPAssetManager/Rules/UserFeatures/IsWCMSafetyCertificateEnabled.js"
+            },
+            {
+              "Title": "$(L,untagging)",
+              "OnPress": "/SAPAssetManager/Rules/WCM/OperationalItems/ListView/OperationalItemsUntaggingListViewNav.js",
+              "_Name": "OperationalItemsUntaggingList",
+              "ResetIfPressedWhenActive": true,
+              "Image":"sap-icon://unlocked",
+              "Styles": {
+                "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "Visible": "/SAPAssetManager/Rules/UserFeatures/IsWCMSafetyCertificateEnabled.js"
+            },
+            {
+              "Title": "$(L,qab_create_service_request)",
+              "OnPress":"/SAPAssetManager/Rules/ServiceOrders/CreateUpdate/ServiceRequestCreateNav.js",
+              "_Name": "CreateServiceRequest",
+              "ResetIfPressedWhenActive": true,
+              "Image":"sap-icon://message-warning",
+              "Styles": {
+                "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "Visible": "/SAPAssetManager/Rules/ServiceOrders/ServiceRequests/IsS4ServiceRequestCreateEnabled.js"
+            },
+             {
+              "Title": "$(L,create_service_quotation)",
+              "_Name": "CreateServiceQuotation",
+              "ResetIfPressedWhenActive": true,
+              "Image":"sap-icon://payment-approval",
+              "Styles": {
+                "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "Visible": "/SAPAssetManager/Rules/ServiceQuotations/IsS4ServiceQuotationCreateEnabled.js",
+              "OnPress": "/SAPAssetManager/Rules/ServiceQuotations/CreateUpdate/ServiceQuotationCreateNav.js"
+            },
+            {
+              "Title": "$(L,qab_create_service_notification)",
+              "OnPress":"/SAPAssetManager/Rules/Notifications/CreateUpdate/NotificationCreateChangeSetNav.js",
+              "_Name": "CreateServiceNotification",
+              "ResetIfPressedWhenActive": true,
+              "Image":"sap-icon://add",
+              "Styles": {
+                "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "Visible": "/SAPAssetManager/Rules/SideDrawer/EnableCreateNotificationFSMCSPersona.js"
+            },
+            {
+              "Title": "$(L,create_notification)",
+              "OnPress": "/SAPAssetManager/Rules/Notifications/CreateUpdate/NotificationCreateChangeSetNav.js",
+              "_Name": "CreateNotification",
+              "ResetIfPressedWhenActive": true,
+              "Image": "/SAPAssetManager/Rules/SideDrawer/CreateNotificationFromSideMenuImage.js",
+              "Styles": {
+                "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "Visible": "/SAPAssetManager/Rules/SideDrawer/EnableCreateNotificationFromSideMenu.js"
+            },
+            {
+              "Title": "$(L,add_reminder)",
+              "OnPress": "/SAPAssetManager/Rules/Reminders/ReminderCreateNav.js",
+              "_Name": "AddReminder",
+              "ResetIfPressedWhenActive": true,
+              "Image": "sap-icon://bell",
+              "Styles": {
+                "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "Visible": "/SAPAssetManager/Rules/WCM/IsWCMOperator.js"
+            },
+            {
+              "Title": "$(L,my_work)",
+              "_Name": "MyScheduledWork",
+              "ResetIfPressedWhenActive": true,
+              "Image": "sap-icon://clinical-task-tracker",
+              "Visible": "/SAPAssetManager/Rules/SideDrawer/EnableMaintenanceTechnician.js",
+              "OnPress": "/SAPAssetManager/Rules/OverviewPage/MyWorkSection/MyWorkSectionSeeAll.js"
+            }
+          ]
+        },
+        {
+          "PreserveImageSpacing": false,
+          "Items": [
+            {
+              "Title": "/SAPAssetManager/Rules/SideDrawer/SideDrawerVoyagesCount.js",
+              "PageToOpen":"/SAPAssetManager/Pages/FL/Voyages/VoyagesList.page",
+              "_Name": "Voyages",
+              "ResetIfPressedWhenActive": true,
+              "Image":"sap-icon://cargo-train",
+               "Styles": {
+                  "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                  "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                  "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "Visible": "/SAPAssetManager/Rules/SideDrawer/EnableFieldLogisticsOperator.js"
+            },
+            {
+              "Title": "/SAPAssetManager/Rules/SideDrawer/SideDrawerContainersCount.js",
+              "PageToOpen":"/SAPAssetManager/Pages/FL/Containers/ContainersList.page",
+              "_Name": "Containers",
+              "ResetIfPressedWhenActive": true,
+              "Image":"sap-icon://dimension",
+               "Styles": {
+                  "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                  "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                  "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "Visible": "/SAPAssetManager/Rules/SideDrawer/EnableFieldLogisticsOperator.js"
+            },
+            {
+              "Title": "/SAPAssetManager/Rules/SideDrawer/SideDrawerPackagesCount.js",
+              "PageToOpen":"/SAPAssetManager/Pages/FL/Packages/PackagesList.page",
+              "_Name": "Packages",
+              "ResetIfPressedWhenActive": true,
+              "Image":"sap-icon://table-view",
+               "Styles": {
+                  "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                  "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                  "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "Visible": "/SAPAssetManager/Rules/SideDrawer/EnableFieldLogisticsOperator.js"
+            },
+            {
+              "Title": "/SAPAssetManager/Rules/SideDrawer/SideDrawerDeliveryItemsCount.js",
+              "PageToOpen":"/SAPAssetManager/Pages/FL/HUDelItems/HUDelItemsList.page",
+              "_Name": "DeliveryItems",
+              "ResetIfPressedWhenActive": true,
+              "Image":"sap-icon://grid",
+               "Styles": {
+                  "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                  "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                  "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "Visible": "/SAPAssetManager/Rules/SideDrawer/EnableFieldLogisticsOperator.js"
+            },
+                        {
+              "Title": "/SAPAssetManager/Rules/SideDrawer/SideDrawerFLReadyToPack.js",
+              "PageToOpen":"/SAPAssetManager/Pages/FL/PackContainers/ReadyToPack/ReadyToPackListView.page",
+              "_Name": "ReadyToPack",
+              "ResetIfPressedWhenActive": true,
+              "Image":"sap-icon://add-process",
+               "Styles": {
+                  "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                  "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                  "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "Visible": "/SAPAssetManager/Rules/SideDrawer/EnableFieldLogisticsOperator.js"
+            },
+            {
+              "Title": "/SAPAssetManager/Rules/SideDrawer/SideDrawerFLWorkOrdersCount.js",
+              "PageToOpen":"/SAPAssetManager/Pages/FL/WorkOrders/FLWorkOrdersListView.page",
+              "_Name": "WorkNetworkOrders",
+              "ResetIfPressedWhenActive": true,
+              "Image":"sap-icon://display-more",
+               "Styles": {
+                  "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                  "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                  "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "Visible": "/SAPAssetManager/Rules/SideDrawer/EnableFieldLogisticsOperator.js"
+            },
+            {
+              "Title": "/SAPAssetManager/Rules/SideDrawer/SideDrawerFLProductsCount.js",
+              "PageToOpen":"/SAPAssetManager/Pages/FL/ReturnsByProduct/FLReturnsByProductListView.page",
+              "_Name": "ReturnsByProduct",
+              "ResetIfPressedWhenActive": true,
+              "Image":"sap-icon://undo",
+               "Styles": {
+                  "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                  "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                  "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "Visible": "/SAPAssetManager/Rules/SideDrawer/EnableFieldLogisticsOperator.js"
+            },
+            {
+              "Title": "$(L, document_download)",
+              "OnPress": "/SAPAssetManager/Rules/Inventory/Fetch/FetchDocumentsNav.js",
+              "_Name": "Download",
+              "ResetIfPressedWhenActive": true,
+              "Image":"sap-icon://download",
+               "Styles": {
+                  "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                  "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                  "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "Visible": "/SAPAssetManager/Rules/Inventory/Stock/EnableOnlineSearch.js"
+            },
+            {
+              "Title": "$(L, add_goods_issue)",
+              "OnPress": "/SAPAssetManager/Rules/Inventory/Stock/SetAdhocGoodsIssue.js",
+              "_Name": "AddGoodsIssue",
+              "ResetIfPressedWhenActive": true,
+              "Image": "sap-icon://response",
+               "Styles": {
+                  "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                  "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                  "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "Visible": "/SAPAssetManager/Rules/SideDrawer/IsGoodIssueVisibleInDrawer.js"
+            },
+            {
+              "Title": "$(L, add_goods_receipt)",
+              "_Name": "AddGoodsReceipt",
+              "ResetIfPressedWhenActive": true,
+              "Image": "sap-icon://forward",
+               "Styles": {
+                  "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                  "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                  "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "OnPress": "/SAPAssetManager/Rules/Inventory/Stock/SetAdhocGoodsReceipt.js",
+              "Visible": "/SAPAssetManager/Rules/SideDrawer/IsGoodsReceiptVisibleInDrawer.js"
+            },
+            {
+              "Title": "$(L, add_stock_transfer)",
+              "_Name": "AddStockTransfer",
+              "ResetIfPressedWhenActive": true,
+              "Image": "sap-icon://journey-change",
+               "Styles": {
+                  "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                  "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                  "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "OnPress": "/SAPAssetManager/Rules/Inventory/Stock/SetAdhocStockTransfer.js",
+              "Visible": "/SAPAssetManager/Rules/SideDrawer/IsStockTransferVisibleInDrawer.js"
+            },
+            {
+              "Title": "$(L, add_physical_inventory)",
+              "OnPress": "/SAPAssetManager/Rules/Inventory/PhysicalInventory/SetPhysicalInventoryCreate.js",
+              "_Name": "AddPhysicalInventyry",
+              "ResetIfPressedWhenActive": true,
+              "Image": "sap-icon://customer-order-entry",
+               "Styles": {
+                  "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                  "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                  "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "Visible": "/SAPAssetManager/Rules/SideDrawer/IsPhysicalInvVisibleInDrawer.js"
+            },
+            {
+              "Title": "$(L, add_purchase_requisition)",
+              "OnPress": "/SAPAssetManager/Rules/Inventory/PurchaseRequisition/AddPurchaseRequisitionNav.js",
+              "_Name": "AddPurchaseRequisition",
+              "ResetIfPressedWhenActive": true,
+              "Image": "sap-icon://sales-order-item",
+               "Styles": {
+                  "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                  "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                  "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "Visible": "/SAPAssetManager/Rules/SideDrawer/IsPurchaseReqVisibleInDrawer.js"
+            },
+            {
+              "Title": "$(L, stock_lookup)",
+              "OnPress": "/SAPAssetManager/Actions/Inventory/Stock/StockListViewNav.action",
+              "_Name": "StockLookup",
+              "ResetIfPressedWhenActive": true,
+              "Image":"sap-icon://shelf",
+               "Styles": {
+                  "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                  "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                  "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "Visible": "/SAPAssetManager/Rules/SideDrawer/EnableInventoryClerk.js"
+            },
+            {
+              "Title": "$(L,map)",
+              "_Name": "Map",
+              "ResetIfPressedWhenActive": true,
+              "Image": "sap-icon://map-3",
+              "Styles": {
+                  "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                  "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                  "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "Visible": "/SAPAssetManager/Rules/Maps/IsGISEnabled.js",
+              "OnPress": "/SAPAssetManager/Rules/Maps/BeforeMapSideMenuNav.js"
+            },
+            {
+              "Title": "/SAPAssetManager/Rules/SideDrawer/SideDrawerSubOperationsCount.js",
+              "ResetIfPressedWhenActive": true,
+              "Image":"$(PLT,/SAPAssetManager/Images/operations.png,/SAPAssetManager/Images/operations.android.png)",
+              "OnPress": "/SAPAssetManager/Rules/WorkOrders/SubOperations/SubOperationsListViewNav.js",
+              "_Name": "SubOperationsList",
+              "Visible": "/SAPAssetManager/Rules/WorkOrders/SubOperations/IsSubOperationLevelAssigmentType.js",
+               "Styles": {
+                  "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                  "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                  "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+                }
+            },
+            {
+              "Title": "/SAPAssetManager/Rules/SideDrawer/SideDrawerOperationsCount.js",
+              "ResetIfPressedWhenActive": true,
+              "Image":"$(PLT,/SAPAssetManager/Images/operations.png,/SAPAssetManager/Images/operations.android.png)",
+              "OnPress": "/SAPAssetManager/Rules/WorkOrders/Operations/OperationsListViewNav.js",
+              "_Name": "OperationsList",
+              "Visible": "/SAPAssetManager/Rules/WorkOrders/Operations/IsOperationLevelAssigmentType.js",
+              "Styles": {
+                  "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                  "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                  "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+                }
+            },
+            {
+              "Title": "/SAPAssetManager/Rules/SideDrawer/SideDrawerWorkOrdersCount.js",
+              "ResetIfPressedWhenActive": true,
+              "Image": "sap-icon://wrench",
+              "OnPress": "/SAPAssetManager/Rules/WorkOrders/WorkOrdersListViewNav.js",
+              "_Name": "WorkOrderList",
+               "Styles": {
+                  "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                  "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                  "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+                },
+              "Visible": "/SAPAssetManager/Rules/UserFeatures/IsWorkOrderEnabled.js"
+            },
+            {
+              "Title": "/SAPAssetManager/Rules/SideDrawer/SideDrawerInboundDeliveryCount.js",
+              "PageToOpen": "/SAPAssetManager/Pages/EWM/InboundDelivery/InboundDeliveryList.page",
+              "_Name": "EWMInboundDelivery",
+              "ResetIfPressedWhenActive": true,
+              "Image":"sap-icon://forward",
+               "Styles": {
+                  "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                  "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                  "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "Visible": "/SAPAssetManager/Rules/SideDrawer/IsInboundMenuItemsVisible.js"
+            },
+            {
+              "Title": "/SAPAssetManager/Rules/SideDrawer/SideDrawerInboundDeliveryItemCount.js",
+              "PageToOpen": "/SAPAssetManager/Pages/EWM/Inbound/WHInboundDeliveryItemsList.page",
+              "_Name": "EWMInboundDeliveryItemsList",
+              "ResetIfPressedWhenActive": true,
+              "Image":"sap-icon://open-command-field",
+               "Styles": {
+                  "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                  "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                  "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "Visible": "/SAPAssetManager/Rules/SideDrawer/IsInboundMenuItemsVisible.js"
+            },
+            {
+              "Title": "/SAPAssetManager/Rules/SideDrawer/SideDrawerWarehouseOrderCount.js",
+              "PageToOpen": "/SAPAssetManager/Pages/EWM/WarehouseOrders/WarehouseOrdersList.page",
+              "_Name": "EWMWarehouseOrders",
+              "ResetIfPressedWhenActive": true,
+              "Image": "sap-icon://activity-items",
+               "Styles": {
+                  "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                  "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                  "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "Visible": "/SAPAssetManager/Rules/SideDrawer/IsWarehouseMenuItemsVisible.js"
+            },
+            {
+              "Title": "/SAPAssetManager/Rules/SideDrawer/SideDrawerWarehouseTaskCount.js",
+              "PageToOpen": "/SAPAssetManager/Pages/EWM/WarehouseOrders/WarehouseOrderTaskList.page",
+              "_Name": "EWMWarehouseTasks",
+              "ResetIfPressedWhenActive": true,
+              "Image": "sap-icon://multi-select",
+               "Styles": {
+                  "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                  "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                  "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "Visible": "/SAPAssetManager/Rules/SideDrawer/IsWarehouseMenuItemsVisible.js"
+            },
+            {
+              "Title": "/SAPAssetManager/Rules/SideDrawer/SideDrawerPhysicalInventoryCount.js",
+              "PageToOpen": "/SAPAssetManager/Pages/EWM/PhysicalInventory/WHPhysicalInventoryList.page",
+              "_Name": "EWMWarehousePhysicalInventory",
+              "ResetIfPressedWhenActive": true,
+              "Image":"sap-icon://customer-order-entry",
+               "Styles": {
+                  "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                  "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                  "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "Visible": "/SAPAssetManager/Rules/SideDrawer/IsWarehouseMenuItemsVisible.js"
+            },
+            {
+              "_Type": "Fragment",
+              "Fragment": "/SAPAssetManager/Pages/Fragments/SideMenu/WorkApprovalsMenuItem.fragment",
+              "Properties": {
+                "Visible": "/SAPAssetManager/Rules/SideDrawer/IsWorkApprovalsMenuItemVisibleForST.js",
+                "_Name": "WorkApprovalsST"
+              }
+            },
+            {
+              "_Type": "Fragment",
+              "Fragment": "/SAPAssetManager/Pages/Fragments/SideMenu/WorkPermitsMenuItem.fragment",
+              "Properties": {
+                "Visible": "/SAPAssetManager/Rules/SideDrawer/IsWorkPermitsMenuItemVisibleForST.js",
+                "_Name": "WorkPermitsST"
+              }
+            },
+            {
+              "_Type": "Fragment",
+              "Fragment": "/SAPAssetManager/Pages/Fragments/SideMenu/IsolationCertificatesMenuItem.fragment",
+              "Properties": {
+                "Visible": "/SAPAssetManager/Rules/SideDrawer/IsCertificatesMenuItemVisibleForST.js",
+                "_Name": "IsolationCertificatesST"
+              }
+            },
+            {
+              "_Type": "Fragment",
+              "Fragment": "/SAPAssetManager/Pages/Fragments/SideMenu/OtherCertificatesMenuItem.fragment",
+              "Properties": {
+                "Visible": "/SAPAssetManager/Rules/SideDrawer/IsCertificatesMenuItemVisibleForST.js",
+                "_Name": "OtherCertificatesST"
+              }
+            },
+            {
+              "_Type": "Fragment",
+              "Fragment": "/SAPAssetManager/Pages/Fragments/SideMenu/OperationalItemsMenuItem.fragment",
+              "Properties": {
+                "Visible": "/SAPAssetManager/Rules/SideDrawer/IsCertificatesMenuItemVisibleForST.js",
+                "_Name": "OperationalItemsST"
+              }
+            },
+            {
+              "Title": "/SAPAssetManager/Rules/SideDrawer/SideDrawerServiceItemsCount.js",
+              "ResetIfPressedWhenActive": true,
+              "Image": "sap-icon://example",
+              "OnPress": "/SAPAssetManager/Rules/ServiceOrders/ListView/AllServiceItemsListViewNav.js",
+              "Visible": "/SAPAssetManager/Rules/SideDrawer/IsS4ServiceItemMenuItemVisible.js",
+              "Styles": {
+                "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "_Name": "ServiceOrders"
+            },
+            {
+              "Title": "/SAPAssetManager/Rules/SideDrawer/SideDrawerServiceQuotationItemsCount.js",
+              "ResetIfPressedWhenActive": true,
+              "Image":"sap-icon://monitor-payments",
+              "OnPress": "/SAPAssetManager/Actions/ServiceQuotations/Items/ServiceQuotationItemsListViewNav.action",
+              "Visible": "/SAPAssetManager/Rules/ServiceQuotations/IsS4ServiceQuotationFeatureEnabled.js",
+              "Styles": {
+                "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "_Name": "ServiceQuotationItems"
+            },
+            {
+              "Title": "/SAPAssetManager/Rules/SideDrawer/SideDrawerServiceOrdersCount.js",
+              "ResetIfPressedWhenActive": true,
+              "Image":"sap-icon://wrench",
+              "OnPress": "/SAPAssetManager/Rules/SideDrawer/ServiceOrdersListViewNav.js",
+              "_Name": "ServiceOrderList",
+              "Styles": {
+                "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "Visible": "/SAPAssetManager/Rules/SideDrawer/IsServiceOrderMenuItemVisible.js"
+            },
+            {
+              "Title": "/SAPAssetManager/Rules/SideDrawer/SideDrawerServiceRequestsCount.js",
+              "ResetIfPressedWhenActive": true,
+              "Image":"sap-icon://message-warning",
+              "OnPress": "/SAPAssetManager/Actions/ServiceOrders/ServiceRequestsListViewNav.action",
+              "Visible": "/SAPAssetManager/Rules/ServiceOrders/ServiceRequests/IsS4ServiceRequestFeatureEnabled.js",
+              "Styles": {
+                "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "_Name": "ServiceRequests"
+            },
+            {
+              "Title": "/SAPAssetManager/Rules/SideDrawer/SideDrawerServiceQuotationsCount.js",
+              "ResetIfPressedWhenActive": true,
+              "Image":"sap-icon://payment-approval",
+              "OnPress": "/SAPAssetManager/Actions/ServiceQuotations/ServiceQuotationsListViewNav.action",
+              "Visible": "/SAPAssetManager/Rules/ServiceQuotations/IsS4ServiceQuotationFeatureEnabled.js",
+              "Styles": {
+                "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "_Name": "ServiceQuotations"
+            },
+            {
+              "Title": "/SAPAssetManager/Rules/SideDrawer/SideDrawerExpensesCount.js",
+              "ResetIfPressedWhenActive": true,
+              "Image":"sap-icon://lead",
+              "OnPress": "/SAPAssetManager/Rules/SideDrawer/ExpensesListView.js",
+              "_Name": "ExtensesList",
+              "Styles": {
+                  "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                  "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                  "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+                },
+              "Visible": "/SAPAssetManager/Rules/ServiceOrders/Expenses/ExpensesVisible.js"
+            },
+            {
+              "Title": "/SAPAssetManager/Rules/SideDrawer/SideDrawerServicePartsCount.js",
+              "ResetIfPressedWhenActive": true,
+              "Image":"sap-icon://business-objects-mobile",
+              "Visible": "/SAPAssetManager/Rules/SideDrawer/IsS4ServiceItemMenuItemVisible.js",
+              "OnPress": "/SAPAssetManager/Rules/ServiceOrders/ListView/ServicePartsListViewNav.js",
+              "Styles": {
+                "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "_Name": "FSMParts"
+            },
+            {
+              "Title": "/SAPAssetManager/Rules/SideDrawer/SideDrawerServiceNotificationsCount.js",
+              "ResetIfPressedWhenActive": true,
+              "Image":"sap-icon://alert",
+              "OnPress": "/SAPAssetManager/Rules/Notifications/NotificationsListViewNav.js",
+              "_Name": "ServiceNotificationList",
+              "Styles": {
+                "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "Visible": "/SAPAssetManager/Rules/SideDrawer/IsS4SidePanelDisabled.js"
+            },
+            {
+              "Title": "/SAPAssetManager/Rules/SideDrawer/SideDrawerNotificationsCount.js",
+              "ResetIfPressedWhenActive": true,
+              "Image":"sap-icon://message-warning",
+              "OnPress": "/SAPAssetManager/Rules/Notifications/NotificationsListViewNav.js",
+              "_Name": "NotificationList",
+               "Styles": {
+                  "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                  "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                  "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+                },
+              "Visible": "/SAPAssetManager/Rules/UserFeatures/IsPMNotificationEnabled.js"
+            },
+            {
+              "Title": "/SAPAssetManager/Rules/SideDrawer/SideDrawerEquipmentCount.js",
+              "ResetIfPressedWhenActive": true,
+              "Image":"sap-icon://machine",
+              "OnPress": "/SAPAssetManager/Rules/Equipment/EquipmentListViewNav.js",
+              "_Name": "EquipmentList",
+              "Styles": {
+                  "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                  "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                  "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "Visible": "/SAPAssetManager/Rules/SideDrawer/EnableTechObjectsFacet.js"
+            },
+            {
+              "Title": "/SAPAssetManager/Rules/FunctionalLocation/FunctionalLocationCaption.js",
+              "ResetIfPressedWhenActive": true,
+              "Image":"sap-icon://factory",
+              "OnPress": "/SAPAssetManager/Rules/FunctionalLocation/FunctionalLocationListViewNav.js",
+              "_Name": "FunctionalLocationList",
+               "Styles": {
+                  "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                  "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                  "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "Visible": "/SAPAssetManager/Rules/SideDrawer/EnableTechObjectsFacet.js"
+            },
+            {
+              "Title": "/SAPAssetManager/Rules/SideDrawer/SideDrawerServiceConfirmationsCount.js",
+              "OnPress": "/SAPAssetManager/Actions/Confirmations/List/ConfirmationsListViewNav.action",
+              "ResetIfPressedWhenActive": true,
+              "Image":"sap-icon://complete",
+              "Visible": "/SAPAssetManager/Rules/ServiceConfirmations/IsS4ServiceConfirmationVisible.js",
+              "Styles": {
+                "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "_Name": "FSMConfirmations"
+            },
+            {
+              "Title": "/SAPAssetManager/Rules/Meter/SideDrawerMeterRoutesCount.js",
+              "ResetIfPressedWhenActive": true,
+              "Image":"sap-icon://performance",
+              "OnPress": "/SAPAssetManager/Rules/OverviewPage/Meter/HighPriorityOrdersRouteListViewNav.js",
+              "_Name": "MeterRoutes",
+               "Styles": {
+                  "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                  "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                  "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+                },
+              "Visible": "/SAPAssetManager/Rules/OverviewPage/Meter/IsRoutesVisible.js"
+            },
+            {
+              "Title": "/SAPAssetManager/Rules/SideDrawer/SideDrawerRemindersCount.js",
+              "ResetIfPressedWhenActive": true,
+              "Image":"sap-icon://bell",
+              "OnPress": "/SAPAssetManager/Actions/Reminders/RemindersListViewNav.action",
+              "_Name": "ReminderList",
+               "Styles": {
+                  "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                  "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                  "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+                },
+              "Visible": "/SAPAssetManager/Rules/SideDrawer/EnableForTechniciansAndWCM.js"
+            },
+            {
+              "Title": "/SAPAssetManager/Rules/OverviewPage/TimeCaptureSection/TimeCaptureSectionTitle.js",
+              "ResetIfPressedWhenActive": true,
+              "Image":"sap-icon://create-entry-time",
+              "OnPress": "/SAPAssetManager/Rules/OverviewPage/TimeCaptureSection/OnPressTimeCaptureSectionSeeAll.js",
+              "_Name": "TimeCaptureSection",
+               "Styles": {
+                  "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                  "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                  "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+                },
+              "Visible": "/SAPAssetManager/Rules/SideDrawer/IsTimeSectionEnabled.js"
+            },
+            {
+              "Title": "/SAPAssetManager/Rules/SideDrawer/SideDrawerPurchaseRequisitionsCount.js",
+              "OnPress": "/SAPAssetManager/Actions/Inventory/PurchaseRequisition/Technicians/PurchaseRequisitionsListNav.action",
+              "_Name": "PurchaseRequisitionsList",
+              "ResetIfPressedWhenActive": true,
+              "Image":"sap-icon://sales-order-item",
+               "Styles": {
+                  "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                  "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                  "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "Visible": "/SAPAssetManager/Rules/Inventory/PurchaseRequisition/Technicians/IsPurchaseRequisitionVisible.js"
+            },
+            {
+              "Title": "$(L, vehicle_stock_lookup)",
+              "OnPress": "/SAPAssetManager/Rules/Inventory/Stock/StockListViewNav.js",
+              "_Name": "VehicleStockLookup",
+              "ResetIfPressedWhenActive": true,
+              "Image":"sap-icon://car-rental",
+               "Styles": {
+                  "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                  "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                  "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "Visible": "/SAPAssetManager/Rules/SideDrawer/EnableStockLookUp.js"
+            },
+            {
+              "Title": "/SAPAssetManager/Rules/SideDrawer/SideDrawerInspectionLotCount.js",
+              "ResetIfPressedWhenActive": true,
+              "Image":"sap-icon://activity-2",
+              "OnPress": "/SAPAssetManager/Actions/WorkOrders/InspectionLot/InspectionLotListViewNav.action",
+              "_Name": "InspectionLotList",
+              "Styles": {
+                  "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                  "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                  "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "Visible": "/SAPAssetManager/Rules/SideDrawer/EnabledChecklistSideMenu.js"
+            },
+            {
+              "Title": "/SAPAssetManager/Rules/Forms/FSM/TotalFormInstancesCountSideBarCaption.js",
+              "ResetIfPressedWhenActive": true,
+              "Image":"sap-icon://clinical-task-tracker",
+              "OnPress": "/SAPAssetManager/Actions/Forms/FSM/FSMFormsInstancesListViewNav.action",
+              "_Name": "SmartFormInstanceList",
+              "Styles": {
+                  "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                  "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                  "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              },
+              "Visible": "/SAPAssetManager/Rules/Forms/FSM/SmartFormsFeatureIsEnabled.js"
+            },
+            {
+              "Title": "/SAPAssetManager/Rules/SideDrawer/SideDrawerCrewCount.js",
+              "Image":"sap-icon://company-view",
+              "ResetIfPressedWhenActive": true,
+              "OnPress": "/SAPAssetManager/Rules/Crew/CrewSummaryNavWrapper.js",
+              "Visible": "/SAPAssetManager/Rules/SideDrawer/IsCrewSectionEnabled.js",
+              "_Name": "Crew"
+            }
+          ]
+        },
+        {
+          "PreserveImageSpacing": false,
+          "Items": [
+            "/SAPAssetManager/Pages/Fragments/SideMenu/WorkApprovalsMenuItem.fragment",
+            "/SAPAssetManager/Pages/Fragments/SideMenu/WorkPermitsMenuItem.fragment",
+            "/SAPAssetManager/Pages/Fragments/SideMenu/IsolationCertificatesMenuItem.fragment",
+            "/SAPAssetManager/Pages/Fragments/SideMenu/OtherCertificatesMenuItem.fragment",
+            "/SAPAssetManager/Pages/Fragments/SideMenu/OperationalItemsMenuItem.fragment"
+          ],
+          "Visible": "/SAPAssetManager/Rules/SideDrawer/IsWCMSectionVisible.js"
+        },
+        {
+          "PreserveImageSpacing": false,
+          "Items": [
+            {
+              "Title": "$(L,profile_settings)",
+              "OnPress": "/SAPAssetManager/Rules/ProfileSettings/UserProfileSettingsNav.js",
+              "ResetIfPressedWhenActive": true,
+              "_Name": "Profile",
+              "Image":"sap-icon://action-settings",
+              "Styles": {
+                  "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)" ,
+                  "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+                  "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+              }
+            },
+            {
+              "Title": "/SAPAssetManager/Rules/SideDrawer/SideDrawerErrorCount.js",
+              "ResetIfPressedWhenActive": true,
+              "Image":"sap-icon://message-popup",
+              "OnPress": "/SAPAssetManager/Rules/ErrorArchive/ErrorArchiveAndSyncNav.js",
+              "_Name": "Errors"
+            }
+          ]
+        }
+      ],
+       "Styles": {
+        "DrawerBackground": "SideDrawerBackground",
+        "HeaderBackground": "SideDrawerHeaderBackground",
+        "HeaderIcon": "SideDrawerHeaderIcon",
+        "HeaderHeadline": "SideDrawerHeadline",
+        "HeaderSubHeadline": "SideDrawerSubHeadline",
+        "HeaderSeparator": "$(PLT,SideDrawerHeaderSeparator,SideDrawerHeaderSeparatorAndroid)",
+        "SectionCaption": "SideDrawerSectionCaption",
+        "SectionSeparator": "$(PLT,SideDrawerSectionSeparator,SideDrawerSectionSeparatorAndroid)",
+        "SectionItemActive": "SideDrawerItemActive",
+        "SectionItemOnPress": "SideDrawerItemOnPress",
+        "SectionItemInactive": "SideDrawerItemInactive"
+      }
+    }
+  ]
+}

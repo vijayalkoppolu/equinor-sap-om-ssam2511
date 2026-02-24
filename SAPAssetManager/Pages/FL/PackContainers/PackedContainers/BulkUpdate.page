@@ -1,0 +1,35 @@
+{
+	"Caption": "$(L, edit_items)",
+    "OnActivityBackPressed": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/CancelCheckOnBackNavAndroid.js",
+	"ActionBar": {
+        "Items": [
+            {
+                "OnPress": "/SAPAssetManager/Rules/FL/BulkUpdate/CloseBulkEdit.js",
+                "Position": "Left",
+                "SystemItem": "Cancel"
+            },
+            {
+                "_Name": "SaveButton",
+                "Position": "Right",
+                "Text": "$(L, save)",
+                "OnPress": "/SAPAssetManager/Rules/FL/PackedContainers/BulkUpdate/BulkFLSave.js"
+            }
+        ]
+    },
+	"Controls": [
+		{
+			"Sections": [],
+         "FilterFeedbackBar": {
+                "_Type": "Control.Type.FilterFeedbackBar",
+                "_Name": "FilterFeedback",
+                "ShowAllFilters": true
+         },
+			"_Name": "SectionedTable",
+			"_Type": "Control.Type.SectionedTable"
+		}
+	],
+     "OnLoaded": "/SAPAssetManager/Rules/Filter/ListPageWithFilterOnLoaded.js",
+     "OnReturning": "/SAPAssetManager/Rules/FL/BulkUpdate/OnReturning.js",
+	"_Name": "BulkFLPackContainerEdit",
+	"_Type": "Page"
+}

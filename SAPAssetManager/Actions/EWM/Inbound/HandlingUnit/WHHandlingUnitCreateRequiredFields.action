@@ -1,0 +1,8 @@
+{
+	"_Type": "Action.Type.CheckRequiredFields",
+	"RequiredFields": "/SAPAssetManager/Rules/EWM/Inbound/Items/HandlingUnit/WHHandlingUnitCreateRequiredFields.js",
+	"OnSuccess": "/SAPAssetManager/Rules/EWM/Inbound/Items/HandlingUnit/WHHandlingUnitCreate.js",
+	"OnFailure": "/SAPAssetManager/Rules/EWM/Inbound/Items/HandlingUnit/WHHandlingUnitCreateRequiredFieldsOnFailed.js",
+	"ShowActivityIndicator": true,
+	"ActivityIndicatorText": ""
+}

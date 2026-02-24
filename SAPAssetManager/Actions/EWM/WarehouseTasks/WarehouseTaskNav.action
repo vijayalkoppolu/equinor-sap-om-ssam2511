@@ -1,0 +1,5 @@
+{
+	"_Type": "Action.Type.Navigation",
+	"PageToOpen": "/SAPAssetManager/Pages/EWM/WarehouseTasks/WarehouseTaskConfirmationDetails.page",
+    "PageMetadata": "/SAPAssetManager/Rules/EWM/WarehouseTask/Details/WarehouseTaskConfirmationDetailsPageMetadata.js"
+}

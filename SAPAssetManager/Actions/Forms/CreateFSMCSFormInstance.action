@@ -1,0 +1,40 @@
+{
+    "_Type": "Action.Type.ODataService.CreateEntity",
+    "Target": {
+        "EntitySet": "FSMFormInstances",
+        "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "Properties": {
+        "Id": "/SAPAssetManager/Rules/Forms/FSM/AddSmartForm/Data/GetFSMFormInstanceId.js",
+        "Description": "/SAPAssetManager/Rules/Forms/FSM/AddSmartForm/Data/GetFSMFormInstanceDescription.js",
+        "Template": "/SAPAssetManager/Rules/Forms/FSM/AddSmartForm/Data/GetFSMFormInstanceTemplate.js",
+        "CreatePerson": "/SAPAssetManager/Rules/MobileStatus/GetSAPUserId.js",
+        "CreatedTimeStamp": "/SAPAssetManager/Rules/DateTime/CurrentDateTime.js",
+        "ResponsiblePerson": "/SAPAssetManager/Rules/Forms/FSM/AddSmartForm/Data/GetFSMFormInstanceResponsiblePerson.js",
+        "WorkOrder": "{OrderId}",
+        "Mandatory": "/SAPAssetManager/Rules/Forms/FSM/AddSmartForm/Data/GetFSMFormInstanceMandatory.js",
+        "Language": "/SAPAssetManager/Rules/Checklists/Create/LanguageCode.js",
+        "Closed": false,
+        "Version": 1,
+        "Content": ""
+    },
+    "CreateLinks": [
+        {
+            "Property": "FSMFormTemplate_Nav",
+            "Target": {
+                "EntitySet": "FSMFormTemplates",
+                "ReadLink": "/SAPAssetManager/Rules/Forms/FSM/AddSmartForm/Data/GetFSMFormInstanceTemplateReadLink.js"
+            }
+        }
+    ],
+    "Headers": {
+        "transaction.omdo_id": "/SAPAssetManager/Rules/Forms/FSM/FSMSmartformsOMDOHeader.js",
+        "OfflineOData.TransactionID": "/SAPAssetManager/Rules/Forms/FSM/AddSmartForm/Data/GetFSMFormInstanceId.js",
+        "OfflineOData.RemoveAfterUpload": "/SAPAssetManager/Rules/Common/RemoveAfterUploadValue.js"
+    },
+    "ActionResult": {
+        "_Name": "CreatedFSMFormInstance"
+    },
+    "OnSuccess": "/SAPAssetManager/Rules/Forms/FSM/AddSmartForm/Handlers/CreateFSMFormInstancesOnSuccess.js",
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/CreateEntityFailureMessage.action"
+}

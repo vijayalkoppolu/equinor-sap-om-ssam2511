@@ -1,0 +1,54 @@
+{
+	"Caption": "FLPProductBusinessDocs",
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"Header": {
+                        "UseTopPadding": true,
+                        "Caption": "$(L, product_details)"
+                    },
+					"KeyAndValues": [
+						{
+							"_Name": "CreateOutboundDelivery",
+							"KeyName": "Create Outbound Delivery",
+							"Value": "/SAPAssetManager/Rules/FL/ReturnsByProduct/FormatCreateOutboundDelivery.js"
+						},
+						{
+							"_Name": "PurchaseOrder",
+							"KeyName": "Purchase Order",
+							"Value": "$(DV, {ReferencePurchasingDocument}, '-')" 
+						},
+						{
+							"_Name": "PurchaseOrderItem",
+							"KeyName": "Purchase Order Item",
+							"Value":"/SAPAssetManager/Rules/FL/ReturnsByProduct/FormatPurchaseOrderItem.js" 
+						},
+						{
+							"_Name": "RefOrder",
+							"KeyName": "Reference Order",
+							"Value": "$(DV, {ReferenceOrder}, '-')" 
+						},
+						{
+							"_Name": "RefurbishmentOrder",
+							"KeyName": "Refurbishment Quantity",
+							"Value": "$(DV, {FldLogsRefurbishmentOrder}, '-')"
+						},
+						{
+							"_Name": "OrderCategory",
+							"KeyName": "Order Category",
+							"Value": "/SAPAssetManager/Rules/FL/ReturnsByProduct/FormatOrderCategory.js"
+						}
+					],
+					"_Type": "Section.Type.KeyValue",
+					"_Name": "ProductDetailsKeyValueTable"
+				}
+			],
+			"_Name": "SectionedTable0",
+			"_Type": "Control.Type.SectionedTable"
+		}
+	],
+	"DataSubscriptions": ["FldLogsInitRetProducts", "StorageLocations", "FldLogsPlants", "MaterialValuations", "FldLogsRecommendedActions", "FldLogsReturnStatuses", "FldLogsShippingPoints", "FldLogsRefDocTypes"],
+	"_Name": "FLPProductBusinessDocs",
+	"_Type": "Page"
+}

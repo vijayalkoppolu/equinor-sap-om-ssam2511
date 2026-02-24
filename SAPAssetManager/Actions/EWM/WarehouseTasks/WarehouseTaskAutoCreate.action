@@ -1,0 +1,20 @@
+{
+    "_Type": "Action.Type.ODataService.CreateEntity",
+    "Target":
+    {
+        "EntitySet" : "AutoCreateWarehouseTasks",
+        "Service" : "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "Properties":
+    {   
+        "DocumentCategory": "{DocCategory}",
+        "DocumentID": "{DocumentID}"
+    },
+    "Headers": {
+        "OfflineOData.RemoveAfterUpload": true
+    },
+    "RequestOptions": {
+		"UploadCategory": "AutoTaskCreation"
+	},
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/CreateEntityFailureMessage.action"
+}

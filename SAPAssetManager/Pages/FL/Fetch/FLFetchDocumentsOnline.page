@@ -1,0 +1,318 @@
+{
+    "OnActivityBackPressed": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/CancelCheckOnBackNavAndroid.js",
+    "_Type": "Page",
+    "_Name": "FLFetchOnlineDocuments",
+    "ActionBar":
+    {
+        "Items":
+        [{
+            "_Type": "Fragment",
+            "Fragment": "/SAPAssetManager/Pages/Fragments/CancelButton.fragment",
+            "Properties": {
+                "OnPress": "/SAPAssetManager/Actions/Page/ClosePage.action"
+            }
+        },   
+        {
+            "Position": "Right",
+            "Text": "$(L,download)",
+            "OnPress": "/SAPAssetManager/Rules/FL/Fetch/FLSetDownloadDocumentsVariable.js"
+        }]
+    },
+    "Caption":"$(L,fetch_results)",
+    "Controls":
+    [{
+        "Sections":
+        [{
+            "Visible": "/SAPAssetManager/Rules/FL/Fetch/VoyageListViewSectionIsVisible.js",
+            "Header":
+            {
+                "UseTopPadding": false
+            },
+            "EmptySection":
+            {
+                "Caption": "$(L,no_documents_found_on_online_search)"
+            },
+            "Selection":
+            {
+                "Mode": "Multiple",
+                "ExitOnLastDeselect": false
+            },
+            "OnSelectionChanged": "/SAPAssetManager/Rules/FL/Fetch/FLOnDocumentSelectedOrUnSelected.js",
+            "ObjectCell": {
+                "_Type": "Fragment",
+                "Fragment":  "/SAPAssetManager/Pages/Fragments/FL/VoyageCell.fragment",
+                "Properties": {
+                    "StatusText": "/SAPAssetManager/Rules/FL/Voyages/VoyageStatusText.js",
+                    "AccessoryType": null,
+                    "OnPress": null
+                }
+            },
+            "Target":
+            {
+                "EntitySet": "FldLogsVoyages",
+                "Service": "/SAPAssetManager/Services/OnlineAssetManager.service",
+                "QueryOptions": "/SAPAssetManager/Rules/FL/Fetch/VoyageFetchQueryOptions.js"
+            },
+            "_Type": "Section.Type.ObjectTable",
+            "_Name" : "VoyageListViewSection"
+        },
+        {
+            "Visible": "/SAPAssetManager/Rules/FL/Fetch/ContainerListViewSectionIsVisible.js",
+            "Header":
+            {
+                "UseTopPadding": false
+            },
+            "EmptySection":
+            {
+                "Caption": "$(L,no_documents_found_on_online_search)"
+            },
+            "Selection":
+            {
+                "Mode": "Multiple",
+                "ExitOnLastDeselect": false
+            },
+            "OnSelectionChanged": "/SAPAssetManager/Rules/FL/Fetch/FLOnDocumentSelectedOrUnSelected.js",
+            "ObjectCell": {
+                "_Type": "Fragment",
+                "Fragment":  "/SAPAssetManager/Pages/Fragments/FL/ContainerCell.fragment",
+                "Properties": {
+                    "StatusText": "/SAPAssetManager/Rules/FL/Containers/ListView/ContainerStatusText.js",
+                    "OnPress": null,
+                    "AccessoryType": null
+                }
+            },
+            "Target":
+            {
+                "EntitySet": "FldLogsContainers",
+                "Service": "/SAPAssetManager/Services/OnlineAssetManager.service",
+                "QueryOptions": "/SAPAssetManager/Rules/FL/Fetch/ContainerOrPackageFetchQueryOptions.js"
+            },
+            "_Type": "Section.Type.ObjectTable",
+            "_Name" : "ContainerListViewSection"
+        },
+        {
+            "Visible": "/SAPAssetManager/Rules/FL/Fetch/PackageListViewSectionIsVisible.js",
+            "Header":
+            {
+                "UseTopPadding": false
+            },
+            "EmptySection":
+            {
+                "Caption": "$(L,no_documents_found_on_online_search)"
+            },
+            "Selection":
+            {
+                "Mode": "Multiple",
+                "ExitOnLastDeselect": false
+            },
+            "OnSelectionChanged": "/SAPAssetManager/Rules/FL/Fetch/FLOnDocumentSelectedOrUnSelected.js",
+            "ObjectCell": {
+                "_Type": "Fragment",
+                "Fragment":  "/SAPAssetManager/Pages/Fragments/FL/PackageCell.fragment",
+                "Properties": {
+                    "StatusText": "/SAPAssetManager/Rules/FL/Containers/ListView/ContainerStatusText.js",
+                    "OnPress": null,
+                    "AccessoryType": null
+                }
+            },
+            "Target":
+            {
+                "EntitySet": "FldLogsPackages",
+                "Service": "/SAPAssetManager/Services/OnlineAssetManager.service",
+                "QueryOptions": "/SAPAssetManager/Rules/FL/Fetch/ContainerOrPackageFetchQueryOptions.js"
+            },
+            "_Type": "Section.Type.ObjectTable",
+            "_Name" : "PackageListViewSection"
+        },
+        {
+            "Visible": "/SAPAssetManager/Rules/FL/Fetch/HUDelItemsListViewSectionIsVisible.js",
+            "Header":
+            {
+                "UseTopPadding": false
+            },
+            "EmptySection":
+            {
+                "Caption": "$(L,no_documents_found_on_online_search)"
+            },
+            "Selection":
+            {
+                "Mode": "Multiple",
+                "ExitOnLastDeselect": false
+            },
+            "OnSelectionChanged": "/SAPAssetManager/Rules/FL/Fetch/FLOnDocumentSelectedOrUnSelected.js",
+            "ObjectCell": {
+                "_Type": "Fragment",
+                "Fragment":  "/SAPAssetManager/Pages/Fragments/FL/HUDelItemsCell.fragment",
+                "Properties": {
+                    "StatusText": "/SAPAssetManager/Rules/FL/HUDelItems/ListView/HUDelItemsStatusText.js",
+                    "OnPress": null,
+                    "AccessoryType": null
+                }
+            },
+            "Target":
+            {
+                "EntitySet": "FldLogsHuDelItems",
+                "Service": "/SAPAssetManager/Services/OnlineAssetManager.service",
+                "QueryOptions": "/SAPAssetManager/Rules/FL/Fetch/HUDelItemsFetchQueryOptions.js"
+            },
+            "_Type": "Section.Type.ObjectTable",
+            "_Name" : "HUDelItemsListViewSection"
+        },
+        {
+            "Visible": "/SAPAssetManager/Rules/FL/Fetch/WorkNetworkOrderListViewSectionIsVisible.js",
+            "Header":
+            {
+                "UseTopPadding": false
+            },
+            "EmptySection":
+            {
+                "Caption": "$(L,no_documents_found_on_online_search)"
+            },
+            "Selection":
+            {
+                "Mode": "Multiple",
+                "ExitOnLastDeselect": false
+            },
+            "OnSelectionChanged": "/SAPAssetManager/Rules/FL/Fetch/FLOnDocumentSelectedOrUnSelected.js",
+            "ObjectCell": {
+                "_Type": "Fragment",
+                "Fragment":  "/SAPAssetManager/Pages/Fragments/FL/WorkNetworkOrderCell.fragment",
+                "Properties": {
+                    "StatusText": "",
+                    "SubstatusText": "/SAPAssetManager/Rules/FL/WorkOrders/ListView/GetFetchScreenItemsforWorkOrder.js",
+                    "OnPress": null,
+                    "AccessoryType": null
+                }
+            },
+            "Target":
+            {
+                "EntitySet": "FldLogsWorkOrders",
+                "Service": "/SAPAssetManager/Services/OnlineAssetManager.service",
+                "QueryOptions": "/SAPAssetManager/Rules/FL/Fetch/FldLogsWorkOrdersFetchQueryOptions.js"
+            },
+            "_Type": "Section.Type.ObjectTable",
+            "_Name" : "WorkNetworkOrderListViewSection"
+        },     
+        {
+            "Visible": "/SAPAssetManager/Rules/FL/Fetch/ProductListViewSectionIsVisible.js",
+            "Header": {
+                "UseTopPadding": false
+            },
+            "EmptySection": {
+                "Caption": "$(L,no_documents_found_on_online_search)"
+            },
+            "Selection": {
+                "Mode": "Multiple",
+                "ExitOnLastDeselect": false
+            },
+            "OnSelectionChanged": "/SAPAssetManager/Rules/FL/Fetch/FLOnDocumentSelectedOrUnSelected.js",
+            "ObjectCell": {
+                "_Type": "Fragment",
+                "Fragment":  "/SAPAssetManager/Pages/Fragments/FL/ProductCell.fragment",
+                "Properties": {
+                    "OnPress": null,
+                    "AccessoryType": null,
+                    "StatusText": "/SAPAssetManager/Rules/FL/ReturnsByProduct/ProductCellStatusText.js"
+                }
+            },
+            "Target": {
+                "EntitySet": "FldLogsInitRetProducts",
+                "Service": "/SAPAssetManager/Services/OnlineAssetManager.service",
+                "QueryOptions": "/SAPAssetManager/Rules/FL/Fetch/FldLogsInitRetProductsFetchQueryOptions.js"
+            },
+            "_Type": "Section.Type.ObjectTable",
+            "_Name" : "ReturnsByProductListViewSection"
+        },
+        {
+            "Visible": "/SAPAssetManager/Rules/FL/Fetch/ReadyToPackListViewSectionIsVisible.js",
+            "Header": {
+                "UseTopPadding": false
+            },
+            "EmptySection": {
+                "Caption": "$(L,no_documents_found_on_online_search)"
+            },
+            "Selection": {
+                "Mode": "Multiple",
+                "ExitOnLastDeselect": false
+            },
+            "OnSelectionChanged": "/SAPAssetManager/Rules/FL/Fetch/FLOnDocumentSelectedOrUnSelected.js",
+            "ObjectCell": {
+                "_Type": "Fragment",
+                "Fragment":  "/SAPAssetManager/Pages/Fragments/FL/ReadyToPackCell.fragment",
+                "Properties": {
+                    "OnPress": null,
+                    "AccessoryType": null,
+                    "StatusText": "/SAPAssetManager/Rules/FL/ReadyToPack/ReadyToPackStatusTextValue.js"
+                }
+            },
+            "Target": {
+                "EntitySet": "FldLogsPackCtnRdyPcks",
+                "Service": "/SAPAssetManager/Services/OnlineAssetManager.service",
+                "QueryOptions": "/SAPAssetManager/Rules/FL/Fetch/FldLogsReadyToPackFetchQueryOptions.js"
+            },
+            "_Type": "Section.Type.ObjectTable",
+            "_Name" : "ReadyToPackListViewSection"
+        },
+        {
+            "Visible": "/SAPAssetManager/Rules/FL/Fetch/PackedPackagesListViewSectionIsVisible.js",
+            "Header": {
+                "UseTopPadding": false
+            },
+            "EmptySection": {
+                "Caption": "$(L,no_documents_found_on_online_search)"
+            },
+            "Selection": {
+                "Mode": "Multiple",
+                "ExitOnLastDeselect": false
+            },
+            "OnSelectionChanged": "/SAPAssetManager/Rules/FL/Fetch/FLOnDocumentSelectedOrUnSelected.js",
+            "ObjectCell": {
+                "_Type": "Fragment",
+                "Fragment":  "/SAPAssetManager/Pages/Fragments/FL/PackedPackagesCell.fragment",
+                "Properties": {
+                    "OnPress": null,
+                    "AccessoryType": null
+                }
+            },
+            "Target": {
+                "EntitySet": "FldLogsPackCtnPkdPkgs",
+                "Service": "/SAPAssetManager/Services/OnlineAssetManager.service",
+                "QueryOptions": "/SAPAssetManager/Rules/FL/Fetch/FldLogsPackedPackagesFetchQueryOptions.js"
+            },
+            "_Type": "Section.Type.ObjectTable",
+            "_Name" : "PackedPackagesListViewSection"
+        },
+        {
+            "Visible": "/SAPAssetManager/Rules/FL/Fetch/PackedContainersListViewSectionIsVisible.js",
+            "Header": {
+                "UseTopPadding": false
+            },
+            "EmptySection": {
+                "Caption": "$(L,no_documents_found_on_online_search)"
+            },
+            "Selection": {
+                "Mode": "Multiple",
+                "ExitOnLastDeselect": false
+            },
+            "OnSelectionChanged": "/SAPAssetManager/Rules/FL/Fetch/FLOnDocumentSelectedOrUnSelected.js",
+            "ObjectCell": {
+                "_Type": "Fragment",
+                "Fragment":  "/SAPAssetManager/Pages/Fragments/FL/PackedContainersCell.fragment",
+                "Properties": {
+                    "OnPress": null,
+                    "AccessoryType": null
+                }
+            },
+            "Target": {
+                "EntitySet": "FldLogsPackCtnPkdCtns",
+                "Service": "/SAPAssetManager/Services/OnlineAssetManager.service",
+                "QueryOptions": "/SAPAssetManager/Rules/FL/Fetch/FldLogsPackedContainersFetchQueryOptions.js"
+            },
+            "_Type": "Section.Type.ObjectTable",
+            "_Name" : "PackedContainersListViewSection"
+        }],
+            "_Type": "Control.Type.SectionedTable",
+            "_Name" : "SectionedTable"
+        }
+    ]
+}

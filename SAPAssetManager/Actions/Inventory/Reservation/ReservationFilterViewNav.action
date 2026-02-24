@@ -1,0 +1,9 @@
+{
+    "_Type" : "Action.Type.Filter",
+    "PageToOpen" : "/SAPAssetManager/Pages/Inventory/Reservation/ReservationSearchFilter.page",
+    "Filterable" : "#Page:ReservationItemsListPage/#Control:SectionedTable",
+    "ActionResult": {
+        "_Name": "filterResult"
+    }
+}
+

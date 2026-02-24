@@ -1,0 +1,8 @@
+{
+    "_Type": "FioriToolbarItem.Type.Button",
+    "_Name": "InitiateReturnsButton",
+    "Title": "$(L, fld_initiate_return)",
+    "Enabled": true,
+    "OnPress": "/SAPAssetManager/Rules/FL/ReturnsByProduct/BulkUpdate/ReturnAllItems.js"
+}
+

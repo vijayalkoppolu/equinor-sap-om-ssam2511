@@ -1,0 +1,8 @@
+{
+    "_Type" : "Action.Type.Filter",
+    "PageToOpen" : "/SAPAssetManager/Pages/EWM/WarehouseOrders/WarehouseOrderSearchFilter.page",
+    "Filterable" : "#Page:WarehouseOrdersListPage/#Control:SectionedTable",
+    "ActionResult": {
+        "_Name": "filterResult"
+    }
+}

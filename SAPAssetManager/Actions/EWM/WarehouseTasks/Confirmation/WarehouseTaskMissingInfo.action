@@ -1,0 +1,7 @@
+{
+    "Message": "$(L,missing_information)",
+    "Duration": 3,
+    "Animated": true,
+    "Semantic": "Negative",
+    "_Type": "Action.Type.BannerMessage"
+}

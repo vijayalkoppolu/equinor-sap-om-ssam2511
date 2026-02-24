@@ -1,0 +1,36 @@
+{
+    "_Type": "Action.Type.ODataService.CreateEntity",
+    "Target": {
+        "EntitySet": "DynamicFormInstances",
+        "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "Properties": {
+        "Content": "",
+        "FormInstanceID": "/SAPAssetManager/Rules/Forms/SDF/FormInstanceCreateLocalId.js",
+        "AppName": "/SAPAssetManager/Rules/Forms/SDF/FormInstanceCreateAppName.js",
+        "FormVersion": "/SAPAssetManager/Rules/Forms/SDF/FormInstanceCreateFormVersion.js",
+        "FormName": "/SAPAssetManager/Rules/Forms/SDF/FormInstanceCreateFormName.js",
+        "ObjectKey": "/SAPAssetManager/Rules/Forms/SDF/FormInstanceCreateObjectKey.js",
+        "ObjectType": "/SAPAssetManager/Rules/Forms/SDF/FormInstanceCreateObjectType.js",
+        "TechnicalEntityType": "/SAPAssetManager/Rules/Forms/SDF/FormInstanceCreateTechnicalEntityType.js",
+        "FormStatus": "New",
+        "Mandatory": "/SAPAssetManager/Rules/Forms/SDF/FormInstanceCreateMandatory.js"
+    },
+    "Headers": {
+        "OfflineOData.HeaderFormat": "/SAPAssetManager/Rules/Forms/SDF/FormInstanceCreateUpdateSlug.js"
+    },
+    "CreateLinks": [
+		{
+			"Property": "DynamicFormTemplate_Nav",
+			"Target": {
+				"EntitySet": "DynamicFormTemplates",
+				"ReadLink": "{#ClientData/#Property:templateReadLink}"
+			}
+		}
+	],
+    "ActionResult": {
+        "_Name": "CreateDynamicFormInstanceResult"
+    },
+    "OnSuccess": "/SAPAssetManager/Actions/Forms/SDF/FormInstanceCreateLinkageObject.action",
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/CreateEntityFailureMessage.action"
+}

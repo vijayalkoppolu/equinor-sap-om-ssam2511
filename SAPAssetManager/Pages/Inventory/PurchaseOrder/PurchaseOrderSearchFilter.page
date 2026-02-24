@@ -1,0 +1,137 @@
+{
+    "OnActivityBackPressed": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/CancelCheckOnBackNavAndroid.js",
+    "ActionBar": {
+        "Items": [
+            {
+                "Position": "Left",
+                "SystemItem": "Cancel",
+                "Caption": "$(L,cancel)",
+                "OnPress": "/SAPAssetManager/Actions/Page/CancelPage.action"
+            },
+            {
+                "Position": "Right",
+                "SystemItem": "/SAPAssetManager/Rules/Filter/FilterSystemItem.js",
+                "Text": "/SAPAssetManager/Rules/Filter/FilterText.js",
+                "OnPress": "/SAPAssetManager/Rules/Filter/ApplyFilterAndSave.js"
+            }
+        ]
+    },
+    "Caption": "$(L,filter)",
+    "Result": "/SAPAssetManager/Rules/Inventory/PurchaseOrder/SearchFilter/PurchaseOrderSearchFilterResults.js",
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "Controls": [
+                        {
+                            "_Type": "Fragment",
+                            "Fragment": "/SAPAssetManager/Pages/Fragments/Filter/MultiSortByFilter.fragment",
+                            "Properties": {
+                                "Items": [
+                                    {
+                                        "ReturnValue": "ItemNum",
+                                        "DisplayValue": "$(L,item_number)"
+                                    },
+                                    {
+                                        "ReturnValue": "StorageBin",
+                                        "DisplayValue": "$(L,storage_bin)"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "Caption": "$(L,filter_by)",
+                    "Controls": [
+                        {
+                            "_Type": "Fragment",
+                            "Fragment": "/SAPAssetManager/Pages/Fragments/Inventory/ListPicker.fragment",
+                            "Properties": {
+                                "_Name": "ItemNum",
+                                "Caption": "$(L,item_number)",
+                                "PickerItems": "/SAPAssetManager/Rules/Inventory/PurchaseOrder/SearchFilter/PurchaseOrderItemNumberPickerItems.js",
+                                "FilterProperty": "ItemNum"
+                            }
+                        },
+                        {
+                            "_Type": "Fragment",
+                            "Fragment": "/SAPAssetManager/Pages/Fragments/Inventory/ListPicker.fragment",
+                            "Properties": {
+                                "_Name": "MaterialNum",
+                                "Caption": "$(L,material_number)",
+                                "PickerItems": "/SAPAssetManager/Rules/Inventory/PurchaseOrder/SearchFilter/PurchaseOrderMaterialNumberPickerItems.js",
+                                "FilterProperty": "MaterialNum"
+                            }
+                        },
+                        {
+                            "_Type": "Fragment",
+                            "Fragment": "/SAPAssetManager/Pages/Fragments/Inventory/ListPicker.fragment",
+                            "Properties": {
+                                "_Name": "StorageBin",
+                                "Caption": "$(L,storage_bin)",
+                                "PickerItems": "/SAPAssetManager/Rules/Inventory/PurchaseOrder/SearchFilter/PurchaseOrderStorageBinPickerItems.js",
+                                "FilterProperty": "StorageBin"
+                            }
+                        },
+                        {
+                            "_Type": "Fragment",
+                            "Fragment": "/SAPAssetManager/Pages/Fragments/Inventory/ListPicker.fragment",
+                            "Properties": {
+                                "_Name": "DeliveryDueDate",
+                                "Caption": "$(L,delivery_due_date)",
+                                "PickerItems": "/SAPAssetManager/Rules/Inventory/PurchaseOrder/SearchFilter/PurchaseOrderDeliveryDueDatePickerItems.js",
+                                "FilterProperty": "DeliveryDate"
+                            }
+                        },
+                        {
+                            "_Type": "Fragment",
+                            "Fragment": "/SAPAssetManager/Pages/Fragments/Inventory/ListPicker.fragment",
+                            "Properties": {
+                                "_Name": "Order",
+                                "Caption": "$(L,workorder)",
+                                "PickerItems": "/SAPAssetManager/Rules/Inventory/PurchaseOrder/SearchFilter/PurchaseOrderOrderPickerItems.js",
+                                "FilterProperty": "Order"
+                            }
+                        },
+                        {
+                            "_Type": "Fragment",
+                            "Fragment": "/SAPAssetManager/Pages/Fragments/Inventory/ListPicker.fragment",
+                            "Properties": {
+                                "_Name": "CostCenter",
+                                "Caption": "$(L,cost_center)",
+                                "PickerItems": "/SAPAssetManager/Rules/Inventory/PurchaseOrder/SearchFilter/PurchaseOrderCostCenterPickerItems.js",
+                                "FilterProperty": "CostCenter"
+                            }
+                        },
+                        {
+                            "_Type": "Fragment",
+                            "Fragment": "/SAPAssetManager/Pages/Fragments/Inventory/ListPicker.fragment",
+                            "Properties": {
+                                "_Name": "GLAccount",
+                                "Caption": "$(L,gl_account)",
+                                "PickerItems": "/SAPAssetManager/Rules/Inventory/PurchaseOrder/SearchFilter/PurchaseOrderGLAccountPickerItems.js",
+                                "FilterProperty": "GLAccount"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "_Name": "FormCellContainer",
+            "_Type": "Control.Type.FormCellContainer"
+        }
+    ],
+    "FioriToolbar": {
+        "_Name": "StockSearchFilterFioriToolbar",
+        "_Type": "Control.Type.FioriToolbar",
+        "Items": [
+            {
+                "_Type": "Fragment",
+                "Fragment": "/SAPAssetManager/Pages/Fragments/Filter/ResetFilterToolbarItem.fragment"
+            }
+        ]
+    },
+    "_Type": "Page",
+    "_Name": "PurchaseOrderSearchFilterPage",
+    "OnLoaded": "/SAPAssetManager/Rules/Filter/FilterOnLoaded.js"
+}

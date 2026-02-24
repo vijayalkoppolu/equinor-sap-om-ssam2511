@@ -1,0 +1,6 @@
+{
+     "ModalPage": true,
+     "ModalPageFullscreen": true,
+    "_Type" : "Action.Type.Navigation",
+    "PageToOpen" : "/SAPAssetManager/Pages/ConfirmationScenarios/GenerateQRCode.page"
+}

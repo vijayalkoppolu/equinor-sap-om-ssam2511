@@ -1,0 +1,17 @@
+{
+    "_Type": "Action.Type.ODataService.UpdateEntity",
+    "Target": {
+        "EntitySet": "WarehouseOrders",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "/SAPAssetManager/Rules/EWM/WarehouseOrder/GetReadLink.js"
+    },
+    "Properties": {
+        "WOStatus": "/SAPAssetManager/Rules/EWM/WarehouseOrder/GetWarehouseOrderStatus.js"
+    },
+    "Headers": {
+        "Transaction.Ignore": "true"
+    },
+    "RequestOptions": {
+        "UploadCategory": "/SAPAssetManager/Globals/EWM/TaskConfirmationUploadCategory.global"
+    }
+}

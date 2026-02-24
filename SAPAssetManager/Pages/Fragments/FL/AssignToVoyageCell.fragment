@@ -1,0 +1,9 @@
+{
+  "_Type": "Control.Type.ObjectCell",
+  "_Name": "VoyageCell",
+  "Title": "#Property:VoyageNumber",
+  "Description": "/SAPAssetManager/Rules/FL/Voyages/AssignToVoyage/AssignToVoyageDescription.js",
+  "StatusText": "/SAPAssetManager/Rules/FL/Voyages/AssignToVoyage/AssignToVoyageStatusText.js",
+  "SubstatusText": "#Property:FldLogsVoyageStageId",
+  "PreserveIconStackSpacing": false
+}

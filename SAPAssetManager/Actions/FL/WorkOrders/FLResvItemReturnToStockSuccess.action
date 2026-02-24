@@ -1,0 +1,21 @@
+{
+	"_Type": "Action.Type.ODataService.UpdateEntity",
+	"Target": {
+	"EntitySet": "FldLogsWoResvItems",
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "/SAPAssetManager/Rules/FL/WorkOrders/ReturnToStockReadLink.js"
+	},
+	 
+	"Properties": {
+		"WithdrawnQty" : "/SAPAssetManager/Rules/FL/WorkOrders/ReservationItems/ResvItemsWithdrawnQtyValue.js",
+		"Status" : "/SAPAssetManager/Rules/FL/WorkOrders/ReservationItems/ResvItemStatusValue.js"
+	},
+	"Headers": {   
+        "Transaction.Ignore": "true" ,
+		"OfflineOData.TransactionID": "{{#Property:Order}}{{#Property:Product}}{{#Property:Operation}}{{#Property:Plant}}"
+    },
+     "RequestOptions": {
+        "UploadCategory": "/SAPAssetManager/Globals/FL/OrderResvItemReturnUploadCategory.global"
+    },
+	"OnSuccess":  "/SAPAssetManager/Actions/FL/Common/UpdateEntitySuccessMessage.action"
+}

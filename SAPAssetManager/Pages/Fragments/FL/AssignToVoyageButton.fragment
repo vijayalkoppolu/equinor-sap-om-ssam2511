@@ -1,0 +1,7 @@
+{
+    "_Name": "FLAssignToVoyage",
+    "_Type": "FioriToolbarItem.Type.Button",
+    "Title": "$(L, assign_to_voyage)",
+    "Enabled": false,
+    "ButtonType": "Secondary"
+}

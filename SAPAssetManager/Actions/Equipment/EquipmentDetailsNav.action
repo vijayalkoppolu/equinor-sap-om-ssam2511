@@ -1,0 +1,5 @@
+{
+    "_Type" : "Action.Type.Navigation",
+    "PageToOpen" : "/SAPAssetManager/Rules/Equipment/EquipmentDetailsPageToOpen.js",
+    "PageMetadata": "/SAPAssetManager/Rules/Equipment/EquipmentDetailsPageMetadata.js"
+}

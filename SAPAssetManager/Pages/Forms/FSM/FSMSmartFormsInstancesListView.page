@@ -1,0 +1,64 @@
+{
+	"OnLoaded": "/SAPAssetManager/Rules/Filter/ListPageWithFilterOnLoaded.js",
+	"ActionBar":
+	{
+		"Items":
+		[
+			"/SAPAssetManager/Pages/Fragments/SyncButton.fragment",
+			{
+				"Position": "Right",
+				"Icon": "$(PLT,sap-icon://filter,sap-icon://filter, '' , sap-icon://filter)",
+				"Caption": "/SAPAssetManager/Rules/Filter/FilterButtonCaption.js",
+				"Visible": true,
+				"OnPress": "/SAPAssetManager/Actions/Forms/FSM/FSMFilter.action"
+		    },
+			{
+				"Position": "Right",
+				"_Name": "Add",
+				"Icon": "sap-icon://add",
+				"Caption": "$(L,add)",
+				"OnPress": "/SAPAssetManager/Actions/Forms/AddSmartFormPageNav.action",
+				"Visible": "/SAPAssetManager/Rules/Forms/FSM/AddSmartForm/IsAddSmartFormButtonVisible.js"
+			}
+		]
+	},
+	"Controls":
+	[{
+		"Sections":
+		[{
+			"Search":
+			{
+				"Enabled": true,
+				"Delay": 500,
+				"MinimumCharacterThreshold": 3,
+				"Placeholder": "$(L,search)",
+				"BarcodeScanner": true
+			},
+			"Header": {
+				"UseTopPadding": false
+			},
+			"EmptySection": {
+				"Caption": "$(L,no_smartforms)"
+			},
+			"ObjectCell": "/SAPAssetManager/Pages/Fragments/Forms/FSM/FormInstanceObjectCell.fragment",
+			"Target": {
+				"EntitySet": "FSMFormInstances",
+				"Service": "/SAPAssetManager/Services/AssetManager.service",
+				"QueryOptions": "/SAPAssetManager/Rules/Forms/FSM/FSMFormsInstancesListViewQueryOption.js"
+			},
+			"_Name": "SmartformsObjectTable",
+			"_Type": "Section.Type.ObjectTable"
+		}],
+		"FilterFeedbackBar": {
+			"_Type": "Control.Type.FilterFeedbackBar",
+			"_Name": "FilterFeedback",
+			"ShowAllFilters": true,
+			"FastFilters": "/SAPAssetManager/Rules/Forms/FSM/FSMFormsFastFiltersItems.js"
+		},
+		"_Type" : "Control.Type.SectionedTable",
+		"_Name" : "SectionedTable"
+	}],
+	"_Type": "Page",
+	"_Name": "FSMSmartFormsInstancesListViewPage",
+	"DataSubscriptions": ["FSMFormInstances","FSMFormTemplates"]
+}

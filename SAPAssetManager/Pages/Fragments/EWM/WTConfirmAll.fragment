@@ -1,0 +1,9 @@
+{
+    "_Name": "ConfirmAll",
+    "_Type": "FioriToolbarItem.Type.Button",
+    "Title": "$(L, confirm)",
+    "OnPress": "/SAPAssetManager/Rules/EWM/WarehouseTask/Confirmation/ConfirmAll.js",
+    "ButtonType": "Primary",
+    "Enabled": false,
+    "Visible": false
+}

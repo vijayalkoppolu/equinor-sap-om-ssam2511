@@ -1,0 +1,8 @@
+{
+    "_Type" : "Action.Type.Filter",
+    "PageToOpen" : "/SAPAssetManager/Pages/FL/Edit/BulkFLEditFilter.page",
+    "Filterable" : "#Page:BulkFLEdit/#Control:SectionedTable",
+    "ActionResult": {
+        "_Name": "filterResult" 
+    }
+}

@@ -1,0 +1,5 @@
+{
+	"_Type": "Action.Type.Navigation",
+	"PageToOpen" : "/SAPAssetManager/Pages/FL/WorkOrders/FLProductDetails.page",
+	"PageMetadata": "/SAPAssetManager/Rules/FL/WorkOrders/Products/Details/FLProductDetailsPageMetadata.js"
+}

@@ -1,0 +1,45 @@
+{
+	"Caption": "$(L, edit_items)",
+    "OnActivityBackPressed": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/CancelCheckOnBackNavAndroid.js",
+	"ActionBar": {
+        "Items": [
+            {
+                "OnPress": "/SAPAssetManager/Rules/FL/BulkUpdate/CloseBulkEdit.js",
+                "Position": "Left",
+                "SystemItem": "Cancel"
+            },
+            {
+                "Position": "Right",
+                "Icon": "$(PLT,sap-icon://filter,sap-icon://filter, '' , sap-icon://filter)",
+                "Caption": "/SAPAssetManager/Rules/Filter/FilterButtonCaption.js",
+                "OnPress": "/SAPAssetManager/Actions/FL/Edit/BulkUpdateFilterViewNav.action", 
+				"_Name": "FilterButton"
+            },
+            {
+                "_Name": "SaveButton",
+                "Position": "Right",
+                "Text": "$(L, save)",
+                "OnPress": "/SAPAssetManager/Rules/FL/BulkUpdate/BulkEditAllSave.js"
+            }
+        ]
+    },
+	"Controls": [
+		{
+			"Sections": [],
+            "DataSubscriptions": [
+            "FldLogsContainerItems","FlgLogsPackageItems"
+        ],
+         "FilterFeedbackBar": {
+                "_Type": "Control.Type.FilterFeedbackBar",
+                "_Name": "FilterFeedback",
+                "ShowAllFilters": true
+         },
+			"_Name": "SectionedTable",
+			"_Type": "Control.Type.SectionedTable"
+		}
+	],
+    "OnLoaded": "/SAPAssetManager/Rules/FL/Edit/FLListPageWithFilterOnLoaded.js",
+    "OnReturning": "/SAPAssetManager/Rules/FL/BulkUpdate/OnReturning.js",
+	"_Name": "BulkFLEdit",
+	"_Type": "Page"
+}

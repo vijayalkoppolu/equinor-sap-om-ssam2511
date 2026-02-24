@@ -1,0 +1,208 @@
+{
+    "OnActivityBackPressed": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/CancelCheckOnBackNavAndroid.js",
+	"ActionBar": {
+		"Items": [
+			{
+                "_Type": "Fragment",
+                "Fragment": "/SAPAssetManager/Pages/Fragments/CancelButton.fragment",
+                "Properties": {
+                    "Visible": "/SAPAssetManager/Rules/FL/ReturnsByProduct/FLProductUpdateCancelVisible.js"
+                }
+            },
+			{
+                "_Type": "Fragment",
+                "Fragment": "/SAPAssetManager/Pages/Fragments/DoneButton.fragment",
+                "Properties": {                  
+                	"OnPress": "/SAPAssetManager/Actions/FL/ReadyToPack/FLReadyToPackRequiredFields.action"
+                    }
+            }
+		]
+	},
+    "Caption": "$(L,edit_item)",
+	"Controls": [
+		{
+			"Sections": [
+				{
+				    "_Type": "Section.Type.FormCell",
+                    "_Name": "EditDocumentHeaderSection",
+                    "Caption": "$(L, indicates_required_fields)",
+					"Header": {
+                        "UseTopPadding": false
+                    },
+					"Controls": [
+                        {
+							"Caption": "$(L,product)",
+							"KeyboardType": "Default",
+                            "IsEditable": false,
+							"Value": "$(DV, {Material}, '-')",
+							"_Name": "ProductSimple",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						},
+                        {
+							"Caption": "$(L,product_description)",
+							"KeyboardType": "Default",
+                            "IsEditable": false,
+							"Value": "$(DV, {MaterialName}, '-')",
+							"_Name": "ProductDescSimple",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						}
+					]                
+				},
+				{
+                    "_Type": "Section.Type.FormCell",
+                    "_Name": "TransportInfo",
+                    "Caption": "$(L, transport_information)",
+					"Header": {
+                        "UseTopPadding": false
+                    },
+					"Controls": [
+						{
+                            "AllowMultipleSelection": false,
+                            "IsPickerDismissedOnSelection": true,
+                            "IsSearchCancelledAfterSelection": true,
+                            "AllowDefaultValueIfOneItem": true,
+                            "Search": {
+                                "Enabled": true,
+                                "Delay": 500,
+                                "MinimumCharacterThreshold": 3,
+                                "Placeholder": "$(L,search)",
+                                "BarcodeScanner": true
+                            },
+                            "Caption": "/SAPAssetManager/Rules/FL/ReturnsByProduct/FormatLabelReceivingPoint.js",
+                            "Value": "{FldLogsVoyageDestStage}",
+                            "PickerItems": {
+                                "DisplayValue": "{ShippingPoint} {ShippingPointText}",
+                                "ReturnValue": "{ShippingPoint}",
+                                "Target": {
+                                    "EntitySet": "FldLogsShippingPoints",
+                                    "Service": "/SAPAssetManager/Services/AssetManager.service",
+                                     "QueryOptions": "$filter=Plant eq '{{#Property:FldLogsDestPlnt}}'&$orderby=ShippingPoint"
+                                }
+                            },
+                            "_Name": "ReceivingPointListPkr",
+                            "_Type": "Control.Type.FormCell.ListPicker"
+                        },
+                        {
+                            "AllowMultipleSelection": false,
+                            "IsPickerDismissedOnSelection": true,
+                            "IsSearchCancelledAfterSelection": true,
+                            "AllowDefaultValueIfOneItem": true,
+                            "Search": {
+                                "Enabled": true,
+                                "Delay": 500,
+                                "MinimumCharacterThreshold": 3,
+                                "Placeholder": "$(L,search)",
+                                "BarcodeScanner": true
+                            },
+                            "Caption": "$(L,location_id)",
+                            "Value": "{FldLogsShptLocationId}",
+                            "PickerItems": {
+                                "DisplayValue": "{FldLogsShptLocationID}",
+                                "ReturnValue": "{FldLogsShptLocationID}",
+                                "Target": {
+                                    "EntitySet": "FldLogsPackCtnLocIDs",
+                                    "Service": "/SAPAssetManager/Services/AssetManager.service",
+                                     "QueryOptions": "$orderby=FldLogsShptLocationID"
+                                }
+                            },
+                            "_Name": "LocationIdListPkr",
+                            "_Type": "Control.Type.FormCell.ListPicker"
+                        },
+                        {
+							"Caption": "$(L,current_plant)",
+                            "IsEditable": false,
+							"Value": "$(DV, {FldLogsShptItemCurrentPlant}, '-')",
+							"_Name": "CurrentPlantSimple",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						},
+						{
+							"Caption": "$(L,destination_plant)",
+                            "IsEditable": false,
+							"Value": "$(DV, {FldLogsDestPlnt}, '-')",
+							"_Name": "DestinationPlantSimple",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						},
+                        {
+							"Caption": "$(L,current_shipping_point)",
+                            "IsEditable": false,
+							"Value": "$(DV, {FldLogsShptItemCurShipgPoint}, '-')",
+							"_Name": "CurrentShippingSimple",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						},
+                        {
+							"Caption": "$(L,source_storage_location)",
+                            "IsEditable": false,
+							"Value": "$(DV, {FldLogsSrceStorLocId}, '-')",
+							"_Name": "SrcStorageLocSimple",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						},
+                        {
+							"Caption": "$(L,dest_storage_location)",
+                            "IsEditable": false,
+							"Value": "$(DV, {FldLogsDestStorLocId}, '-')",
+							"_Name": "DestStorageLocSimple",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						}					
+					] 
+				},
+				{
+                    "_Type": "Section.Type.FormCell",
+                    "_Name": "ItemInfo",
+                    "Caption": "$(L, item_information)",
+					"Header": {
+                        "UseTopPadding": false
+                    },
+					"Controls": [
+						{
+							"Caption": "$(L,quantity)",
+							"Value":"$(DV, {QuantityInBaseUnit}, '-') $(DV, {OrderQuantityUnit}, '')",
+                            "IsEditable": false,
+							"_Name": "QuantitySimple",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						},
+						{
+							"Caption": "$(L,packed_quantity)",
+							"Value": "$(DV, {HandlingUnitQuantity}, '-') $(DV, {HandlingUnitQuantityUnit}, '')",
+                            "IsEditable": false,
+							"_Name": "PackedQuantitySimple",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						},
+						{
+							"Caption": "$(L,actual_weight)",
+							"Value": "$(DV, {FldLogsShptItemActualWeight}, '-') $(DV, {FldLogsShptItemActlWeightUnit}, '')",
+                            "IsEditable": false,
+							"_Name": "ActualWeightSimple",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						},
+						{
+							"Caption": "$(L,item_gross_weight)",
+							"Value": "$(DV, {ProductGrossWeight}, '-') $(DV, {ProductWeightUnit}, '')",
+                            "IsEditable": false,
+							"_Name": "GrossWeightSimple",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						},
+						{
+							"Caption": "$(L,item_volume)",
+							"Value": "$(DV, {FldLogsGrossVolume}, '-') $(DV, {FldLogsGrossVolumeUnit}, '')",
+                            "IsEditable": false,
+							"_Name": "ItemVolumeSimple",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						},
+						{
+							"Caption": "$(L,reference_order)",
+							"Value": "$(DV, {FldLogsReferenceDocumentNumber}, '-')",
+                            "IsEditable": false,
+							"_Name": "ReferenceOrderSimple",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						}
+					] 
+				}		
+            ],
+			"_Name": "FormCellContainer",
+			"_Type": "Control.Type.FormCellContainer"
+		}
+	],
+	"_Name": "EditReadyToPackItem",
+	"OnLoaded": "/SAPAssetManager/Rules/FL/Edit/ValidateOnLoad.js",
+	"_Type": "Page"
+}

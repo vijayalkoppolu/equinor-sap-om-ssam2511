@@ -1,0 +1,15 @@
+{
+    "_Type": "Action.Type.ODataService.ChangeSet",
+        "Actions": [
+            "/SAPAssetManager/Rules/EWM/WarehouseTask/Confirmation/WarehouseTaskConfSerialNumberDelete.js",
+            "/SAPAssetManager/Rules/EWM/WarehouseTask/SerialNumber/WarehouseTaskSerialNumberDelete.js",
+            "/SAPAssetManager/Actions/EWM/WarehouseTasks/Confirmation/WarehouseTaskConfirmationUpdate.action",
+            "/SAPAssetManager/Rules/EWM/WarehouseTask/SerialNumber/WarehouseTaskSerialNumberCreate.js",
+            "/SAPAssetManager/Rules/EWM/WarehouseTask/Confirmation/WarehouseTaskConfSerialNumberCreate.js"
+    ],
+    "Target": {
+        "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText" : "  "    
+}

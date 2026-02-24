@@ -1,0 +1,9 @@
+{
+    "_Name": "CreateWHT",
+    "_Type": "FioriToolbarItem.Type.Button",
+    "Title": "$(L, create_whtask)",
+    "OnPress": "/SAPAssetManager/Rules/EWM/WarehouseTask/WarehouseTaskCreateNavAction.js",
+    "ButtonType": "Secondary",
+    "Enabled": true,
+    "Visible": "/SAPAssetManager/Rules/EWM/WarehouseTask/WarehouseTaskCreateButtonIsVisible.js"
+}

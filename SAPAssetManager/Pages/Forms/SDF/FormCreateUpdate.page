@@ -1,0 +1,106 @@
+{
+	"Caption": "$(L,sdf_add_form)",
+    "ActionBar": {
+        "_Name": "FormCreateUpdateActionBar",
+        "Items": [
+            {
+                "_Type": "Fragment",
+                "Fragment": "/SAPAssetManager/Pages/Fragments/CancelButton.fragment"
+            },
+            {
+                "Position": "Right",
+                "_Name": "Done",
+                "SystemItem": "$(PLT,'Done','', '','Done')",
+                "Text": "/SAPAssetManager/Rules/Common/Platform/DoneText.js",
+                "OnPress": "/SAPAssetManager/Rules/Forms/SDF/FormRunnerNav.js"
+            }
+        ]
+    },
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "_Type": "Section.Type.FormCell",
+                    "_Name": "FormCellSection1",
+                    "Controls": [
+                        {
+                            "AllowMultipleSelection": false,
+                            "IsPickerDismissedOnSelection": true,
+                            "AllowDefaultValueIfOneItem": true,
+                            "Caption": "$(L,sdf_select_category)",
+                            "IsSearchCancelledAfterSelection": true,
+                            "Search": {
+                                "Enabled": true,
+                                "Delay": 500,
+                                "MinimumCharacterThreshold": 1,
+                                "Placeholder": "$(L,search)",
+                                "BarcodeScanner": true
+                            },
+                            "PickerItems": {
+								"ObjectCell": {
+									"PreserveIconStackSpacing": false,
+									"Title": "{AppName}"
+								},
+                                "ReturnValue": "{AppName}",
+                                "Target": {
+                                    "EntitySet": "DynamicFormTemplates",
+                                    "Service": "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions": "$select=AppName&$orderby=AppName&$apply=groupby((AppName))&$filter=Creatable eq 'X'"
+                                }
+                            },
+                            "Value": "{AppName}",
+                            "PickerPrompt": "$(L,select_single_item)",
+                            "OnValueChange": "/SAPAssetManager/Rules/Forms/SDF/FormFilterOnValueChange.js",
+                            "_Name": "SDFFormInstanceAppNameListPicker",
+                            "_Type": "Control.Type.FormCell.ListPicker"
+                        },
+                    	{
+                            "AllowMultipleSelection": false,
+                            "IsPickerDismissedOnSelection": true,
+                            "AllowDefaultValueIfOneItem": true,
+                            "Caption": "$(L,sdf_select_form)",
+                            "IsSearchCancelledAfterSelection": true,
+                            "Search": {
+                                "Enabled": true,
+                                "Delay": 500,
+                                "MinimumCharacterThreshold": 1,
+                                "Placeholder": "$(L,search)",
+                                "BarcodeScanner": true
+                            },
+                            "PickerItems": {
+								"ObjectCell": {
+									"PreserveIconStackSpacing": false,
+									"Title": "{FormName}",
+									"Subhead": "{AppName}",
+									"Footnote": "$(L,sdf_form_version): $(N,{FormVersion})"
+								},
+                                "ReturnValue": "{FormName}",
+                                "Target": {
+                                    "EntitySet": "DynamicFormTemplates",
+                                    "Service": "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions": "$select=AppName,FormName,FormVersion&$orderby=AppName,FormName,FormVersion&$filter=Creatable eq 'X'"
+                                }
+                            },
+                            "Value": "{FormName}",
+                            "OnValueChange": "/SAPAssetManager/Rules/Forms/SDF/FormTemplateOnValueChange.js",
+                            "PickerPrompt": "$(L,select_single_item)",
+                            "_Name": "SDFFormInstanceCreateListPicker",
+                            "_Type": "Control.Type.FormCell.ListPicker"
+                        },
+                        {
+                            "_Name": "MandatorySwitch",
+                            "_Type": "Control.Type.FormCell.Switch",
+                            "Caption": "$(L,sdf_mandatory)",
+                            "IsVisible": true,
+                            "Value": false
+                        }
+                    ]
+                }
+            ],
+            "_Name": "FormCellContainer",
+            "_Type": "Control.Type.SectionedTable"
+        }
+    ],
+    "_Type": "Page",
+    "_Name": "FormCreateUpdate"
+}

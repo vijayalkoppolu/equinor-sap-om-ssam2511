@@ -1,0 +1,9 @@
+{
+    "_Type" : "Action.Type.Filter",
+    "PageToOpen" : "/SAPAssetManager/Pages/Inventory/OutboundDelivery/OutboundSearchFilter.page",
+    "Filterable" : "#Page:OutboundDeliveryDetailPage/#Control:SectionedTable",
+    "ActionResult": {
+        "_Name": "filterResult"
+    }
+}
+

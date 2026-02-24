@@ -1,0 +1,19 @@
+{
+    "_Type": "Control.Type.ObjectCell",
+    "AccessoryType": "DisclosureIndicator",
+    "PreserveIconStackSpacing": false,
+    "Title": "{Order} - {Operation}",
+    "Subhead": "{Reservation}",
+    "StatusText":  "/SAPAssetManager/Rules/FL/WorkOrders/FLOrderProductStatus.js",
+    "SubstatusText": "/SAPAssetManager/Rules/FL/GetWorkNetworkOrderItemCount.js",
+    "Footnote": "$(L, reservation)",
+    "OnPress": "/SAPAssetManager/Rules/FL/WorkOrders/FLWODetailPageNav.js",
+    "AvatarStack": {
+        "Avatars": [{
+            "Image": "sap-icon://wrench",
+            "Style": "$(PLT, FLWorkOrderIcon, FLWorkOrderIconAndroid)"
+        }],
+        "ImageHasBorder": true,
+        "ImageIsCircular": false
+    }
+}

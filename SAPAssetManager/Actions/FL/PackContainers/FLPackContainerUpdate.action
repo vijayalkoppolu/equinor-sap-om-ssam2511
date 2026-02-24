@@ -1,0 +1,25 @@
+{
+	"_Type": "Action.Type.ODataService.UpdateEntity",
+	"Target": {
+	"EntitySet": "FldLogsPackCtnPkdCtns",
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+    "ReadLink": "{@odata.readLink}"
+	},
+	"OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/UpdateEntityFailureMessage.action",
+	"Properties": {
+       "ActionType": "EDITALL",
+       "FldLogsCtnActualWeight" : "#Control:ActualWeightSimple/#Value",
+       "FldLogsCtnActualWeightUnit" : "#Control:UOMListPicker/#SelectedValue",
+       "FldLogsShptLocationID" : "#Control:LocationIdListPkr/#SelectedValue",
+       "FldLogsContainerUnitExternalID" : "#Control:RefDocNumberSimple/#Value"
+	},
+	"Headers": {
+        "OfflineOData.TransactionID": "{{#Property:ObjectId}}"        
+    },
+     "RequestOptions": {
+         "UpdateMode": "Replace"
+    },
+	"OnSuccess": "/SAPAssetManager/Rules/FL/PackedContainers/FLPackContainerUpdateSuccess.js",
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText" : "  " 
+}

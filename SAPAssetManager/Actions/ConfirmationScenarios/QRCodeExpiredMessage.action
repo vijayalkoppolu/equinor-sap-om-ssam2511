@@ -1,0 +1,6 @@
+{
+	"_Type": "Action.Type.Message",
+	"Title": "$(L, validation_error)",
+	"Message": "$(L,cooperation_scan_expired_message)",
+	"OKCaption": "$(L, ok)"
+}

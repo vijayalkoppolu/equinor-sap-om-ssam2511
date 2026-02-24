@@ -1,0 +1,21 @@
+{
+  "_Type": "Action.Type.ODataService.CreateMedia",
+  "Target": {
+    "EntitySet" : "DynamicFormAttachments",
+    "Service": "/SAPAssetManager/Services/AssetManager.service"
+  },
+  "Properties": {
+    "AppName": "{#Page:FormRunner/#ClientData/AttachmentData/AppName}",
+    "FormName": "{#Page:FormRunner/#ClientData/AttachmentData/FormName}",
+    "FormVersion": "{#Page:FormRunner/#ClientData/AttachmentData/FormVersion}",
+    "FormInstanceID": "{#Page:FormRunner/#ClientData/AttachmentData/FormInstanceID}",
+    "AttachmentID": "{#Page:FormRunner/#ClientData/AttachmentData/AttachmentID}",
+    "MimeType": "{#Page:FormRunner/#ClientData/AttachmentData/MimeType}"
+  },
+  "Headers": {
+    "OfflineOData.HeaderFormat": "/SAPAssetManager/Rules/Forms/SDF/FormAttachmentCreateSlug.js"
+  },
+  "Media": "{#Page:FormRunner/#ClientData/AttachmentData/Media}",
+
+  "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/CreateEntityFailureMessage.action"
+}

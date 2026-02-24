@@ -1,0 +1,134 @@
+
+{
+ 
+  "ActionBar": {
+    "Items": [
+      {
+        "Position": "Left",
+        "SystemItem": "Cancel",
+        "Caption": "$(L,cancel)",
+        "OnPress": "/SAPAssetManager/Actions/Page/CancelPage.action"
+      },
+      {
+        "Position": "Right",
+        "SystemItem": "/SAPAssetManager/Rules/Filter/FilterSystemItem.js",
+        "Text": "/SAPAssetManager/Rules/Filter/FilterText.js",
+        "OnPress": "/SAPAssetManager/Rules/Filter/ApplyFilterAndSave.js"
+      }
+    ]
+  },
+  "Caption": "$(L,filter)",
+  "Result": "/SAPAssetManager/Rules/FL/WorkOrders/Products/ListView/FLProductSearchFilterResults.js",
+  "Controls": [
+    {
+      "Sections": [
+        {
+          "Controls": [
+            {
+              "_Type": "Fragment",
+              "Fragment": "/SAPAssetManager/Pages/Fragments/Filter/MultiSortByFilter.fragment",
+              "Properties": {
+                "Items": [
+                  {
+                    "ReturnValue": "Product",
+                    "DisplayValue": "$(L,fld_product)"
+                  },
+                  {
+                    "ReturnValue": "OPActivity",
+                    "DisplayValue": "$(L,fld_operation_activity)"
+                  },
+                  {
+                    "ReturnValue": "SupplyProcess",
+					          "DisplayValue": "$(L,fld_supply_process)"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "Caption": "$(L,filter_by)",
+          "Controls": [
+            {
+              "_Name": "FLOPActivityFilter",
+              "_Type": "Control.Type.FormCell.ListPicker",
+              "Caption": "$(L,fld_operation_activity)",
+              "AllowMultipleSelection": true,
+              "IsPickerDismissedOnSelection": true,
+              "IsSearchCancelledAfterSelection": true,
+              "Search": {
+                "Enabled": true,
+                "Delay": 500,
+                "MinimumCharacterThreshold": 3,
+                "Placeholder": "$(L,search)",
+                "BarcodeScanner": true
+              },
+              "FilterProperty": "Operation",
+              "PickerItems": "/SAPAssetManager/Rules/FL/WorkOrders/FLOrderOperationValues.js",
+              "OnValueChange": "/SAPAssetManager/Rules/Filter/RedrawFilterToolbar.js"
+            },
+            {
+              "_Name": "FLProductFilter",
+              "_Type": "Control.Type.FormCell.ListPicker",
+              "Caption": "$(L,fld_product)",
+              "AllowMultipleSelection": true,
+              "IsPickerDismissedOnSelection": true,
+              "IsSearchCancelledAfterSelection": true,
+              "Search": {
+                "Enabled": true,
+                "Delay": 500,
+                "MinimumCharacterThreshold": 3,
+                "Placeholder": "$(L,search)",
+                "BarcodeScanner": true
+              },
+              "FilterProperty": "Product",
+                "PickerItems": {
+                                "DisplayValue" :  "{{#Property:Product}} - {{#Property:ProductDescription}} ",
+                                "ReturnValue" : "{Product}",
+                                "Target":
+                                {
+                                    "EntitySet" : "{{#Property:@odata.readLink}}/FldLogsWoProduct_Nav",
+                                    "Service" : "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions" : "$orderby=Product"
+                                }
+                            },
+              "OnValueChange": "/SAPAssetManager/Rules/Filter/RedrawFilterToolbar.js"
+            },
+			{
+              "_Name": "FLSupplyProcessFilter",
+              "_Type": "Control.Type.FormCell.ListPicker",
+              "Caption": "$(L,fld_supply_process)",
+              "AllowMultipleSelection": true,
+              "IsPickerDismissedOnSelection": true,
+              "IsSearchCancelledAfterSelection": true,
+              "Search": {
+                "Enabled": true,
+                "Delay": 500,
+                "MinimumCharacterThreshold": 3,
+                "Placeholder": "$(L,search)",
+                "BarcodeScanner": true
+              },
+              "FilterProperty": "SupplyProcess",
+              "PickerItems": "/SAPAssetManager/Rules/FL/WorkOrders/Products/FLOrderSupplyProcessValues.js",
+              "OnValueChange": "/SAPAssetManager/Rules/Filter/RedrawFilterToolbar.js"
+            }
+          ]
+        }
+      ],
+      "_Name": "FormCellContainer",
+      "_Type": "Control.Type.FormCellContainer"
+    }
+  ],
+  "FioriToolbar": {
+    "_Name": "OrderProductSearchFilterFioriToolbar",
+    "_Type": "Control.Type.FioriToolbar",
+    "Items": [
+      {
+        "_Type": "Fragment",
+        "Fragment": "/SAPAssetManager/Pages/Fragments/Filter/ResetFilterToolbarItem.fragment"
+      }
+    ]
+  },
+  "_Type": "Page",
+  "_Name": "FLOrderProductsFilter"
+}

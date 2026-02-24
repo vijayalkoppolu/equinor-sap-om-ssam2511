@@ -1,0 +1,6 @@
+{
+    "_Type": "FioriToolbarItem.Type.Button",
+    "Title": "$(L, discard)",
+    "Enabled": false,
+	"OnPress": "/SAPAssetManager/Rules/FL/Common/DiscardFLItems.js"
+}

@@ -1,0 +1,27 @@
+{
+	"_Type": "Action.Type.ODataService.UpdateEntity",
+	"Target": {
+	"EntitySet": "FldLogsWoProducts",
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "{@odata.readLink}"
+	},
+	"OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/UpdateEntityFailureMessage.action",
+	"Properties": {
+		"RemoteStorageLocation" : "/SAPAssetManager/Rules/FL/WorkOrders/StorageLocation.js",
+		"Reservation" : "/SAPAssetManager/Rules/FL/WorkOrders/ReservationItems/ReturnStockReservationValue.js",
+                "Status": "R",
+                "WithdrawnQty": 0,
+                "ProductDescription": "",
+                "EntryQty": "/SAPAssetManager/Rules/FL/WorkOrders/Products/EntryQuantity.js"
+	},
+	"Headers": {
+        "OfflineOData.TransactionID": "{{#Property:Order}}{{#Property:Product}}{{#Property:Operation}}{{#Property:Plant}}"        
+        },
+        "RequestOptions": {
+                "UploadCategory": "/SAPAssetManager/Globals/FL/OrderProductReturnUploadCategory.global",
+                 "UpdateMode": "Replace"
+       },
+       "ValidationRule": "/SAPAssetManager/Rules/FL/WorkOrders/Products/ValidateProductReturn.js",
+       "ShowActivityIndicator": true,
+        "ActivityIndicatorText" : "  "   
+}

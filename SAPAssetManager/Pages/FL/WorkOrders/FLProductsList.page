@@ -1,0 +1,135 @@
+{
+	"OnLoaded": "/SAPAssetManager/Rules/FL/WorkOrders/Products/ListView/ProductsOnLoaded.js",
+	"ActionBar": {
+		"Items": [
+			"/SAPAssetManager/Pages/Fragments/SyncButton.fragment"
+		]
+	},
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"Header": {
+						"Caption": "",
+						"UseTopPadding": false,
+						"Items": [
+							{
+								"_Type": "SectionHeaderItem.Type.Button",
+								"_Name": "SelectItems",
+								"Title": "$(L,select_items)",
+								"Position": "Right",
+								"Visible": true,
+								"Enabled": "/SAPAssetManager/Rules/FL/WorkOrders/Products/ListView/IsSelectItemsButtonActive.js",
+								"OnPress": "/SAPAssetManager/Rules/FL/WorkOrders/Products/ListView/SwitchSelect.js",
+								"Styles": {
+                                    "Button": "SelectItemsButtonLabelFontSize"
+                                }
+							},
+							{
+								"_Type": "SectionHeaderItem.Type.Button",
+								"_Name": "DeselectAll",
+								"Title": "$(L,deselect_all)",
+								"Position": "Right",
+								"Visible": false,
+								"OnPress": "/SAPAssetManager/Rules/FL/WorkOrders/Products/ListView/SwitchSelect.js",
+								"Styles": {
+                                    "Button": "SelectItemsButtonLabelFontSize"
+                                }
+							},
+							{
+								"_Type": "SectionHeaderItem.Type.Button",
+								"_Name": "SelectAll",
+								"Title": "$(L,select_all)",
+								"Position": "Right",
+								"Visible": false,
+								"OnPress": "/SAPAssetManager/Rules/FL/WorkOrders/Products/ListView/SwitchSelect.js",
+								"Styles": {
+                                    "Button": "SelectItemsButtonLabelFontSize"
+                                }
+							},
+							{
+								"_Type": "Fragment",
+								"Fragment": "/SAPAssetManager/Pages/Fragments/FL/ListCounterCaption.fragment",
+								"Properties": {
+									"Title": "/SAPAssetManager/Rules/FL/WorkOrders/Products/ListView/FLProductsCountCaption.js"
+								}
+							}
+                        ]
+					},
+					"EmptySection": {
+						"Caption": "$(L, no_documents_available)"
+					},
+					"ObjectCell": "/SAPAssetManager/Pages/Fragments/FL/OrderProduct.fragment",
+					"Selection": {
+						"LongPressToEnable": "Multiple",
+						"ExitOnLastDeselect": true,
+						"Mode": "None"
+					},
+					"OnSelectionChanged": "/SAPAssetManager/Rules/FL/WorkOrders/Products/ListView/OnProductSelectedOrUnselected.js",
+					"OnSelectionModeChanged":"/SAPAssetManager/Rules/FL/WorkOrders/Products/ListView/OnProductSelectionModeChanged.js",
+					"Search": {
+						"BarcodeScanner": true,
+						"Enabled": true,
+						"MinimumCharacterThreshold": 3,
+						"Placeholder": "$(L,search)",
+						"Delay": 700
+					},
+				
+					"Target": {
+						"EntitySet": "{{#Property:@odata.readLink}}/FldLogsWoProduct_Nav",
+						"QueryOptions": "/SAPAssetManager/Rules/FL/WorkOrders/Products/ListView/ProductListQuery.js",
+						"Service": "/SAPAssetManager/Services/AssetManager.service"
+					},
+					"DataSubscriptions": [
+						"FldLogsWoProducts"
+					],
+					"_Name": "SectionObjectTable",
+					"_Type": "Section.Type.ObjectTable"
+				}
+			],
+			"FilterFeedbackBar": {
+				"_Type": "Control.Type.FilterFeedbackBar",
+				"_Name": "FLOrderProductsFilterFeedback",
+				"ShowAllFilters": true,
+				"FastFilters": [
+					{  
+						"_Name": "Open",
+						"_Type": "Control.Type.FastFilterItem",
+						"FilterType": "Filter",
+						"FilterProperty": "",
+						"CustomQueryGroup": "FLOProducts",
+						"DisplayValue": "/SAPAssetManager/Rules/FL/WorkOrders/Products/ListView/FLProductOpenFilterDisplayValue.js",
+						"ReturnValue": "Status eq ''"
+					},
+					{  
+						"_Name": "Returned",
+						"_Type": "Control.Type.FastFilterItem",
+						"FilterType": "Filter",
+						"FilterProperty": "",
+						"CustomQueryGroup": "FLOProducts",
+						"DisplayValue": "/SAPAssetManager/Rules/FL/WorkOrders/Products/ListView/FLProductReturnFilterDisplayValue.js",
+						"ReturnValue": "Status eq 'R'"
+					}
+				]
+			},
+			"Filters": "/SAPAssetManager/Rules/FL/WorkOrders/Products/ListView/GetFLOrderProductPreselectedFilter.js",
+			"_Name": "SectionedTable",
+			"_Type": "Control.Type.SectionedTable"
+		}
+	],
+	"FioriToolbar": {
+		"_Name": "ProductListFioriToolbar",
+        "_Type": "Control.Type.FioriToolbar",
+		"Items": [
+		   { 
+			"_Type": "Fragment",
+            "Fragment": "/SAPAssetManager/Pages/Fragments/FL/ReturnToStock.fragment"           
+			}
+		]
+	},
+	
+	"OnReturning": "/SAPAssetManager/Rules/FL/WorkOrders/ProductOnReturning.js",
+	"OnResume": "/SAPAssetManager/Rules/FL/WorkOrders/ProductOnReturning.js",
+	"_Name": "FLProductsList",
+	"_Type": "Page"
+}

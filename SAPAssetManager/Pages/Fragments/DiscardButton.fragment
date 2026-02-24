@@ -1,0 +1,10 @@
+{
+    "_Type": "Control.Type.FormCell.Button",
+    "_Name": "DiscardButton",
+    "Title": "$(L,discard)",
+    "ButtonType": "Text",
+    "Semantic": "Negative",
+    "TextAlignment": "/SAPAssetManager/Rules/Common/Platform/ModalButtonAlign.js",
+    "IsVisible": "/SAPAssetManager/Rules/Common/IsDiscardButtonVisible.js",
+    "OnPress": "/SAPAssetManager/Rules/Common/DiscardAction.js"
+}

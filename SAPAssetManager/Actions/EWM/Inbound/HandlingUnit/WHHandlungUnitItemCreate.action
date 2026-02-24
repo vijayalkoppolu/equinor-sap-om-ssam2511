@@ -1,0 +1,11 @@
+{
+	"_Type": "Action.Type.ODataService.CreateEntity",
+	"Target": {
+        "EntitySet" : "HandlingUnitItems",
+        "Service" : "/SAPAssetManager/Services/AssetManager.service"
+    },
+	"Properties": {
+		"ParentGUID": "#ClientData/#Property:CreatableHU/#Property:GUID",
+		"RefDocCategory": "PDI"
+	}
+}

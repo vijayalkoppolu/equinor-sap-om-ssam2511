@@ -1,0 +1,9 @@
+{
+    "_Type" : "Action.Type.Filter",
+    "PageToOpen" : "/SAPAssetManager/Pages/Inventory/ProductionOrder/ProductionOrderSearchFilter.page",
+    "Filterable" : "#Page:ProductionOrderComponentsListPage/#Control:SectionedTable",
+    "ActionResult": {
+        "_Name": "filterResult"
+    }
+}
+

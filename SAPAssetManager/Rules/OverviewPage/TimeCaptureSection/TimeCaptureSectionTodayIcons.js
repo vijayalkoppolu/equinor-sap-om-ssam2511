@@ -1,0 +1,54 @@
+import TimeCaptureTypeHelper from './TimeCaptureTypeHelper';
+import {ConfirmationsFetchRequest} from '../../Confirmations/Fetch/ConfirmationsFetchRequest';
+import {TimeSheetDetailsLibrary} from '../../TimeSheets/TimeSheetLibrary';
+import FetchRequest from '../../Common/Query/FetchRequest';
+import QueryBuilder from '../../Common/Query/QueryBuilder';
+import isAndroid from '../../Common/IsAndroid';
+import ODataLibrary from '../../OData/ODataLibrary';
+
+export default function TimeCaptureSectionTodayIcons(context) {
+
+    return TimeCaptureTypeHelper(context, ConfirmationIcons, TimeSheetIcons);
+}
+
+function TimeSheetIcons(context) {
+
+    let date = TimeSheetDetailsLibrary.TimeSheetCreateUpdateDate(context, new Date());
+
+    let queryBuilder = new QueryBuilder();
+    queryBuilder.addFilter(`Date eq datetime'${date}'`);
+    let fetchRequest = new FetchRequest('CatsTimesheets', queryBuilder.build());
+
+    return fetchRequest.execute(context).then(results => {
+        let icons = [];
+
+        results.some(timesheet => {
+            if (ODataLibrary.hasAnyPendingChanges(timesheet)) {
+                icons.push(isAndroid(context) ? '/SAPAssetManager/Images/syncOnListIcon.android.png' : '/SAPAssetManager/Images/syncOnListIcon.png');
+                return true;
+            }
+            return false;
+        });
+        return icons;
+    });
+}
+
+function ConfirmationIcons(context) {
+
+    // Fetch request for today confirmations
+    let fetchRequest = new ConfirmationsFetchRequest(context);
+
+    return fetchRequest.execute(context).then(result => {
+
+        let icons = [];
+
+        result.some(conf => {
+            if (ODataLibrary.hasAnyPendingChanges(conf)) {
+                icons.push(isAndroid(context) ? '/SAPAssetManager/Images/syncOnListIcon.android.png' : '/SAPAssetManager/Images/syncOnListIcon.png');
+                return true;
+            }
+            return false;
+        });
+        return icons;
+    });
+}

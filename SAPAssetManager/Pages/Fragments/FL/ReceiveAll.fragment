@@ -1,0 +1,9 @@
+{
+    "_Name": "ReceiveAll",
+    "_Type": "FioriToolbarItem.Type.Button",
+    "Title": "$(L, receive_all_document)",
+    "OnPress": "/SAPAssetManager/Rules/FL/ContainerItems/ReceiveAll.js",
+    "ButtonType": "Primary",
+    "Visible": "false",
+    "Enabled": "true"
+}

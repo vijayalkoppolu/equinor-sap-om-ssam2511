@@ -1,0 +1,7 @@
+{
+	"PageToOpen": "/SAPAssetManager/Pages/FL/PackContainers/ReadyToPack/BulkUpdate.page",
+	"_Type": "Action.Type.Navigation",
+	"PageMetadata": "/SAPAssetManager/Rules/FL/ReadyToPack/BulkUpdate/BulkFLEditRdyToPckMetaGen.js",
+	"ModalPage": true,
+	"ModalPageFullscreen": true
+}

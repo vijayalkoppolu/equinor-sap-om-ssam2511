@@ -1,0 +1,29 @@
+{
+	"AccessoryType": "/SAPAssetManager/Rules/FL/WorkOrders/ReservationItems/ListView/ResvItemAccessoryType.js",
+	"PreserveIconStackSpacing": false,
+	"StatusText": "/SAPAssetManager/Rules/FL/WorkOrders/ListView/FLWOResvItemStatusText.js",
+	"Subhead": "/SAPAssetManager/Rules/FL/WorkOrders/ReservationItems/ListView/FormatResvItemsSubHead.js",
+	"Footnote": "/SAPAssetManager/Rules/FL/WorkOrders/ReservationItems/ListView/FormatResvItemsFootNote.js",
+	"SubstatusText": "/SAPAssetManager/Rules/FL/WorkOrders/ReservationItems/ListView/FLResvItemsStatusText.js",
+	"Description": "/SAPAssetManager/Rules/FL/WorkOrders/ReservationItems/ListView/FormatResvItemsDescription.js",
+	"Title": "/SAPAssetManager/Rules/FL/WorkOrders/ReservationItems/ListView/FormatRescItemsTitle.js",
+	"Selected": "/SAPAssetManager/Rules/FL/Common/IsSelected.js",
+	"AccessoryButtonIcon": "/SAPAssetManager/Rules/FL/WorkOrders/ReservationItems/ListView/IsResvItemReturnButtonEnabled.js",
+	"OnAccessoryButtonPress": "/SAPAssetManager/Rules/FL/WorkOrders/ReservationItems/ListView/OnResvItemButtonPress.js",
+	"AvatarStack": {
+    "Avatars": [{
+        "Image": "$(PLT, sap-icon://product, sap-icon://product, '', sap-icon://product)",
+        "Style": "$(PLT, FLProductIcon, FLProductIconAndroid)"
+    }], 
+    "ImageHasBorder": true,
+    "ImageIsCircular": false
+  	},
+	"Tags": [
+              {
+                "Text": "/SAPAssetManager/Rules/FL/WorkOrders/ReservationItems/FormatWBSElement.js"
+              }
+            ],
+	"Styles": {
+        		"AccessoryButtonIcon": "AccessoryButtonIcon"
+  		}			
+}

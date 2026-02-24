@@ -1,0 +1,237 @@
+{
+	"Caption": "/SAPAssetManager/Rules/EWM/WarehouseTask/Confirmation/WarehouseTaskConfirmationCaption.js",
+    "OnActivityBackPressed": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/CancelCheckOnBackNavAndroid.js",
+    "ActionBar": {
+        "Items": [
+            {
+                "Position": "Left",
+                "SystemItem": "Cancel",
+                "Caption": "$(L,cancel)",
+                "OnPress": "/SAPAssetManager/Rules/EWM/WarehouseTask/Confirmation/OnPressWarehouseTaskConfirmationCancelButton.js"
+            },
+            {
+                "Position": "Right",
+                "SystemItem": "$(PLT,'Confirm','', 'Confirm')",
+                "Caption": "$(L,confirm)",
+                "Text": "$(L,confirm)",
+                "OnPress": "/SAPAssetManager/Rules/EWM/WarehouseTask/Confirmation/OnPressWarehouseTaskConfirmationDoneButton.js"
+            }
+        ]
+	},
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"Header": {
+                        "UseTopPadding": false
+                    },
+					"Controls": [
+						{
+							"Caption": "$(L,warehouse_task_num)/$(L,confirmation_item)",
+							"IsEditable": false,
+							"KeyboardType": "Default",
+							"Value": "$(DV, '/SAPAssetManager/Rules/EWM/WarehouseTask/WarehouseTaskNumberWithoutLeadingZeros.js', '-')/$(DV, '/SAPAssetManager/Rules/EWM/WarehouseTask/Confirmation/WarehouseTaskConfirmationItem.js', '-')",
+							"_Name": "WhTaskNumSimple",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						},
+						{
+							"Caption": "$(L,process_category)/$(L,activity_area)/$(L,hdr_warehouse_proctype)",
+							"IsEditable": false,
+							"KeyboardType": "Default",
+							"Value": "$(DV,{WarehouseProcessCategory_Nav/Description}, '-')/$(DV, {ActivityArea},'-')/$(DV, {WarehouseProcessType_Nav/WarehouseProcessTypeDescription},'-')",
+							"_Name": "WhProcCategoryActivityProcessingTypeSimple",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						},
+						{
+							"Caption": "$(L,product)/$(L,product_description)",
+							"IsEditable": false,
+							"KeyboardType": "Default",
+							"Value": "$(DV, {Product}, '-')/$(DV, {ProductDescription}, '-')",
+							"_Name": "WhProductDescriptionSimple",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						},
+						{
+							"Caption": "$(L,batch)",
+							"IsEditable": true,
+							"IsVisible": "/SAPAssetManager/Rules/EWM/WarehouseTask/Confirmation/IsVisibleBatch.js",
+							"KeyboardType": "Default",
+							"Value": "{Batch}",
+                            "AlternateInput": "Barcode",
+							"_Name": "WhBatchSimple",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						},
+						{
+                            "_Name": "ExceptionPicker",
+                            "_Type": "Control.Type.FormCell.ListPicker",
+                            "Caption": "$(L,exception_handling)",
+                            "AllowEmptySelection": true,
+                            "AllowMultipleSelection": false,
+                            "IsPickerDismissedOnSelection": true,
+                            "AllowDefaultValueIfOneItem": true,
+                            "IsSearchCancelledAfterSelection": true,
+                            "Search": {
+                                "Enabled": true,
+                                "Delay": 500,
+                                "MinimumCharacterThreshold": 2,
+                                "Placeholder": "$(L,search)"
+                            },
+                            "IsEditable": true,
+                            "IsVisible": true,
+                            "PickerItems": {
+                                "DisplayValue": "{{#Property:ExceptionCode}} - {{#Property:Description}}",
+                                "ReturnValue": "{ExceptionCode}",
+                                "Target": {
+                                    "EntitySet": "WarehouseExceptionCodes",
+                                    "Service": "/SAPAssetManager/Services/AssetManager.service",
+									"QueryOptions": "$filter=WarehouseNo eq '{WarehouseNo}' and ProcCategory eq '{ProcCategory}'"
+                                    }
+                            },
+                            "PickerPrompt": "$(L,select_single_item)",
+							"OnValueChange": "/SAPAssetManager/Rules/EWM/WarehouseTask/Confirmation/OnValueChangeExceptionCode.js"
+                        },
+						{
+							"Caption": "$(L, to_confirm_quantity)",
+							"IsEditable": "/SAPAssetManager/Rules/EWM/WarehouseTask/Confirmation/QuantityIsEditable.js",
+							"KeyboardType": "Number",
+							"Value": "/SAPAssetManager/Rules/EWM/WarehouseTask/Confirmation/GetQuantityValue.js",
+							"HelperText": "/SAPAssetManager/Rules/EWM/WarehouseTask/Confirmation/GetQuantityHelperText.js",
+							"_Name": "WhQuantitySimple",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						},
+						{
+							"Caption": "$(L,uom)",
+							"IsEditable": false,
+							"KeyboardType": "Default",
+							"Value": "{UoM}",
+							"_Name": "WhUoMSimple",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						},
+						{
+                            "_Type": "Control.Type.FormCell.Button",
+                            "_Name": "SerialNumberAdd",
+                            "Title": "$(L,serial_add_serial_number)",
+                            "OnPress": "/SAPAssetManager/Actions/EWM/WarehouseTasks/SerialNumber/SerialNumberNav.action",
+                            "TextAlignment": "Center",
+							"ButtonType": "Text",
+							"IsVisible": "/SAPAssetManager/Rules/EWM/WarehouseTask/SerialNumber/IsVisibleSerialNumberButton.js"
+                        },
+						{
+                            "_Type": "Control.Type.FormCell.Button",
+                            "_Name": "SerialNumberDiffAdd",
+                            "Title": "$(L,ewm_add_serial_number_diff)",
+                            "OnPress": "/SAPAssetManager/Actions/EWM/WarehouseTasks/SerialNumber/SerialNumberNav.action",
+                            "TextAlignment": "Center",
+							"ButtonType": "Text",
+							"IsVisible": false
+                        },
+						{
+							"Caption": "$(L,source_bin)",
+							"IsEditable": false,
+							"KeyboardType": "Default",
+							"Value": "{SourceBin}",
+							"_Name": "WhSourceBinSimple",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						},
+						{
+							"Caption": "$(L,source_hu)",
+							"IsEditable": false,
+							"KeyboardType": "Default",
+							"Value": "{SourceHU}",
+							"_Name": "WhSourceHUSimple",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						},
+						{
+							"Caption": "$(L,remove_hu)",
+							"IsEditable": true,
+							"KeyboardType": "Default",
+							"IsVisible": "/SAPAssetManager/Rules/EWM/WarehouseTask/Confirmation/IsVisibleRemoveHuSwitch.js",
+							"Value": "{false}",
+							"_Name": "WhRemoveHuSwitch",
+							"_Type": "Control.Type.FormCell.Switch"
+						},
+						{
+							"Caption": "$(L,destination_bin)",
+							"IsEditable": true,
+							"KeyboardType": "Default",
+							"AlternateInput": "Barcode",
+							"Value": "{DestinationBin}",
+							"HelperText": "/SAPAssetManager/Rules/EWM/WarehouseTask/Confirmation/GetDestinationBinHelperText.js",
+							"_Name": "WhDestinationBinSimple",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						},
+						"/SAPAssetManager/Pages/Fragments/EWM/DestinationBinPickerButton.fragment",
+						{
+                            "_Name": "WhDestinationHUPicker",
+                            "_Type": "Control.Type.FormCell.ListPicker",
+                            "Caption": "$(L,destination_hu)",
+                            "AllowEmptySelection": true,
+                            "AllowMultipleSelection": false,
+                            "IsPickerDismissedOnSelection": true,
+                            "AllowDefaultValueIfOneItem": true,
+                            "IsSearchCancelledAfterSelection": true,
+                            "Search": {
+                                "Enabled": true,
+                                "Delay": 500,
+                                "MinimumCharacterThreshold": 2,
+                                "Placeholder": "$(L,search)",
+                                "BarcodeScanner": true
+                            },
+                            "IsEditable": true,
+                            "IsVisible":"/SAPAssetManager/Rules/EWM/WarehouseTask/Confirmation/IsVisibleHandlingUnitButton.js",
+                            "PickerItems": "/SAPAssetManager/Rules/EWM/WarehouseTask/Confirmation/GetPickerItemsForHU.js",
+                    		"PickerPrompt": "$(L,select_single_item)",
+							"Value": "{DestinationHU}"
+                		},
+						{
+                            "_Type": "Control.Type.FormCell.Button",
+                            "_Name": "MaintainPickHandlingUnit",
+                            "Title": "$(L,maintain_handling_unit)",
+                            "OnPress": "/SAPAssetManager/Actions/EWM/WarehouseTasks/HandlingUnit/HandlingUnitNav.action",
+                            "TextAlignment": "Center",
+							"ButtonType": "Text",
+							"IsVisible": "/SAPAssetManager/Rules/EWM/WarehouseTask/Confirmation/IsVisibleHandlingUnitButton.js"
+                        },
+                        {
+							"Caption": "$(L, warehouse_order)",
+							"IsEditable": false,
+							"KeyboardType": "Default",
+							"Value": "{WarehouseOrder}",
+							"_Name": "WhOrderSimple",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						},
+                        {
+							"Caption": "$(L, delivery)",
+							"IsEditable": false,
+							"KeyboardType": "Default",
+							"Value": "{Delivery}",
+							"_Name": "WhDeliverySimple",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						},
+                        {
+							"Caption": "$(L, weight)",
+							"IsEditable": false,
+							"KeyboardType": "Default",
+							"Value": "{LoadingWeight} {WeightUnit}",
+							"_Name": "WhLoadingWeightSimple",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						},
+                        {
+							"Caption": "$(L, volume)",
+							"IsEditable": false,
+							"KeyboardType": "Default",
+							"Value": "{LoadingVolume} {VolumeUnit}",
+							"_Name": "WhLoadingVolumeSimple",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						}
+					]
+				}
+			],
+            "_Name": "FormCellContainer",
+            "_Type": "Control.Type.FormCellContainer"
+		}
+	],
+	"_Name": "WarehouseTaskConfirmation",
+	"DataSubscriptions": [ "WarehousePickHUs", "WarehouseTaskConfirmations" ],
+	"_Type": "Page",
+	"OnLoaded": "/SAPAssetManager/Rules/EWM/WarehouseTask/Confirmation/OnPageLoadWarehouseTaskConfirmation.js"
+}

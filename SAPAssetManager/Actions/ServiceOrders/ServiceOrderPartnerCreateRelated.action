@@ -1,0 +1,26 @@
+{
+    "_Type": "Action.Type.ODataService.CreateRelatedEntity",
+    "Target": {
+        "EntitySet": "MyWorkOrderPartners",
+        "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "Properties": {
+        "OrderId": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/WorkOrderLocalID.js",
+        "Partner": "#Page:WorkOrderCreateUpdatePage/#Control:SoldToPartyLstPkr/#SelectedValue",
+        "PartnerFunction": "/SAPAssetManager/Rules/ServiceOrders/Partner/ServiceOrderPartnerFunction.js"
+    },
+    "Headers": {
+        "OfflineOData.RemoveAfterUpload": "/SAPAssetManager/Rules/Common/RemoveAfterUploadValueForWorkOrder.js",
+        "OfflineOData.TransactionID": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/WorkOrderLocalID.js"
+    },
+    "ParentLink": {
+        "Property": "WOPartners",
+        "Target": {
+            "EntitySet": "MyWorkOrderHeaders",
+            "ReadLink": "{@odata.readLink}"
+        }
+    },
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/CreateEntityFailureMessage.action",
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText" : " "
+}

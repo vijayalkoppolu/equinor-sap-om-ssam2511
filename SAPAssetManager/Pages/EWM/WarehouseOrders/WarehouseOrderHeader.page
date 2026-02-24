@@ -1,0 +1,86 @@
+{
+	"Caption": "$(L,order_details)",
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"KeyAndValues": [
+						{
+                            "_Name": "WarehouseOrder",
+                            "KeyName": "$(L,warehouse_ord_num)",
+							"Value": "$(DV, {WarehouseOrder}, '-')"
+                        },
+						{
+                            "_Name": "WarehouseNum",
+                            "KeyName": "$(L,warehouse_num)",
+							"Value": "$(DV, '/SAPAssetManager/Rules/EWM/Common/WarehouseNumberDescription.js', '-')"
+                        },
+						{
+                            "_Name": "Resource",
+                            "KeyName": "$(L,resource)",
+							"Value": "$(DV, {Resource}, '-')"
+                        },
+						{
+                            "_Name": "Queue",
+                            "KeyName": "$(L,queue)",
+							"Value": "$(DV, {WarehouseOrderQueue_Nav/QueueText}, '-')"
+                        },
+						{
+                            "_Name": "ActivityArea",
+                            "KeyName": "$(L,activity_area)",
+							"Value": "$(DV, {ActivityArea}, '-')"
+                        },
+						{
+                            "_Name": "HdrWarehouseProcessType",
+                            "KeyName": "$(L,hdr_warehouse_proctype)",
+							"Value": "$(DV, {WarehouseProcessType_Nav/WarehouseProcessTypeDescription}, '-')"
+                        },
+						{
+                            "_Name": "Processor",
+                            "KeyName": "$(L,processor)",
+							"Value": "$(DV, {Processor}, '-')"
+                        },
+						{
+                            "_Name": "CreatedBy",
+                            "KeyName": "$(L,created_by_label)",
+							"Value": "$(DV, {CreatedBy}, '-')"
+                        },
+						{
+                            "_Name": "CreatedTimestamp",
+                            "KeyName": "$(L,created_timestamp)",
+							"Value": "$(DV, '/SAPAssetManager/Rules/EWM/WarehouseOrder/WarehouseOrderDescriptionDetails.js', '-')"
+						},
+						{
+                            "_Name": "WOCR",
+                            "KeyName": "$(L,wocr)",
+							"Value": "$(DV, '/SAPAssetManager/Rules/EWM/WarehouseOrder/WarehouseOrderCreationPossible.js', '-')"
+                        },
+						{
+                            "_Name": "WOCRCategory",
+                            "KeyName": "$(L,wocr_category)",
+							"Value": "$(DV, {WOCRCategory}, '-')"
+                        },
+						{
+                            "_Name": "SplitWO",
+                            "KeyName": "$(L,split_wo)",
+							"Value": "$(DV, {SplitWO}, '-')"
+                        }
+					],
+					"_Type": "Section.Type.KeyValue",
+                    "_Name": "KeyValueTable"
+				}
+			],
+			"_Name": "SectionedTable0",
+			"_Type": "Control.Type.SectionedTable"
+		}
+	],
+    "FioriToolbar": {
+        "_Name": "UnassignToolbar",
+        "_Type": "Control.Type.FioriToolbar",
+        "Items": [
+           "/SAPAssetManager/Pages/Fragments/EWM/UnassignToolbarItem.fragment"
+        ]
+    },
+	"_Name": "WarehouseOrderHeader",
+	"_Type": "Page"
+}

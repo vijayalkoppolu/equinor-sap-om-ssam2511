@@ -1,0 +1,21 @@
+{
+    "_Type": "Control.Type.ObjectCell",
+    "AccessoryType": "DisclosureIndicator",
+    "PreserveIconStackSpacing": false,
+    "Title": "{ContainerID}",
+    "Subhead": "/SAPAssetManager/Rules/FL/Containers/Details/GetIsContainerReleasedDetails.js",
+    "Footnote": "/SAPAssetManager/Rules/FL/Containers/ListView/ContainerSubhead.js",
+    "Description": "/SAPAssetManager/Rules/FL/Containers/ListView/ContainerDescription.js",
+    "StatusText": "#Property:FldLogsContainerStatus_Nav/FldContainerStatusDescription",
+    "SubstatusText": "/SAPAssetManager/Rules/FL/Containers/ListView/ContainerFootnote.js",
+    "OnPress": "/SAPAssetManager/Rules/FL/Containers/Details/ContainerDetailsPageNav.js",
+    "Icons": "/SAPAssetManager/Rules/FL/Containers/ListView/ContainerIcons.js",
+    "AvatarStack": {
+		"Avatars": [{
+            "Image": "$(PLT, sap-icon://dimension, sap-icon://dimension, '', sap-icon://dimension)",
+            "Style": "FLContainerIcon"
+        }], 
+        "ImageHasBorder": true,
+        "ImageIsCircular": false
+    }
+}

@@ -1,0 +1,62 @@
+{
+    "Caption": "$(L, ewm_inbound_delivery_item_title)",
+    "OnReturning": "/SAPAssetManager/Rules/EWM/Inbound/Items/WHInboundDeliveryItemDetailsOnReturning.js",
+    "ActionBar": {
+        "Items": [
+            {
+				"Position": "Right",
+				"Icon": "$(PLT, sap-icon://edit, sap-icon://edit, '', sap-icon://edit)",
+				"Caption": "$(L, edit_this_item)",
+				"OnPress": "/SAPAssetManager/Rules/EWM/InboundDelivery/SingleEdit/IBDEditSingleItemNav.js"
+			},
+            "/SAPAssetManager/Pages/Fragments/SyncButton.fragment"
+        ]
+    },
+    "Controls": [{
+            "Sections": [{
+                    "ObjectHeader": {
+                        "HeadlineText": "$(DV, {ItemNumber}, '-')",
+                        "StatusText": "/SAPAssetManager/Rules/EWM/Inbound/Items/WHInboundDeliveryItemStatus.js",
+                        "SubstatusText": "/SAPAssetManager/Rules/EWM/Inbound/Items/WHInboundDeliveryItemPackedAndFullQty.js",
+                        "Subhead": "$(DV, {Product}, '-') - $(DV, {ProductDescription}, '-')",
+                        "Tags": "/SAPAssetManager/Rules/EWM/InboundDelivery/GetInboundDeliveryTags.js",
+                        "DetailImage": "sap-icon://open-command-field",
+                        "Styles": {
+                            "DetailImage": "$(PLT, InboundDeliveryItemIcon, InboundDeliveryItemIconAndroid)"
+                        },
+                        "DetailImageIsCircular": false
+                    },
+                    "DataSubscriptions": ["HandlingUnits", "WarehouseInboundDeliveryItems"],
+                    "_Type": "Section.Type.ObjectHeader",
+                    "_Name": "ObjectHeaderSectionTable"
+                }],
+            "_Name": "SectionedTable",
+            "_Type": "Control.Type.SectionedTable"
+        },
+        {
+            "Items": [{
+                "_Name": "WHTasksTab",
+                "Caption": "$(L, emw_wo_tasks)",
+                "PageToOpen" : "/SAPAssetManager/Pages/EWM/WarehouseOrders/WarehouseOrderTaskList.page",
+                "_Type": "Control.Type.TabItem"
+            },
+            {
+                "_Name": "HandlingUnitsTab",
+                "Caption": "$(L, ewm_handling_units)",
+                "PageToOpen" : "/SAPAssetManager/Pages/EWM/Inbound/HandlingUnit/WHHandlingUnitList.page",
+                "_Type": "Control.Type.TabItem"
+            },
+            {
+                "_Name": "DetailsAndSerialsTab",
+                "Caption": "$(L, header)",
+                "PageToOpen" : "/SAPAssetManager/Pages/EWM/Inbound/WHInboundDeliveryItemHeaderDetails.page",
+                "_Type": "Control.Type.TabItem"
+            }],
+            "Position": "Top",
+            "_Type": "Control.Type.Tabs",
+            "_Name": "TabsControl"
+        }
+    ],
+    "_Name": "WHInboundDeliveryItemDetailsAndSerialNumsPage",
+    "_Type": "Page"
+}

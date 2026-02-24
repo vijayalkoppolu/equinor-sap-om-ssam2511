@@ -1,0 +1,45 @@
+{
+	"Caption": "$(L,header)",
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"KeyAndValues": [
+						{
+                            "_Name": "SourceStage",
+                            "KeyName": "$(L,fld_shipping_point)",
+							"Value": "$(DV, {SourceStage}, '-')"
+                        },
+                        {
+                            "_Name": "VoyageNumber",
+                            "KeyName": "$(L,fl_voyage_number)",
+							"Value": "$(DV, {VoyageNumber}, '-')"
+                        },
+                        {
+                            "_Name": "DestinationStage",
+                            "KeyName": "$(L,fld_receiving_point)",
+							"Value": "$(DV, {DestinationStage}, '-')"
+                        },
+                        {
+                            "_Name": "ActualDispatchPlant",
+                            "KeyName": "$(L,fld_deliv_source_plant)",
+							"Value": "$(DV, {ActualDispatchPlant}, '-')"
+                        },
+                        {
+                            "_Name": "ActualReceivingPlant",
+                            "KeyName": "$(L,fld_deliv_receiving_plant)",
+							"Value": "$(DV, {ActualReceivingPlant}, '-')"
+                        }
+
+					],
+					"_Type": "Section.Type.KeyValue",
+                    "_Name": "KeyValueTable"
+				}
+			],
+			"_Name": "SectionedTable0",
+			"_Type": "Control.Type.SectionedTable"
+		}
+	],
+	"_Name": "HUDelItemsHeader",
+	"_Type": "Page"
+}

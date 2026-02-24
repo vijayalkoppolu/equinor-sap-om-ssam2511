@@ -1,0 +1,21 @@
+{
+"_Type": "Control.Type.ObjectCell",
+"AccessoryType": "DisclosureIndicator",
+"PreserveIconStackSpacing": false,
+"Title": "{ContainerID}",
+"Subhead": "/SAPAssetManager/Rules/FL/Packages/PackageSubhead.js",
+"Footnote": "/SAPAssetManager/Rules/FL/Packages/PackageFootnote.js",
+"Description": "/SAPAssetManager/Rules/FL/Packages/PackageDescription.js",
+"StatusText": "#Property:FldLogsContainerStatus_Nav/FldContainerStatusDescription",
+"SubstatusText": "/SAPAssetManager/Rules/FL/Packages/PackageSubstatus.js",
+"OnPress": "/SAPAssetManager/Rules/FL/Packages/Details/PackageDetailsPageNav.js",
+"Icons": "/SAPAssetManager/Rules/FL/Containers/ListView/ContainerIcons.js",
+"AvatarStack": {
+        "Avatars": [{
+            "Image": "sap-icon://table-view",
+            "Style": "$(PLT, FLPackageIcon, FLPackageIconAndroid)"
+        }],
+        "ImageHasBorder": true,
+        "ImageIsCircular": false
+    }
+}

@@ -1,0 +1,50 @@
+{
+    "_Type":"ObjectCardCollection.Type.Card",
+    "Title": "/SAPAssetManager/Rules/OverviewPage/MyWorkSection/ObjectCardTitle.js",
+    "Subhead": "/SAPAssetManager/Rules/OverviewPage/MyWorkSection/ObjectCardSubhead.js",
+    "Footnote": "/SAPAssetManager/Rules/OverviewPage/MyWorkSection/ObjectCardPriority.js",
+    "StatusText": "/SAPAssetManager/Rules/OverviewPage/MyWorkSection/ObjectCardDueDate.js",
+    "OnPress" : "/SAPAssetManager/Rules/OverviewPage/MyWorkSection/ObjectCardDetailsNav.js",
+    "OverflowButtons": [
+        {
+            "_Name": "TertiaryButtonFSM-S4",
+            "Title": "/SAPAssetManager/Rules/OverviewPage/MyWorkSection/ObjectCardTertiaryButtonTitle.js",
+            "Visible": "/SAPAssetManager/Rules/OverviewPage/MyWorkSection/ObjectCardTertiaryButtonVisible.js",
+            "OnPress": "/SAPAssetManager/Rules/OverviewPage/MyWorkSection/ObjectCardTertiaryButtonOnPress.js"
+        },
+        {
+            "_Name": "AddServiceOrder",
+            "Title": "$(L,add_service_order)",
+            "Visible": "/SAPAssetManager/Rules/OverviewPage/MyWorkSection/ObjectCardServiceOrderButtonVisible.js",
+            "OnPress": "/SAPAssetManager/Rules/ServiceOrders/CreateUpdate/ServiceOrderCreateNav.js"
+        },
+        {
+            "_Name": "AddItem",
+            "Title": "$(L,add_service_order_item)",
+            "OnPress": "/SAPAssetManager/Rules/ServiceItems/CreateUpdate/CreateServiceItemNav.js",
+            "Visible": "/SAPAssetManager/Rules/ServiceOrders/CreateUpdate/IsS4ServiceOrderCreateEnabled.js"
+        },
+        {
+            "_Name": "AddServiceRequest",
+            "Title": "$(L,add_service_request)",
+            "OnPress": "/SAPAssetManager/Rules/ServiceOrders/CreateUpdate/ServiceRequestCreateNav.js",
+            "Visible": "/SAPAssetManager/Rules/ServiceOrders/ServiceRequests/IsS4ServiceRequestCreateEnabled.js"
+        }
+    ],
+    "PrimaryAction": {
+        "_Name": "Primary Button FSM-S4",
+        "Title": "/SAPAssetManager/Rules/OverviewPage/MyWorkSection/ObjectCardPrimaryButtonTitle.js",
+        "Visible": "/SAPAssetManager/Rules/OverviewPage/MyWorkSection/ObjectCardPrimaryButtonVisible.js",
+        "OnPress": "/SAPAssetManager/Rules/OverviewPage/MyWorkSection/ObjectCardPrimaryButtonOnPress.js"
+    },
+    "SecondaryAction": {
+        "_Name": "Secondary Button FSM-S4",
+        "Title": "/SAPAssetManager/Rules/OverviewPage/MyWorkSection/ObjectCardSecondaryButtonTitle.js",
+        "Visible": "/SAPAssetManager/Rules/OverviewPage/MyWorkSection/ObjectCardSecondaryButtonVisible.js",
+        "OnPress": "/SAPAssetManager/Rules/OverviewPage/MyWorkSection/ObjectCardSecondaryButtonOnPress.js",
+        "Style": "ObjectCardPrimaryAction"
+    },
+    "Styles": {
+        "Footnote":  "/SAPAssetManager/Rules/OverviewPage/MyWorkSection/ObjectCardPriorityStyle.js"
+    }
+}

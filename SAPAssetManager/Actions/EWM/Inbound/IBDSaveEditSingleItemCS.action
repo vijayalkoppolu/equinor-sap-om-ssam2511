@@ -1,0 +1,13 @@
+{
+    "_Type": "Action.Type.ODataService.ChangeSet",
+    "Actions": [
+        "/SAPAssetManager/Rules/EWM/InboundDelivery/SingleEdit/SerialNumber/IBDSerialNumberDeleteEntity.js",
+        "/SAPAssetManager/Rules/EWM/InboundDelivery/SingleEdit/SaveInboundItem.js",
+        "/SAPAssetManager/Rules/EWM/InboundDelivery/SingleEdit/SerialNumber/IBDSerialNumberCreateEntity.js"
+    ],
+    "Target": {
+        "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "OnSuccess": "/SAPAssetManager/Actions/CreateUpdateDelete/UpdateEntitySuccessMessageNoClose.action",
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/UpdateEntityFailureMessage.action"
+}

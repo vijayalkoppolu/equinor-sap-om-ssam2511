@@ -1,0 +1,75 @@
+{
+	"Caption": "$(L,workorder_details)",
+	"ActionBar": {
+		"Items": [
+			{
+                "Position": "Right",
+                "Icon": "$(PLT,sap-icon://filter,sap-icon://filter, '' , sap-icon://filter)",
+                "Caption": "/SAPAssetManager/Rules/Filter/FilterButtonCaption.js",
+                "OnPress": "/SAPAssetManager/Rules/FL/WorkOrders/FLWorkOrderDetailFilterNav.js",
+                "_Name": "FilterButton"
+            },
+			{
+				"Position": "Right",
+				"Caption": "Upload",
+				"_Name": "Upload",
+				"Image":"$(PLT,/SAPAssetManager/Images/upload.png,/SAPAssetManager/Images/upload.android.png)",
+				"OnPress": "/SAPAssetManager/Rules/ApplicationEvents/ApplicationOnUpload.js"
+			},
+			"/SAPAssetManager/Pages/Fragments/SyncButton.fragment"
+			
+		]
+	},
+	"Controls": [
+		{
+          "Sections": [
+                {
+				 "ObjectHeader": {
+                        "HeadlineText": "{Order}",
+						"Subhead": "{Reservation}",
+						"SubstatusText": "/SAPAssetManager/Rules/FL/WorkOrders/FLOrderProductStatus.js",
+						"DetailImage": "sap-icon://wrench",
+						"Styles": {
+							"DetailImage": "$(PLT, FLWorkOrderIcon, FLWorkOrderIconAndroid)"
+						},
+						"Tags": "/SAPAssetManager/Rules/FL/WorkOrders/FormatOrderTypeDescription.js"
+						
+                    },
+                    "_Name": "SectionObjectHeader",
+                    "_Type": "Section.Type.ObjectHeader"  
+                }
+            ],
+            "_Name": "SectionedTable",   
+            "_Type": "Control.Type.SectionedTable"
+		},
+		{
+			"Items": [{
+				"_Name": "Products",
+				"Caption": "$(L, products)",
+				"_Type": "Control.Type.TabItem",
+				"PageToOpen" : "/SAPAssetManager/Pages/FL/WorkOrders/FLProductsList.page",
+				"OnPress":  "/SAPAssetManager/Rules/FL/WorkOrders/Products/ListView/ListPageWithFilterOnLoaded.js"
+			},
+			{ 
+				"_Name": "ReservationItems", 
+				"Caption": "$(L,reservation_items)",
+				"_Type": "Control.Type.TabItem",
+				"PageToOpen" : "/SAPAssetManager/Pages/FL/WorkOrders/FLWOResvItemsList.page",
+				"OnPress": "/SAPAssetManager/Rules/FL/WorkOrders/ReservationItems/ListView/ListPageWithFilterOnLoaded.js"
+			}],
+			"Position": "Top",
+			"_Type": "Control.Type.Tabs",
+			"_Name": "TabsControl"
+  		}
+	],
+	 "DataSubscriptions": [
+        "FldLogsWorkOrders",
+		"FldLogsWoProducts",
+		"FldLogsWoResvItems"
+    ],
+	"OnResume": "/SAPAssetManager/Rules/FL/WorkOrders/FLOrderDetailOnResume.js",
+	"OnLoaded":"/SAPAssetManager/Rules/FL/WorkOrders/FLOrderDetailOnResume.js",
+	"OnReturning": "/SAPAssetManager/Rules/FL/WorkOrders/FLOrderDetailOnResume.js",
+	"_Name": "FLWorkOrderDetailView",
+	"_Type": "Page"
+}

@@ -1,0 +1,25 @@
+{
+    "_Type": "Action.Type.ODataService.UpdateEntity",
+    "Target":
+    {
+        "EntitySet" : "FldLogsVoyages",
+        "Service" : "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "{@odata.readLink}"
+    },
+    "Properties": {
+        "VoyageStatusCode": "02"
+    },
+     "UpdateLinks": [
+        {
+            "Property": "FldLogsVoyageStatus_Nav",
+            "Target": {
+                "EntitySet": "FldLogsVoyageStatusCodeTypes",
+                "ReadLink": "/SAPAssetManager/Rules/FL/Voyages/VoyageStatusReadLink.js"
+            }
+        }],
+    "RequestOptions": {
+        "UploadCategory": "OnDemandOnly"
+    },
+    "OnSuccess": "/SAPAssetManager/Actions/FL/Voyages/VoyageUpdateStatusToast.action"
+}
+

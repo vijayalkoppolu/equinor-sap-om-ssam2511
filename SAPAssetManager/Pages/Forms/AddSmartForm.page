@@ -1,0 +1,160 @@
+{
+    "_Name": "AddSmartFormPage",
+    "_Type": "Page",
+    "OnActivityBackPressed": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/CancelCheckOnBackNavAndroid.js",
+    "OnLoaded": "/SAPAssetManager/Rules/Forms/FSM/AddSmartForm/Handlers/OnAddSmartFormPageLoaded.js",
+    "OnReturning": "/SAPAssetManager/Rules/Forms/FSM/AddSmartForm/Handlers/OnAddSmartFormPageReturning.js",
+    "Caption": "$(L,add_smartform)",
+    "ActionBar": {
+        "Items": [
+            "/SAPAssetManager/Pages/Fragments/CancelButton.fragment",
+            {
+                "Position": "Right",
+                "_Name": "Done",
+                "SystemItem": "$(PLT,'Done','','Done')",
+                "Caption": "$(L,done)",
+                "Text": "/SAPAssetManager/Rules/Common/Platform/DoneText.js",
+                "Enabled": false,
+                "OnPress": "/SAPAssetManager/Rules/Forms/FSM/AddSmartForm/Handlers/AddSmartFormOnCommit.js"
+            }
+        ]
+    },
+    "Controls": [
+        {
+            "Sections": [
+                    {
+                        "Controls": [
+                            {
+                                "_Type": "Control.Type.FormCell.ListPicker",
+                                "_Name": "ResponsiblePersonLstPkr",
+                                "Caption": "$(L,responsible_person)*",
+                                "AllowMultipleSelection": false,
+                                "IsPickerDismissedOnSelection": true,
+                                "IsSearchCancelledAfterSelection": true,
+                                "Search": {
+                                    "Enabled": true,
+                                    "Delay": 500,
+                                    "MinimumCharacterThreshold": 3,
+                                    "Placeholder": "$(L,search)"
+                                },
+                                "IsEditable": false,
+                                "Value": "/SAPAssetManager/Rules/Forms/FSM/AddSmartForm/Data/FSMDefaultUserGuid.js",
+                                "OnValueChange": "/SAPAssetManager/Rules/Forms/FSM/AddSmartForm/Handlers/OnAddSmartFormControlValueChanged.js",     
+                                "PickerItems": {
+                                    "DisplayValue": "/SAPAssetManager/Rules/Forms/FSM/AddSmartForm/Data/FSMDefaultUserFullName.js",
+                                    "ReturnValue": "{UserGuid}",
+                                    "Target": {
+                                        "EntitySet": "UserSystemInfos",
+                                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                                        "QueryOptions": "/SAPAssetManager/Rules/Forms/FSM/AddSmartForm/Data/FSMDefaultUserQueryOptions.js"
+                                    }
+                                }
+                            }
+                        ],
+                        "_Type": "Section.Type.FormCell",
+                        "_Name": "Section1",
+                        "Header": {
+                            "UseTopPadding": false,
+                            "Caption": "$(L,indicates_required_fields)"
+                        },
+                        "Footer": {
+                            "UseBottomPadding": false
+                        }
+                    },
+                    {
+                        "SimplePropertyCells": [
+                            {
+                                "SimplePropertyCell": {
+                                    "_Name": "TemplateLstPkr",
+                                    "AccessoryType": "DisclosureIndicator",
+                                    "KeyName" : "$(L,template)*",
+                                    "Value": "/SAPAssetManager/Rules/Forms/FSM/AddSmartForm/Data/TemplateControlValue.js",
+                                    "OnPress": "/SAPAssetManager/Actions/Forms/SelectFormCategoryPageNav.action",
+                                    "Styles": {
+                                        "KeyName": "KeyNameAsFormCellCaption"
+                                    }
+                                }
+                            }
+                        ],
+                        "_Name": "Section2",
+                        "_Type" : "Section.Type.SimplePropertyCollection",
+                        "Layout": {
+                            "NumberOfColumns": 1
+                        },
+                        "Footer": {
+                            "UseBottomPadding": false
+                        },
+                        "Separators": {
+                           "TopSectionSeparator": true
+                        },
+                        "Header": {
+                            "UseTopPadding": false
+                        }
+                    },
+                    {
+                        "Controls": [{
+                            "_Type": "Control.Type.FormCell.ListPicker",
+                            "_Name": "TaskLstPkr",
+                            "Caption": "$(L,task)",
+                            "AllowMultipleSelection": false,
+                            "Search": {
+                                "Enabled": false
+                            },
+                            "Value": "/SAPAssetManager/Rules/Forms/FSM/AddSmartForm/Data/TaskControlValue.js",
+                            "IsEditable": false,
+                            "PickerItems": "/SAPAssetManager/Rules/Forms/FSM/AddSmartForm/Data/TaskPickerItems.js",
+                            "OnValueChange": "/SAPAssetManager/Rules/Forms/FSM/AddSmartForm/Handlers/OnAddSmartFormControlValueChanged.js"
+                        },
+                        {
+                            "_Type": "Control.Type.FormCell.Note",
+                            "_Name": "DescriptionNote",
+                            "IsAutoResizing": true,
+                            "MaxNumberOfLines": 1,
+                            "PlaceHolder": "$(L,description)",
+                            "Caption": "$(L,description)",
+                            "Value": "",
+                            "OnValueChange": "/SAPAssetManager/Rules/Forms/FSM/AddSmartForm/Handlers/OnAddSmartFormControlValueChanged.js"         
+                        },
+                        {
+                            "_Type": "Control.Type.FormCell.Switch",
+                            "_Name": "MarkAsMandatorySwitch",
+                            "Caption": "$(L,mark_as_mandatory)",
+                            "Value": false,
+                            "OnValueChange": "/SAPAssetManager/Rules/Forms/FSM/AddSmartForm/Handlers/OnAddSmartFormControlValueChanged.js"         
+                        }
+                    ],
+                    "_Type": "Section.Type.FormCell",
+                    "_Name": "Section3",
+                    "Header": {
+                        "UseTopPadding": false
+                    },
+                    "Separators": {
+                        "TopSectionSeparator": true
+                    }
+                },
+                {
+                    "Buttons": [
+                        {
+                            "Title" : "$(L,reset)",
+                            "OnPress": "/SAPAssetManager/Rules/Forms/FSM/AddSmartForm/Handlers/ResetAddSmartFormControls.js",
+                            "Enabled": "/SAPAssetManager/Rules/Forms/FSM/AddSmartForm/Handlers/IsResetButtonEnabled.js",
+                            "TextAlignment": "Center",
+                            "_Name": "ResetButton",
+                            "ButtonType": "Text"
+                        }
+                    ],
+                    "_Name": "Buttons",
+                    "_Type": "Section.Type.ButtonTable",
+                    "Header": {
+                        "UseTopPadding": true
+                    },
+                    "Separators": {
+                        "TopSectionSeparator": false
+                    }
+                }
+            ],
+            "_Name": "SectionedTable",
+            "_Type": "Control.Type.SectionedTable"
+        }
+    ]
+}

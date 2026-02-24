@@ -1,0 +1,16 @@
+{
+    "Title": "$(L, set_untagged)",
+    "Icon": "sap-icon://unlocked",
+    "IsVisible": "/SAPAssetManager/Rules/WCM/OperationalItems/SetUntagged/SetUntaggedActive.js",
+    "Type": "View",
+    "CallbackInfo": {
+        "Action": "/SAPAssetManager/Rules/WCM/OperationalItems/SetUntagged/SetUntaggedNav.js",
+        "Target": {
+            "EntitySet": "WCMDocumentItems",
+            "Service": "/SAPAssetManager/Services/AssetManager.service",
+            "QueryOptions": "$expand=WCMDocumentHeaders,WCMDocumentHeaders/WCMDocumentUsages,PMMobileStatus&$filter=ObjectNumber eq '{ObjectNumber}'",
+            "Properties": [],
+            "KeyProperties": []
+        }
+    }
+}

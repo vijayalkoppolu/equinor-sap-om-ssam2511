@@ -1,0 +1,17 @@
+{
+    "_Name": "",
+    "_Type": "Control.Type.FormCell.ListPicker",
+    "Caption": "",
+    "IsPickerDismissedOnSelection": true,
+    "IsSearchCancelledAfterSelection": true,
+    "Search": {
+        "Enabled": true,
+        "Delay": 500,
+        "MinimumCharacterThreshold": 3,
+        "Placeholder": "$(L,search)",
+        "BarcodeScanner": false
+    },
+    "PickerItems": "",
+    "FilterProperty": "",
+    "OnValueChange": "/SAPAssetManager/Rules/Filter/RedrawFilterToolbar.js"
+}

@@ -1,0 +1,110 @@
+{
+    "Caption": "$(L,header)",
+    "Controls": [
+        {
+            "Sections": [
+                	{
+					"Header": {
+                        "UseTopPadding": true,
+                        "Caption": "$(L, item_information)"
+                    },
+                    "KeyAndValues": [
+                        {
+                            "_Name": "Quantity",
+                            "KeyName": "$(L,quantity)",
+                            "Value": "$(DV, '{QuantityInBaseUnit} {OrderQuantityUnit}', '-')"
+                        },
+                        {
+                            "_Name": "PackedQuantity",
+                            "KeyName": "$(L, fld_packed_quantity)",
+                            "Value": "$(DV, '{HandlingUnitQuantity} {HandlingUnitQuantityUnit}', '-')"
+                        },
+                        {
+                            "_Name": "ActualWeight",
+                            "KeyName": "$(L, fld_actual_weight)",
+                            "Value": "$(DV, '{FldLogsShptItemActualWeight} {FldLogsShptItemActlWeightUnit}', '-')"
+                        },
+                        {
+                            "_Name": "ItemGrossWeight",
+                            "KeyName": "$(L,fld_item_gross_weight)",
+                            "Value": "$(DV, '{ProductGrossWeight} {ProductWeightUnit}', '-')"
+                        },
+                        {
+                            "_Name": "ItemVolume",
+                            "KeyName": "$(L,fld_item_volume)",
+                            "Value": "$(DV, {FldLogsGrossVolume}, '-')"
+                        },
+                        {
+                            "_Name": "DeliveryDueDate",
+                            "KeyName": "$(L,fld_delivery_due_date)",
+                            "Value": "/SAPAssetManager/Rules/FL/ReadyToPack/ReadyToPackDeliveryDueDateValue.js"
+                        },
+                        {
+                            "_Name": "ValuationType",
+                            "KeyName": "$(L,fld_valuation_type)",
+                            "Value": "$(DV, {ValuationType}, '-')"
+                        },
+                        {
+                            "_Name": "PackagingMaterial", 
+                            "KeyName": "$(L,fld_packaging_material)",
+                            "Value": "$(DV, '{PackagingMaterial}' , '-')"
+                        }],
+                    "_Type": "Section.Type.KeyValue",
+					"_Name": "HeaderKeyValueTable"
+				},
+                    {
+					"Header": {
+                        "UseTopPadding": true,
+                        "Caption": "$(L, transport_information)"
+                    },
+					"KeyAndValues": [
+                        {
+                            "_Name": "CurrentPlant",
+                            "KeyName": "$(L,fld_current_plant)",
+                            "Value": "$(DV, '{FldLogsShptItemCurrentPlant}', '-')"
+                        },
+                        {
+                            "_Name": "DestinationPlant",
+                            "KeyName": "$(L,fld_destination_plant)",
+                            "Value": "$(DV, '{FldLogsDestPlnt}', '-')"
+                        },
+                        {
+                            "_Name": "ShippingPoint",
+                            "KeyName": "$(L,fld_shipping_point)",
+                            "Value": "$(DV, '{FldLogsVoyageSrceStage}', '-')"
+                        },
+                        {
+                            "_Name": "CurrentShippingPoint",
+                            "KeyName": "$(L,fld_current_shipping_point)",
+                            "Value": "$(DV, '{FldLogsShptItemCurShipgPoint}', '-')"
+                        },
+                        {
+                            "_Name": "LocationID",
+                            "KeyName": "$(L,fld_location_id)",
+                            "Value": "$(DV, '{FldLogsShptLocationId}', '-')"
+                        },
+                        {
+                            "_Name": "ReceivingPoint",
+                            "KeyName": "$(L,fld_receiving_point)",
+                            "Value": "$(DV, '{FldLogsVoyageDestStage}', '-')"
+                        },
+                        {
+                            "_Name": "SourceStorageLocation",
+                            "KeyName": "$(L,fld_sourcestorage_location)",
+                            "Value": "$(DV, '{FldLogsSrceStorLocId}', '-')"
+                        },
+                        {
+                            "_Name": "DestinationStorageLocation",
+                            "KeyName": "$(L,fld_destination_storage_location)",
+                            "Value": "$(DV, '{FldLogsDestStorLocId}', '-')"
+                        }],
+					"_Type": "Section.Type.KeyValue",
+					"_Name": "HeaderKeyValueTable1"
+				}],
+            "_Name": "SectionedTable0",
+            "_Type": "Control.Type.SectionedTable"
+        }
+    ],
+    "_Name": "FLReadyToPackHeader",
+    "_Type": "Page"
+}

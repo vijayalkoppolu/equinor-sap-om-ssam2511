@@ -1,0 +1,27 @@
+{
+    "_Type": "Control.Type.ObjectCell",
+    "Icons": "/SAPAssetManager/Rules/FL/ReturnsByProduct/FLReturnsByProductObjectCellIcons.js",
+    "AccessoryType": "/SAPAssetManager/Rules/FL/ReturnsByProduct/IsProductCellAccessoryType.js",
+    "PreserveIconStackSpacing": false,
+    "Title": "{Product}",
+    "Subhead": "/SAPAssetManager/Rules/FL/ReturnsByProduct/ProductCellSubhead.js",
+    "StatusText": "{FldLogsReturnStatus_Nav/FldLogsReturnStatusText}",
+    "SubstatusText": "{RetblQtyInBaseUnit}  {RetblQtyBaseUnit}",
+    "Selected": "/SAPAssetManager/Rules/FL/Common/IsSelected.js",
+    "Footnote": "/SAPAssetManager/Rules/FL/ReturnsByProduct/ProductCellFootnote.js",
+    "Description": "/SAPAssetManager/Rules/FL/ReturnsByProduct/ProductCellDescription.js",
+    "AccessoryButtonIcon": "/SAPAssetManager/Rules/FL/ReturnsByProduct/IsProductCellAccessoryButtonEnabled.js",
+    "Styles": {
+        "AccessoryButtonIcon": "AccessoryButtonIcon"
+    },
+    "OnAccessoryButtonPress": "/SAPAssetManager/Rules/FL/ReturnsByProduct/OnProductCellAccessoryButtonPress.js",
+    "OnPress": "/SAPAssetManager/Rules/FL/ReturnsByProduct/FLPProductDetailsPageNav.js",
+    "AvatarStack": {
+        "Avatars": [{
+            "Image": "$(PLT, sap-icon://product, sap-icon://product, '', sap-icon://product)",
+            "Style": "$(PLT, FLProductIcon, FLProductIconAndroid)"
+        }], 
+        "ImageHasBorder": true,
+        "ImageIsCircular": false
+    }
+}

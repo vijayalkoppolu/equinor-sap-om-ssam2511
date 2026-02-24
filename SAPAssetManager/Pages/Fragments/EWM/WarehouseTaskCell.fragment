@@ -1,0 +1,29 @@
+{
+    "_Type": "Control.Type.ObjectCell",
+    "AccessoryType": "DisclosureIndicator",
+    "DetailImageIsCircular": false,
+    "PreserveIconStackSpacing": false,
+    "Title": "/SAPAssetManager/Rules/EWM/WarehouseTask/ListView/WarehouseTaskTitle.js",
+    "Subhead": "/SAPAssetManager/Rules/EWM/WarehouseTask/ListView/WarehouseTaskSubhead.js",
+    "Description": "/SAPAssetManager/Rules/EWM/WarehouseTask/ListView/WarehouseTaskDescription.js",
+    "Footnote": "/SAPAssetManager/Rules/EWM/WarehouseTask/ListView/WarehouseTaskFootnote.js",
+    "StatusText": "/SAPAssetManager/Rules/EWM/WarehouseTask/ListView/WarehouseTaskStatusText.js",
+    "SubstatusText": "/SAPAssetManager/Rules/EWM/WarehouseTask/ListView/WarehouseTaskSubStatusText.js",
+    "Tags": "/SAPAssetManager/Rules/EWM/WarehouseTask/ListView/WarehouseTaskTags.js",
+    "OnPress": "/SAPAssetManager/Actions/EWM/WarehouseTasks/WarehouseTaskDetailsPageNav.action",
+    "AccessoryButtonIcon": "/SAPAssetManager/Rules/EWM/WarehouseTask/Confirmation/GetListEditIcon.js", 
+    "Selected": "/SAPAssetManager/Rules/EWM/WarehouseTask/ListView/IsSelected.js",
+    "OnAccessoryButtonPress": "/SAPAssetManager/Rules/EWM/WarehouseTask/Confirmation/OnPressTaskConfirmationButton.js",
+    "Icons": "/SAPAssetManager/Rules/EWM/WarehouseTask/ListView/WarehouseTaskIcons.js",
+    "AvatarStack": {
+        "Avatars": [{
+            "Image": "$(PLT, sap-icon://multi-select, sap-icon://multi-select, '', sap-icon://multi-select)",
+            "Style": "$(PLT, WarehouseTaskIcon, WarehouseTaskIconAndroid)"
+        }],
+        "ImageHasBorder": true,
+        "ImageIsCircular": false
+    },
+    "Styles": {
+		"AccessoryButtonIcon": "AccessoryButtonIcon"
+	}
+}

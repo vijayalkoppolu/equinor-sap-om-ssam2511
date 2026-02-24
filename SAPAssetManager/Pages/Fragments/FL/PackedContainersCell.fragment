@@ -1,0 +1,26 @@
+{
+    "_Type": "Control.Type.ObjectCell",
+    "AccessoryType": "DisclosureIndicator",
+    "PreserveIconStackSpacing": false,
+    "Title": "{FldLogsContainerID} - {FldLogsContainerCategoryText}",
+    "Icons": "/SAPAssetManager/Rules/FL/PackedContainers/PackedContainerIcon.js",
+    "Subhead": "{FldLogsSrcePlnt} / {FldLogsDestPlnt}",
+    "StatusText": "{FldLogsCtnPackgStsText}",
+    "SubstatusText": "/SAPAssetManager/Rules/FL/PackedPackages/FormatMetricsSubstatusText.js",
+    "Footnote": "/SAPAssetManager/Rules/FL/PackedPackages/FLPackedPackagesTransportDetails.js",
+    "Description": "/SAPAssetManager/Rules/FL/PackedPackages/FLPackedPackagesVoyageDetails.js",
+    "AccessoryButtonIcon": "/SAPAssetManager/Rules/FL/PackedContainers/ShowAccessoryButton.js",
+    "Styles": {
+        "AccessoryButtonIcon": "AccessoryButtonIcon"
+    },
+    "OnPress": "/SAPAssetManager/Rules/FL/PackedContainers/PackedContainersDetailsPageNav.js",
+    "OnAccessoryButtonPress": "/SAPAssetManager/Rules/FL/PackedContainers/FLPackContainersPopOver.js",
+    "AvatarStack": {
+    "Avatars": [{
+        "Image": "$(PLT, sap-icon://dimension, sap-icon://dimension, '', sap-icon://dimension)",
+        "Style": "FLContainerIcon"
+    }], 
+    "ImageHasBorder": true,
+    "ImageIsCircular": false
+  }
+}

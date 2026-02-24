@@ -1,0 +1,6 @@
+{
+	"_Type": "Action.Type.Message",
+	"Title": "$(L, validation_error)",
+	"Message": "$(L,cooperation_scan_bad_employee_message)",
+	"OKCaption": "$(L, ok)"
+}

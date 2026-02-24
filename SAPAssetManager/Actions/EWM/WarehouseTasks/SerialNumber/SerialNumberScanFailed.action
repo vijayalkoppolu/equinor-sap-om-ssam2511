@@ -1,0 +1,6 @@
+{
+	"_Type": "Action.Type.Message",
+	"Title": "$(L, scan_failed)",
+	"Message": "{ScanResultMessage}",
+	"OKCaption": "$(L, ok)"
+}

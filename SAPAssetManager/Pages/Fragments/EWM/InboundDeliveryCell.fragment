@@ -1,0 +1,24 @@
+{
+  "_Type": "Control.Type.ObjectCell",
+  "AccessoryType": "DisclosureIndicator",
+  "PreserveIconStackSpacing": false,
+  "Title": "$(DV,{EWMDeliveryNum},'-')",
+  "Subhead": "$(DV,{Vendor},'-')",
+  "Description": "/SAPAssetManager/Rules/EWM/InboundDelivery/GetInboundDeliveryDescription.js",
+  "StatusText": "/SAPAssetManager/Rules/EWM/InboundDelivery/GetInboundDeliveryStatusText.js",
+  "SubstatusText": "/SAPAssetManager/Rules/EWM/InboundDelivery/GetInboundDeliverySubstatusText.js",
+  "Footnote": "/SAPAssetManager/Rules/EWM/InboundDelivery/GetInboundDeliveryFootnote.js",
+  "Tags": "/SAPAssetManager/Rules/EWM/InboundDelivery/GetInboundDeliveryTags.js",
+  "OnPress": "/SAPAssetManager/Actions/EWM/Inbound/WHInboundDeliveryDetailNav.action",
+  "Icons": "/SAPAssetManager/Rules/EWM/InboundDelivery/GetInboundDeliveryIcons.js",
+  "AccessoryButtonIcon": "sap-icon://write-new",
+  "Styles": {
+        "AccessoryButtonIcon": "AccessoryButtonIcon"
+  },
+  "OnAccessoryButtonPress": "/SAPAssetManager/Rules/EWM/Inbound/WHInboundDeliveryGoodsReceiptOnPress.js",
+  "AvatarStack": {
+        "Avatars": "/SAPAssetManager/Rules/EWM/InboundDelivery/InboundDeliveryAvatarIcon.js",
+        "ImageHasBorder": true,
+        "ImageIsCircular": false
+    }
+}

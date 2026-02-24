@@ -1,0 +1,10 @@
+{
+    "Service": "/SAPAssetManager/Services/AssetManager.service",
+    "_Type": "Action.Type.ODataService.Initialize",
+    "OnFailure": "/SAPAssetManager/Rules/Sync/OnReInitializeOfflineODataFailure.js",
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText" : "$(L,loading)",
+    "ActionResult": {
+       "_Name": "result"
+    }
+}

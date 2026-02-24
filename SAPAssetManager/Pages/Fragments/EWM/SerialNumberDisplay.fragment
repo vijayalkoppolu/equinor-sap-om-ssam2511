@@ -1,0 +1,20 @@
+{
+    "Header": {
+        "Caption": "$(L,serial_numbers)"
+    },
+    "EmptySection": {
+        "Caption": "$(L,no_serial_numbers)"
+    },
+    "ObjectCell": {
+        "Title": "/SAPAssetManager/Rules/EWM/WarehouseTask/SerialNumber/SerialNumberTitle.js",
+        "StatusText": "/SAPAssetManager/Rules/EWM/WarehouseTask/SerialNumber/SerialNumberStatusText.js",
+        "PreserveIconStackSpacing": false
+    },
+    "DataSubscriptions": [
+        "WarehouseTaskSerialNumber"
+    ],
+	"IsVisible": "/SAPAssetManager/Rules/EWM/WarehouseTask/SerialNumber/IsVisibleSerialNumberButton.js",
+    "Target": "/SAPAssetManager/Rules/EWM/WarehouseTask/SerialNumber/SerialNumberTargetEx.js",
+    "_Type": "Section.Type.ObjectTable",
+    "_Name": "SerialNumbersSection"
+}

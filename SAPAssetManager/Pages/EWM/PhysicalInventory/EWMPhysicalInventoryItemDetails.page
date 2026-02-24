@@ -1,0 +1,62 @@
+{
+    "Caption": "$(L, physical_inventory_label)",
+    "ActionBar": {
+        "Items": [
+            "/SAPAssetManager/Pages/Fragments/SyncButton.fragment"
+        ]
+    },
+    "Controls": [{
+            "Sections": [{
+                    "ObjectHeader": {
+                        "Description": "$(DV, {WarehousePhysicalInventory_Nav/WarehouseOrder}, '-')",
+                        "HeadlineText": "$(DV, {WarehousePhysicalInventory_Nav/PIDocumentNo}, '-')/$(DV,{WarehousePhysicalInventory_Nav/DocumentYear} ,'-')",
+                        "StatusText": "/SAPAssetManager/Rules/EWM/PhysicalInventory/GetCountStatus.js",
+                        "SubstatusText": "/SAPAssetManager/Rules/EWM/PhysicalInventory/GetCountQuantity.js",
+                        "Subhead": "/SAPAssetManager/Rules/EWM/PhysicalInventory/PhysicalInventoryProduct.js",
+                        "DetailImage": "sap-icon://customer-order-entry",
+                        "Styles": {
+                            "DetailImage": "$(PLT, PhysicalInventoryIcon, PhysicalInventoryIconAndroid)"
+                        },
+                        "DetailImageIsCircular": false
+                    },
+                    "_Type": "Section.Type.ObjectHeader",
+                    "_Name": "ObjectHeaderSectionTable"
+                }],
+            "_Name": "SectionedTable",
+            "_Type": "Control.Type.SectionedTable",
+            "DataSubscriptions": ["WarehousePhysicalInventories","WarehousePhysicalInventoryItems","WarehousePhysicalInventoryItemSerials"]
+        },
+        {
+            "Items": [{
+                "_Name": "HeaderAndItemDetailsTab",
+                "Caption": "$(L, header_and_item_details)",
+                "PageToOpen" : "/SAPAssetManager/Pages/EWM/PhysicalInventory/EWMPhysicalInventoryHeaderAndItem.page",
+                "_Type": "Control.Type.TabItem"
+            },
+            {
+                "_Name": "SerialNumbersTab",
+                "Caption": "$(L, serial_numbers)",
+                "PageToOpen" : "/SAPAssetManager/Pages/EWM/PhysicalInventory/EWMPhysicalInventorySerialNumbers.page",
+                "_Type": "Control.Type.TabItem"
+            }],
+            "Position": "Top",
+            "_Type": "Control.Type.Tabs",
+            "_Name": "TabsControl"
+        }
+    ],
+    "FioriToolbar": {
+        "_Name": "PIActionsToolbar",
+        "_Type": "Control.Type.FioriToolbar",
+        "Items": [
+            {
+                "_Name": "CountButton",
+                "_Type": "FioriToolbarItem.Type.Button",
+                "Title": "/SAPAssetManager/Rules/EWM/PhysicalInventory/GetCountButtonTitle.js",
+                "ButtonType": "Primary",
+                "OnPress": "/SAPAssetManager/Rules/EWM/PhysicalInventory/PICountNav.js"
+            }
+        ]
+    },
+    "_Name": "EWMPhysicalInventoryItemDetailsPage",
+    "_Type": "Page"
+}

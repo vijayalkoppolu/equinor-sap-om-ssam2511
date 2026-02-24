@@ -1,0 +1,48 @@
+{
+    "_Type": "Section.Type.KPIHeader",
+    "_Name": "KPIHeader",
+    "KPIHeader": {
+        "KPIItems": [
+            {
+                "MetricItems": [
+                    {
+                        "Value": "/SAPAssetManager/Rules/OverviewPage/KPI/InProgressCount.js"
+                    }
+                ],
+                "OnPress": "/SAPAssetManager/Rules/OverviewPage/KPI/InProgressListViewNav.js",
+                "CaptionLabel": "$(L, kpi_in_progress)"
+            },
+            {
+                "MetricItems": [
+                    {
+                    "Value": "/SAPAssetManager/Rules/OverviewPage/KPI/OpenCount.js"
+                    }
+                ],
+                "OnPress": "/SAPAssetManager/Rules/OverviewPage/KPI/OpenListViewNav.js",
+                "CaptionLabel": "$(L, kpi_open)"
+            },
+            {
+                "MetricItems": [
+                    {
+                        "Value": "/SAPAssetManager/Rules/OverviewPage/KPI/CompletedCount.js"
+                    }
+                ],
+                "OnPress": "/SAPAssetManager/Rules/OverviewPage/KPI/CompletedListViewNav.js",
+                "CaptionLabel": "$(L, kpi_completed)"
+            },
+            {
+
+                "MetricItems": [
+                    {
+                            "Value": "/SAPAssetManager/Rules/OverviewPage/KPI/TimeCount.js"
+                    }
+                ],
+                "OnPress": "/SAPAssetManager/Rules/OverviewPage/TimeCaptureSection/OnPressTimeCaptureSectionToday.js",
+                "CaptionLabel": "$(L, kpi_hours)"
+            }
+        ]
+    },
+    "DataSubscriptions" : [
+        "PMMobileStatuses", "Confirmations", "CatsTimesheets", "ConfirmationOverviewRows", "CatsTimesheetOverviewRows"
+    ]
+}

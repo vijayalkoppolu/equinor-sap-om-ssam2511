@@ -1,0 +1,172 @@
+{
+"Caption": "$(L,fld_containers)",
+"ActionBar": 
+{ 
+	"Items": [
+			{
+                "Position": "Right",
+                "Icon": "$(PLT,sap-icon://filter,sap-icon://filter, '' , sap-icon://filter)",
+                "Caption": "/SAPAssetManager/Rules/Filter/FilterButtonCaption.js",
+                "OnPress": "/SAPAssetManager/Actions/FL/Containers/ContainersFilterViewNav.action",
+				"_Name": "FilterButton"
+            },
+			"/SAPAssetManager/Pages/Fragments/SyncButton.fragment"
+		] 
+},
+"Controls": [
+		{
+			"Sections": [
+				{
+					"EmptySection": {
+						"Caption": "$(L,no_fld_containers)"
+					},
+					"Header": {
+						"Caption": "/SAPAssetManager/Rules/FL/Containers/ListView/ContainersCountCaption.js",
+						"UseTopPadding": false,
+						"Items": [
+							{
+								"_Type": "Fragment",
+								"Fragment": "/SAPAssetManager/Pages/Fragments/FL/ListCounterCaption.fragment",
+								"Properties": {
+									"Title": "/SAPAssetManager/Rules/FL/Containers/ListView/ContainersCountCaption.js"
+								}
+							},
+							{
+								"_Type": "SectionHeaderItem.Type.Button",
+                                "_Name": "SelectItems",
+                                "Title": "$(L,select_items)",
+                                "Position": "Right",
+                                "Visible": true,
+                                "Enabled": "/SAPAssetManager/Rules/FL/Containers/ListView/IsSelectItemsButtonActive.js",
+                                "OnPress": "/SAPAssetManager/Rules/FL/ReadyToPack/SwitchSelect.js",
+								"Styles": {
+                                    "Button": "SelectItemsButtonLabelFontSize"
+                                }
+							},
+							{
+                                "_Type": "SectionHeaderItem.Type.Button",
+                                "_Name": "DeselectAll",
+                                "Title": "$(L,deselect_all)",
+                                "Position": "Right",
+                                "Visible": false,
+                                "OnPress": "/SAPAssetManager/Rules/FL/ReadyToPack/SwitchSelect.js",
+								"Styles": {
+                                    "Button": "SelectItemsButtonLabelFontSize"
+                                }
+                            },
+                            {
+                                "_Type": "SectionHeaderItem.Type.Button",
+                                "_Name": "SelectAll",
+                                "Title": "$(L,select_all)",
+                                "Position": "Right",
+                                "Visible": false,
+                                "OnPress": "/SAPAssetManager/Rules/FL/ReadyToPack/SwitchSelect.js",
+								"Styles": {
+                                    "Button": "SelectItemsButtonLabelFontSize"
+                                }
+                            }
+						]
+					},
+					"Selection": {
+					"LongPressToEnable": "Multiple",
+					"ExitOnLastDeselect": true,
+					"Mode": "None"
+					},
+					"OnSelectionChanged": "/SAPAssetManager/Rules/FL/Containers/OnDocumentSelectedOrUnselected.js",
+					"ObjectCell": "/SAPAssetManager/Pages/Fragments/FL/ContainerCell.fragment",
+					"Search": {
+						"Enabled" : true,
+                        "Delay": 500,
+                        "MinimumCharacterThreshold": 3,
+                        "Placeholder": "$(L,search)",
+                        "BarcodeScanner": true
+					},
+					"Target": {
+						"EntitySet": "FldLogsContainers",
+						"QueryOptions":"/SAPAssetManager/Rules/FL/Containers/ListView/ContainersListQueryOptions.js",
+						"Service": "/SAPAssetManager/Services/AssetManager.service"
+					},
+					"_Name": "SectionObjectTable",
+					"_Type": "Section.Type.ObjectTable"
+				}
+			],
+			"FilterFeedbackBar": { 
+				"_Type": "Control.Type.FilterFeedbackBar",
+				"_Name": "FilterFeedback",
+				"ShowAllFilters": true,
+				"FastFilters": [
+					{ 
+						"_Name": "OpenContainers",
+						"_Type": "Control.Type.FastFilterItem",
+						"FilterType": "Filter",
+						"FilterProperty": "",
+						"CustomQueryGroup": "ContainerList",
+						"DisplayValue": "/SAPAssetManager/Rules/FL/Containers/ListView/ContainersFilterCaptionOpen.js",
+						"ReturnValue": "/SAPAssetManager/Rules/FL/Containers/ListView/ContainersReturnValueFilterOpen.js"
+					},
+					{ 
+						"_Name": "ReceivedContainers",
+						"_Type": "Control.Type.FastFilterItem",
+						"FilterType": "Filter",
+						"FilterProperty": "",
+						"CustomQueryGroup": "ContainerList",
+						"DisplayValue": "/SAPAssetManager/Rules/FL/Containers/ListView/ContainersFilterCaptionReceived.js",
+						"ReturnValue": "/SAPAssetManager/Rules/FL/Containers/ListView/ContainersReturnValueFilterReceived.js"
+					},
+					{
+						"_Name": "NotFoundContainers",
+						"_Type": "Control.Type.FastFilterItem",
+						"FilterType": "Filter",
+						"CustomQueryGroup": "ContainerList",
+						"DisplayValue": "/SAPAssetManager/Rules/FL/Containers/ListView/ContainersFilterCaptionNotFound.js",
+						"ReturnValue": "/SAPAssetManager/Rules/FL/Containers/ListView/ContainersReturnValueFilterNotFound.js"
+					}
+				]
+			},
+			"Filters": "/SAPAssetManager/Rules/FL/Containers/ListView/GetContainersPreSelectedFilter.js",
+			"_Name": "SectionedTable",
+			"_Type": "Control.Type.SectionedTable"
+		}
+	],
+		"FioriToolbar": {
+		"_Name": "ContainerDetailsFioriToolbar",
+        "_Type": "Control.Type.FioriToolbar",
+		"Items": [
+				{
+				"_Type": "Fragment",
+				 "Fragment": "/SAPAssetManager/Pages/Fragments/FL/ReceiveInFull.fragment",
+				 "Properties": {
+				 "_Name": "FLContainerReceiveinFullItem",
+				 "OnPress": "/SAPAssetManager/Rules/FL/Container/ReceiveContainer.js"
+				 }
+				},
+				{
+				"_Type": "Fragment",
+				"Fragment": "/SAPAssetManager/Pages/Fragments/FL/NotFoundItem.fragment",
+				"Properties": {
+				"_Name": "FLContainerNotFoundItem",
+				"OnPress": "/SAPAssetManager/Rules/FL/Containers/ListView/NotFoundContainer.js"
+				}
+				},
+				{
+				"_Type": "Fragment",
+				"Fragment": "/SAPAssetManager/Pages/Fragments/FL/FLContainerRelease.fragment"
+				},
+				{
+				"_Type": "Fragment",
+				"Fragment": "/SAPAssetManager/Pages/Fragments/FL/FLDiscardButton.fragment",
+				"Properties": {
+				"_Name": "FLContainerDiscardItem",
+				"ButtonType": "Text"
+				}
+				}		
+		]
+    },
+	"DataSubscriptions" : [
+    	"FldLogsContainers"
+	],
+	"_Name": "ContainersListPage",
+	"_Type": "Page",
+	"OnLoaded": "/SAPAssetManager/Rules/Filter/ListPageWithFilterOnLoaded.js",
+	"OnReturning": "/SAPAssetManager/Rules/FL/Containers/ListView/OnReturning.js"
+}

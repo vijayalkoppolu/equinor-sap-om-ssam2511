@@ -1,0 +1,8 @@
+{
+	"_Type": "Action.Type.CheckRequiredFields",
+	"OnFailure": "/SAPAssetManager/Rules/Common/UpdateRequiredFailed.js",
+	"OnSuccess": "/SAPAssetManager/Actions/FL/ReadyToPack/FLReadyToPackUpdate.action",
+	"RequiredFields": [
+		"ReceivingPointListPkr"
+	]
+}

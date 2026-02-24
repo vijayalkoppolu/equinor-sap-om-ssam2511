@@ -1,0 +1,40 @@
+{
+    "Header": {
+        "Caption" : "$(L,notification_item)"
+    },
+    "KeyAndValues":
+    [{
+        "_Name": "ItemText",
+        "KeyName" : "$(L,description)",
+        "Value" : "/SAPAssetManager/Rules/Notifications/Item/Details/NotificationItemDetailsDescription.js"
+    },
+    {
+        "_Name": "ItemSortNumber",
+        "KeyName" : "$(L,sort_number)",
+        "Value" : "{ItemSortNumber}"
+    },
+    {
+        "_Name": "ObjectPartCodeGroup[0]",
+        "KeyName" : "$(L,part_group)",
+        "Value" : "/SAPAssetManager/Rules/Notifications/Item/Details/NotificationItemDetailsPartGroup.js"
+    },
+    {
+        "_Name": "ObjectPart[0]",
+        "KeyName" : "$(L,part)",
+        "Value" : "/SAPAssetManager/Rules/Notifications/Item/Details/NotificationItemDetailsPart.js"
+    },
+    {
+        "_Name": "CodeGroup[0]",
+        "KeyName" : "$(L,damage_group)",
+        "Value" : "/SAPAssetManager/Rules/Notifications/Item/Details/NotificationItemDetailsDamageGroup.js"
+    },
+    {
+        "_Name": "DamageCode[0]",
+        "KeyName" : "$(L,damage_details)",
+        "Value" : "/SAPAssetManager/Rules/Notifications/Item/Details/NotificationItemDetailsDamage.js"
+    }
+    ],
+    "_Name": "NotificationItemDetailsSection",
+    "_Type" : "Section.Type.KeyValue",
+    "Visible": "/SAPAssetManager/Rules/ComponentsEnablement/QMComponentIsNotEnabled.js"
+}

@@ -1,0 +1,71 @@
+{
+	"Caption": "$(L, warehouse_order)",
+	"ActionBar": {
+	    "_Name": "WarehouseOrderDetailsActionBar",
+		"Items": [
+			"/SAPAssetManager/Pages/Fragments/SyncButton.fragment"
+		]
+	},
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"ObjectHeader": {
+						"HeadlineText": "{WarehouseOrder}",
+						"Subhead": "/SAPAssetManager/Rules/EWM/WarehouseOrder/Details/WarehouseOrderSubhead.js",
+						"BodyText": "/SAPAssetManager/Rules/EWM/WarehouseOrder/Details/WarehouseOrderBodyText.js",
+						"StatusText": "/SAPAssetManager/Rules/EWM/WarehouseOrder/Details/WarehouseOrderStatusText.js",
+						"SubstatusText": "/SAPAssetManager/Rules/EWM/WarehouseOrder/Details/WarehouseOrderSubStatusText.js",
+						"DetailImage": "sap-icon://activity-items",
+                        "Styles": {
+                            "DetailImage": "$(PLT, WarehouseOrderIcon, WarehouseOrderIconAndroid)"
+                        },
+                        "DetailImageIsCircular": false
+					},			
+					"_Name": "SectionObjectHeader",
+					"_Type": "Section.Type.ObjectHeader"
+				}
+			],
+			"_Name": "SectionedTable",
+			"_Type": "Control.Type.SectionedTable",
+			"DataSubscriptions": [
+				"WarehouseOrders",
+				"WarehouseTasks",
+				"WarehouseTaskConfirmations",
+				"WarehouseTaskSerialNumbers",
+				"WarehouseExceptionCodes",
+				"WarehouseStorageBins",
+				"WarehouseMovementReasons",
+				"WarehouseActivityAreas"
+			]	
+		},
+		{
+			"Items": [{
+				"_Name": "WarehouserTaskListTab",
+				"Caption": "$(L, ewm_warehouse_tasks)",
+				"PageToOpen" : "/SAPAssetManager/Pages/EWM/WarehouseOrders/WarehouseOrderTaskList.page",
+				"_Type": "Control.Type.TabItem"
+			},
+			{
+				"_Name": "OrderDetailsTab",
+				"Caption": "$(L, order_details)",
+				"PageToOpen" : "/SAPAssetManager/Pages/EWM/WarehouseOrders/WarehouseOrderHeader.page",
+				"PageMetadata": "/SAPAssetManager/Rules/EWM/WarehouseOrder/Details/WarehouseOrderHeaderPageMetadata.js",
+				"_Type": "Control.Type.TabItem"
+			},
+			{
+				"_Name": "PhysicalInvListTab",
+				"Caption": "$(L, physical_inventory_label)",
+				"PageToOpen" : "/SAPAssetManager/Pages/EWM/PhysicalInventory/WHPhysicalInventoryList.page",
+				"_Type": "Control.Type.TabItem"
+			}
+			],
+			"Position": "Top",
+			"SwipeEnabled": false,
+			"_Type": "Control.Type.Tabs",
+			"_Name": "TabsControl"
+		}
+	],
+	"_Name": "WarehouseOrderDetails",
+	"_Type": "Page"
+}

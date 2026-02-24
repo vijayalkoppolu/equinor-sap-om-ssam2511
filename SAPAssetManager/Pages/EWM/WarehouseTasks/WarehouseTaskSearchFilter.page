@@ -1,0 +1,259 @@
+{
+    "OnActivityBackPressed": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/CancelCheckOnBackNavAndroid.js",
+    "ActionBar": {
+        "Items": [
+            {
+                "Position": "Left",
+                "SystemItem": "Cancel",
+                "Caption": "$(L,cancel)",
+                "OnPress": "/SAPAssetManager/Actions/Page/CancelPage.action"
+            },
+            {
+                "Position": "Right",
+                "SystemItem": "/SAPAssetManager/Rules/Filter/FilterSystemItem.js",
+                "Text": "/SAPAssetManager/Rules/Filter/FilterText.js",
+                "OnPress": "/SAPAssetManager/Rules/Filter/ApplyFilterAndSave.js"
+            }
+        ]
+    },
+    "Caption": "$(L,filter)",
+    "Result": "/SAPAssetManager/Rules/EWM/WarehouseTask/SearchFilter/WarehouseTaskSearchFilterResults.js",
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "Controls": [
+                        {
+                            "_Type": "Fragment",
+                            "Fragment": "/SAPAssetManager/Pages/Fragments/Filter/MultiSortByFilter.fragment",
+                            "Properties": {
+                                "Items": [
+                                    {
+                                        "ReturnValue": "SortSequence",
+                                        "DisplayValue": "$(L,ewm_sort_sequence)"
+                                    },
+                                    {
+                                        "ReturnValue": "WarehouseTask",
+                                        "DisplayValue": "$(L,warehouse_task)"
+                                    },
+                                    {
+                                        "ReturnValue": "DestinationBin",
+                                        "DisplayValue": "$(L,destination_bin)"
+                                    },
+                                    {
+                                        "ReturnValue": "WarehouseProcessCategory_Nav/Description",
+                                        "DisplayValue": "$(L,process_category)"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "Caption": "$(L,filter_by)",
+                    "Controls": [
+                        {
+                            "_Name": "WarehouseProcessCategory",
+                            "_Type": "Control.Type.FormCell.ListPicker",
+                            "Caption": "$(L,process_category)",
+                            "AllowMultipleSelection": true,
+                            "IsPickerDismissedOnSelection": true,
+                            "IsSearchCancelledAfterSelection": true,
+                            "Search": {
+                                "Enabled": true,
+                                "Delay": 500,
+                                "MinimumCharacterThreshold": 3,
+                                "Placeholder": "$(L,search)",
+                                "BarcodeScanner": false
+                            },
+                            "PickerItems": "/SAPAssetManager/Rules/EWM/WarehouseTask/SearchFilter/ProcessCategoryPickerItems.js",
+                            "FilterProperty": "ProcCategory",
+                            "OnValueChange": "/SAPAssetManager/Rules/Filter/RedrawFilterToolbar.js"
+                        },
+                        {
+                            "_Name": "WarehouseOrderNumber",
+                            "_Type": "Control.Type.FormCell.ListPicker",
+                            "Caption": "$(L,warehouse_ord_num)",
+                            "AllowMultipleSelection": true,
+                            "IsPickerDismissedOnSelection": true,
+                            "IsSearchCancelledAfterSelection": true,
+                            "Search": {
+                                "Enabled": true,
+                                "Delay": 500,
+                                "MinimumCharacterThreshold": 3,
+                                "Placeholder": "$(L,search)",
+                                "BarcodeScanner": false
+                            },
+                            "PickerItems": "/SAPAssetManager/Rules/EWM/WarehouseTask/SearchFilter/WarehouseOrderNumberPickerItems.js",
+                            "FilterProperty": "WarehouseOrder",
+                            "OnValueChange": "/SAPAssetManager/Rules/Filter/RedrawFilterToolbar.js"
+                        },
+                        {
+                            "_Name": "WarehouseTask",
+                            "_Type": "Control.Type.FormCell.ListPicker",
+                            "Caption": "$(L,warehouse_task)",
+                            "AllowMultipleSelection": true,
+                            "IsPickerDismissedOnSelection": true,
+                            "IsSearchCancelledAfterSelection": true,
+                            "Search": {
+                                "Enabled": true,
+                                "Delay": 500,
+                                "MinimumCharacterThreshold": 3,
+                                "Placeholder": "$(L,search)",
+                                "BarcodeScanner": false
+                            },
+                            "PickerItems": "/SAPAssetManager/Rules/EWM/WarehouseTask/SearchFilter/WarehouseTaskPickerItems.js",
+                            "FilterProperty": "WarehouseTask",
+                            "OnValueChange": "/SAPAssetManager/Rules/Filter/RedrawFilterToolbar.js"
+                        },
+                        {
+                            "_Name": "Product",
+                            "_Type": "Control.Type.FormCell.ListPicker",
+                            "Caption": "$(L,product)",
+                            "AllowMultipleSelection": true,
+                            "IsPickerDismissedOnSelection": true,
+                            "IsSearchCancelledAfterSelection": true,
+                            "Search": {
+                                "Enabled": true,
+                                "Delay": 500,
+                                "MinimumCharacterThreshold": 3,
+                                "Placeholder": "$(L,search)",
+                                "BarcodeScanner": false
+                            },
+                            "PickerItems": "/SAPAssetManager/Rules/EWM/WarehouseOrder/SearchFilter/ProductPickerItems.js",
+                            "FilterProperty": "Product",
+                            "OnValueChange": "/SAPAssetManager/Rules/Filter/RedrawFilterToolbar.js"
+                        },
+                        {
+                            "_Name": "PurchaseOrderNumber",
+                            "_Type": "Control.Type.FormCell.ListPicker",
+                            "IsVisible": false,
+                            "IsEditable": false,
+                            "Caption": "$(L,ewm_purchase_order_number)",
+                            "AllowMultipleSelection": true,
+                            "IsPickerDismissedOnSelection": true,
+                            "IsSearchCancelledAfterSelection": true,
+                            "Search": {
+                                "Enabled": true,
+                                "Delay": 500,
+                                "MinimumCharacterThreshold": 3,
+                                "Placeholder": "$(L,search)",
+                                "BarcodeScanner": false
+                            },
+                            "PickerItems": {
+                                "DisplayValue": "{{#Property:ReferenceDoc}}",
+                                "ReturnValue": "{ReferenceDoc}",
+                                "Target": {
+                                    "EntitySet": "WarehouseOrders",
+                                    "Service": "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions": "$orderby=WarehouseOrder"
+                                }
+                            },
+                            "FilterProperty": "WarehouseOrder",
+                            "OnValueChange": "/SAPAssetManager/Rules/Filter/RedrawFilterToolbar.js"
+                        },
+                        {
+                            "Caption": "$(L,ewm_le_delivery_number)",
+							"IsEditable": true,
+							"KeyboardType": "Default",
+							"AlternateInput": "Barcode",
+							"Value": "/SAPAssetManager/Rules/EWM/WarehouseTask/SearchFilter/LEDeliveryNumberValue.js",
+							"_Name": "LEDeliveryNumber",
+							"_Type": "Control.Type.FormCell.SimpleProperty",
+                            "FilterProperty": "Delivery",
+                            "OnValueChange": "/SAPAssetManager/Rules/Filter/RedrawFilterToolbar.js"
+                        },
+                        {
+                            "_Name": "SourceHU",
+                            "_Type": "Control.Type.FormCell.ListPicker",
+                            "Caption": "$(L,source_hu)",
+                            "AllowMultipleSelection": true,
+                            "IsPickerDismissedOnSelection": true,
+                            "IsSearchCancelledAfterSelection": true,
+                            "Search": {
+                                "Enabled": true,
+                                "Delay": 500,
+                                "MinimumCharacterThreshold": 3,
+                                "Placeholder": "$(L,search)",
+                                "BarcodeScanner": false
+                            },
+                            "PickerItems": "/SAPAssetManager/Rules/EWM/WarehouseTask/SearchFilter/SourceHUPickerItems.js",
+                            "FilterProperty": "SourceHU",
+                            "OnValueChange": "/SAPAssetManager/Rules/Filter/RedrawFilterToolbar.js"
+                        },
+                        {
+                            "_Name": "DestinationHU",
+                            "_Type": "Control.Type.FormCell.ListPicker",
+                            "Caption": "$(L,destination_hu)",
+                            "AllowMultipleSelection": true,
+                            "IsPickerDismissedOnSelection": true,
+                            "IsSearchCancelledAfterSelection": true,
+                            "Search": {
+                                "Enabled": true,
+                                "Delay": 500,
+                                "MinimumCharacterThreshold": 3,
+                                "Placeholder": "$(L,search)",
+                                "BarcodeScanner": false
+                            },
+                            "PickerItems": "/SAPAssetManager/Rules/EWM/WarehouseTask/SearchFilter/DestinationHUPickerItems.js",
+                            "FilterProperty": "DestinationHU",
+                            "OnValueChange": "/SAPAssetManager/Rules/Filter/RedrawFilterToolbar.js"
+                        },
+                        {
+                            "_Name": "SourceBin",
+                            "_Type": "Control.Type.FormCell.ListPicker",
+                            "Caption": "$(L,source_bin)",
+                            "AllowMultipleSelection": true,
+                            "IsPickerDismissedOnSelection": true,
+                            "IsSearchCancelledAfterSelection": true,
+                            "Search": {
+                                "Enabled": true,
+                                "Delay": 500,
+                                "MinimumCharacterThreshold": 3,
+                                "Placeholder": "$(L,search)",
+                                "BarcodeScanner": false
+                            },
+                            "PickerItems": "/SAPAssetManager/Rules/EWM/WarehouseTask/SearchFilter/SourceBinPickerItems.js",
+                            "FilterProperty": "SourceBin",
+                            "OnValueChange": "/SAPAssetManager/Rules/Filter/RedrawFilterToolbar.js"
+                        },
+                        {
+                            "_Name": "DestinationBin",
+                            "_Type": "Control.Type.FormCell.ListPicker",
+                            "Caption": "$(L,destination_bin)",
+                            "AllowMultipleSelection": true,
+                            "IsPickerDismissedOnSelection": true,
+                            "IsSearchCancelledAfterSelection": true,
+                            "Search": {
+                                "Enabled": true,
+                                "Delay": 500,
+                                "MinimumCharacterThreshold": 3,
+                                "Placeholder": "$(L,search)",
+                                "BarcodeScanner": false
+                            },
+                            "PickerItems": "/SAPAssetManager/Rules/EWM/WarehouseTask/SearchFilter/DestinationBinPickerItems.js",
+                            "FilterProperty": "DestinationBin",
+                            "OnValueChange": "/SAPAssetManager/Rules/Filter/RedrawFilterToolbar.js"
+                        }
+
+                    ]
+                }
+            ],
+            "_Name": "FormCellContainer",
+            "_Type": "Control.Type.FormCellContainer"
+        }
+    ],
+    "FioriToolbar": {
+        "_Name": "StockSearchFilterFioriToolbar",
+        "_Type": "Control.Type.FioriToolbar",
+        "Items": [
+            {
+                "_Type": "Fragment",
+                "Fragment": "/SAPAssetManager/Pages/Fragments/Filter/ResetFilterToolbarItem.fragment"
+            }
+        ]
+    },
+    "_Type": "Page",
+    "_Name": "WarehouseTaskSearchFilterPage",
+    "OnLoaded": "/SAPAssetManager/Rules/EWM/WarehouseTask/SearchFilter/WarehouseTaskSearchFilterOnLoaded.js"
+}

@@ -1,0 +1,14 @@
+{
+	"_Type": "Action.Type.ODataService.CreateEntity",
+	"Target": {
+        "EntitySet" : "HandlingUnits",
+        "Service" : "/SAPAssetManager/Services/AssetManager.service"
+    },
+	"Properties": {
+		"GUID": "#ClientData/#Property:CreatableHU/#Property:GUID",
+		"HUType": "#ClientData/#Property:CreatableHU/#Property:HUType",
+		"PackingMaterial": "#ClientData/#Property:CreatableHU/#Property:PackingMaterial",
+		"PackingMaterialDesc": "#ClientData/#Property:CreatableHU/#Property:PackingMaterialDesc",
+		"HandlingUnit": "#ClientData/#Property:CreatableHU/#Property:HandlingUnit"
+	}
+}

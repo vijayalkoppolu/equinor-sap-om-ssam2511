@@ -1,0 +1,16 @@
+{
+    "Title": "$(L, set_tagged)",
+    "Icon": "sap-icon://locked",
+    "IsVisible": "/SAPAssetManager/Rules/WCM/OperationalItems/SetTagged/SetTaggedActive.js",
+    "Type": "View",
+    "CallbackInfo": {
+        "Action": "/SAPAssetManager/Rules/WCM/OperationalItems/SetTagged/SetTaggedNav.js",
+        "Target": {
+            "EntitySet": "WCMDocumentItems",
+            "Service": "/SAPAssetManager/Services/AssetManager.service",
+            "QueryOptions": "$expand=WCMDocumentHeaders,WCMDocumentHeaders/WCMDocumentUsages,PMMobileStatus&$filter=ObjectNumber eq '{ObjectNumber}'",
+            "Properties": [],
+            "KeyProperties": []
+        }
+    }
+}

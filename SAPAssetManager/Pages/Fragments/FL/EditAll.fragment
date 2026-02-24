@@ -1,0 +1,7 @@
+{
+    "_Name": "EditAll",
+    "_Type": "FioriToolbarItem.Type.Button",
+    "Title": "$(L, edit_all)",
+    "OnPress": "/SAPAssetManager/Rules/FL/BulkUpdate/EditAllItems.js"
+}
+

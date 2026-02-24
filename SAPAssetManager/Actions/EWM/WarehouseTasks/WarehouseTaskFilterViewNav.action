@@ -1,0 +1,8 @@
+{
+    "_Type" : "Action.Type.Filter",
+    "PageToOpen" : "/SAPAssetManager/Pages/EWM/WarehouseTasks/WarehouseTaskSearchFilter.page",
+    "Filterable" : "#Page:WarehouseOrderTaskList/#Control:SectionedTable",
+    "ActionResult": {
+        "_Name": "filterResult"
+    }
+}

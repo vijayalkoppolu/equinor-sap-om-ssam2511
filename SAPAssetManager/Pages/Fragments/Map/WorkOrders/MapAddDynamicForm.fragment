@@ -1,0 +1,9 @@
+{
+    "Title": "$(L,sdf_section_caption)",
+    "Icon": "sap-icon://approvals",
+    "Type": "View",
+    "IsVisible": "/SAPAssetManager/Rules/Forms/SDF/SDFIsFeatureEnabled.js",
+    "CallbackInfo": {
+        "Action": "/SAPAssetManager/Actions/Forms/SDF/ListViewNav.action"
+    }
+}

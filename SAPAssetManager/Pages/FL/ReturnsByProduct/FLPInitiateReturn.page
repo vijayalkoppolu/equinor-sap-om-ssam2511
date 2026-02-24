@@ -1,0 +1,276 @@
+
+{
+    "OnActivityBackPressed": "/SAPAssetManager/Rules/FL/ReturnsByProduct/CancelCheckOnBackNavAndroid.js",
+    "ActionBar": {
+        
+        "_Name": "ActionBar",
+        "Items": [
+           {
+                "_Type": "Fragment",
+                "Fragment": "/SAPAssetManager/Pages/Fragments/CancelButton.fragment",
+                "Properties": {
+                    "Visible": "/SAPAssetManager/Rules/FL/ReturnsByProduct/FLProductUpdateCancelVisible.js"
+                }
+            },
+            {
+                "Position": "Right",
+                "_Name": "Done",
+                "SystemItem": "$(PLT,'Done','', '','Done')",
+                "Text": "/SAPAssetManager/Rules/Common/Platform/DoneText.js",
+                "OnPress": "/SAPAssetManager/Actions/FL/ReturnsByProduct/FLPInitiateReturnRequiredFields.action"
+            }
+        ]
+    },
+	"Caption": "$(L,edit_item)",
+    "Controls": [
+        {
+            "Sections":
+            [   
+                {
+                    "SimplePropertyCells": [
+                        {
+                            "SimplePropertyCell": {
+                                "AccessoryType": "None",
+                                "KeyName": "$(L,product)",
+                                "Value": "{Product}",
+                                "Visible": true,
+                                "IsEditable": false
+                            }
+                        },
+                        {
+                            "SimplePropertyCell": {
+                                "AccessoryType": "None",
+                                "KeyName": "$(L,product_description)",
+                                "Value": "{ProductDescription}",
+                                "Visible": true,
+                                "IsEditable": false
+                            }
+                        },
+                        {
+                            "SimplePropertyCell": {
+                                "AccessoryType": "None",
+                                "KeyName": "$(L,reference_doc_number)",
+                                "Value": "{FldLogsReferenceDocumentNumber}",
+                                "Visible": true,
+                                "IsEditable": false
+                            }
+                        }
+                    ],
+                    "Layout": {
+                        "NumberOfColumns": 1,
+                        "MinimumInteritemSpacing": "$(PLT,66,0)"
+                    },
+                    "_Type": "Section.Type.SimplePropertyCollection",
+                    "_Name": "SimplePropertyCollection"
+                },
+               
+                {
+                "_Type": "Section.Type.FormCell",
+                "_Name": "FormCellSection1",
+                "Header": {
+                    "Caption": "/SAPAssetManager/Rules/Notifications/CreateUpdate/RequiredFieldsMessage.js",
+                    "UseTopPadding": false
+                },
+                "Separators": {
+                    "HeaderSeparator": false
+                },
+                "Controls":
+                [
+                       
+                         {
+                            "AllowMultipleSelection": false,
+                            "IsPickerDismissedOnSelection": true,
+                            "IsSearchCancelledAfterSelection": true,
+                            "AllowDefaultValueIfOneItem": true,
+                            "Search": {
+                                "Enabled": true,
+                                "Delay": 500,
+                                "MinimumCharacterThreshold": 3,
+                                "Placeholder": "$(L,search)",
+                                "BarcodeScanner": true
+                            },
+                            "Caption": "/SAPAssetManager/Rules/FL/ReturnsByProduct/FormatLabelRecommendedActionsListPkr.js",
+                            "Value": "{FldLogsRecommendedAction}",
+                            "PickerItems": {
+                                "DisplayValue": "{FldLogsRecommendedAction} {FldLogsRecommendedActionText}",
+                                "ReturnValue": "{FldLogsRecommendedAction}",
+                                "Target": {
+                                    "EntitySet": "FldLogsRecommendedActions",
+                                    "Service": "/SAPAssetManager/Services/AssetManager.service",
+                                     "QueryOptions": "$orderby=FldLogsRecommendedAction"
+                                }
+                            },
+                            "_Name": "RecommActionLstPkr",
+                            "_Type": "Control.Type.FormCell.ListPicker"
+                        },
+                        
+                       {
+                            "Caption": "/SAPAssetManager/Rules/FL/ReturnsByProduct/FormatLabelReturnQty.js",
+                            "Value": "{EntryQty}",
+                            "KeyboardType": "Number",
+                            "_Name": "ReturnableQuantity",
+                            "IsEditable": true,
+                            "_Type": "Control.Type.FormCell.SimpleProperty"
+                        },
+                        {
+                            "AllowMultipleSelection": false,
+                            "IsPickerDismissedOnSelection": true,
+                            "IsSearchCancelledAfterSelection": true,
+                            "AllowDefaultValueIfOneItem": true,
+                            "Search": {
+                                "Enabled": true,
+                                "Delay": 500,
+                                "MinimumCharacterThreshold": 3,
+                                "Placeholder": "$(L,search)",
+                                "BarcodeScanner": true
+                            },
+                            "Caption": "$(L,uom)",
+                            "Value":  "{RetblQtyOrderUnit}",
+                            "PickerItems": {
+                                "DisplayValue": "{UOM}",
+                                "ReturnValue": "{UOM}",
+                                "Target": {
+                                    "EntitySet": "MaterialUOMs",
+                                    "Service": "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions": "/SAPAssetManager/Rules/FL/Common/UOMListPickerQueryOptions.js"
+                                }
+                            },
+                            "_Name": "ReturnableQuantityUOMLstPkr",
+                            "_Type": "Control.Type.FormCell.ListPicker"
+                        },
+                        {
+                            "AllowMultipleSelection": false,
+                            "IsPickerDismissedOnSelection": true,
+                            "IsSearchCancelledAfterSelection": true,
+                            "AllowDefaultValueIfOneItem": true,
+                            "Search": {
+                                "Enabled": true,
+                                "Delay": 500,
+                                "MinimumCharacterThreshold": 3,
+                                "Placeholder": "$(L,search)",
+                                "BarcodeScanner": true
+                            },
+                            "Caption": "/SAPAssetManager/Rules/FL/ReturnsByProduct/FormatLabelDestStoreLoc.js",
+                            "Value": "{SupplyingStorageLocation}",
+                            "PickerItems": {
+                                "DisplayValue": "{StorageLocation} {StorageLocationDesc}",
+                                "ReturnValue": "{StorageLocation}",
+                                "Target": {
+                                    "EntitySet": "StorageLocations",
+                                    "Service": "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions": "$filter=Plant eq '{{#Property:FieldLogisticsTransferPlant}}'&$orderby=StorageLocation"
+                                }
+                            },
+                            "_Name": "DestStoreLocLstPkr",
+                            "_Type": "Control.Type.FormCell.ListPicker"
+                        },
+                         {
+                            "AllowMultipleSelection": false,
+                            "IsPickerDismissedOnSelection": true,
+                            "IsSearchCancelledAfterSelection": true,
+                            "AllowDefaultValueIfOneItem": true,
+                            "IsEditable": true,
+                            "Search": {
+                                "Enabled": true,
+                                "Delay": 500,
+                                "MinimumCharacterThreshold": 3,
+                                "Placeholder": "$(L,search)",
+                                "BarcodeScanner": true
+                            },
+                            "Caption": "$(L,fld_dest_plant)",
+                            "Value": "{FieldLogisticsTransferPlant}",
+                            "OnValueChange": "/SAPAssetManager/Rules/FL/ReturnsByProduct/OnDestPlantValueChanged.js",
+                            "PickerItems": {
+                                "DisplayValue": "{Plant} {PlantName}",
+                                "ReturnValue": "{Plant}",
+                                "Target": {
+                                    "EntitySet": "FldLogsPlants",
+                                    "Service": "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions": "$filter=Plant eq '{{#Property:FieldLogisticsTransferPlant}}'"
+                                }
+                            },
+                            "_Name": "DestPlantLstPkr",
+                            "_Type": "Control.Type.FormCell.ListPicker"
+                        },
+                         {
+                            "AllowMultipleSelection": false,
+                            "IsPickerDismissedOnSelection": true,
+                            "IsSearchCancelledAfterSelection": true,
+                            "AllowDefaultValueIfOneItem": true,
+                            "Search": {
+                                "Enabled": true,
+                                "Delay": 500,
+                                "MinimumCharacterThreshold": 2,
+                                "Placeholder": "$(L,search)",
+                                "BarcodeScanner": true
+                            },
+                            "Caption": "$(L,fld_source_storage_location)",
+                            "IsEditable": false,
+                            "Value": "{RemoteStorageLocation}",
+                            "PickerItems": {
+                                "DisplayValue": "{StorageLocation} {StorageLocationDesc}",
+                                "ReturnValue": "{StorageLocation}",
+                                "Target": {
+                                    "EntitySet": "StorageLocations",
+                                    "Service": "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions": "$filter=Plant eq '{{#Property:FldLogsRemotePlant}}' and StorageLocation eq '{{#Property:RemoteStorageLocation}}'&$orderby=StorageLocation"
+                                }
+                            },
+                            "_Name": "SourceStoreLocLstPkr",
+                            "_Type": "Control.Type.FormCell.ListPicker"
+                        }
+
+                   ]
+            },
+              {
+                    "SimplePropertyCells": [
+                        {
+                            "SimplePropertyCell": {
+                                "AccessoryType": "None",
+                                "KeyName": "$(L,stock_type)",
+                                "Value": "{StockTypeName}",
+                                "Visible": true,
+                                "IsEditable": false
+                            }
+                        }
+                    ],
+                    "Layout": {
+                        "NumberOfColumns": 2,
+                        "MinimumInteritemSpacing": "$(PLT,66,0)"
+                    },
+                    "_Type": "Section.Type.SimplePropertyCollection",
+                    "_Name": "SimplePropertyCollection1"
+                },
+            {
+                "_Type": "Section.Type.FormCell",
+                "_Name": "FormCellSection2",
+                "Controls":
+                [
+                     {
+                            "Caption": "$(L,comments)",
+                            "Value": "{FldLogsReturnComment}",
+                            "IsAutoResizing": true,
+                            "_Name": "Comments",
+                            "IsEditable": true,
+                            "_Type": "Control.Type.FormCell.Note"
+                        },
+                        {
+                            "_Type": "Control.Type.FormCell.Switch",
+                            "_Name": "IsOutboundDelivery",
+                            "Caption": "$(L,fld_create_outbound_delivery)",
+                            "Value": true,
+                            "IsEditable": false
+                        }
+               
+                ]
+            }
+        ],
+        "_Name": "FormCellContainer",
+        "_Type": "Control.Type.SectionedTable"
+    }],
+    
+    "_Type": "Page",
+	"DataSubscriptions": ["FldLogsInitRetProducts", "StorageLocations", "FldLogsPlants", "MaterialValuations", "FldLogsRecommendedActions", "FldLogsReturnStatuses", "FldLogsShippingPoints", "FldLogsRefDocTypes"],
+    "OnLoaded": "/SAPAssetManager/Rules/FL/Edit/ValidateOnLoad.js",
+    "_Name": "FLPInitiateReturnPage"
+}

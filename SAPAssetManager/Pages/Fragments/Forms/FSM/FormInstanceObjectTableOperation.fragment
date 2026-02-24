@@ -1,0 +1,57 @@
+{
+    "Header": {
+        "Items": [
+            {
+                "_Name": "label",
+                "_Type": "SectionHeaderItem.Type.Label",
+                "Title": "$(L,smart_forms)",
+                "Position": "Left"
+            },
+            {
+                "_Name": "add_smartform",
+                "_Type": "SectionHeaderItem.Type.Button",
+                "Position": "Right",
+                "Title": "$(L,add)",
+                "OnPress": "/SAPAssetManager/Actions/Forms/AddSmartFormPageNav.action",
+                "Styles": {
+                    "Button": "HeaderItemButtonText"
+                },
+                "Visible": "/SAPAssetManager/Rules/Forms/FSM/AddSmartForm/IsAddSmartFormButtonVisible.js"
+            }
+        ]
+    },
+    "EmptySection": {
+        "Caption": "$(L,no_smartforms)"
+    },
+    "Footer": {
+        "Caption": "$(L,see_all)",
+        "AccessoryType": "DisclosureIndicator",
+        "FooterStyle": "Attribute",
+        "AttributeLabel": "/SAPAssetManager/Rules/Forms/FSM/OperationFormInstancesCount.js",
+        "OnPress": "/SAPAssetManager/Rules/Forms/FSM/FSMFormsInstancesListViewNav.js",
+        "Visible": "/SAPAssetManager/Rules/Forms/FSM/FSMFormsListFooterVisible.js"
+    },
+    "MaxItemCount": 2,
+    "ObjectCell": {
+       "_Type": "Fragment",
+        "Fragment": "/SAPAssetManager/Pages/Fragments/Forms/FSM/FormInstanceObjectCell.fragment",
+        "Properties": {
+            "AvatarStack": {
+                "Avatars": [{
+                    "Image": "sap-icon://clinical-task-tracker",
+                    "Style": "$(PLT, Thumbnail, ThumbnailAndroid)"
+                }],
+                "ImageHasBorder": true,
+                "ImageIsCircular": false
+            }
+        }
+    },
+    "Target": {
+        "EntitySet": "FSMFormInstances",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "QueryOptions": "/SAPAssetManager/Rules/Forms/FSM/FSMFormsInstancesListViewQueryOption.js"
+    },
+    "_Name": "SmartformsObjectTable",
+    "_Type": "Section.Type.ObjectTable",
+    "Visible": "/SAPAssetManager/Rules/Forms/FSM/SmartFormsFeatureIsEnabled.js"
+}

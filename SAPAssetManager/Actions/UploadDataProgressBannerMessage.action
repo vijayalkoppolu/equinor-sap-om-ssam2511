@@ -1,0 +1,5 @@
+{
+    "Message": "$(L,upload_in_progress)",
+    "OnSuccess": "/SAPAssetManager/Rules/ApplicationEvents/UploadData.js",
+    "_Type": "Action.Type.ProgressBanner"
+}

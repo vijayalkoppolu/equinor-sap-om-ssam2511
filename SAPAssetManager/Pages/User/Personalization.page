@@ -1,0 +1,151 @@
+{
+	"Caption": "$(L,personalization)",
+	"ActionBar":
+    {
+        "_Name": "Personalization",
+        "Items":
+        [{
+            "Position": "Right",
+			"SystemItem": "$(PLT,'Done','', '','Done')",
+            "Text": "/SAPAssetManager/Rules/Common/Platform/DoneText.js",
+            "OnPress": "/SAPAssetManager/Rules/UserPreferences/UserPreferencesUpdate.js"
+        }]
+    },
+    "Controls": [{
+		"_Name": "FormCellContainer",
+		"_Type": "Control.Type.SectionedTable",
+		"Sections": [
+			{
+				"_Type": "Section.Type.FormCell",
+				"_Name": "FormCellSection1",
+				"Controls":
+				[
+				{
+					"Caption": "$(L, layout)",
+					"Value": "/SAPAssetManager/Rules/UserPreferences/LayoutStyleValue.js",
+					"Segments": "/SAPAssetManager/Rules/UserPreferences/LayoutSegments.js",
+					"_Name": "LayoutSeg",
+					"_Type": "Control.Type.FormCell.SegmentedControl",
+					"IsVisible": "/SAPAssetManager/Rules/UserPreferences/LayoutPersonalization.js",
+					"OnValueChange": "/SAPAssetManager/Rules/UserPreferences/LayoutOnValueChange.js"
+				},
+				{
+					"Caption": "Home Page Tabs",
+					"_Name": "tabs",
+					"_Type": "Control.Type.FormCell.ListPicker",
+					"AllowMultipleSelection": true,
+					"AllowEmptySelection": false,
+					"PickerItems": "/SAPAssetManager/Rules/UserPreferences/OverviewPageTabs.js",
+					"Value": "/SAPAssetManager/Rules/UserPreferences/OverviewPageTabsValue.js",
+					"IsVisible": "/SAPAssetManager/Rules/UserPreferences/TabsPersonalization.js"
+				},
+				{
+					"Caption": "Show KPIs on home page",
+					"_Name": "kpi",
+					"_Type": "Control.Type.FormCell.Switch",
+					"Value": "/SAPAssetManager/Rules/UserPreferences/OverviewPageKPIValue.js",
+					"IsVisible": "/SAPAssetManager/Rules/UserPreferences/TabsPersonalization.js"
+				}]
+			},
+			{
+			"_Type": "Section.Type.FormCell",
+			"_Name": "FormCellSection2",
+			"Controls":
+			[
+			{
+                "Caption": "$(L, take_readings)",
+                "Value": "/SAPAssetManager/Rules/Measurements/Points/MeasuringPointViewInitialValue.js",
+                "Segments": [
+					{
+						"DisplayValue": "$(L, table)",
+						"ReturnValue": "0"
+					},
+					{
+						"DisplayValue": "$(L, list)",
+						"ReturnValue": "1"
+					}
+				],
+                "_Name": "ReadingsScreenSeg",
+                "_Type": "Control.Type.FormCell.SegmentedControl",
+                "IsVisible": "/SAPAssetManager/Rules/UserPreferences/MeasuringPointPersonalization.js"
+			},
+			{
+                "Caption": "/SAPAssetManager/Rules/InspectionCharacteristics/InspectionCharacteristicPersonalizationCaption.js",
+                "Value": "/SAPAssetManager/Rules/InspectionCharacteristics/InspectionCharacteristicViewInitialValue.js",
+                "Segments": [
+					{
+						"DisplayValue": "$(L, table)",
+						"ReturnValue": "0"
+					},
+					{
+						"DisplayValue": "$(L, list)",
+						"ReturnValue": "1"
+					}
+				],
+                "_Name": "CheckListScreenSeg",
+                "_Type": "Control.Type.FormCell.SegmentedControl",
+				"IsVisible": "/SAPAssetManager/Rules/UserPreferences/InspectionCharacteristicsPersonalization.js"
+			},
+			{
+                "Caption": "$(L, persist_filter)",
+                "Value": "/SAPAssetManager/Rules/UserPreferences/PersistFilterSwitchValue.js",
+                "_Name": "FilterSwitch",
+                "_Type": "Control.Type.FormCell.Switch"
+			},
+			{
+                "Caption": "$(L, use_ai_prompt)",
+                "Value": "/SAPAssetManager/Rules/UserPreferences/AIJobCompletionSwitchValue.js",
+				"IsVisible": "/SAPAssetManager/Rules/UserPreferences/AIJobCompletionSwitchVisible.js",
+                "_Name": "AISwitch",
+                "_Type": "Control.Type.FormCell.Switch"
+			},
+			{
+                "Caption": "$(L, item_view)",
+                "Value": "/SAPAssetManager/Rules/UserPreferences/ServiceItemViewValue.js",
+                "Segments": [
+					{
+						"DisplayValue": "$(L, table)",
+						"ReturnValue": "0"
+					},
+					{
+						"DisplayValue": "$(L, list)",
+						"ReturnValue": "1"
+					}
+				],
+                "_Name": "ServiceItemsViewSeg",
+                "_Type": "Control.Type.FormCell.SegmentedControl",
+				"IsVisible": "/SAPAssetManager/Rules/UserPreferences/ServiceItemsViewPersonalizationVisible.js"
+			}]
+		},
+		{
+			"_Type": "Section.Type.FormCell",
+			"_Name": "FormCellSection4",
+			"Header": {
+				"Caption": "$(L, processes)"
+			},
+			"Visible": "/SAPAssetManager/Rules/SideDrawer/EnableExtendedWarehouseClerk.js",
+			"Controls": [
+				{
+					"Caption": "$(L, inbound_process)",
+					"Value": "/SAPAssetManager/Rules/UserPreferences/PersonalizedEWMProcessesInitialValue.js",
+					"_Name": "InboundProcessSwitch",
+					"IsEditable": "/SAPAssetManager/Rules/UserPreferences/PersonalizedEWMProcessIsEditable.js",
+					"HelperText": "/SAPAssetManager/Rules/UserPreferences/PersonalizedEWMProcessHelperText.js",
+					"OnValueChange": "/SAPAssetManager/Rules/UserPreferences/PersonalizedEWMProcessOnValueChange.js",
+					"_Type": "Control.Type.FormCell.Switch"
+				},
+				{
+					"Caption": "$(L, warehouse_process)",
+					"Value": "/SAPAssetManager/Rules/UserPreferences/PersonalizedEWMProcessesInitialValue.js",
+					"_Name": "WarehouseProcessSwitch",
+					"IsEditable": "/SAPAssetManager/Rules/UserPreferences/PersonalizedEWMProcessIsEditable.js",
+					"OnValueChange": "/SAPAssetManager/Rules/UserPreferences/PersonalizedEWMProcessOnValueChange.js",
+					"HelperText": "/SAPAssetManager/Rules/UserPreferences/PersonalizedEWMProcessHelperText.js",
+					"_Type": "Control.Type.FormCell.Switch"
+				}
+			]
+		}]
+	}],
+	"_Name": "Personalization",
+	"_Type": "Page"
+}

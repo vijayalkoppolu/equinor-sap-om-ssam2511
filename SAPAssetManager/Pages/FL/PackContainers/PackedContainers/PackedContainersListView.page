@@ -1,0 +1,192 @@
+{
+    "Caption": "$(L,packed_containers)",
+    "ActionBar": {
+        "Items": [
+            "/SAPAssetManager/Pages/Fragments/SyncButton.fragment"
+        ]
+    },
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "Header": {
+                        "UseTopPadding": false,
+                        "Items": [
+							{
+								"_Type": "SectionHeaderItem.Type.Button",
+								"_Name": "SelectItems",
+								"Title": "$(L,select_items)",
+								"Position": "Right",
+                                "Visible": true,
+								"Enabled": "/SAPAssetManager/Rules/FL/PackedContainers/ListView/IsSelectItemsButtonActive.js",
+								"OnPress": "/SAPAssetManager/Rules/FL/SwitchSelect.js",
+                                "Styles": {
+                                    "Button": "SelectItemsButtonLabelFontSize"
+                                }
+							},
+							{
+								"_Type": "SectionHeaderItem.Type.Button",
+								"_Name": "DeselectAll",
+								"Title": "$(L,deselect_all)",
+								"Position": "Right",
+								"Visible": false,
+								"OnPress": "/SAPAssetManager/Rules/FL/SwitchSelect.js",
+                                "Styles": {
+                                    "Button": "SelectItemsButtonLabelFontSize"
+                                }
+							},
+							{
+								"_Type": "SectionHeaderItem.Type.Button",
+								"_Name": "SelectAll",
+								"Title": "$(L,select_all)",
+								"Position": "Right",
+								"Visible": false,
+								"OnPress": "/SAPAssetManager/Rules/FL/SwitchSelect.js",
+                                "Styles": {
+                                    "Button": "SelectItemsButtonLabelFontSize"
+                                }
+							},
+                            {
+								"_Type": "Fragment",
+								"Fragment": "/SAPAssetManager/Pages/Fragments/FL/ListCounterCaption.fragment",
+								"Properties": {
+									"Title": "/SAPAssetManager/Rules/FL/PackedContainers/PackedContainersCountCaption.js"
+								}
+							}
+                        ]
+                    },
+                    "EmptySection": {
+                        "Caption": "$(L,fld_no_packed_containers)"
+                    },
+                    "Selection": {
+                        "LongPressToEnable": "Multiple",
+                        "ExitOnLastDeselect": true,
+                        "Mode": "None"
+                    },
+                    "ObjectCell": "/SAPAssetManager/Pages/Fragments/FL/PackedContainersCell.fragment",
+                    "OnSelectionChanged": "/SAPAssetManager/Rules/FL/PackedContainers/OnDocumentSelectedOrUnselected.js",
+                    "Search": {
+                        "Enabled": true,
+                        "Delay": 500,
+                        "MinimumCharacterThreshold": 3,
+                        "Placeholder": "$(L,search)",
+                        "BarcodeScanner": true
+                    },
+                    "Target": {
+                        "EntitySet": "FldLogsPackCtnPkdCtns",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "/SAPAssetManager/Rules/FL/PackedContainers/PackedContainersOnLoadQuery.js"
+                    },
+                    "_Name": "SectionObjectTable",
+                    "_Type": "Section.Type.ObjectTable"
+                }
+            ],
+        "FilterFeedbackBar": {
+        "_Type": "Control.Type.FilterFeedbackBar",
+        "_Name": "FilterFeedback",
+        "ShowAllFilters": true,
+        "FastFilters": [
+                    {
+                        "_Name": "InPackingStatus",
+                        "_Type": "Control.Type.FastFilterItem",
+                        "FilterType": "Filter",
+                        "FilterProperty": "",
+                        "CustomQueryGroup": "FLPackedContainersStatusesList",
+                        "DisplayValue": "/SAPAssetManager/Rules/FL/PackedContainers/FLPackContainerFilterCaptionInPacking.js",
+                        "ReturnValue": "FldLogsCtnPackgStsCode eq '10'"
+                    },
+                    {
+                        "_Name": "SealedStatus",
+                        "_Type": "Control.Type.FastFilterItem",
+                        "FilterType": "Filter",
+                        "FilterProperty": "",
+                        "CustomQueryGroup": "FLPackedContainersStatusesList",
+                        "DisplayValue": "/SAPAssetManager/Rules/FL/PackedContainers/FLPackContainerFilterCaptionSealed.js",
+                        "ReturnValue": "FldLogsCtnPackgStsCode eq '20'"
+                    },
+                    {
+                        "_Name": "UnsealedStatus",
+                        "_Type": "Control.Type.FastFilterItem",
+                        "FilterType": "Filter",
+                        "FilterProperty": "",
+                        "CustomQueryGroup": "FLPackedContainersStatusesList",
+                        "DisplayValue": "/SAPAssetManager/Rules/FL/PackedContainers/FLPackContainerFilterCaptionUnsealed.js",
+                        "ReturnValue": "FldLogsCtnPackgStsCode eq '30'"
+                    },
+                    {
+                        "_Name": "NotStartedStatus",
+                        "_Type": "Control.Type.FastFilterItem",
+                        "FilterType": "Filter",
+                        "FilterProperty": "",
+                        "CustomQueryGroup": "FLPackedContainersTransportStatusesList",
+                        "DisplayValue": "/SAPAssetManager/Rules/FL/PackedContainers/FLPackContainerFilterCaptionNotStarted.js",
+                        "ReturnValue": "FldLogsCtnIntTranspStsCode eq '10'"
+                    },
+                    {
+                        "_Name": "ReadyForDispatchStatus",
+                        "_Type": "Control.Type.FastFilterItem",
+                        "FilterType": "Filter",
+                        "FilterProperty": "",
+                        "CustomQueryGroup": "FLPackedContainersTransportStatusesList",
+                        "DisplayValue": "/SAPAssetManager/Rules/FL/PackedContainers/FLPackContainerFilterCaptionReadyForDispatch.js",
+                        "ReturnValue": "FldLogsCtnIntTranspStsCode eq '17'"
+                    },
+                    {
+                        "_Name": "DispatchedStatus",
+                        "_Type": "Control.Type.FastFilterItem",
+                        "FilterType": "Filter",
+                        "FilterProperty": "",
+                        "CustomQueryGroup": "FLPackedContainersTransportStatusesList",
+                        "DisplayValue": "/SAPAssetManager/Rules/FL/PackedContainers/FLPackContainerFilterCaptionDispatched.js",
+                        "ReturnValue": "FldLogsCtnIntTranspStsCode eq '20'"
+                    }
+                ]
+            },
+    "Filters": "/SAPAssetManager/Rules/FL/PackedContainers/GetFLPackedContainersPreSelectedFilter.js",
+    "_Name": "SectionedTable",
+    "_Type": "Control.Type.SectionedTable"
+        }
+    ],
+    "DataSubscriptions": [
+        "FldLogsPackCtnPkdCtns"
+    ],
+    "FioriToolbar": {
+        "_Name": "ContainerItemsFioriToolbar",
+        "_Type": "Control.Type.FioriToolbar",
+        "Items": [
+		    {
+			"_Type": "Fragment",
+            "Fragment": "/SAPAssetManager/Pages/Fragments/FL/EditAll.fragment",
+            "Properties": {
+						"OnPress": "/SAPAssetManager/Rules/FL/PackedContainers/BulkUpdate/EditAllItems.js"						
+					}
+			},
+                 {
+				"_Type": "Fragment",
+				 "Fragment": "/SAPAssetManager/Pages/Fragments/FL/GoodsIssue.fragment",
+				 "Properties": {
+				 "_Name": "FLPackedContainersGoodsIssueItem",
+				 "OnPress": "/SAPAssetManager/Rules/FL/ReadyToPack/ReadyToPackGoodsIssue.js"
+				}
+			},
+            {
+                "_Type": "Fragment",
+                "Fragment": "/SAPAssetManager/Pages/Fragments/FL/Dispatched.fragment",
+                "Properties": {
+                "_Name": "FLPackedContainersDispatchedItem",
+                "OnPress": "/SAPAssetManager/Rules/FL/ReadyToPack/ReadyToPackDispatched.js"
+                }
+            },
+            {
+                "_Type": "Fragment",
+                "Fragment": "/SAPAssetManager/Pages/Fragments/FL/AssignToVoyageButton.fragment",
+                "Properties": {
+                "_Name": "FLPackedContainersAssignToVoyageItem",
+                "OnPress": "/SAPAssetManager/Rules/FL/Voyages/AssignToVoyage/AssignToVoyageNav.js"
+                }
+            }
+        ]
+    },
+    "_Type": "Page",
+    "_Name": "PackedContainersListViewPage"
+}

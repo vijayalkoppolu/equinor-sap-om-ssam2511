@@ -1,0 +1,7 @@
+{
+    "Message": "$(L, destination_bin_select_failed)",
+    "Duration": 3,
+    "DismissBannerOnAction": true,
+    "Semantic": "Negative",
+    "_Type": "Action.Type.BannerMessage"
+}

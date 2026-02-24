@@ -1,0 +1,28 @@
+{
+    "_Type": "Control.Type.ObjectCell",    
+    "Icons": "/SAPAssetManager/Rules/Forms/SDF/FormInstanceObjectCellIconImages.js",    
+    "AccessoryType": "DisclosureIndicator",
+    "Title": "{FormName}",
+    "Subhead": "{AppName}",
+    "Footnote": "$(L,sdf_form_version): $(N,{FormVersion})",
+    "StatusText": "/SAPAssetManager/Rules/Forms/SDF/FormMandatoryText.js",
+    "SubstatusText": "/SAPAssetManager/Rules/Forms/SDF/FormStatus.js",
+    "Styles": {
+        "StatusText":  "/SAPAssetManager/Rules/Forms/SDF/FormMandatoryStyle.js",
+        "SubstatusText": "/SAPAssetManager/Rules/Forms/SDF/FormStatusStyle.js"
+    },
+    "OnPress" : "/SAPAssetManager/Rules/Forms/SDF/FormRunnerNav.js",
+    "PreserveIconStackSpacing": true,
+    "ContextMenu": {
+        "PerformFirstActionWithFullSwipe": false,
+        "Items": [{
+            "_Name": "Delete_Entry",
+            "Image": "$(PLT, /SAPAssetManager/Images/trash.png, /SAPAssetManager/Images/trash.android.png)",
+            "Text": "$(L,delete)",
+            "Mode": "Deletion",
+            "OnSwipe": "/SAPAssetManager/Rules/Forms/SDF/SDFFormInstanceDelete.js"
+        }],
+        "LeadingItems": [],
+        "TrailingItems": "/SAPAssetManager/Rules/ContextMenuTrailingItems.js"
+    }
+}

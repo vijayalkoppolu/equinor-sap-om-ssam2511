@@ -1,0 +1,9 @@
+{
+    "_Type": "Action.Type.ToastMessage",
+    "Icon": "",
+    "Message" : "$(L,upload_success)",
+    "IsIconHidden": false,
+    "MaxNumberOfLines": 4,
+    "Duration": 5,
+    "Animated": true
+}

@@ -1,0 +1,169 @@
+{
+    "ActionBar": {
+		"Items": [
+		    {
+                "_Type": "Fragment",
+                "Fragment": "/SAPAssetManager/Pages/Fragments/DoneButton.fragment",
+                "Properties": {
+                    "OnPress": "/SAPAssetManager/Rules/EWM/InboundDelivery/SingleEdit/SerialNumber/OnPressManageSerialDoneButton.js"
+                }
+            }
+		],
+        "OnBackButtonPressed": "/SAPAssetManager/Rules/EWM/InboundDelivery/SingleEdit/SerialNumber/IBDSerialNumberOnBack.js"
+	},
+    "Caption": "$(L,serial_number_page)",
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "Controls": [
+                        {
+                            "_Type": "Control.Type.FormCell.SimpleProperty",
+                            "_Name": "ItemNumber",
+                            "Caption": "$(L,item_number)",
+                            "IsEditable": false,
+                            "Value": "$(DV,{ItemNumber},'-')"
+                        },
+                        {
+                            "_Type": "Control.Type.FormCell.SimpleProperty",
+                            "_Name": "Product",
+                            "Caption": "$(L, product)",
+                            "IsEditable": false,
+                            "Value": "$(DV, {Product}, '-')"
+                        },
+                        {
+                            "_Type": "Control.Type.FormCell.SimpleProperty",
+                            "_Name": "OpenPackableQuantity",
+                            "Caption": "$(L,open_packable_quantity)",
+                            "Value": "$(DV,{OpenPackableQuantity},'-') $(DV,{UnitofMeasure},'-')",
+                            "IsEditable": false
+                        },
+                        {
+                            "_Type": "Control.Type.FormCell.SimpleProperty",
+                            "_Name": "PackedQuantity",
+                            "Caption": "$(L, packed_quantity)",
+                            "IsEditable": false,
+                            "Value": "$(DV,{PackedQuantity},'-') $(DV,{UnitofMeasure},'-')"
+                        }
+                    ],
+                    "_Type": "Section.Type.FormCell",
+                    "_Name": "ItemData"
+                },
+                {
+                    "Controls": [
+                        {
+                            "_Type": "Control.Type.FormCell.SimpleProperty",
+                            "_Name": "ToConfirmQuantity",
+                            "Caption": "$(L, to_confirm_quantity)",
+                            "IsEditable": false,
+                            "Value": "/SAPAssetManager/Rules/EWM/InboundDelivery/SingleEdit/SerialNumber/IDBSerialNumberQuantityValue.js"
+                        },
+                        {
+                            "_Type": "Control.Type.FormCell.SimpleProperty",
+                            "_Name": "SerialNum",
+                            "Value": "",
+                            "Caption": "$(L,serial_number)",
+                            "KeyboardType": "Default",
+                            "OnValueChange": "/SAPAssetManager/Rules/EWM/WarehouseTask/SerialNumber/SerialNumberOnValueChange.js",
+                            "Enabled": "/SAPAssetManager/Rules/EWM/InboundDelivery/SingleEdit/SerialNumber/IsScanEnabled.js"
+                        },
+                        {
+                            "Title": "$(L,manuall_add_serial_number)",
+                            "_Type": "Control.Type.FormCell.Button",
+                            "_Name": "SerialButton",
+                            "ButtonType": "Text",
+                            "Semantic": "Tint",
+                            "TextAlignment": "/SAPAssetManager/Rules/EWM/WarehouseTask/SerialNumber/SerialNumberButtonAligment.js",
+                            "OnPress": "/SAPAssetManager/Rules/EWM/InboundDelivery/SingleEdit/SerialNumber/IBDAddNewSerialNumber.js",
+                            "Enabled":  false
+                        },
+                        {
+                            "Title": "/SAPAssetManager/Rules/EWM/InboundDelivery/SingleEdit/SerialNumber/IBDSerialNumberScanCaption.js",
+                            "_Type": "Control.Type.FormCell.Button",
+                            "_Name": "ScanButton",
+                            "Image": "sap-icon://bar-code",
+                            "ImagePosition": "Trailing",
+                            "ButtonType": "Text",
+                            "Semantic": "Tint",
+                            "TextAlignment": "/SAPAssetManager/Rules/EWM/WarehouseTask/SerialNumber/SerialNumberButtonAligment.js",
+                            "OnPress": "/SAPAssetManager/Actions/EWM/WarehouseTasks/SerialNumber/SerialNumberBarcodeScan.action",
+                            "Enabled":  "/SAPAssetManager/Rules/EWM/InboundDelivery/SingleEdit/SerialNumber/IsScanEnabled.js"
+                        }
+                    ],
+                    "_Type": "Section.Type.FormCell",
+                    "_Name": "FormCellSection1"
+                },
+                {
+                    "Visible": "/SAPAssetManager/Rules/Common/IsIOS.js",
+                    "Header": {
+                        "Caption": "/SAPAssetManager/Rules/EWM/InboundDelivery/SingleEdit/SerialNumber/IBDSerialNumberCaption.js"
+                    },
+                    "EmptySection": {
+                        "Caption": "$(L,no_serial_numbers)"
+                    },
+                    "ObjectCell": {
+                        "Title": "/SAPAssetManager/Rules/EWM/InboundDelivery/SingleEdit/SerialNumber/IBDSerialNumberTitle.js",
+                        "AccessoryType": "/SAPAssetManager/Rules/EWM/WarehouseTask/SerialNumber/SerialNumberCheckMark.js",
+                        "OnPress": "/SAPAssetManager/Rules/EWM/InboundDelivery/SingleEdit/SerialNumber/IBDSerialNumberOnPress.js",
+                        "ContextMenu": {
+							"PerformFirstActionWithFullSwipe": true,
+							"Items": [
+								{
+									"_Name": "Delete_Item",
+									"Image": "$(PLT, /SAPAssetManager/Images/trash.png, /SAPAssetManager/Images/trash.android.png, '', /SAPAssetManager/Images/trash.android.png)",
+									"Text": "$(L, delete)",
+									"Mode": "Deletion",
+									"OnSwipe": "/SAPAssetManager/Rules/EWM/InboundDelivery/SingleEdit/SerialNumber/IBDSerialNumberDelete.js"
+								}
+							],
+                            "TrailingItems": "/SAPAssetManager/Rules/EWM/WarehouseTask/SerialNumber/SerialNumberTrailingItems.js"
+						}
+                    },
+                    "Target": "/SAPAssetManager/Rules/EWM/InboundDelivery/SingleEdit/SerialNumber/IBDSerialNumberTarget.js",
+                    "_Name": "SerialNumbersObjectTable",
+                    "_Type": "Section.Type.ObjectTable"
+                },
+                {
+                    "Visible": "/SAPAssetManager/Rules/Common/IsAndroid.js",
+                    "Header": {
+                        "Caption": "/SAPAssetManager/Rules/EWM/InboundDelivery/SingleEdit/SerialNumber/IBDSerialNumberCaption.js"
+                    },
+                    "EmptySection": {
+                        "Caption": "$(L,no_serial_numbers)"
+                    },
+                    "ObjectCell": {
+                        "OnPress": "/SAPAssetManager/Rules/EWM/InboundDelivery/SingleEdit/SerialNumber/IBDSerialNumberOnPress.js",
+                        "PreserveIconStackSpacing": false,
+                        "Icons": "/SAPAssetManager/Rules/EWM/InboundDelivery/SingleEdit/SerialNumber/IBDSerialIcons.js",
+                        "Title": "/SAPAssetManager/Rules/EWM/InboundDelivery/SingleEdit/SerialNumber/IBDSerialNumberTitle.js",
+                        "AccessoryButtonIcon": "/SAPAssetManager/Rules/EWM/WarehouseTask/SerialNumber/SerialNumberShowRemoveIcon.js",
+                        "OnAccessoryButtonPress": "/SAPAssetManager/Rules/EWM/InboundDelivery/SingleEdit/SerialNumber/IBDSerialNumberDelete.js"
+					},
+                    "Target": "/SAPAssetManager/Rules/EWM/InboundDelivery/SingleEdit/SerialNumber/IBDSerialNumberTarget.js",
+                    "_Name": "SerialNumbersObjectTableAndroid",
+                    "_Type": "Section.Type.ObjectTable"
+                }
+            ],
+            "_Type": "Control.Type.SectionedTable",
+            "_Name": "SectionedTable"
+        }
+    ],
+    "FioriToolbar": {
+		"_Name": "SerialNumberFioriToolbar",
+        "_Type": "Control.Type.FioriToolbar",
+        "Items": [
+            {
+                "_Name": "AcceptAllTbI",
+                "_Type": "FioriToolbarItem.Type.Button",
+                "Visible" : true,
+                "Enabled": "/SAPAssetManager/Rules/EWM/InboundDelivery/SingleEdit/SerialNumber/IBDSerialNumberAcceptAllButtonIsEnabled.js",
+                "Title": "$(L,accept_all_serial_numbers)",
+                "OnPress": "/SAPAssetManager/Rules/EWM/InboundDelivery/SingleEdit/SerialNumber/IBDAcceptAllSerialNumbers.js",
+                "ButtonType": "Primary"
+            }
+        ]
+    },
+    "OnLoaded": "/SAPAssetManager/Rules/EWM/InboundDelivery/SingleEdit/SerialNumber/IBDSerialNumberOnLoaded.js",
+    "_Name": "IBDManageSerialNumbersPage",
+	"_Type": "Page"
+}

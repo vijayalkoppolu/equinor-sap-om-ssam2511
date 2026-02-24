@@ -1,0 +1,7 @@
+{
+    "Position": "Right",
+    "Icon": "$(PLT,sap-icon://filter,sap-icon://filter, '' , sap-icon://filter)",
+    "Text": "/SAPAssetManager/Rules/Filter/FilterButtonCaption.js",
+    "OnPress":"",
+    "_Name": "FilterButton"
+}

@@ -1,0 +1,92 @@
+{
+    "Caption": "$(L, ewm_inbound_delivery_item_title)",
+    "Controls": [
+        {
+            "Sections": [
+                {
+                   "_Type": "Section.Type.KeyValue",
+                    "_Name": "IBDItemHeaderDetailsSection",
+                    "Header": {
+                        "Caption": "$(L,item_details)"
+                    },
+                    "KeyAndValues": [
+                        {
+                            "_Name": "ItemNumber",
+                            "KeyName": "$(L, item_number)",
+                            "Value": "$(DV, {ItemNumber}, '-')"
+                        },
+                        {
+                            "_Name": "DeliveryNumber",
+                            "KeyName": "$(L, ewm_delivery_number)",
+                            "Value": "$(DV, {DocumentNumber}, '-')",
+                            "OnPress": "/SAPAssetManager/Rules/EWM/InboundDelivery/InboundDeliveryDetailNavFromItem.js"
+                        },
+                        {
+                            "_Name": "Product",
+                            "KeyName": "$(L, product)",
+                            "Value": "/SAPAssetManager/Rules/EWM/Inbound/Items/WHInboundDeliveryItemProductAndDesc.js"
+                        },
+                        {
+                            "_Name": "Quantity",
+                            "KeyName": "$(L, quantity)",
+                            "Value": "/SAPAssetManager/Rules/EWM/Inbound/Items/WHInboundDeliveryItemPackedAndFullQty.js"
+                        },
+                        {
+                            "_Name": "OpenQuantity",
+                            "KeyName": "$(L, open_packable_quantity)",
+                            "Value": "/SAPAssetManager/Rules/EWM/Inbound/Items/WHInboundDeliveryItemOpenPackableQty.js"
+                        },
+                        {
+                            "_Name": "PackedQuantity",
+                            "KeyName": "$(L, packed_quantity)",
+                            "Value": "/SAPAssetManager/Rules/EWM/Inbound/Items/WHInboundDeliveryItemPackedQty.js"
+                        },
+                        {
+                            "_Name": "Stocktype",
+                            "KeyName": "$(L, stock_type)",
+                            "Value": "$(DV, {StockType}, '-') - $(DV, {DescStockType}, '-')"
+                        },
+                        {
+                            "_Name": "Batch",
+                            "KeyName": "$(L, batch)",
+                            "Value": "$(DV, {BatchNumber},'-')"
+                        },
+                        {
+                            "_Name": "PackingStauts",
+                            "KeyName": "$(L, packing_status)",
+                            "Value": "/SAPAssetManager/Rules/EWM/Inbound/WHInboundDeliveryPackingStatus.js"
+                        },
+                        {
+                            "_Name": "GRStatus",
+                            "KeyName": "$(L, goods_receipt_status)",
+                            "Value": "/SAPAssetManager/Rules/EWM/Inbound/Items/WHInboundDeliveryItemStatus.js"
+                        }
+                    ]
+                },
+                {
+                    "Header": {
+                        "Caption": "$(L, serial_numbers)"
+                    },
+                    "EmptySection": {
+                        "Caption": "$(L,no_serial_numbers)"
+                    },
+                    "ObjectCell": {
+                        "Title": "{SerialNumber}",
+                        "PreserveIconStackSpacing": false
+                    },
+                    "Target": {
+                        "EntitySet": "{{#Property:@odata.readLink}}/SerialNumber_Nav",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "$orderby=SerialNumber"
+                    },
+                    "_Type": "Section.Type.ObjectTable",
+                    "_Name": "IBDItemSerialSection"
+                }
+            ],
+            "_Type": "Control.Type.SectionedTable",
+            "_Name": "SectionedTable"
+        }
+    ],
+    "_Name": "WHInboundDeliveryItemHeaderDetailsPage",
+    "_Type": "Page"
+}

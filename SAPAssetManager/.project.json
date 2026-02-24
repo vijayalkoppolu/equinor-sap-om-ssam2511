@@ -1,0 +1,21 @@
+{
+    "validation": {
+        "exclude": {
+            "ui": [
+                "#Control:Comments"
+            ],
+            "i18n": [
+                "map_settings_close",
+                "bm_title",
+                "fl_title",
+                "dl_title",
+                "map_nearme_dist_title",
+                "map_nearme_unit_title",
+                "map_nearme_mi",
+                "map_nearme_km",
+                "battery_saving_switch_title",
+                "battery_saving_switch_desctiption"
+            ]
+        }
+    }
+}

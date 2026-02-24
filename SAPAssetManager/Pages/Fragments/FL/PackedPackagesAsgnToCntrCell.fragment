@@ -1,0 +1,11 @@
+{
+    "_Type": "Control.Type.ObjectCell",
+    "AccessoryType": "None",
+    "PreserveIconStackSpacing": false,
+    "Title": "{FldLogsContainerText}",
+    "Subhead": "{FldLogsContainerID}", 
+    "SubstatusText": "/SAPAssetManager/Rules/FL/PackedPackages/FormatMetricsSubstatusText.js",
+    "Footnote": "{FldLogsContainerCategoryText}",
+    "Description": "{FldLogsCtnCurrentLocation}",
+    "Selectable": true
+}

@@ -1,0 +1,7 @@
+{
+    "Position": "Right",
+    "Icon": "sap-icon://edit",
+    "Caption": "$(L,edit)",
+    "OnPress": "/SAPAssetManager/Rules/Inventory/Item/SetItemEdit.js",
+    "Visible": "/SAPAssetManager/Rules/Inventory/Item/ItemDetailsSetItemEditVisible.js"
+}

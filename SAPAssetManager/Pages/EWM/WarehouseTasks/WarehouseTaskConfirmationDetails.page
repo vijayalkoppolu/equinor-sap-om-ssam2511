@@ -1,0 +1,145 @@
+{
+	"Caption": "$(L, warehouse_task)",
+	"ActionBar": {
+		"Items": [
+			"/SAPAssetManager/Pages/Fragments/SyncButton.fragment"
+		]
+	},
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"ObjectHeader": {
+						"HeadlineText": "/SAPAssetManager/Rules/EWM/WarehouseTask/WarehouseTaskNumberWithoutLeadingZeros.js",
+						"Subhead": "{WarehouseTask_Nav/Product}",
+						"Footnote": "/SAPAssetManager/Rules/EWM/WarehouseTask/ListView/WarehouseTaskStatusText.js"
+					},
+					"_Type": "Section.Type.ObjectHeader",
+					"_Name": "ObjectHeaderSectionTable"
+				},
+				{
+					"_Type": "Section.Type.KeyValue",
+					"_Name": "WarehouseTaskDetails0",
+					"Header": {
+						"Caption": "$(L,item_details)"
+					},
+					"KeyAndValues": [
+						{
+							"_Name": "WarehouseTask",
+							"KeyName": "$(L,warehouse_task_num)",
+							"Value": "$(DV, '/SAPAssetManager/Rules/EWM/WarehouseTask/WarehouseTaskNumberWithoutLeadingZeros.js', '-')"
+						},
+						{
+							"_Name": "WarehouseOrder",
+							"KeyName": "$(L,warehouse_ord_num)",
+							"Value": "$(DV, {WarehouseTask_Nav/WarehouseOrder}, '-')"
+						},
+						{
+							"_Name": "WarehouseNum",
+							"KeyName": "$(L,warehouse_num)",
+							"Value": "$(DV, '/SAPAssetManager/Rules/EWM/Common/WarehouseNumberDescription.js', '-')"
+						},
+						{
+							"_Name": "ActivityArea",
+							"KeyName": "$(L,activity_area)",
+							"Value": "$(DV,{WarehouseTask_Nav/ActivityArea}, '-')"
+						},
+						{
+							"_Name": "ProcCategory",
+							"KeyName": "$(L,process_category)",
+							"Value": "$(DV,{WarehouseTask_Nav/WarehouseProcessCategory_Nav/Description}, '-')"
+						},
+						{
+							"_Name": "ProductDescription",
+							"KeyName": "$(L,product_description)",
+							"Value": "$(DV,'/SAPAssetManager/Rules/EWM/WarehouseTask/ListView/WarehouseTaskTitle.js', '-')"
+						},
+						{
+							"_Name": "Batch",
+							"KeyName": "$(L,batch)",
+							"Value": "$(DV,{Batch},'-')"
+						},
+						{
+							"_Name": "Quantity",
+							"KeyName": "$(L,quantity)",
+							"Value": "$(DV,{ActualQuantity}, '-') $(DV, {WarehouseTask_Nav/UoM},'-')"
+							
+						},
+						{
+							"_Name": "LoadingWeight",
+							"KeyName": "$(L, weight)",
+							"Value": "$(DV,{WarehouseTask_Nav/LoadingWeight}, '-') $(DV, {WarehouseTask_Nav/WeightUnit},'-')"
+						},
+						{
+							"_Name": "LoadingVolume",
+							"KeyName": "$(L, volume)",
+							"Value": "$(DV,{WarehouseTask_Nav/LoadingVolume}, '-') $(DV, {WarehouseTask_Nav/VolumeUnit},'-')"
+						},
+						{
+							"_Name": "SrceStorType",
+							"KeyName": "$(L,src_stor_type_section)",
+							"Value": "$(DV,{WarehouseTask_Nav/SrceStorType}, '-')/$(DV, {WarehouseTask_Nav/SrcStorSectn},'-')"
+						},
+						{
+							"_Name": "SourceBin",
+							"KeyName": "$(L,source_bin)",
+							"Value": "$(DV,{WarehouseTask_Nav/SourceBin},'-')"
+						},
+						{
+							"_Name": "SourceHU",
+							"KeyName": "$(L,source_hu)",
+							"Value": "$(DV,{WarehouseTask_Nav/SourceHU},'-')"
+						},
+						{
+							"_Name": "DestStoreType",
+							"KeyName": "$(L,dest_stor_type_section)",
+							"Value": "$(DV, {WarehouseTask_Nav/DestStoreType},'-')/$(DV, {WarehouseTask_Nav/DestSection},'-')"
+						},
+						{
+							"_Name": "DestinationBin",
+							"KeyName": "$(L,destination_bin)",
+							"Value": "$(DV,{DestinationBin},'-')"
+						},
+						{
+							"_Name": "DestinationHU",
+							"KeyName": "$(L,destination_hu)",
+							"Value": "$(DV, {DestHU},'-')"
+						},
+                        		{
+							"_Name": "Resource",
+							"KeyName": "$(L,resource)",
+							"Value": "$(DV, {WarehouseTask_Nav/Resource},'-')"
+						},
+						{
+							"_Name": "ExceptionCode",
+							"KeyName": "$(L,exception_handling)",
+							"Value": "$(DV, {MultiExceptionCodes},'-')"
+						},
+						{
+							"_Name": "MovementReason",
+							"KeyName": "$(L, movement_reason)",
+							"Value": "$(DV, {WarehouseTask_Nav/MovementReason},'-')"
+						}
+					],
+					"Target": {
+                        "EntitySet": "{@odata.readLink}",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "$expand=WarehouseTask_Nav,WarehouseTask_Nav/WarehouseTaskSerialNumber_Nav,WarehouseTask_Nav/WarehouseProcessCategory_Nav,WarehouseTask_Nav/WarehouseProcessType_Nav,WarehousePickHUTaskC_Nav"
+					},
+					"Visible": true,
+					"DataSubscriptions": [
+						"WarehouseTasks",
+						"WarehouseTaskConfirmations",
+						"WarehouseTaskSerialNumber",
+						"WarehouseTaskConfSerialNumbers"
+					]
+				},
+				"/SAPAssetManager/Pages/Fragments/EWM/SerialNumberDisplay.fragment"
+			],
+			"_Type": "Control.Type.SectionedTable",
+			"_Name": "SectionedTable"
+		}
+	],
+	"_Name": "WarehouseTaskConfirmationDetails",
+	"_Type": "Page"
+}

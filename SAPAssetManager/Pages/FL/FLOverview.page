@@ -1,0 +1,244 @@
+{
+    "Caption": "$(L,app_display_name)",
+    "ActionBar": {
+        "Items": [
+            {
+                "Position": "Right",
+                "Icon": "$(PLT, sap-icon://download, sap-icon://download, '', sap-icon://download)",
+                "OnPress": "/SAPAssetManager/Actions/FL/Fetch/FLFetchDocuments.action",
+                "Visible": "/SAPAssetManager/Rules/Common/IsDemoModeDisabled.js"
+            },
+            "/SAPAssetManager/Pages/Fragments/SyncButton.fragment"
+        ]
+    },
+"Controls": [
+        {
+            "_Type": "Control.Type.SectionedTable",
+            "Sections": [
+                {
+                    "Header": {
+						"Caption": "$(L,fld_voyages)",
+                        "UseTopPadding": false
+					},
+					"EmptySection": {
+						"Caption": "$(L,no_fld_voyages)"
+					},
+                    "Search": {
+                        "Enabled": true,
+                        "Delay": 500,
+                        "MinimumCharacterThreshold": 3,
+                        "Placeholder": "$(L,search)",
+                        "BarcodeScanner": true
+                    },
+                    "Card":{
+                        "_Type":"ObjectCardCollection.Type.Card",
+                        "Title":"{VoyageNumber}",
+                        "Subhead":"/SAPAssetManager/Rules/FL/Voyages/VoyageSubhead.js",
+                        "Footnote":"/SAPAssetManager/Rules/FL/Voyages/VoyageFootnote.js",
+                        "StatusText":"{FldLogsVoyageStatus_Nav/Description}",
+                        "DetailImage": "sap-icon://cargo-train",
+                        "Styles": {
+                            "DetailImage": "$(PLT, FLVoyageIcon, FLVoyageIconAndroid)"
+                        },
+                        "OnPress": "/SAPAssetManager/Rules/FL/Voyages/Details/VoyageDetailsPageNav.js",
+                        "PrimaryAction":{
+                            "Title":"$(L,arrived)",
+                            "Visible": "/SAPAssetManager/Rules/FL/Voyages/VoyageArrivedVisible.js",
+                            "OnPress":"/SAPAssetManager/Rules/FL/OverviewPage/FLVoyageObjectCardAction.js",
+                            "Style":"ObjectCardPrimaryAction"
+                        },
+                        "SecondaryAction":{
+                            "Title":"$(L,download)",
+                            "OnPress":"/SAPAssetManager/Rules/FL/OverviewPage/FLVoyageObjectCardDownloadOnlyAction.js"
+                        }
+                    },
+                    "Layout":{
+                        "LayoutType":"HorizontalScroll"
+                    },
+                    "_Name":"FLVoyagesSection",
+                    "_Type":"Section.Type.ObjectCardCollection",
+                    "Target":{
+                        "EntitySet":"FldLogsVoyages",
+                        "Service":"/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions":"/SAPAssetManager/Rules/FL/Voyages/VoyagesOnLoadQuery.js"
+                    },
+                    "Footer": {
+						"Caption": "$(L,see_all)",
+						"AccessoryType": "DisclosureIndicator",
+						"AttributeLabel": "/SAPAssetManager/Rules/FL/OverviewPage/FLOverviewAttributeLabel.js",
+						"FooterStyle": "Attribute",
+						"OnPress": "/SAPAssetManager/Rules/FL/Voyages/VoyagesListDetailsQuery.js"
+					},
+                    "DataSubscriptions": [
+                        "FldLogsVoyages",
+                        "FldLogsVoyageTypeCodes",
+                        "FldLogsVoyageStatusCodeTypes"
+                    ]
+                },
+				{
+					"Header": {
+						"Caption": "$(L,fld_containers)",
+						"UseTopPadding": false
+					},
+					"EmptySection": {
+						"Caption": "$(L,no_fld_containers)"
+					},
+                    "Search": {
+                        "Enabled": true,
+                        "Delay": 500,
+                        "MinimumCharacterThreshold": 3,
+                        "Placeholder": "$(L,search)",
+                        "BarcodeScanner": true
+                    },
+                    "MaxItemCount": 2,
+					"ObjectCell": {
+                        "_Type": "Fragment",
+                        "Fragment": "/SAPAssetManager/Pages/Fragments/FL/ContainerCell.fragment",
+                        "Properties": {
+                            "AvatarStack": {
+                                "Avatars": [{
+                                    "Image": "sap-icon://dimension",
+                                    "Style": "$(PLT, FLContainerIcon, FLContainerIconAndroid)"
+                                }],
+                            "ImageHasBorder": true,
+                            "ImageIsCircular": false
+                        }
+                        }
+                    },
+					"Target": {
+						"EntitySet": "FldLogsContainers",
+						"Service": "/SAPAssetManager/Services/AssetManager.service",
+						"QueryOptions": "/SAPAssetManager/Rules/FL/Containers/ListView/ContainersListQueryOptions.js"
+					},
+					"Footer": {
+						"Caption": "$(L,see_all)",
+						"AccessoryType": "DisclosureIndicator",
+						"AttributeLabel": "/SAPAssetManager/Rules/FL/OverviewPage/FLOverviewAttributeLabel.js",
+						"FooterStyle": "Attribute",
+						"OnPress": "/SAPAssetManager/Actions/FL/Containers/ContainersListViewNav.action"
+					},
+                    "DataSubscriptions": [
+                        "FldLogsContainers",
+                        "FldLogsContainerStatuses",
+                        "FldLogsContainerItems",
+                        "FldLogsPackages"
+                    ],
+					"_Name": "FLContainersSection",
+                    "_Type": "Section.Type.ObjectTable"
+				},
+                {
+                    "Header": {
+                        "Caption": "$(L,fld_packages)",
+                        "UseTopPadding": false
+                    },
+                    "EmptySection": {
+                        "Caption": "$(L,no_fld_packages)"
+                    },
+                    "Search": {
+                        "Enabled": true,
+                        "Delay": 500,
+                        "MinimumCharacterThreshold": 3,
+                        "Placeholder": "$(L,search)",
+                        "BarcodeScanner": true
+                    },
+                    "MaxItemCount": 2,
+                    "ObjectCell": {
+                        "_Type": "Fragment",
+                        "Fragment": "/SAPAssetManager/Pages/Fragments/FL/PackageCell.fragment",
+                        "Properties": {
+                            "AvatarStack": {
+                                "Avatars": [{
+                                    "Image": "sap-icon://table-view",
+                                    "Style": "$(PLT, FLPackageIcon, FLPackageIconAndroid)"
+                                }],
+                            "ImageHasBorder": true,
+                            "ImageIsCircular": false
+                            }
+                        }
+                    },
+                    "Target": {
+                        "EntitySet": "FldLogsPackages",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions":"/SAPAssetManager/Rules/FL/Packages/PackagesOnLoadQuery.js"
+                    },
+                    "Footer": {
+                        "Caption": "$(L,see_all)",
+                        "AccessoryType": "DisclosureIndicator",
+                        "AttributeLabel": "/SAPAssetManager/Rules/FL/OverviewPage/FLOverviewAttributeLabel.js",
+                        "FooterStyle": "Attribute",
+                        "OnPress": "/SAPAssetManager/Rules/FL/Packages/PackagesListDetailsQuery.js"
+                    },
+                    "DataSubscriptions": [
+                        "FldLogsPackages",
+                        "FldLogsContainerStatuses",
+                        "FldLogsPackageItems"
+                    ],
+                    "_Name": "FLPackagesSection",
+                    "_Type": "Section.Type.ObjectTable"
+                },
+                {
+                    "Header": {
+                        "Caption": "$(L,fld_delivery_items_handling_units)",
+                        "UseTopPadding": false
+                    },
+                    "EmptySection": {
+                        "Caption": "$(L,no_delivery_items_handling_units)"
+                    },
+                    "Search": {
+                        "Enabled": true,
+                        "Delay": 500,
+                        "MinimumCharacterThreshold": 3,
+                        "Placeholder": "$(L,search)",
+                        "BarcodeScanner": true
+                    },
+                    "MaxItemCount": 2,
+                    "ObjectCell": {
+       				    "_Type": "Fragment",
+        				"Fragment": "/SAPAssetManager/Pages/Fragments/FL/HUDelItemsCell.fragment",
+        				"Properties": {
+          					"OnAccessoryButtonPress": "/SAPAssetManager/Rules/FL/ContainerItems/EditFLDocumentNav.js",
+                            "OnAccessoryButtonImage": "sap-icon://write-new",
+                            "AccessoryButtonIcon": "sap-icon://write-new",
+                            "Styles": {
+                                "AccessoryButtonBackgroundColor": "#0070F2",
+                                "AccessoryButtonFontSize": 12
+                            },
+                                        
+                            "AvatarStack": {
+                                "Avatars": [{
+                                    "Image": "sap-icon://grid",
+                                    "Style": "$(PLT, FLDeliveryIcon, FLDeliveryIconAndroid)"
+                                }],
+                            "ImageHasBorder": true,
+                            "ImageIsCircular": false
+                            }
+        				}
+   					 },
+                    "Target": {
+                        "EntitySet": "FldLogsHuDelItems",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions":"/SAPAssetManager/Rules/FL/HUDelItems/ListView/HUDelItemsOnLoadQuery.js"
+                    },
+                    "Footer": {
+                        "Caption": "$(L,see_all)",
+                        "AccessoryType": "DisclosureIndicator",
+                        "AttributeLabel": "/SAPAssetManager/Rules/FL/OverviewPage/FLOverviewAttributeLabel.js",
+                        "FooterStyle": "Attribute",
+                        "OnPress": "/SAPAssetManager/Actions/FL/HUDelItems/HUDelItemsListViewNav.action"
+                    },
+                    "DataSubscriptions": [
+                        "FldLogsHuDelItems",
+                        "FldLogsContainerStatuses"
+                    ],
+                    "_Name": "FLHUDelItemsSection",
+                    "_Type": "Section.Type.ObjectTable"
+                }
+			]
+		}
+	],
+	"_Type": "Page",
+	"_Name": "FLOverviewPage",
+    "OnReturning": "/SAPAssetManager/Rules/FL/OverviewPage/FLOverviewOnReturning.js",
+    "DataSubscriptions": ["UserPreferences"]
+}
+

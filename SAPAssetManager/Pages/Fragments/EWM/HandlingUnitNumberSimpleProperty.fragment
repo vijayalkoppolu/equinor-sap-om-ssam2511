@@ -1,0 +1,9 @@
+{
+    "Caption": "$(L, handling_unit)",
+    "KeyboardType": "Number",
+    "IsEditable": true,
+    "AlternateInput": "Barcode",
+    "PlaceHolder": "$(L, handling_unit_number_placeholder)",
+    "_Type": "Control.Type.FormCell.SimpleProperty",
+    "_Name": "HUNumber"
+}

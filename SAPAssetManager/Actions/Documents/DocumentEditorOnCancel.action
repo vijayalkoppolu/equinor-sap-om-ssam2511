@@ -1,0 +1,7 @@
+{
+    "Title" : "$(L, confirm_discard)",
+ 	"Message" : "$(L, confirm_cancel)",
+    "OKCaption" : "$(L, discard)",
+    "CancelCaption" : "$(L, cancel)",
+    "_Type" : "Action.Type.Message"
+}

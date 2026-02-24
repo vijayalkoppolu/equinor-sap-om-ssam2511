@@ -1,0 +1,20 @@
+{
+    "_Type": "Action.Type.PopoverMenu",
+    "PopoverItems": [
+        {
+            "Title": "$(L,edit_this_item)",
+            "OnPress": "/SAPAssetManager/Rules/FL/PackedContainers/PackedCntnAccessoryButtonPress.js",
+            "Visible": "/SAPAssetManager/Rules/FL/PackedContainers/ShowEditButton.js"
+        },
+        {
+            "Title": "$(L,fl_seal)",
+            "OnPress": "/SAPAssetManager/Rules/FL/PackedContainers/FLPackedContainersSealPageNav.js",
+            "Visible": "/SAPAssetManager/Rules/FL/PackedContainers/FLPackedContainersSealIsVisible.js"
+        },
+        {
+            "Title": "$(L,fl_unseal)",
+            "OnPress": "/SAPAssetManager/Rules/FL/PackedContainers/FLUnsealPackedContainers.js",
+            "Visible": "/SAPAssetManager/Rules/FL/PackedContainers/FLPackedContainersUnsealIsVisible.js"
+        }
+    ]
+}

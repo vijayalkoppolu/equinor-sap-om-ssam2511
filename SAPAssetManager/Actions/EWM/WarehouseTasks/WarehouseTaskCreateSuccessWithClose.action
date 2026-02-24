@@ -1,0 +1,6 @@
+{
+    "CancelPendingActions": false,
+    "OnSuccess": "/SAPAssetManager/Actions/EWM/WarehouseTasks/WarehouseTaskCreateSuccessMessage.action",
+    "DismissModal": "Action.Type.ClosePage.Completed",
+    "_Type": "Action.Type.ClosePage"
+}

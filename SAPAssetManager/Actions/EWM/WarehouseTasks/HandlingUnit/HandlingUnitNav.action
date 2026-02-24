@@ -1,0 +1,6 @@
+{
+	"PageToOpen": "/SAPAssetManager/Pages/EWM/WarehouseTasks/WarehouseTaskHandlingUnit.page",
+	"_Type": "Action.Type.Navigation",
+    "ModalPage": true,
+	"ModalPageFullscreen": true
+}

@@ -1,0 +1,169 @@
+{
+    "Caption": "$(L,ready_to_pack)",
+    "ActionBar": {
+        "Items": [
+            "/SAPAssetManager/Pages/Fragments/SyncButton.fragment"
+        ]
+    },
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "Header": {
+                        "UseTopPadding": false,
+                        "Items": [
+							{
+								"_Type": "SectionHeaderItem.Type.Button",
+								"_Name": "SelectItems",
+								"Title": "$(L,select_items)",
+								"Position": "Right",
+								"Visible": true,
+                                "Enabled": "/SAPAssetManager/Rules/FL/ReadyToPack/ListView/IsSelectItemsButtonActive.js",
+								"OnPress": "/SAPAssetManager/Rules/FL/ReadyToPack/SwitchSelect.js",
+                                "Styles": {
+                                    "Button": "SelectItemsButtonLabelFontSize"
+                                }
+							},
+							{
+								"_Type": "SectionHeaderItem.Type.Button",
+								"_Name": "DeselectAll",
+								"Title": "$(L,deselect_all)",
+								"Position": "Right",
+								"Visible": false,
+								"OnPress": "/SAPAssetManager/Rules/FL/ReadyToPack/SwitchSelect.js",
+                                "Styles": {
+                                    "Button": "SelectItemsButtonLabelFontSize"
+                                }
+							},
+							{
+								"_Type": "SectionHeaderItem.Type.Button",
+								"_Name": "SelectAll",
+								"Title": "$(L,select_all)",
+								"Position": "Right",
+								"Visible": false,
+								"OnPress": "/SAPAssetManager/Rules/FL/ReadyToPack/SwitchSelect.js",
+                                "Styles": {
+                                    "Button": "SelectItemsButtonLabelFontSize"
+                                }
+							},
+                            {
+								"_Type": "Fragment",
+								"Fragment": "/SAPAssetManager/Pages/Fragments/FL/ListCounterCaption.fragment",
+								"Properties": {
+									"Title": "/SAPAssetManager/Rules/FL/ReadyToPack/ReadyToPackCountCaption.js"
+								}
+							}
+                        ]
+                    },
+                    "EmptySection": {
+                        "Caption": "$(L,fld_no_ready_to_pack_items)"
+                    },
+                    "Selection": {
+                        "LongPressToEnable": "Multiple",
+                        "ExitOnLastDeselect": true,
+                        "Mode": "None"
+                    },
+					"OnSelectionChanged": "/SAPAssetManager/Rules/FL/ReadyToPack/OnDocumentSelectedOrUnselected.js",
+                    "ObjectCell": "/SAPAssetManager/Pages/Fragments/FL/ReadyToPackCell.fragment",
+                    "Search": {
+                        "Enabled": true,
+                        "Delay": 500,
+                        "MinimumCharacterThreshold": 3,
+                        "Placeholder": "$(L,search)",
+                        "BarcodeScanner": true
+                    },
+                    "Target": {
+                        "EntitySet": "FldLogsPackCtnRdyPcks",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "/SAPAssetManager/Rules/FL/ReadyToPack/ReadyToPackOnLoadQuery.js"
+                    },
+                    "_Name": "SectionObjectTable",
+                    "_Type": "Section.Type.ObjectTable"
+                }
+            ],
+                "FilterFeedbackBar": {
+                "_Type": "Control.Type.FilterFeedbackBar",
+                "_Name": "FilterFeedback",
+                "ShowAllFilters": true,
+                "FastFilters": [
+                    {
+                        "_Name": "AvailableForPackingStatus",
+                        "_Type": "Control.Type.FastFilterItem",
+                        "FilterType": "Filter",
+                        "FilterProperty": "",
+                        "CustomQueryGroup": "FLReadyToPackStatusesList",
+                        "DisplayValue": "/SAPAssetManager/Rules/FL/ReadyToPack/FLReadyToPackFilterCaptionAvailableForPacking.js",
+                        "ReturnValue": "FldLogsShptItmStsCode eq '10'"
+                    },
+                    {
+                        "_Name": "ReadyForDispatchStatus",
+                        "_Type": "Control.Type.FastFilterItem",
+                        "FilterType": "Filter",
+                        "FilterProperty": "",
+                        "CustomQueryGroup": "FLReadyToPackStatusesList",
+                        "DisplayValue": "/SAPAssetManager/Rules/FL/ReadyToPack/FLReadyToPackFilterCaptionReadyForDispatch.js",
+                        "ReturnValue": "FldLogsShptItmStsCode eq '27'"
+                    },
+                    {
+                        "_Name": "DispatchedStatus",
+                        "_Type": "Control.Type.FastFilterItem",
+                        "FilterType": "Filter",
+                        "FilterProperty": "",
+                        "CustomQueryGroup": "FLReadyToPackStatusesList",
+                        "DisplayValue": "/SAPAssetManager/Rules/FL/ReadyToPack/FLReadyToPackFilterCaptionDispatched.js",
+                        "ReturnValue": "FldLogsShptItmStsCode eq '30'"
+                    }
+                ]
+            },
+            "Filters": "/SAPAssetManager/Rules/FL/ReadyToPack/GetFLReadyToPackAvailableForPackingPreSelectedFilter.js",
+            "_Name": "SectionedTable",
+            "_Type": "Control.Type.SectionedTable"
+        }
+    ],
+    "FioriToolbar": {
+		"_Name": "ReadyToPackFioriToolbar",
+        "_Type": "Control.Type.FioriToolbar",
+		"Items": [
+            {
+			"_Type": "Fragment",
+            "Fragment": "/SAPAssetManager/Pages/Fragments/FL/EditAll.fragment",
+            "Properties": {
+						"OnPress": "/SAPAssetManager/Rules/FL/ReadyToPack/BulkUpdate/EditAllItems.js"						
+					}
+			}, 
+             {
+                "_Type": "Fragment",
+                "Fragment": "/SAPAssetManager/Pages/Fragments/FL/ReadyToPackAssgnContBtn.fragment"
+            }, 
+			{
+				"_Type": "Fragment",
+				 "Fragment": "/SAPAssetManager/Pages/Fragments/FL/GoodsIssue.fragment",
+				 "Properties": {
+				 "_Name": "FLReadyToPackGoodsIssueItem",
+				 "OnPress": "/SAPAssetManager/Rules/FL/ReadyToPack/ReadyToPackGoodsIssue.js"
+				}
+			},
+            {
+                "_Type": "Fragment",
+                "Fragment": "/SAPAssetManager/Pages/Fragments/FL/Dispatched.fragment",
+                "Properties": {
+                "_Name": "FLReadyToPackDispatchedItem",
+                "OnPress": "/SAPAssetManager/Rules/FL/ReadyToPack/ReadyToPackDispatched.js"
+                }
+            },
+            {
+                "_Type": "Fragment",
+                "Fragment": "/SAPAssetManager/Pages/Fragments/FL/AssignToVoyageButton.fragment",
+                "Properties": {
+                "_Name": "FLReadyToPackAssignToVoyageItem",
+                "OnPress": "/SAPAssetManager/Rules/FL/Voyages/AssignToVoyage/AssignToVoyageNav.js"
+                }
+            }
+		]
+    },
+    "DataSubscriptions": [
+        "FldLogsPackCtnRdyPcks"
+    ],
+    "_Type": "Page",
+    "_Name": "ReadyToPackItemsListView"
+}

@@ -1,0 +1,29 @@
+{
+    "_Type": "Action.Type.ODataService.UpdateEntity",
+    "Target": {
+        "EntitySet": "WarehousePhysicalInventoryItems",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "{Temp_PIItemReadlink}"
+    },
+    "Properties": {
+        "PIDocumentNo": "{PIDocumentNo}",
+        "DocumentYear": "{DocumentYear}",
+        "Quantity": "{Temp_Quantity}",
+        "UOM": "{Temp_UOM}",
+        "ZeroCount" : "{Temp_ZeroCount}",
+        "EmptyBin" : "{Temp_EmptyBin}",
+        "HUComplCntd": "{Temp_HUComplete}",
+        "HUEmpty": "{Temp_EmptyHU}",
+        "NoHU": "{Temp_HUMissing}",
+        "PIStatus": "{Temp_PIStatus}",
+        "WarehouseNo": "{Temp_WarehouseNo}"
+
+    },
+    "Headers": {
+        "OfflineOData.TransactionID": "#Property:TempHeader_Key"
+    },
+    "RequestOptions": {
+        "UpdateMode": "Replace"
+    },
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/CreateEntityFailureMessage.action"
+}

@@ -1,0 +1,6 @@
+{
+	"_Type": "Action.Type.Navigation",
+    "PageToOpen": "/SAPAssetManager/Pages/EWM/PhysicalInventory/WHPhysicalInventoryCount.page",
+    "ModalPage": true,
+	"ModalPageFullscreen": true
+}

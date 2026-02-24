@@ -1,0 +1,9 @@
+{
+    "_Type" : "Action.Type.Filter",
+    "PageToOpen" : "/SAPAssetManager/Pages/Inventory/PhysicalInventory/PhysicalInventorySearchFilter.page",
+    "Filterable" : "#Page:PhysicalInventoryItemsListPage/#Control:SectionedTable",
+    "ActionResult": {
+        "_Name": "filterResult"
+    }
+}
+

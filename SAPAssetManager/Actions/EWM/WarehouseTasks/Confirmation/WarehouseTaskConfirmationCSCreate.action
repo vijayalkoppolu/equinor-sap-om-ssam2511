@@ -1,0 +1,14 @@
+{
+    "_Type": "Action.Type.ODataService.ChangeSet",
+        "Actions": [
+            "/SAPAssetManager/Rules/EWM/WarehouseTask/SerialNumber/WarehouseTaskSerialNumberCreate.js",
+            "/SAPAssetManager/Rules/EWM/WarehouseTask/Confirmation/WarehouseTaskConfirmationCreate.js",
+            "/SAPAssetManager/Rules/EWM/WarehouseTask/Confirmation/WarehouseTaskConfSerialNumberCreate.js"
+    ],
+    "Target": {
+        "Service": "/SAPAssetManager/Services/AssetManager.service"
+    },
+    "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/CreateEntityFailureMessage.action",
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText" : "  "    
+}

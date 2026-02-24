@@ -1,0 +1,173 @@
+{
+"Caption": "$(L,fld_delivery_items_handling_units)",
+"ActionBar": {
+		"Items": [
+			{
+				"_Type": "Fragment",
+				"Fragment": "/SAPAssetManager/Pages/Fragments/FilterButton.fragment",
+				"Properties": {
+					"OnPress": "/SAPAssetManager/Actions/FL/HUDelItems/HUDelItemsFilterViewNav.action"
+				}
+			},
+			"/SAPAssetManager/Pages/Fragments/SyncButton.fragment"
+		]
+	},
+"Controls": [
+		{
+			"Sections": [
+				{
+					"EmptySection": {
+						"Caption": "$(L,no_delivery_items_handling_units)"
+					},
+					"Header": {
+						"Caption": "/SAPAssetManager/Rules/FL/HUDelItems/ListView/HUDelItemsListCaption.js",
+						"UseTopPadding": false,
+						"Items": [
+							{
+								"_Type": "Fragment",
+								"Fragment": "/SAPAssetManager/Pages/Fragments/FL/ListCounterCaption.fragment",
+								"Properties": {
+									"Title": "/SAPAssetManager/Rules/FL/HUDelItems/ListView/HUDelItemsListCaption.js"
+								}
+							},
+                            {
+                                "_Type": "SectionHeaderItem.Type.Button",
+                                "_Name": "SelectItems",
+                                "Title": "$(L,select_items)",
+                                "Position": "Right",
+                                "Visible": true,
+                                "Enabled": "/SAPAssetManager/Rules/FL/HUDelItems/ListView/IsSelectItemsButtonActive.js",
+                                "OnPress": "/SAPAssetManager/Rules/FL/ReadyToPack/SwitchSelect.js",
+								"Styles": {
+                                    "Button": "SelectItemsButtonLabelFontSize"
+                                }
+                            },
+							{
+                                "_Type": "SectionHeaderItem.Type.Button",
+                                "_Name": "DeselectAll",
+                                "Title": "$(L,deselect_all)",
+                                "Position": "Right",
+                                "Visible": false,
+                                "OnPress": "/SAPAssetManager/Rules/FL/ReadyToPack/SwitchSelect.js",
+								"Styles": {
+                                    "Button": "SelectItemsButtonLabelFontSize"
+                                }
+                            },
+                            {
+                                "_Type": "SectionHeaderItem.Type.Button",
+                                "_Name": "SelectAll",
+                                "Title": "$(L,select_all)",
+                                "Position": "Right",
+                                "Visible": false,
+                                "OnPress": "/SAPAssetManager/Rules/FL/ReadyToPack/SwitchSelect.js",
+								"Styles": {
+                                    "Button": "SelectItemsButtonLabelFontSize"
+                                }
+                            }]
+					},
+				    "Selection": {
+						"LongPressToEnable": "Multiple",
+						"ExitOnLastDeselect": true,
+						"Mode": "None"
+					},
+					"OnSelectionModeChanged": "/SAPAssetManager/Rules/FL/HUDelItems/ListView/HUDelItemsOnSelectionModeChanged.js",
+                    "OnSelectionChanged": "/SAPAssetManager/Rules/FL/HUDelItems/ListView/HUDelItemsOnDocumentSelectedOrUnselected.js",
+					"ObjectCell": {
+       				    "_Type": "Fragment",
+        				"Fragment": "/SAPAssetManager/Pages/Fragments/FL/HUDelItemsCell.fragment",
+        				"Properties": {
+          					"OnAccessoryButtonPress": "/SAPAssetManager/Rules/FL/ContainerItems/EditFLDocumentNav.js",
+							"AccessoryButtonIcon": "/SAPAssetManager/Rules/FL/ContainerItems/IsEditAllowed.js"
+        				}
+   					 },
+					"Search": {
+						"Enabled" : true,
+                        "Delay": 500,
+                        "MinimumCharacterThreshold": 3,
+                        "Placeholder": "$(L,search)",
+                        "BarcodeScanner": true
+					},
+					"Target": {
+						"EntitySet": "FldLogsHuDelItems",
+						"QueryOptions":"/SAPAssetManager/Rules/FL/HUDelItems/ListView/HUDelItemsOnLoadQuery.js",
+						"Service": "/SAPAssetManager/Services/AssetManager.service"
+					},
+					"_Name": "SectionObjectTable",
+					"_Type": "Section.Type.ObjectTable"
+				}
+			],
+			"FilterFeedbackBar": {
+				"_Type": "Control.Type.FilterFeedbackBar",
+				"_Name": "FilterFeedback",
+				"ShowAllFilters": true,
+				"FastFilters": [
+	        		{ 
+						"_Name": "OpenHUDelItems",
+						"_Type": "Control.Type.FastFilterItem",
+						"FilterType": "Filter",
+						"FilterProperty": "",
+						"CustomQueryGroup": "HUDelItemsList",
+						"DisplayValue": "/SAPAssetManager/Rules/FL/HUDelItems/ListView/HUDelItemsFilterCaptionOpen.js",
+						"ReturnValue": "/SAPAssetManager/Rules/FL/HUDelItems/ListView/HUDelItemsGetReturnValueforOpen.js"
+            		},
+            		{	 
+						"_Name": "ReceivedHUDelItems",
+						"_Type": "Control.Type.FastFilterItem",
+						"FilterType": "Filter",
+						"FilterProperty": "",
+						"CustomQueryGroup": "HUDelItemsList",
+						"DisplayValue": "/SAPAssetManager/Rules/FL/HUDelItems/ListView/HUDelItemsFilterCaptionReceived.js",
+						"ReturnValue": "/SAPAssetManager/Rules/FL/HUDelItems/ListView/HUDelItemsGetReturnValueforReceived.js"       
+            		},
+					{
+						"_Name": "NotFoundHUDelItems",
+						"_Type": "Control.Type.FastFilterItem",
+						"FilterType": "Filter",
+						"FilterProperty": "",
+						"CustomQueryGroup": "HUDelItemsList",
+						"DisplayValue": "/SAPAssetManager/Rules/FL/HUDelItems/ListView/HUDelItemsFilterCaptionNotFound.js",
+						"ReturnValue": "/SAPAssetManager/Rules/FL/HUDelItems/ListView/HUDelItemsGetReturnValueforNotFound.js"
+					}
+				]
+			},
+			"Filters": "/SAPAssetManager/Rules/FL/HUDelItems/ListView/GetHUDelItemsPreSelectedFilter.js",
+			"_Name": "SectionedTable",
+			"_Type": "Control.Type.SectionedTable"
+		}
+],
+	"FioriToolbar": {
+        "_Name": "HUDelItemsFioriToolbar",
+        "_Type": "Control.Type.FioriToolbar",
+        "Items": [
+			{ 
+			"_Type": "Fragment",
+            "Fragment": "/SAPAssetManager/Pages/Fragments/FL/ReceiveItem.fragment",
+			"Properties": {
+				"OnPress": "/SAPAssetManager/Rules/FL/Container/ReceiveContainer.js"
+			}           
+			},
+			{
+				"_Type": "Fragment",
+				"Fragment": "/SAPAssetManager/Pages/Fragments/FL/NotFoundItem.fragment",
+				"Properties": {
+					"_Name": "FLHUDelItemNotFoundItem"
+				}
+			},
+			{
+				"_Type": "Fragment",
+				"Fragment": "/SAPAssetManager/Pages/Fragments/FL/FLDiscardButton.fragment",
+				"Properties": {
+					"_Name": "FLHUDelItemDiscardItem"
+			}
+			}
+			
+        ]
+    },
+	"DataSubscriptions" : [
+    	"FldLogsHuDelItems"
+	],
+	"_Name": "HUDelItemsListPage",
+	"_Type": "Page",
+	"OnLoaded": "/SAPAssetManager/Rules/Filter/ListPageWithFilterOnLoaded.js",
+	"OnReturning" :"/SAPAssetManager/Rules/FL/ContainerItems/RedrawFilter.js"
+}

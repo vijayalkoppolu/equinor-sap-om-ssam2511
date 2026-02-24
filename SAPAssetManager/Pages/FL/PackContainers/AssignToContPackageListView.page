@@ -1,0 +1,70 @@
+{
+    "Caption": "/SAPAssetManager/Rules/FL/Containers/AssignToContainerTargetCaption.js",
+    "ActionBar": {
+        "Items": [
+            {
+                "Position": "Right",
+                "Icon": "sap-icon://filter",
+                "Caption": "/SAPAssetManager/Rules/Filter/FilterButtonCaption.js",
+                "OnPress": "/SAPAssetManager/Actions/FL/PackedPackages/FLPackedContainersFilter.action",
+                "_Name": "FilterButton"
+            }
+        ]
+    },
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "Header": {
+                        "UseTopPadding": false
+                    },
+                    "EmptySection": {
+                        "Caption": "$(L,no_data_available)"
+                    },
+                    "Selection": {
+                        "Type": "Multiple",
+                        "Style": "Radio",
+                        "Mode": "Multiple",
+                        "ExitOnLastDeselect": false
+                    },
+                    "ObjectCell": "/SAPAssetManager/Pages/Fragments/FL/PackedPackagesAsgnToCntrCell.fragment",
+                    "OnSelectionChanged": "/SAPAssetManager/Rules/FL/ReadyToPack/OnContainerSelectedOrUnselected.js",
+                    "Search": {
+                        "Enabled": true,
+                        "Delay": 500,
+                        "MinimumCharacterThreshold": 3,
+                        "AlwaysShow": true,
+                        "Placeholder": "$(L,search)",
+                        "BarcodeScanner": true
+                    },
+                    "Target": {
+                        "EntitySet": "FldLogsCtnPackageIds",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "$orderby=FldLogsContainerID"
+                    },
+                    "_Name": "SectionObjectTable",
+                    "_Type": "Section.Type.ObjectTable"
+                }
+            ],
+
+            "_Name": "SectionedTable",
+            "_Type": "Control.Type.SectionedTable"
+        }
+    ],
+    "DataSubscriptions": [
+        "FldLogsCtnPackageIds"
+    ],
+    "FioriToolbar": {
+		"_Name": "FLReturnsByProductListFioriToolbar",
+        "_Type": "Control.Type.FioriToolbar",
+        "Items": [
+            {
+                "_Type": "Fragment",
+                "Fragment": "/SAPAssetManager/Pages/Fragments/FL/PackedPackagesAsgnCtnActionBtn.fragment"
+            }
+        ]
+    },
+    "OnReturning": "/SAPAssetManager/Rules/FL/PackedPackages/FLPackedPackagesListViewOnReturning.js",
+    "_Type": "Page",
+    "_Name": "AssignToContPackageListViewPage"
+} 

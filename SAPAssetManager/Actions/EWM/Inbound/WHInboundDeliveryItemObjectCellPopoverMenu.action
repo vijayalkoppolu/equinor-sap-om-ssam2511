@@ -1,0 +1,21 @@
+{
+	"_Type": "Action.Type.PopoverMenu",
+	"IsBottomSheet": true,
+	"Title": "/SAPAssetManager/Rules/EWM/Inbound/Items/WHInboundDeliveryItemProductAndDesc.js",
+	"PopoverItems": [
+		{
+			"Title": "$(L,edit_this_item)",
+			"OnPress": "/SAPAssetManager/Rules/EWM/InboundDelivery/SingleEdit/IBDEditSingleItemNav.js"
+		},
+		{
+			"Title": "$(L, create_whtask)",
+			"OnPress": "/SAPAssetManager/Rules/EWM/WarehouseTask/WarehouseTaskCreateNavAction.js",
+			"Enabled": "/SAPAssetManager/Rules/EWM/WarehouseTask/IsWarehouseTaskCreateEnabled.js"
+		},
+		{
+			"Title": "$(L, create_handling_unit)",
+			"OnPress": "/SAPAssetManager/Rules/EWM/Inbound/Items/HandlingUnit/WHHandlingUnitCreateNav.js",
+			"Enabled": "/SAPAssetManager/Rules/EWM/Inbound/Items/HandlingUnit/WHHandlingUnitCreateButtonEnabled.js"
+		}
+	]
+}

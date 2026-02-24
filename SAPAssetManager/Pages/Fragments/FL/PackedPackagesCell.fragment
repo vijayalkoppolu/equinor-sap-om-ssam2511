@@ -1,0 +1,25 @@
+{
+    "_Type": "Control.Type.ObjectCell",
+    "AccessoryType": "DisclosureIndicator",
+    "PreserveIconStackSpacing": false,
+    "Title": "{FldLogsContainerID} {FldLogsContainerCategoryText}",
+    "Subhead": "{FldLogsSrcePlnt} / {FldLogsDestPlnt}", 
+    "StatusText": "{FldLogsCtnPackgStsText}",
+    "SubstatusText": "/SAPAssetManager/Rules/FL/PackedPackages/FormatMetricsSubstatusText.js",
+    "Footnote": "/SAPAssetManager/Rules/FL/PackedPackages/FLPackedPackagesTransportDetails.js",
+    "Description": "/SAPAssetManager/Rules/FL/PackedPackages/FLPackedPackagesVoyageDetails.js",
+    "AccessoryButtonIcon": "/SAPAssetManager/Rules/FL/PackedPackages/ShowAccessoryButton.js",
+    "Styles": {
+        "AccessoryButtonIcon": "AccessoryButtonIcon"
+    },
+    "OnPress": "/SAPAssetManager/Rules/FL/PackedPackages/PackedPackagesDetailsPageNav.js",
+    "OnAccessoryButtonPress": "/SAPAssetManager/Rules/FL/PackedPackages/OnAccessoryButtonPress.js",
+    "AvatarStack": {
+    "Avatars": [{
+        "Image": "$(PLT, sap-icon://table-view, sap-icon://table-view, '', sap-icon://table-view)",
+        "Style": "$(PLT, FLPackageIcon, FLPackageIconAndroid)"
+    }], 
+    "ImageHasBorder": true,
+    "ImageIsCircular": false
+  }
+}

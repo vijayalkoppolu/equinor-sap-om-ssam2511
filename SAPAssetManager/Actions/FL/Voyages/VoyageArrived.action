@@ -1,0 +1,9 @@
+{
+    "_Type": "Action.Type.Message",
+    "Title": "$(L,voyages_action_title)",
+    "Message": "$(L, voyages_action)",
+    "CancelCaption":  "$(L,no)",
+    "OKCaption": "$(L,download)",
+    "OnOK": "/SAPAssetManager/Rules/FL/OverviewPage/FLVoyageDownload.js",
+    "OnCancel": "/SAPAssetManager/Rules/FL/OverviewPage/FLVoyageStatusUpdate.js"
+}

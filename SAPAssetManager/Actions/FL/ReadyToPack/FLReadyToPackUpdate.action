@@ -1,0 +1,23 @@
+{
+	"_Type": "Action.Type.ODataService.UpdateEntity",
+	"Target": {
+	"EntitySet": "FldLogsPackCtnRdyPcks",
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+    "ReadLink": "{@odata.readLink}"
+	},
+	"OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/UpdateEntityFailureMessage.action",
+	"Properties": {
+       "ActionType": "EDITALL",
+       "FldLogsVoyageDestStage" : "#Control:ReceivingPointListPkr/#SelectedValue",
+       "FldLogsShptLocationId" : "#Control:LocationIdListPkr/#SelectedValue"
+	},
+	"Headers": {
+        "OfflineOData.TransactionID": "{{#Property:ObjectId}}"        
+    },
+     "RequestOptions": {
+         "UpdateMode": "Replace"
+    },
+	"OnSuccess": "/SAPAssetManager/Rules/FL/ReadyToPack/FLReadyToPackUpdateSuccess.js",
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText" : "  " 
+}

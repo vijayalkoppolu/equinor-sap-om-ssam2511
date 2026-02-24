@@ -1,0 +1,7 @@
+{
+    "_Type": "FioriToolbarItem.Type.Button",
+    "_Name": "AssignToContainerButton",
+    "Title": "$(L, fld_assign_to_container)",
+    "Enabled": false,
+    "OnPress": "/SAPAssetManager/Rules/FL/PackedPackages/FLPackedPackageAssignCntPageNav.js"
+}

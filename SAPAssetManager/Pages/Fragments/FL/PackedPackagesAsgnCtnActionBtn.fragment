@@ -1,0 +1,9 @@
+{
+    "_Type": "FioriToolbarItem.Type.Button",
+    "_Name": "AssignToContainerPKGButton",
+    "Title": "/SAPAssetManager/Rules/FL/Containers/AssignToContainerTargetCaption.js",
+    "Enabled": false,
+    "OnPress": "/SAPAssetManager/Rules/FL/PackedPackages/AssignToContainerAction.js"
+}
+
+        

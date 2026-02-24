@@ -1,0 +1,144 @@
+{
+    "OnActivityBackPressed": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/CancelCheckOnBackNavAndroid.js",
+    "ActionBar": {
+        "Items": [
+            {
+                "Position": "Left",
+                "SystemItem": "Cancel",
+                "Caption": "$(L,cancel)",
+                "OnPress": "/SAPAssetManager/Actions/Page/CancelPage.action"
+            },
+            {
+                "Position": "Right",
+                "SystemItem": "/SAPAssetManager/Rules/Filter/FilterSystemItem.js",
+                "Text": "/SAPAssetManager/Rules/Filter/FilterText.js",
+                "OnPress": "/SAPAssetManager/Rules/EWM/PhysicalInventory/SearchFilter/PISearchFilterOnApply.js"
+            }
+        ]
+    },
+    "Caption": "$(L,filter)",
+    "Result": "/SAPAssetManager/Rules/EWM/PhysicalInventory/SearchFilter/PISearchFilterResults.js",
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "Controls": [
+                        {
+                            "_Type": "Fragment",
+                            "Fragment": "/SAPAssetManager/Pages/Fragments/Filter/MultiSortByFilter.fragment",
+                            "Properties": {
+                                "Items": [
+                                    {
+                                        "ReturnValue": "PIDocumentNo",
+                                        "DisplayValue": "$(L,document_no)"
+                                    },
+                                    {
+                                        "ReturnValue": "StorageBin",
+                                        "DisplayValue": "$(L,storage_bin)"
+                                    },
+                                    {
+                                        "ReturnValue": "CountDatePhysInv",
+                                        "DisplayValue": "$(L,planned_count_date)"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "Caption": "$(L,filter_by)",
+                    "Controls": [ 
+                        {
+                            "_Type": "Fragment",
+                            "Fragment": "/SAPAssetManager/Pages/Fragments/Inventory/ListPicker.fragment",
+                            "Properties": {
+                                "_Name": "PIDocumentNo",
+                                "Caption": "$(L,document_no)",
+                                "PickerItems": "/SAPAssetManager/Rules/EWM/PhysicalInventory/SearchFilter/PIDocumentNoPickerItems.js",
+                                "FilterProperty": "PIDocumentNo"
+                            }
+                        },
+                        {
+                            "_Type": "Fragment",
+                            "Fragment": "/SAPAssetManager/Pages/Fragments/Inventory/ListPicker.fragment",
+                            "Properties": {
+                                "_Name": "WarehouseOrder",
+                                "Caption": "$(L,warehouse_ord_num)",
+                                "PickerItems": "/SAPAssetManager/Rules/EWM/PhysicalInventory/SearchFilter/PIWarehouseOrderPickerItems.js",
+                                "FilterProperty": "WarehouseOrder"
+                            }
+                        },
+                        {
+                            "_Type": "Fragment",
+                            "Fragment": "/SAPAssetManager/Pages/Fragments/Inventory/ListPicker.fragment",
+                            "Properties": {
+                                "_Name": "PhysInvAreaDesc",
+                                "Caption": "$(L,activity_area)",
+                                "PickerItems": "/SAPAssetManager/Rules/EWM/PhysicalInventory/SearchFilter/PIAreaPickerItems.js",
+                                "FilterProperty": "PhysInvAreaDesc"
+                            }
+                        },
+                        {
+                            "_Type": "Fragment",
+                            "Fragment": "/SAPAssetManager/Pages/Fragments/Inventory/ListPicker.fragment",
+                            "Properties": {
+                                "_Name": "StorageType",
+                                "Caption": "$(L,ewm_storage_type)",
+                                "PickerItems": "/SAPAssetManager/Rules/EWM/PhysicalInventory/SearchFilter/PIStorageTypePickerItems.js",
+                                "FilterProperty": "StorageType"
+                            }
+                        },
+                        {
+                            "_Type": "Fragment",
+                            "Fragment": "/SAPAssetManager/Pages/Fragments/Inventory/ListPicker.fragment",
+                            "Properties": {
+                                "_Name": "StorageBin",
+                                "Caption": "$(L,storage_bin)",
+                                "PickerItems": "/SAPAssetManager/Rules/EWM/PhysicalInventory/SearchFilter/PIStorageBinPickerItems.js",
+                                "FilterProperty": "StorageBin"
+                            }
+                        },
+                        {
+                            "_Type": "Control.Type.FormCell.Switch",
+                            "_Name": "CountDatePhysInvSwitch",
+                            "Caption":"$(L,planned_count_date)",
+                            "Value": false,
+                            "OnValueChange": "/SAPAssetManager/Rules/EWM/PhysicalInventory/SearchFilter/PICountDatePhysInvSwitchOnValueChange.js"
+                        },
+                        {
+                            "_Type": "Control.Type.FormCell.DatePicker",
+                            "_Name": "StartDateFilter",
+                            "Caption": "$(L,date_from)",
+                            "Mode": "Date",
+                            "IsVisible": false,
+                            "OnValueChange": "/SAPAssetManager/Rules/Filter/Validation/CompareStartEndDateComponent.js"
+                        },
+                        {
+                            "_Type": "Control.Type.FormCell.DatePicker",
+                            "_Name": "EndDateFilter",
+                            "Caption": "$(L,date_to)",
+                            "Mode": "Date",
+                            "IsVisible": false,
+                            "OnValueChange": "/SAPAssetManager/Rules/Filter/Validation/CompareStartEndDateComponent.js"
+                        }
+                    ]
+                }
+            ],
+            "_Name": "FormCellContainer",
+            "_Type": "Control.Type.FormCellContainer"
+        }
+    ],
+    "FioriToolbar": {
+        "_Name": "StockSearchFilterFioriToolbar",
+        "_Type": "Control.Type.FioriToolbar",
+        "Items": [
+            {
+                "_Type": "Fragment",
+                "Fragment": "/SAPAssetManager/Pages/Fragments/Filter/ResetFilterToolbarItem.fragment"
+            }
+        ]
+    },
+    "_Type": "Page",
+    "_Name": "WHPhysicalInventorySearchFilterPage",
+    "OnLoaded": "/SAPAssetManager/Rules/EWM/PhysicalInventory/SearchFilter/PISearchFilterOnLoaded.js"
+}

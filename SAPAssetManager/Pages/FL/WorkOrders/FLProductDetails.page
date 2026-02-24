@@ -1,0 +1,141 @@
+{
+	"Caption": "$(L, fld_product_details)",
+	"ActionBar": {
+		"Items": [
+			"/SAPAssetManager/Pages/Fragments/SyncButton.fragment",
+			 {
+                 "Position": "Left",
+                "_Name": "Edit",
+                "Icon": "sap-icon://edit",
+                "Caption": "$(L,edit)",
+                "OnPress": "/SAPAssetManager/Rules/FL/WorkOrders/Products/ListView/OnFLOProductButtonPress.js",
+				"Visible": "/SAPAssetManager/Rules/FL/WorkOrders/Products/Details/IsEditButtonVisible.js"
+            }
+		]
+	},
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"ObjectHeader": {
+						"HeadlineText": "{Product}",
+						"Subhead": "$(L,reservation) - {{#Property:Reservation}}",
+						"DetailImage": "sap-icon://product",
+						"Styles": {
+							"DetailImage": "$(PLT, FLProductIcon, FLProductIconAndroid)"
+						},
+						"StatusText": "/SAPAssetManager/Rules/FL/WorkOrders/ListView/FLWorkOrderProductStatusText.js",
+						"SubstatusText": "/SAPAssetManager/Rules/FL/WorkOrders/Products/ListView/FLProductsStatusText.js"
+					},
+					"_Name": "SectionObjectHeader",
+					"_Type": "Section.Type.ObjectHeader"
+				},
+				{
+					"Header": {
+                        "UseTopPadding": true,
+                        "Caption": "$(L, header_info)"
+                    },
+					"KeyAndValues": [
+						{
+							"_Name": "Order",
+							"KeyName": "Order",
+							"Value": "$(DV, {Order}, '-')"
+						},
+						{
+							"_Name": "Plant",
+							"KeyName": "Plant",
+							"Value": "$(DV, {Plant}, '-')"
+						},
+						{
+							"_Name": "Reservation",
+							"KeyName": "Reservation",
+							"Value": "$(DV, {Reservation}, '-')"
+						},
+						{
+							"_Name": "BatchManaged",
+							"KeyName": "Batch Managed",
+							"Value": "/SAPAssetManager/Rules/FL/WorkOrders/Products/Details/IsBatchManagedOrNot.js"
+						},
+						{
+							"_Name": "SupplyProcess",
+							"KeyName": "Supply Process",
+							"Value": "$(DV, {SupplyProcess}, '-')"
+						},
+						{
+							"_Name": "OrderType",
+							"KeyName": "Order Type",
+							"Value": "$(DV, {OrderType}, '-')"
+						},
+						{
+							"_Name": "AcctAssgmtCat",
+							"KeyName": "Account Assignment Category",
+							"Value": "$(DV, {AcctAssgmtCat}, '-')"
+						},
+						{
+							"_Name": "ItemCategory",
+							"KeyName": "Item Category",
+							"Value": "$(DV, {ItemCategory}, '-')"
+						}
+					],
+					"_Type": "Section.Type.KeyValue",
+					"_Name": "HeaderKeyValueTable"
+				},
+				{
+					"Header": {
+                        "UseTopPadding": true,
+                        "Caption": "$(L, product_details)"
+                    },
+					"KeyAndValues": [
+						{
+							"_Name": "ProductDescription",
+							"KeyName": "Product Description",
+							"Value": "$(DV, {ProductDescription}, '-')"
+						},
+						{
+							"_Name": "RequiredQuantity",
+							"KeyName": "Required Quantity",
+							"Value": "$(DV, {RequiredQty}, '-') $(DV, {BaseUnit})"
+						},
+						{
+							"_Name": "WithdrawnQuantity",
+							"KeyName": "Withdrawn Quantity",
+							"Value": "$(DV, {WithdrawnQty}, '-') $(DV, {BaseUnit})"
+						},
+						{
+							"_Name": "ReturnQuantity",
+							"KeyName": "Return Quantity",
+							"Value": "$(DV, {ReturnQty}, '-') $(DV, {BaseUnit})"
+						}
+					],
+					"_Type": "Section.Type.KeyValue",
+					"_Name": "ProductDetailsKeyValueTable"
+				}
+			],
+			"_Name": "SectionedTable",
+			"_Type": "Control.Type.SectionedTable"
+		}
+	],
+	"ToolBar": {
+		"Controls": [
+			{
+				"_Name": "PreviousProduct",
+				"_Type": "Control.Type.ToolbarItem",
+				"Caption": "$(L, fld_previous_product)",
+				"OnPress": "/SAPAssetManager/Rules/FL/WorkOrders/Products/Details/OnPressPreviousNextButton.js",
+				"Enabled": "/SAPAssetManager/Rules/FL/WorkOrders/Products/Details/IsEnabledPreviousButton.js",
+				"Visible": "true"
+			},
+			"/SAPAssetManager/Pages/Fragments/Inventory/FlexibleSpaceToolBar.fragment",
+			{
+				"_Name": "NextProduct",
+				"_Type": "Control.Type.ToolbarItem",
+				"Caption": "$(L, fld_next_product)",
+				"OnPress": "/SAPAssetManager/Rules/FL/WorkOrders/Products/Details/OnPressPreviousNextButton.js",
+				"Enabled": "/SAPAssetManager/Rules/FL/WorkOrders/Products/Details/IsEnabledNextButton.js",
+				"Visible": "true"
+			}
+		]
+	},
+	"_Name": "FLProductDetailsPage",
+	"_Type": "Page"
+}

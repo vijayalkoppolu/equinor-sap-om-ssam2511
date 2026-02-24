@@ -1,0 +1,8 @@
+{
+    "_Type": "Control.Type.ObjectCell",
+    "PreserveIconStackSpacing": false,
+    "Title": "{FldLogsContainerID} - {FldLogsContainerCategoryText}",
+    "Subhead": "/SAPAssetManager/Rules/FL/PackedContainers/Packages/FLPagesItemsSubhead.js",
+    "StatusText": "{FldLogsCtnPackgStsText}",
+    "Footnote": "{FldLogsCtnIntTranspStsCode}"
+}

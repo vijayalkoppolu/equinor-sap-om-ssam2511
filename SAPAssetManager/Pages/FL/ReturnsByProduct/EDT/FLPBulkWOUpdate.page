@@ -1,0 +1,40 @@
+{
+	"Caption": "$(L, edit_items)",
+    "OnActivityBackPressed": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/CancelCheckOnBackNavAndroid.js",
+	"ActionBar": {
+        "Items": [
+            {
+                "_Type": "Fragment",
+				"Fragment": "/SAPAssetManager/Pages/Fragments/CancelButton.fragment",
+				"Properties": {
+					"OnPress": "/SAPAssetManager/Rules/FL/BulkUpdate/CloseBulkEdit.js"
+				}
+            },
+            {
+                "_Name": "SaveButton",
+                "Position": "Right",
+                "Text": "$(L, save)",
+                "OnPress": "/SAPAssetManager/Rules/FL/ReturnsByProduct/BulkUpdate/BulkFLPSave.js"
+            }
+        ]
+    },
+	"Controls": [
+		{
+			"Sections": [],
+            "DataSubscriptions": [
+            "FldLogsInitRetProducts","FldLogsRefDocTypes","FldLogsRecommendedActions", "StorageLocations"
+        ],
+         "FilterFeedbackBar": {
+                "_Type": "Control.Type.FilterFeedbackBar",
+                "_Name": "FilterFeedback",
+                "ShowAllFilters": true
+         },
+			"_Name": "SectionedTable",
+			"_Type": "Control.Type.SectionedTable"
+		}
+	],
+    "OnLoaded": "/SAPAssetManager/Rules/FL/Edit/FLListPageWithFilterOnLoaded.js",
+    "OnReturning": "/SAPAssetManager/Rules/FL/ReturnsByProduct/BulkUpdate/OnReturning.js",
+	"_Name": "FLPBulkWOUpdate",
+	"_Type": "Page"
+}

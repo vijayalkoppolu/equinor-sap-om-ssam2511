@@ -1,0 +1,39 @@
+{
+    "_Name": "SelectFormCategory",
+    "_Type": "Page",
+    "Caption": "$(L,select_template)",
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "Search": {
+                        "Enabled": true,
+                        "Delay": 500,
+                        "MinimumCharacterThreshold": 3,
+                        "Placeholder": "$(L,search)",
+                        "BarcodeScanner": false,
+                        "Mode": "Persistent"
+                    },
+                    "ObjectCell": {
+                        "PreserveIconStackSpacing": false,
+                        "Title": "{ChecklistCategoryName}",
+                        "StatusText": "{Count}",
+                        "AccessoryType": "DisclosureIndicator",
+                        "OnPress": "/SAPAssetManager/Actions/Forms/SelectFormTemplatePageNav.action"
+                    },
+                    "Target": "/SAPAssetManager/Rules/Forms/FSM/AddSmartForm/Data/GetTemplatesCategories.js",
+                    "EmptySection": {
+                        "Caption": "$(L,no_templates_available)"
+                    },
+                    "Header": {
+                        "UseTopPadding": false
+                    },
+                    "_Name": "FormCategoriesTable",
+                    "_Type": "Section.Type.ObjectTable"
+                } 
+            ],
+            "_Name": "SectionedTable",
+            "_Type": "Control.Type.SectionedTable"
+        }
+    ]
+}

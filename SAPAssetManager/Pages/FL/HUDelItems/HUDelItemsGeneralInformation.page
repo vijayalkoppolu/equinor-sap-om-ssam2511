@@ -1,0 +1,110 @@
+{
+	"Caption": "$(L,fld_general_information)",
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"KeyAndValues": [
+						{
+                            "_Name": "OutboundDeliveryItem",
+                            "KeyName": "$(L,fld_delivery_item)",
+							"Value": "$(DV, '/SAPAssetManager/Rules/FL/HUDelItems/Details/HUDelItemsOutboundDeliveryItem.js', '-')"
+                        },
+                        {
+                            "_Name": "HandlingUnitExternalID",
+                            "KeyName": "$(L,fld_handlingunit_item)",
+							"Value": "$(DV, {HandlingUnitExternalID}, '-')"
+                        },
+                        {
+                            "_Name": "PackagingType",
+                            "KeyName": "$(L,fld_packaging_type)",
+							"Value": "$(DV, {FldLogsPackagingType_Nav/FldLogsPackagingTypeDescription}, '-')"
+                        },
+                        {
+                            "_Name": "HandlingDecision",
+                            "KeyName": "$(L,fld_handling_decision)",
+							"Value": "$(DV, {FldLogsHandlingDecision_Nav/Description}, '-')"
+                        },
+						      {
+                            "_Name": "DestStorLocID",
+                            "KeyName": "$(L,fld_destination_storage_location)",
+							"Value": "$(DV, {DestStorLocID}, '-')"
+                        },
+                        {
+                            "_Name": "RetblQtyInOrderUnit",
+                            "KeyName": "$(L,fld_quantity)",
+							"Value": "$(DV, '/SAPAssetManager/Rules/FL/HUDelItems/Details/HUDelItemsQuantity.js', '-')"
+							
+                        },
+                        {
+                            "_Name": "SupplyProcess",
+                            "KeyName": "$(L,fld_supply_process)",
+							"Value": "$(DV, {SupplyProcess}, '-')"
+                        },
+						  {
+                            "_Name": "KitIdentifier",
+                            "KeyName": "$(L,fld_kit_id)",
+							"Value": "$(DV, {KitIdentifier}, '-')"
+                        },
+						{
+                            "_Name": "RecommendedAction",
+                            "KeyName": "$(L,fld_recommend_action)",
+							"Value": "$(DV, {RecommendedAction}, '-')"
+                        },
+						  {
+                            "_Name": "VisualInspection",
+                            "KeyName": "$(L,fld_visual_inspection)",
+							"Value": "$(DV, '/SAPAssetManager/Rules/FL/HUDelItems/Details/HUDelItemsVisualInspection.js', '-')"
+                        },
+						{
+                            "_Name": "MaintenanceOrder",
+                            "KeyName": "$(L,fld_maintenance_order)",
+							"Value": "$(DV, {MaintenanceOrder}, '-')"
+                        },
+						{
+                            "_Name": "Reservation",
+                            "KeyName": "$(L,fld_reservation)",
+							"Value": "$(DV, '/SAPAssetManager/Rules/FL/HUDelItems/Details/HUDelItemsReservation.js', '-')"
+                        },
+						{
+                            "_Name": "ReservationItem",
+                            "KeyName": "$(L,fld_reservation_item)",
+							"Value": "$(DV, '/SAPAssetManager/Rules/FL/HUDelItems/Details/HUDelItemsReservationItem.js', '-')"
+                        },
+						{
+                            "_Name": "WBSElementExternalID",
+                            "KeyName": "$(L,fld_wbs_element)",
+							"Value": "$(DV, {WBSElementExternalID}, '-')"
+                        },
+						{
+							"_Name": "InventorySpecialStockType",
+							"KeyName": "$(L,fld_special_stock_indicator)",
+							"Value": "$(DV, {InventorySpecialStockType}, '-')"
+						},
+						{
+                            "_Name": "StorageType",
+                            "KeyName": "$(L,fld_storage_type)",
+							"Value": "$(DV, {StorageType}, '-')"
+                        },
+						{
+							"_Name": "RecipientLocationCode",
+							"KeyName": "$(L,fld_goods_recipient_location)",
+							"Value": "$(DV, {RecipientLocationCode}, '-')"
+						},
+						{
+							"_Name": "WarehouseStorageBin",
+							"KeyName": "$(L,fld_warehouse_storage_bin)",
+							"Value": "$(DV, {WarehouseStorageBin}, '-')"
+						}
+					],
+					"_Type": "Section.Type.KeyValue",
+                    "_Name": "KeyValueTable"
+				}
+			],
+			"_Name": "SectionedTable0",
+			"_Type": "Control.Type.SectionedTable"
+		}
+	],
+	"_Name": "HUDelItemsGeneralInformation",
+	"_Type": "Page"
+}

@@ -1,0 +1,23 @@
+{
+	"_Type": "Action.Type.ODataService.UpdateEntity",
+	"Target": {
+	"EntitySet": "FldLogsPackCtnRdyPcks",
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+    "ReadLink": "{@odata.readLink}"
+	},
+	"OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/UpdateEntityFailureMessage.action",
+	"Properties": {
+       "ActionType": "ASGNCTNPKG",
+       "ObjectId": "",
+       "FldLogsContainerId": ""
+	},
+	"Headers": {
+        "OfflineOData.TransactionID": "{{#Property:ObjectId}}"        
+    },
+     "RequestOptions": {
+         "UpdateMode": "Replace"
+    },
+	"OnSuccess": "/SAPAssetManager/Actions/FL/Common/UpdateEntitySuccessMessage.action",
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText" : "  " 
+}

@@ -1,0 +1,8 @@
+{
+	"_Type" : "Action.Type.Filter",
+	"PageToOpen": "/SAPAssetManager/Pages/FL/PackContainers/PackedContainers/FLPackContainersFilter.page",
+	"Filterable": "#Page:PackedContainersListViewPage/#Control:SectionedTable",
+    "ActionResult": {
+        "_Name": "filterResults"
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "Caption": "$(L, handling_unit_type)",
+    "AllowMultipleSelection": false,
+    "IsPickerDismissedOnSelection": true,
+    "PickerItems": {
+        "DisplayValue": "{{#Property:HUType}}",
+        "ReturnValue": "{HUType}",
+        "Target": {
+            "EntitySet": "HandlingUnitTypes",
+            "Service": "/SAPAssetManager/Services/AssetManager.service"
+        }
+    },
+    "_Type": "Control.Type.FormCell.ListPicker",
+    "_Name": "HUTypePicker"
+}

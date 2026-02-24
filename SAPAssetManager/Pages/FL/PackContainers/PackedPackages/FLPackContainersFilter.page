@@ -1,0 +1,94 @@
+
+{
+ 
+  "ActionBar": {
+    "Items": [
+      {
+        "Position": "Left",
+        "SystemItem": "Cancel",
+        "Caption": "$(L,cancel)",
+        "OnPress": "/SAPAssetManager/Actions/Page/CancelPage.action"
+      },
+      {
+        "Position": "Right",
+        "SystemItem": "/SAPAssetManager/Rules/Filter/FilterSystemItem.js",
+        "Text": "/SAPAssetManager/Rules/Filter/FilterText.js",
+        "OnPress": "/SAPAssetManager/Rules/Filter/ApplyFilterAndSave.js"
+      }
+    ]
+  },
+  "Caption": "$(L,filter)",
+  "Result": "/SAPAssetManager/Rules/FL/PackedPackages/FLPackContainersFilterResults.js",
+  "Controls": [
+    {
+      "Sections": [
+        {
+          "Controls": [ 
+            {
+              "_Type": "Fragment",
+              "Fragment": "/SAPAssetManager/Pages/Fragments/Filter/MultiSortByFilter.fragment",
+              "Properties": {
+                "Items": [
+                  {
+                    "ReturnValue": "FldLogsContainerID",
+                    "DisplayValue": "$(L,fl_container_id)"
+                  },
+                  {
+                    "ReturnValue": "FldLogsContainerCategoryText",
+                    "DisplayValue": "$(L,category)"
+                  },
+                  {
+                    "ReturnValue": "FldLogsCtnCurrentLocation",
+                    "DisplayValue": "$(L,current_plant)"
+                  } 
+
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "Caption": "$(L,filter_by)",
+          "Controls": [
+            {
+              "_Type": "Control.Type.FormCell.SimpleProperty",
+              "_Name": "ContainerID",
+              "AlternateInput": "Barcode",
+              "FilterProperty": "ContainerID",
+              "Caption": "$(L,fl_container_id)"
+            },
+            {
+              "_Type": "Control.Type.FormCell.SimpleProperty",
+              "_Name": "ContainerCategory",
+              "AlternateInput": "Barcode",
+              "FilterProperty": "FldLogsContainerCategoryText",
+              "Caption": "$(L,category)"
+            },
+            
+            {
+              "_Type": "Control.Type.FormCell.SimpleProperty",
+              "_Name": "CurrentPlant",
+              "AlternateInput": "Barcode",
+              "FilterProperty": "FldLogsCtnCurrentLocation",
+              "Caption": "$(L,current_plant)"
+            }
+          ]
+        }
+      ],
+      "_Name": "FormCellContainer",
+      "_Type": "Control.Type.FormCellContainer"
+    }
+  ],
+  "FioriToolbar": {
+    "_Name": "OrderProductSearchFilterFioriToolbar",
+    "_Type": "Control.Type.FioriToolbar",
+    "Items": [
+      {
+        "_Type": "Fragment",
+        "Fragment": "/SAPAssetManager/Pages/Fragments/Filter/ResetFilterToolbarItem.fragment"
+      }
+    ]
+  },
+  "_Type": "Page",
+  "_Name": "FLPackedContainersFilter"
+}

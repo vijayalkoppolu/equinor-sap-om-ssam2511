@@ -1,0 +1,24 @@
+{
+    "Caption": "/SAPAssetManager/Rules/EWM/Inbound/Items/WHEditAllCaption.js",
+    "_Name": "WHInboundDeliveryEditAllItemsPage",
+    "_Type": "Page",
+    "ActionBar": {
+        "_Name": "EditAllItemsActionBar",
+        "Items": [
+            {
+                "Position": "Right",
+                "SystemItem": "Save",
+                "Caption":"$(L,save)",
+                "OnPress": "/SAPAssetManager/Rules/EWM/Inbound/Items/WHInboundDeliveryEditItemsSave.js",
+                "_Name": "SaveButton"
+            } 
+        ]
+    },
+    "Controls": [{
+        "Sections": [],
+        "_Type": "Control.Type.SectionedTable",
+        "_Name": "SectionedTable",
+        "Sections": []
+    }],
+    "DataSubscriptions": ["WarehouseInboundDeliveries", "WarehouseInboundDeliveryItems", "WarehouseInboundDeliveryItem_Nav"]
+}

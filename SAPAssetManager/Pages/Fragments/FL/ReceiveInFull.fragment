@@ -1,0 +1,7 @@
+{
+	"_Name": "ReceiveinFullItem",
+	"_Type": "FioriToolbarItem.Type.Button",
+	"Enabled": false,
+	"Title": "$(L,receive_full)",
+	"ButtonType": "Primary"
+}

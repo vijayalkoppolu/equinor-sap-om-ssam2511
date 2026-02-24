@@ -1,0 +1,7 @@
+{
+	"PageToOpen": "/SAPAssetManager/Pages/FL/Edit/BulkUpdate.page",
+	"_Type": "Action.Type.Navigation",
+	"PageMetadata": "/SAPAssetManager/Rules/FL/BulkUpdate/BulkFLEditPageMetadataGenerator.js",
+	"ModalPage": true,
+	"ModalPageFullscreen": true
+}

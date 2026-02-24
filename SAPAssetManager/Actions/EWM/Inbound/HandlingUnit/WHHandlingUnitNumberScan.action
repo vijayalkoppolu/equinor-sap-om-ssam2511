@@ -1,0 +1,7 @@
+{
+	"_Type": "Action.Type.OpenBarcodeScanner",
+	"OnSuccess": "/SAPAssetManager/Rules/EWM/Inbound/Items/HandlingUnit/WHHandlingUnitNumberScanOnSuccess.js",
+    "ActionResult": {
+        "_Name": "BarcodeScanner"
+    }
+}

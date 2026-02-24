@@ -1,0 +1,249 @@
+{
+    "OnActivityBackPressed": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/CancelCheckOnBackNavAndroid.js",
+	"ActionBar": {
+		"Items": [
+			{
+                "_Type": "Fragment",
+                "Fragment": "/SAPAssetManager/Pages/Fragments/CancelButton.fragment",
+                "Properties": {                  
+                	"OnPress": "/SAPAssetManager/Rules/FL/Edit/FLUpdateCancel.js"
+                    }
+            }, 
+			{
+                "_Type": "Fragment",
+                "Fragment": "/SAPAssetManager/Pages/Fragments/DoneButton.fragment",
+                "Properties": {                  
+                	"OnPress": "/SAPAssetManager/Rules/FL/Edit/FLUpdateItem.js"
+                    }
+            }
+		]
+	},
+    "Caption": "$(L,edit_item)",
+	"Controls": [
+		{
+			"Sections": [
+				{
+				    "_Type": "Section.Type.FormCell",
+                    "_Name": "EditDocumentHeaderSection",
+                    "Caption": "$(L, indicates_required_fields)",
+					"Header": {
+                        "UseTopPadding": false
+                    },
+					"Controls": [
+                        {
+							"Caption": "$(L,product)",
+							"KeyboardType": "Default",
+                            "IsEditable": false,
+							"Value": "/SAPAssetManager/Rules/FL/Common/GetMaterialDescription.js",
+							"_Name": "ProductSimple",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						},
+                        {
+							"Caption": "$(L,delivery_item_title)",
+							"KeyboardType": "Default",
+                            "IsEditable": false,
+							"Value": "/SAPAssetManager/Rules/FL/Common/GetDeliveryItem.js",
+							"_Name": "DeliveryItemSimple",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						}
+					]                
+				},
+				{
+					"Controls": [
+						{
+                            "_Name": "HandlingDecisionListPicker",
+                            "_Type": "Control.Type.FormCell.ListPicker",
+                            "Caption": "/SAPAssetManager/Rules/FL/Edit/HandlingDecisionCaption.js",
+                            "AllowMultipleSelection": false,
+                            "IsPickerDismissedOnSelection": true,
+                            "AllowDefaultValueIfOneItem": true,
+                            "IsSearchCancelledAfterSelection": true,
+                            "Search": {
+                                "Enabled": true,
+                                "Delay": 500,
+                                "MinimumCharacterThreshold": 2,
+                                "Placeholder": "$(L,search)",
+								"BarcodeScanner": true
+                            },
+							"PickerItems": "/SAPAssetManager/Rules/FL/Edit/HandlingDecisionListPickerItems.js",
+                            "PickerPrompt": "$(L,select_single_item)",
+                            "Value": "{HandlingDecision}"
+                        },
+						{
+                            "_Name": "SLoctLstPkr",
+                            "_Type": "Control.Type.FormCell.ListPicker",
+                            "Caption": "/SAPAssetManager/Rules/FL/Edit/StorageLocationCaption.js",
+                            "AllowMultipleSelection": false,
+                            "IsPickerDismissedOnSelection" : true,
+                            "AllowEmptySelection": true,
+                            "AllowDefaultValueIfOneItem": true,
+						    "PickerPrompt": "$(L,select_single_item)",
+                            "Value": "{DestStorLocID}",
+							"Search": {
+                                "Enabled": true,
+                                "Delay": 500,
+                                "MinimumCharacterThreshold": 2,
+                                "Placeholder": "$(L,search)",
+								"BarcodeScanner": true
+                            },
+                            "PickerItems": {
+                                "DisplayValue": "{{#Property:StorageLocation}} - {{#Property:StorageLocationDesc}}",
+                                "ReturnValue": "{StorageLocation}",
+                                "Target": {
+                                    "EntitySet": "StorageLocations",
+                                    "Service": "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions": "/SAPAssetManager/Rules/Inventory/Fetch/StorageLocationQueryOptions.js"
+                                }
+                            }
+                        },
+						{
+                            "_Name": "VisualInspecitonPicker",
+                            "_Type": "Control.Type.FormCell.ListPicker",
+                            "Caption": "$(L,visual_inspection)",
+                            "AllowMultipleSelection": false,
+                            "IsPickerDismissedOnSelection" : true,
+                            "AllowEmptySelection": true,
+                            "AllowDefaultValueIfOneItem": true,
+						    "PickerPrompt": "$(L,select_single_item)",
+                            "Value": "{VisualInspection}",
+							"Search": {
+                                "Enabled": true,
+                                "Delay": 500,
+                                "MinimumCharacterThreshold": 2,
+                                "Placeholder": "$(L,search)",
+								"BarcodeScanner": true
+                            },
+                            "PickerItems": {
+                                "DisplayValue": "{{#Property:VisualInspection}} - {{#Property:VisualInspectionText}}",
+                                "ReturnValue": "{VisualInspection}",
+                                "Target": {
+                                    "EntitySet": "FldLogsVisualInspections",
+                                    "Service": "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions": "$orderby=VisualInspection"
+                                }
+                            }
+                        }
+					] 
+				},
+				{
+					"Controls": [
+						{
+							"Caption": "$(L,reservation)",
+							"KeyboardType": "Default",
+							"AlternateInput": "Barcode",
+							"Value": "/SAPAssetManager/Rules/FL/Edit/GetReservations.js",
+							"_Name": "ReservationSimple",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						},
+						{
+							"Caption": "$(L,reservation_item)",
+							"KeyboardType": "Default",
+							"AlternateInput": "Barcode",
+							"Value": "/SAPAssetManager/Rules/FL/Edit/GetReservationItem.js",
+							"_Name": "ReservationItemSimple",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						},
+						{
+							"Caption": "$(L,quantity)",
+							"KeyboardType": "Default",
+							"IsEditable": false,
+							"Value": "{{#Property:RetblQtyInOrderUnit}} {{#Property:RetblQtyOrderUnit}}",
+							"_Name": "QuantitySimple",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						},
+						{
+							"Caption": "$(L,supply_process)",
+							"KeyboardType": "Default",
+							"IsEditable": false,
+							"Value": "{SupplyProcess}",
+							"_Name": "SupplyProcessSimple",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						},
+						{
+							"Caption": "$(L,kit_id)",
+							"KeyboardType": "Default",
+							"IsEditable": false,
+							"Value": "{KitIdentifier}",
+							"_Name": "KitIdSimple",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						},
+						{
+							"Caption": "$(L,recommended_action)",
+							"KeyboardType": "Default",
+							"IsEditable": false,
+							"Value": "{RecommendedAction}",
+							"_Name": "RecommendedActionSimple",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						},
+						{
+							"Caption": "$(L,comments)",
+							"KeyboardType": "Default",
+							"Value": "{Comments1}",
+							"_Name": "CommentsSimple",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						}
+
+					] 
+				},
+				{
+					"Controls": [
+						{
+							"Caption": "$(L,maintenance_order)",
+							"KeyboardType": "Default",
+							"IsEditable": false,
+							"Value": "{MaintenanceOrder}",
+							"_Name": "MaintenanceOrderSimple",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						},
+						{
+							"Caption": "$(L,reservation_item_wbs_element)",
+							"KeyboardType": "Default",
+							"IsEditable": false,
+							"Value": "{WBSElementExternalID}",
+							"_Name": "WBSElementSimple",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						},
+						{
+							"Caption": "$(L,special_stock_indicator)",
+							"KeyboardType": "Default",
+							"IsEditable": false,
+							"Value": "{InventorySpecialStocktype}",
+							"_Name": "SpecialStockSimple",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						},
+						{
+							"Caption": "$(L,storage_type)",
+							"KeyboardType": "Default",
+							"IsEditable": false,
+							"Value": "{StorageType}",
+							"_Name": "StorageTypeSimple",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						}
+					] 
+				},
+								{
+					"Controls": [
+						{
+							"Caption": "$(L,goods_recipient_location)",
+							"KeyboardType": "Default",
+							"IsEditable": false,
+							"Value": "{GoodsReceivingPoint}",
+							"_Name": "GoodsReceivingPointSimple",
+							"_Type": "Control.Type.FormCell.SimpleProperty"
+						}
+					] 
+				},
+                {
+                    "Controls": [
+                        "/SAPAssetManager/Pages/Fragments/DiscardButton.fragment"
+                    ]
+                }
+            ],
+			"_Name": "FormCellContainer",
+			"_Type": "Control.Type.FormCellContainer"
+		}
+	],
+	"_Name": "EditFLDocumentPage",
+	"_Type": "Page",
+    "OnLoaded": "/SAPAssetManager/Rules/FL/Edit/ValidateOnLoad.js"
+}

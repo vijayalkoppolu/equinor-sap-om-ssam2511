@@ -1,0 +1,115 @@
+{
+	"OnActivityBackPressed": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/CancelCheckOnBackNavAndroid.js",
+	"OnLoaded": "/SAPAssetManager/Rules/Common/SaveInitialValuesOnLoaded.js",
+	"ActionBar": {
+		"Caption": "$(L, create_handling_unit)",
+		"Items": [
+			"/SAPAssetManager/Pages/Fragments/CancelButton.fragment",
+            {
+                "_Type": "Fragment",
+				"Fragment": "/SAPAssetManager/Pages/Fragments/DoneButton.fragment",
+				"Properties": {
+					"OnPress": "/SAPAssetManager/Actions/EWM/Inbound/HandlingUnit/WHHandlingUnitCreateRequiredFields.action"
+				}
+            }
+		]
+	},
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"Layout": {
+                        "NumberOfColumns": 1
+                    },
+					"Header": {
+						"Caption": "$(L, indicates_required_fields)"
+					},
+					"SimplePropertyCells": [
+						{
+							"SimplePropertyCell": {
+								"KeyName": "$(L, product)",
+								"Value": "/SAPAssetManager/Rules/EWM/Inbound/Items/WHInboundDeliveryItemProductAndDesc.js"
+							}
+						},
+						{
+							"SimplePropertyCell": {
+								"KeyName": "$(L, open_packable_quantity)",
+								"Value": "{OpenPackableQuantity} {UnitofMeasure}"
+							}
+						}
+					],
+					"Footer": {
+						"UseBottomPadding": false
+					},
+					"_Type": "Section.Type.SimplePropertyCollection",
+					"_Name": "OpenPackableQtyInfo"
+				},
+				{
+					"Header": {
+						"UseTopPadding": false
+					},
+					"Separators": {
+						"TopSectionSeparator": true
+					},
+					"Controls": [
+						{
+							"Caption": "/SAPAssetManager/Rules/EWM/Inbound/Items/HandlingUnit/WHHandlingUnitControlsCaption.js",
+							"KeyboardType": "Number",
+							"Value": "{OpenPackableQuantity}",
+							"OnValueChange": "/SAPAssetManager/Rules/EWM/Inbound/Items/HandlingUnit/WHHandlingUnitCreateQtyChange.js",
+							"_Type": "Control.Type.FormCell.SimpleProperty",
+							"_Name": "QtyToPack"
+						}
+					],
+					"_Name": "FormCellSection1",
+					"_Type": "Section.Type.FormCell"
+				},
+				{
+					"Controls": [
+						{
+							"_Type": "Fragment",
+							"Fragment": "/SAPAssetManager/Pages/Fragments/EWM/PackagingMaterialListPicker.fragment",
+							"Properties": {
+								"Caption": "/SAPAssetManager/Rules/EWM/Inbound/Items/HandlingUnit/WHHandlingUnitControlsCaption.js",
+								"OnValueChange": "/SAPAssetManager/Rules/Common/Validation/ResetValidationOnInput.js"
+							}
+						},
+						"/SAPAssetManager/Pages/Fragments/EWM/HandlingUnitTypeListPicker.fragment",
+						{
+							"Caption": "/SAPAssetManager/Rules/EWM/Inbound/Items/HandlingUnit/WHHandlingUnitControlsCaption.js",
+							"KeyboardType": "Number",
+							"Value": "1",
+							"OnValueChange": "/SAPAssetManager/Rules/EWM/Inbound/Items/HandlingUnit/WHHandlingUnitCreateQtyChange.js",
+							"_Type": "Control.Type.FormCell.SimpleProperty",
+							"_Name": "NumberOfHUs"
+						},
+						{
+							"_Type": "Control.Type.FormCell.Button",
+							"_Name": "SpecifyQtyToPackButton",
+							"Alignment": "Center",
+							"Title": "$(L, specify_handling_unit_quantity)",
+							"OnPress": "/SAPAssetManager/Rules/EWM/Inbound/Items/HandlingUnit/WHHandlingUnitCreateSpecifyQuantityTableNav.js",
+							"Enabled": "/SAPAssetManager/Rules/EWM/Inbound/Items/HandlingUnit/SpecifyQtyToPackButtonEnabled.js"
+						}
+					],
+					"_Type": "Section.Type.FormCell",
+					"_Name": "FormCellSection2"
+				},
+				{
+					"Controls": [
+						"/SAPAssetManager/Pages/Fragments/EWM/HandlingUnitNumberSimpleProperty.fragment"
+					],
+					"Footer": {
+						"UseBottomPadding": false
+					},
+					"_Type": "Section.Type.FormCell",
+					"_Name": "FormCellSection3"
+				}
+			],
+			"_Name": "FormCellContainer",
+			"_Type": "Control.Type.SectionedTable"
+		}
+	],
+	"_Name": "WHHandlingUnitCreatePage",
+	"_Type": "Page"
+}

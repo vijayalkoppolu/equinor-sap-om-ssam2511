@@ -1,0 +1,121 @@
+{
+  "OnActivityBackPressed": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/CancelCheckOnBackNavAndroid.js",
+  "ActionBar": {
+    "Items": [
+      {
+        "Position": "Left",
+        "SystemItem": "Cancel",
+        "Caption": "$(L,cancel)",
+        "OnPress": "/SAPAssetManager/Actions/Page/CancelPage.action"
+      },
+      {
+        "Position": "Right",
+        "SystemItem": "/SAPAssetManager/Rules/Filter/FilterSystemItem.js",
+        "Text": "/SAPAssetManager/Rules/Filter/FilterText.js",
+        "OnPress": "/SAPAssetManager/Rules/Filter/ApplyFilterAndSave.js"
+      }
+    ]
+  },
+  "Caption": "$(L,filter)",
+  "Result": "/SAPAssetManager/Rules/FL/WorkOrders/ListView/WorkOrdersSearchFilterResults.js",
+  "Controls": [
+    {
+      "Sections": [
+        {
+          "Controls": [
+            {
+              "_Type": "Fragment",
+              "Fragment": "/SAPAssetManager/Pages/Fragments/Filter/MultiSortByFilter.fragment",
+              "Properties": {
+                "Items": [
+                  {
+                    "ReturnValue": "Order",
+                    "DisplayValue": "$(L,fld_work_order)"
+                  },
+                  {
+                    "ReturnValue": "Reservation",
+                    "DisplayValue": "$(L,fld_work_reservation)"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "Caption": "$(L,filter_by)",
+          "Controls": [
+            {
+              "_Name": "FLWorkOrderFilter",
+              "_Type": "Control.Type.FormCell.ListPicker",
+              "Caption": "$(L,fld_work_order)",
+              "AllowMultipleSelection": true,
+              "IsPickerDismissedOnSelection": true,
+              "IsSearchCancelledAfterSelection": true,
+              "Search": {
+                "Enabled": true,
+                "Delay": 500,
+                "MinimumCharacterThreshold": 3,
+                "Placeholder": "$(L,search)",
+                "BarcodeScanner": true
+              },
+              "PickerItems": {
+                                "DisplayValue" : "{Order}",
+                                "ReturnValue" : "{Order}",
+                                "Target":
+                                {
+                                    "EntitySet" : "FldLogsWorkOrders",
+                                    "Service" : "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions" : "$orderby=Order"
+                                }
+                            },
+              "FilterProperty": "Order",
+              "OnValueChange": "/SAPAssetManager/Rules/Filter/RedrawFilterToolbar.js"
+            },
+            {
+              "_Name": "FLReservationFilter",
+              "_Type": "Control.Type.FormCell.ListPicker",
+              "Caption": "$(L,fld_work_reservation)",
+              "AllowMultipleSelection": true,
+              "IsPickerDismissedOnSelection": true,
+              "IsSearchCancelledAfterSelection": true,
+              "Search": {
+                "Enabled": true,
+                "Delay": 500,
+                "MinimumCharacterThreshold": 3,
+                "Placeholder": "$(L,search)",
+                "BarcodeScanner": true
+              },
+                "PickerItems": {
+                                "DisplayValue" : "{Reservation}",
+                                "ReturnValue" : "{Reservation}",
+                                "Target":
+                                {
+                                    "EntitySet" : "FldLogsWorkOrders",
+                                    "Service" : "/SAPAssetManager/Services/AssetManager.service",
+                                    "QueryOptions" : "$orderby=Reservation"
+                                }
+                            },
+              "FilterProperty": "Reservation",
+              "OnValueChange": "/SAPAssetManager/Rules/Filter/RedrawFilterToolbar.js"
+            }
+          ]
+        }
+      ],
+      "_Name": "FormCellContainer",
+      "_Type": "Control.Type.FormCellContainer"
+    }
+  ],
+  "FioriToolbar": {
+    "_Name": "WorkOrdersSearchFilterFioriToolbar",
+    "_Type": "Control.Type.FioriToolbar",
+    "Items": [
+      {
+        "_Type": "Fragment",
+        "Fragment": "/SAPAssetManager/Pages/Fragments/Filter/ResetFilterToolbarItem.fragment"
+      }
+    ]
+  },
+  "_Type": "Page",
+  "_Name": "FLWorkOrdersFilterPage",
+  "OnLoaded": "/SAPAssetManager/Rules/FL/WorkOrders/ListView/FLWorkOrdersSearchFilterOnLoaded.js"
+}

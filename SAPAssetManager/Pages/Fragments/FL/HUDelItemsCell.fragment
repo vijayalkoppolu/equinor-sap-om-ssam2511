@@ -1,0 +1,24 @@
+{
+"_Type": "Control.Type.ObjectCell",
+"AccessoryType": "DisclosureIndicator",
+"PreserveIconStackSpacing": false,
+"Title": "#Property:Material",
+"Subhead": "/SAPAssetManager/Rules/FL/HUDelItems/ListView/HUDelItemsSubhead.js",
+"Footnote": "/SAPAssetManager/Rules/FL/HUDelItems/ListView/HUDelItemsFootnote.js",
+"Description": "/SAPAssetManager/Rules/FL/HUDelItems/ListView/HUDelItemsDescription.js",
+"StatusText": "#Property:FldLogsHUDelItemStatus_Nav/FldContainerItemStatusDesc",
+"SubstatusText": "/SAPAssetManager/Rules/FL/HUDelItems/ListView/HUDelItemsSubstatus.js",
+"OnPress": "/SAPAssetManager/Rules/FL/HUDelItems/Details/HUDelItemDetailsPageNav.js",
+"AccessoryButtonIcon": "sap-icon://write-new",
+"Styles": {
+        "AccessoryButtonIcon": "AccessoryButtonIcon"
+  },
+"AvatarStack": {
+    "Avatars": [{
+        "Image": "$(PLT, sap-icon://grid, sap-icon://grid, '', sap-icon://grid)",
+        "Style": "$(PLT, FLDeliveryIcon, FLDeliveryIconAndroid)"
+    }], 
+    "ImageHasBorder": true,
+    "ImageIsCircular": false
+  }
+}

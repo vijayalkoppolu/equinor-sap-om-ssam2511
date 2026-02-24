@@ -1,0 +1,110 @@
+{
+    "Caption": "$(L, physical_inventory_label)",
+    "Controls": [
+        {
+            "Sections": [
+                {
+                   "_Type": "Section.Type.KeyValue",
+                    "_Name": "PhysicalInventoryDetailsSection",
+                    "Header": {
+                        "Caption": "$(L,item_details)"
+                    },
+                    "KeyAndValues": [{
+                            "_Name": "Product",
+                            "KeyName": "$(L, product)",
+                            "Value": "/SAPAssetManager/Rules/EWM/PhysicalInventory/PhysicalInventoryProduct.js"
+                        },
+                        {
+                            "_Name": "StorageBin",
+                            "KeyName": "$(L, storage_bin)",
+                            "Value": "/SAPAssetManager/Rules/EWM/PhysicalInventory/EWMGetStorageBin.js"
+                        },
+                        {
+                            "_Name": "HandlingUnit",
+                            "KeyName": "$(L, handling_unit)",
+                            "Value": "/SAPAssetManager/Rules/EWM/PhysicalInventory/EWMGetHandlingUnit.js"
+                        },
+                        {
+                            "_Name": "Batch",
+                            "KeyName": "$(L, batch)",
+                            "Value": "$(DV, {Batch},'-')"
+                        },
+                        {
+                            "_Name": "Quantity",
+                            "KeyName": "$(L, quantity)",
+                            "Value": "/SAPAssetManager/Rules/EWM/PhysicalInventory/EWMGetQuantity.js"
+                        },
+                        {
+                            "_Name": "BookQuantity",
+                            "KeyName": "$(L, book_quantity)",
+                            "Value": "$(DV, {BookInventory}, '-')"
+                        },
+                        {
+                            "_Name": "UOM",
+                            "KeyName": "$(L,uom)",
+                            "Value": "$(DV, {UOM},'-')"
+                        },
+                        {
+                            "_Name": "ItemNumber",
+                            "KeyName": "$(L,item_number)",
+                            "Value": "/SAPAssetManager/Rules/EWM/PhysicalInventory/EWMGetItemNumber.js"
+                        }
+                    ],
+                    "DataSubscriptions": ["WarehousePhysicalInventories"]
+                },
+                {
+                    "_Type": "Section.Type.KeyValue",
+                    "_Name": "PhysicalInventoryDetailsHeaderSection",
+                    "Header": {
+                        "Caption": "$(L, header_details)"
+                    },
+                    "KeyAndValues": [{
+                            "_Name": "DocumentNumber",
+                            "KeyName": "$(L,document_number)",
+                            "Value": "$(DV, {WarehousePhysicalInventory_Nav/PIDocumentNo},'-')"
+                        },
+                        {
+                            "_Name": "WarehouseOrderNumber",
+                            "KeyName": "$(L, warehouse_ord_num)",
+                            "Value": "$(DV, {WarehousePhysicalInventory_Nav/WarehouseOrder}, '-')"
+                        },
+                        {
+                            "_Name": "PlannedCountDate",
+                            "KeyName": "$(L, planned_count_date)",
+                            "Value": "/SAPAssetManager/Rules/EWM/PhysicalInventory/EWMPhysicalInventoryPlannedCountDateDisplay.js"
+                        },
+                        {
+                            "_Name": "CountDate",
+                            "KeyName": "$(L, count_date)",
+                            "Value": "/SAPAssetManager/Rules/EWM/PhysicalInventory/EWMPhysicalInventoryItemDateDisplay.js"
+                        },
+                        {
+                            "_Name": "CountStatus",
+                            "KeyName": "$(L, count_status)",
+                            "Value": "/SAPAssetManager/Rules/EWM/PhysicalInventory/GetCountStatus.js"
+                        },
+                        {
+                            "_Name": "ActivationStatus",
+                            "KeyName": "$(L, activation_status)",
+                            "Value": "$(DV, {WarehousePhysicalInventory_Nav/ActivationStatus},'-')"
+                        },
+                        {
+                            "_Name": "PhysicalInventoryProcedure",
+                            "KeyName": "$(L, phys_inv_proc)",
+                            "Value": "$(DV, {PhysInvProcedure},'') - $(DV, {ProcedureDesc},'')"
+                        },
+                        {
+                            "_Name": "PhysicalInventoryReason",
+                            "KeyName": "$(L, phys_inv_reason)",
+                            "Value": "$(DV, {ReasonfPhysInv},'') - $(DV, {ReasonDesc},'')"
+                        }
+                    ],
+                    "DataSubscriptions": ["WarehousePhysicalInventories","WarehousePhysicalInventoryItems","WarehousePhysicalInventoryItemSerials"]
+                }],
+            "_Type": "Control.Type.SectionedTable",
+            "_Name": "SectionedTable"
+        }
+    ],
+    "_Name": "EWMPhysicalInventoryHeaderAndItemPage",
+    "_Type": "Page"
+}

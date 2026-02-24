@@ -1,0 +1,82 @@
+{
+	"Caption": "$(L,physical_inventory_label)",
+	"ActionBar": {
+		"Items": [
+			{
+				"Position": "Right",
+				"Icon": "sap-icon://filter",
+				"Caption": "/SAPAssetManager/Rules/Filter/FilterButtonCaption.js",
+				"OnPress": "/SAPAssetManager/Actions/EWM/PhysicalInventory/PhysicalInvFilterViewNav.action",
+				"_Name": "FilterButton"
+			},
+			"/SAPAssetManager/Pages/Fragments/SyncButton.fragment"
+		]
+	},
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"EmptySection": {
+						"Caption": "$(L,no_physical_inventory)"
+					},
+					"Header": {
+						"Caption": "/SAPAssetManager/Rules/EWM/PhysicalInventory/PhysicalInventoryItemsCountCaption.js",
+						"UseTopPadding": false
+					},
+					"ObjectCell": "/SAPAssetManager/Pages/Fragments/EWM/PhysicalInventoryCell.fragment",
+					"Search": {
+						"Enabled": true,
+						"Delay": 500,
+						"MinimumCharacterThreshold": 3,
+						"Placeholder": "$(L,search)",
+						"BarcodeScanner": true
+					},
+				"Target": {
+                        "EntitySet": "WarehousePhysicalInventoryItems",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "/SAPAssetManager/Rules/EWM/PhysicalInventory/WHPhysicalInvListQuery.js"
+                    },
+					"_Name": "SectionObjectTable",
+					"_Type": "Section.Type.ObjectTable"
+				}
+			],
+			"FilterFeedbackBar": {
+				"_Type": "Control.Type.FilterFeedbackBar",
+				"_Name": "FilterFeedback",
+				"ShowAllFilters": true,
+				"FastFilters": [ 
+					{  
+						"_Name": "PINotCounted",
+						"_Type": "Control.Type.FastFilterItem",
+						"FilterType": "Filter",
+						"CustomQueryGroup": "PIListQuery",
+						"DisplayValue": "/SAPAssetManager/Rules/EWM/PhysicalInventory/ListView/PhyInvNotCountedFilterDisplayValue.js",
+						"ReturnValue": "/SAPAssetManager/Rules/EWM/PhysicalInventory/ListView/GetReturnValueFilterUncounted.js"
+				    },
+					{  
+						"_Name": "PICounted",
+						"_Type": "Control.Type.FastFilterItem",
+						"FilterType": "Filter",
+						"CustomQueryGroup": "PIListQuery",
+						"DisplayValue": "/SAPAssetManager/Rules/EWM/PhysicalInventory/ListView/PhyInvCountedFilterDisplayValue.js",
+						"ReturnValue": "/SAPAssetManager/Rules/EWM/PhysicalInventory/ListView/GetReturnValueFilterCounted.js"
+					}
+				]
+			},
+			"Filters": "/SAPAssetManager/Rules/EWM/PhysicalInventory/GetPhyInvPreSelectedFilter.js",
+			"_Name": "SectionedTable",
+			"_Type": "Control.Type.SectionedTable"
+		}
+	],
+    "FioriToolbar": {
+        "_Name": "UnassignToolbar",
+        "_Type": "Control.Type.FioriToolbar",
+        "Items": [
+           "/SAPAssetManager/Pages/Fragments/EWM/UnassignToolbarItem.fragment"
+        ]
+    },
+	"_Name": "WHPhysicalInventoryListPage",
+	"_Type": "Page",
+	"OnLoaded": "/SAPAssetManager/Rules/Filter/ListPageWithFilterOnLoaded.js",
+	"OnReturning": "/SAPAssetManager/Rules/EWM/WarehouseOrder/WarehouseOrderListOnReturning.js"
+}

@@ -1,0 +1,5 @@
+{
+    "_Type": "Action.Type.Navigation",
+    "PageToOpen": "/SAPAssetManager/Pages/FieldService/FSMS4Map.page",
+    "PageMetadata": "/SAPAssetManager/Rules/ServiceOrders/Map/S4MapPageMetadata.js"
+}

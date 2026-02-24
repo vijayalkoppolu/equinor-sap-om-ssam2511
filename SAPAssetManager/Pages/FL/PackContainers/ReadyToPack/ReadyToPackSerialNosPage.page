@@ -1,0 +1,50 @@
+{
+    "Caption": "$(L,fld_serial_numbers)",
+    "ActionBar": {
+        "Items": [
+            "/SAPAssetManager/Pages/Fragments/SyncButton.fragment"
+        ]
+    },
+    "Controls": [
+        {
+            "Sections": [
+                {
+                    "Header": {
+                        "Caption": "/SAPAssetManager/Rules/FL/ReadyToPack/ReadyToPackSerialNosHeaderCaption.js",
+                        "UseTopPadding": false
+                    },
+                    "EmptySection": {
+                        "Caption": "$(L,fld_no_serial_numbers)"
+                    },
+                    "Selection": {
+                        "LongPressToEnable": "Multiple",
+                        "ExitOnLastDeselect": true,
+                        "Mode": "None"
+                    },
+                    "ObjectCell": "/SAPAssetManager/Pages/Fragments/FL/ReadyToPackSerialNos.fragment",
+                    "Search": {
+                        "Enabled": true,
+                        "Delay": 500,
+                        "MinimumCharacterThreshold": 3,
+                        "Placeholder": "$(L,search)",
+                        "BarcodeScanner": true
+                    },
+                    "Target": {
+                        "EntitySet": "{{#Property:@odata.readLink}}/FldLogsPackCtnRdyPckSrNo_Nav",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": ""
+                    },
+                    "_Name": "SectionObjectTable",
+                    "_Type": "Section.Type.ObjectTable"
+                }
+            ],
+            "_Name": "SectionedTable",
+            "_Type": "Control.Type.SectionedTable"
+        }
+    ],
+    "DataSubscriptions": [
+        "FldLogsPackCtnRdyPckSrNos"
+    ],
+    "_Type": "Page",
+    "_Name": "ReadyToPackSerialNosPage"
+}

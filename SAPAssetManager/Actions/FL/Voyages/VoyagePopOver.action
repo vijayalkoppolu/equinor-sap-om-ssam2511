@@ -1,0 +1,14 @@
+{ 
+    "_Type": "Action.Type.PopoverMenu",
+    "PopoverItems": [
+        {
+            "Title": "$(L,download_voyage)",
+            "OnPress": "/SAPAssetManager/Rules/FL/OverviewPage/FLVoyageObjectCardDownloadOnlyAction.js"
+        },
+        {
+            "Title": "$(L,set_arrived)",
+            "OnPress": "/SAPAssetManager/Rules/FL/OverviewPage/FLVoyageObjectCardAction.js",
+            "Visible": "/SAPAssetManager/Rules/FL/Voyages/VoyageArrivedVisible.js"
+        }
+    ]
+}

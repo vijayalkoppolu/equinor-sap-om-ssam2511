@@ -1,0 +1,35 @@
+{
+	"_Type": "Action.Type.ODataService.UpdateEntity",
+	"Target": {
+	"EntitySet": "FldLogsWoResvItems",
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "{@odata.readLink}"
+	},
+	 "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/UpdateEntityFailureMessage.action",
+	"Properties": {
+        "EntryQty": "/SAPAssetManager/Rules/FL/WorkOrders/ReservationItems/EntryQty.js",
+		"WithdrawnQty" : "/SAPAssetManager/Rules/FL/WorkOrders/ReservationItems/WithdrwanQtyAdjustValue.js",
+		"RemoteStorageLocation" : "#Control:StorageLocLstPkr/#SelectedValue",
+        "SerialNumber" : "#Control:SerialNumber/#Value",
+        "Batch" : "#Control:BatchLstPkr/#SelectedValue",
+        "ValuationType" : "#Control:ValTypeLstPkr/#SelectedValue",
+		"Reservation" : "/SAPAssetManager/Rules/FL/WorkOrders/ReservationItems/ReturnStockReservationValue.js",
+        "Status": "/SAPAssetManager/Rules/FL/WorkOrders/ReservationItems/ResvItemStatusValue.js",
+        "AcctAssgmtCat": "{AcctAssgmtCat}",
+        "ItemCategory": "{ItemCategory}",
+        "Product": "{Product}",
+        "Order": "{Order}"
+        
+
+	},
+	"Headers": {
+        "OfflineOData.TransactionID": "{{#Property:Order}}{{#Property:Product}}{{#Property:Operation}}{{#Property:Plant}}"        
+    },
+     "RequestOptions": {
+        "UploadCategory": "/SAPAssetManager/Globals/FL/OrderResvItemReturnUploadCategory.global",
+        "UpdateMode": "Replace"
+    },
+    "ValidationRule": "/SAPAssetManager/Rules/FL/WorkOrders/ReservationItems/ValidateResvItemReturn.js",
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText" : "  " 
+}

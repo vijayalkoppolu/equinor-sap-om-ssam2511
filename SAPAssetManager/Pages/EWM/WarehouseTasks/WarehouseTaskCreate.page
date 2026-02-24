@@ -1,0 +1,114 @@
+{
+	"OnActivityBackPressed": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/CancelCheckOnBackNavAndroid.js",
+	"ActionBar": {
+		"Items": [
+			"/SAPAssetManager/Pages/Fragments/CancelButton.fragment",
+			{
+                "_Type": "Fragment",
+				"Fragment": "/SAPAssetManager/Pages/Fragments/DoneButton.fragment",
+				"Properties": {
+					"OnPress": "/SAPAssetManager/Rules/EWM/WarehouseTask/OnPressWarehouseTaskCreateDoneButton.js"
+				}
+            }
+		]
+	},
+    "Caption": "$(L, create_whtask)",
+	"Controls": [
+        {
+            "Sections":
+            [{
+                "_Type": "Section.Type.FormCell",
+                "_Name": "FormCellSection1",
+                "Header": {
+                    "Caption": "$(L, required_fields)",
+                    "UseTopPadding": false
+                },
+                "Separators": {
+                    "HeaderSeparator": false
+                },
+                "Controls":
+                [{
+					"Caption": "$(L,item_number)",
+					"IsEditable": false,
+					"KeyboardType": "Default",
+					"Value": "$(DV, {ItemNumber}, '-')",
+					"_Name": "ItemNumSimple",
+					"_Type": "Control.Type.FormCell.SimpleProperty"
+				},
+                {
+					"Caption": "$(L,product)",
+					"IsEditable": false,
+					"Value": "$(DV, {Product}, '-')/$(DV, {ProductDescription}, '-')",
+					"_Name": "ProductSimple",
+					"_Type": "Control.Type.FormCell.SimpleProperty"
+				}]
+            },
+            {
+                "_Type": "Section.Type.FormCell",
+                "_Name": "FormCellSection2",
+                "Controls":
+                [{
+                    "_Name": "StorageBinPicker",
+                    "_Type": "Control.Type.FormCell.ListPicker",
+                    "Caption": "$(L, storage_bin)",
+                    "AllowEmptySelection": true,
+                    "AllowMultipleSelection": false,
+                    "IsPickerDismissedOnSelection": true,
+                    "AllowDefaultValueIfOneItem": false,
+                    "IsSearchCancelledAfterSelection": true,
+                    "Search": {
+                        "Enabled": true,
+                        "Delay": 500,
+                        "MinimumCharacterThreshold": 2,
+                        "Placeholder": "$(L,search)"
+                    },
+                    "IsEditable": true,
+                    "IsVisible": true,
+                    "PickerItems": {
+                        "DisplayValue": "{StorageBin}",
+                        "ReturnValue": "{StorageBin}",
+                        "Target": {
+                            "EntitySet": "WarehouseStorageBins",
+                            "Service": "/SAPAssetManager/Services/AssetManager.service",
+                            "QueryOptions": "$orderby=StorageBin"
+                        }
+                    },
+                    "PickerPrompt": "$(L,select_single_item)"
+                },
+                {
+					"Caption": "$(L,target_quantity) *",
+					"IsEditable": true,
+					"Value": "/SAPAssetManager/Rules/EWM/Inbound/Items/WHInboundDeliveryCountUnusedQuantity.js",
+					"_Name": "WhQuantitySimple",
+					"_Type": "Control.Type.FormCell.SimpleProperty",
+					"KeyboardType": "Number"
+				},
+                {
+					"Caption": "$(L,uom)",
+					"IsEditable": false,
+					"Value": "{UnitofMeasure}",
+					"_Name": "UOMSimple",
+					"_Type": "Control.Type.FormCell.SimpleProperty"
+				}]
+            },
+            {
+                "_Type": "Section.Type.FormCell",
+                "_Name": "FormCellSection3",
+                "Controls":
+                [{
+					"Caption": "$(L, confirm_after_creation)",
+					"Value": false,
+					"_Name": "ConfirmTaskSwitch",
+					"_Type": "Control.Type.FormCell.Switch",
+                    "IsEditable": "/SAPAssetManager/Rules/EWM/WarehouseTask/WarehouseTaskCreateConfirmSwitchEditable.js",
+                    "HelperText": "/SAPAssetManager/Rules/EWM/WarehouseTask/WarehouseTaskCreateConfirmSwitchHelperText.js"
+				}]
+            }
+        ],
+        "_Name": "FormCellContainer",
+        "_Type": "Control.Type.SectionedTable"
+    }],
+	"OnLoaded": "/SAPAssetManager/Rules/Common/SaveInitialValuesOnLoaded.js",
+	"_Name": "WHTaskCreatePage",
+	"_Type": "Page"
+}

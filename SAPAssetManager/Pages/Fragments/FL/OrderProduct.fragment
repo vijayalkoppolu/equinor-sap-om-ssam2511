@@ -1,0 +1,27 @@
+
+	{
+		"AccessoryType": "/SAPAssetManager/Rules/FL/WorkOrders/Products/ListView/ProductsAccessoryType.js",
+		"OnPress": "/SAPAssetManager/Rules/FL/WorkOrders/Products/Details/FLProductDetailsPageNav.js",
+		"PreserveIconStackSpacing": false,
+		"StatusText": "/SAPAssetManager/Rules/FL/WorkOrders/ListView/FLWorkOrderProductStatusText.js",
+		"Subhead":  "{{#Property:Operation}} - {{#Property:Plant}} ",
+		"Footnote": "/SAPAssetManager/Rules/FL/WorkOrders/ListView/FormatFLOrderProductBatch.js",
+		"SubstatusText": "/SAPAssetManager/Rules/FL/WorkOrders/Products/ListView/FLProductsStatusText.js",
+		"Description": "/SAPAssetManager/Rules/FL/WorkOrders/ListView/GetManufacturingPart.js",
+		"Title": "{Product}",
+		"Selected": "/SAPAssetManager/Rules/FL/Common/IsSelected.js",
+		"AccessoryButtonIcon": "/SAPAssetManager/Rules/FL/WorkOrders/Products/ListView/IsProductReturnButtonEnabled.js",
+		"Styles": {
+        			"AccessoryButtonIcon": "AccessoryButtonIcon"
+  					},
+		"AvatarStack": {
+		"Avatars": [{
+			"Image": "$(PLT, sap-icon://product, sap-icon://product, '', sap-icon://product)",
+			"Style": "$(PLT, FLProductIcon, FLProductIconAndroid)"
+		}], 
+		"ImageHasBorder": true,
+		"ImageIsCircular": false
+		},
+		"OnAccessoryButtonPress": "/SAPAssetManager/Rules/FL/WorkOrders/Products/ListView/OnFLOProductButtonPress.js",
+		"Tags": "/SAPAssetManager/Rules/FL/WorkOrders/Products/WorkOrderTags.js"
+		}

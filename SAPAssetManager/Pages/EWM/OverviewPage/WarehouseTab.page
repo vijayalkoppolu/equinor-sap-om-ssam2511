@@ -1,0 +1,120 @@
+{
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"Header": {
+						"Caption": "$(L,ewm_warehouse_orders)",
+						"UseTopPadding": true
+					},
+					"EmptySection": {
+						"Caption": "$(L,ewm_no_warehouse_orders)"
+					},
+				    "Search": {
+                        "Enabled": true,
+                        "Delay": 500,
+                        "MinimumCharacterThreshold": 3,
+                        "Placeholder": "$(L,search)",
+                        "BarcodeScanner": true
+                    },
+					"MaxItemCount": 2,
+					"ObjectCell": "/SAPAssetManager/Pages/Fragments/EWM/WarehouseOrderCell.fragment",
+					"Target": {
+						"EntitySet": "WarehouseOrders",
+						"QueryOptions":"/SAPAssetManager/Rules/EWM/WarehouseOrder/WarehouseOrderListQueryOptions.js",
+						"Service": "/SAPAssetManager/Services/AssetManager.service"
+					},
+					"Footer": {
+						"Caption": "$(L,see_all)",
+						"AccessoryType": "DisclosureIndicator",
+						"AttributeLabel": "/SAPAssetManager/Rules/EWM/OverviewPage/OverviewAttributeLabel.js",
+						"FooterStyle": "Attribute",
+						"OnPress": "/SAPAssetManager/Rules/EWM/WarehouseOrder/WOListDetailsQuery.js",
+						"Visible": true
+					},
+					"DataSubscriptions": [
+                        "WarehouseOrders"
+                    ],
+					"_Name": "EWMWarehouseOrderSection",
+                    "_Type": "Section.Type.ObjectTable"
+				},
+				{
+					"Header": {
+						"Caption": "$(L,ewm_warehouse_tasks)",
+						"UseTopPadding": true
+					},
+					"EmptySection": {
+						"Caption": "$(L,ewm_no_tasks)"
+					},
+					"Search": {
+                        "Enabled": true,
+                        "Delay": 500,
+                        "MinimumCharacterThreshold": 3,
+                        "Placeholder": "$(L,search)",
+                        "BarcodeScanner": true
+                    },
+					"MaxItemCount": 2,
+					"ObjectCell": "/SAPAssetManager/Pages/Fragments/EWM/WarehouseTaskCell.fragment",
+					"Target": {
+						"EntitySet": "WarehouseTasks",
+						"QueryOptions":"/SAPAssetManager/Rules/EWM/WarehouseTask/ListView/WarehouseTaskListQuery.js",
+						"Service": "/SAPAssetManager/Services/AssetManager.service"
+					},
+					"Footer": {
+						"Caption": "$(L,see_all)",
+						"AccessoryType": "DisclosureIndicator",
+						"AttributeLabel": "/SAPAssetManager/Rules/EWM/OverviewPage/OverviewAttributeLabel.js",
+						"FooterStyle": "Attribute",
+						"OnPress": "/SAPAssetManager/Rules/EWM/WarehouseTask/WTListDetailsQuery.js",
+						"Visible": true
+					},
+					"DataSubscriptions": [
+                        "WarehouseTasks"
+                    ],
+					"_Name": "EWMWarehouseTaskSection",
+                    "_Type": "Section.Type.ObjectTable"
+				},
+				{
+					"Header": {
+						"Caption": "$(L,physical_inventory_label)",
+						"UseTopPadding": true
+					},
+					"EmptySection": {
+						"Caption": "$(L,no_physical_inventory)"
+					},
+					"Search": {
+                        "Enabled": true,
+                        "Delay": 500,
+                        "MinimumCharacterThreshold": 3,
+                        "Placeholder": "$(L,search)",
+                        "BarcodeScanner": true
+                    },
+					"MaxItemCount": 2,
+					"ObjectCell": "/SAPAssetManager/Pages/Fragments/EWM/PhysicalInventoryCell.fragment",
+					"Target": {
+                        "EntitySet": "WarehousePhysicalInventoryItems",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "/SAPAssetManager/Rules/EWM/PhysicalInventory/WHPhysicalInvListQuery.js"
+                            },
+					"Footer": {
+						"Caption": "$(L,see_all)",
+						"AccessoryType": "DisclosureIndicator",
+						"AttributeLabel": "/SAPAssetManager/Rules/EWM/OverviewPage/OverviewAttributeLabel.js",
+						"OnPress": "/SAPAssetManager/Rules/EWM/PhysicalInventory/WHPhyInvListDetailsQuery.js",
+						"FooterStyle": "Attribute",
+						"Visible": true
+					},
+					"DataSubscriptions": [
+						"WarehousePhysicalInventoryItems"
+					],
+					"_Name": "EWMWarehousePhysicalInventorySection",
+          			"_Type": "Section.Type.ObjectTable"
+				}
+			],
+			"_Name": "SectionedTable",
+			"_Type": "Control.Type.SectionedTable"
+		}
+	],
+	"_Name": "WarehouseTab",
+	"_Type": "Page"
+}

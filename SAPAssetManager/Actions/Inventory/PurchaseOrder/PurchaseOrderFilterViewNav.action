@@ -1,0 +1,9 @@
+{
+    "_Type" : "Action.Type.Filter",
+    "PageToOpen" : "/SAPAssetManager/Pages/Inventory/PurchaseOrder/PurchaseOrderSearchFilter.page",
+    "Filterable" : "#Page:PurchaseOrderItemsListPage/#Control:SectionedTable",
+    "ActionResult": {
+        "_Name": "filterResult"
+    }
+}
+

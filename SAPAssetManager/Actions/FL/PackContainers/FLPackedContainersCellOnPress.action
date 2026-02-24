@@ -1,0 +1,5 @@
+{
+    "_Type": "Action.Type.Navigation",
+    "PageToOpen": "/SAPAssetManager/Pages/FL/PackContainers/PackedContainers/FLPackedContainersDetails.page",
+    "PageMetadata": "/SAPAssetManager/Rules/FL/PackedContainers/FLPackedContainersDetailsPageMetadata.js"
+}

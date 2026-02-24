@@ -1,0 +1,13 @@
+{
+    "Title": "/SAPAssetManager/Rules/SideDrawer/SideDrawerWorkPermitsCount.js",
+    "OnPress": "/SAPAssetManager/Rules/WCM/WorkPermitsListViewNav.js",
+    "_Name": "WorkPermits",
+    "ResetIfPressedWhenActive": true,
+    "Image": "sap-icon://business-card",
+        "Styles": {
+        "SectionItemInactive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+        "SectionItemActive": "$(PLT,SectionItemActive,SideDrawerItemActive)",
+        "SectionItemOnPress": "$(PLT,SectionItemActive,SideDrawerItemActive)"
+    },
+    "Visible": "/SAPAssetManager/Rules/UserFeatures/IsWCMWorkPermitEnabled.js"
+}

@@ -1,0 +1,24 @@
+{
+    "EmptySection": {
+        "Caption": "$(L,no_inbound_delivery_available)"
+    },
+    "Header": {
+        "Caption": "/SAPAssetManager/Rules/EWM/InboundDelivery/InboundDeliveryCountCaption.js",
+        "UseTopPadding": false
+    },
+    "ObjectCell": "/SAPAssetManager/Pages/Fragments/EWM/InboundDeliveryCell.fragment",
+    "Search": {
+        "Enabled": true,
+        "Delay": 500,
+        "MinimumCharacterThreshold": 3,
+        "Placeholder": "$(L,search)",
+        "BarcodeScanner": true
+    },
+    "Target": {
+        "EntitySet": "WarehouseInboundDeliveries",
+        "Service": "/SAPAssetManager/Services/AssetManager.service",
+        "QueryOptions": "/SAPAssetManager/Rules/EWM/InboundDelivery/InboundDeliveryListQuery.js"
+    },
+    "_Name": "SectionObjectTable",
+    "_Type": "Section.Type.ObjectTable"
+}

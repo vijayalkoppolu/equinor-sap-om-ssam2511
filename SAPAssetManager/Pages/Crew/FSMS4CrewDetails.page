@@ -1,0 +1,72 @@
+{
+    "_Name": "FSMS4CrewDetailsPage",
+	"_Type": "Page",
+	"Caption": "{Name}",
+	"Controls": [{
+		"_Type": "Control.Type.SectionedTable",
+		"_Name": "SectionedTable",
+		"Sections": [
+			{
+				"_Type": "Section.Type.ObjectHeader",
+				"_Name": "CrewHeaderInfo",
+				"ObjectHeader": {
+					"HeadlineText": "{Description}",
+					"Tags": "/SAPAssetManager/Rules/Crew/FSM/FSMCrewTags.js",
+					"AvatarStack": {
+                                "Avatars": [{
+                                    "Image": "sap-icon://company-view",
+                                    "Style": "$(PLT, Thumbnail, ThumbnailAndroid)"
+                                }],
+                            "ImageHasBorder": true,
+                            "ImageIsCircular": false
+                    },
+					"StatusText": "/SAPAssetManager/Rules/Crew/FSM/FSMCrewStatusText.js",
+					"Styles": {
+						"StatusText": "/SAPAssetManager/Rules/Crew/FSM/FSMCrewStatusTextStyles.js"
+					}
+				}
+			},
+			{
+				"_Type": "Section.Type.Calendar",
+				"_Name": "CalendarSection",
+				"Header": {
+					"Caption": "$(L,crew_schedule)",
+					"UseTopPadding": true
+				},
+				"CalendarType": "Week",
+				"StartDayOfWeek": "Sun",
+				"SelectedDate": "/SAPAssetManager/Rules/Confirmations/BlankFinal/GetCurrentDate.js",
+				"OnSelectedDateChange": "/SAPAssetManager/Rules/Crew/FSM/FSMCrewSelectedDateChanged.js"
+			},
+			{
+				"_Type": "Section.Type.ContactCell",
+				"_Name": "CrewMembers",
+				"Header": {
+					"UseTopPadding": true,
+					"Items": [
+						{
+							"_Name": "CrewMembersSectionLabel",
+							"_Type": "SectionHeaderItem.Type.Label",
+							"Position": "Left",
+							"Title": "/SAPAssetManager/Rules/Crew/FSM/FSMCrewSelectedDateCaption.js"
+						}
+					]
+				},
+				"EmptySection": {
+					"Caption": "$(L,no_crew_members)"
+				},
+				"ContactCell": {
+					"Headline": "/SAPAssetManager/Rules/Crew/FSM/S4/FSMS4CrewMemberName.js",
+					"Subheadline": "/SAPAssetManager/Rules/Crew/FSM/FSMCrewMemberTechnicianType.js",
+					"ActivityItems": "/SAPAssetManager/Rules/Crew/FSM/S4/FSMS4CrewMemberActivityItems.js",
+					"OnPress": "/SAPAssetManager/Actions/Crew/FSMS4CrewMemberDetailsNav.action"
+				},
+				"Target": {
+					"EntitySet": "{@odata.readLink}/CrewListItems",
+					"Service": "/SAPAssetManager/Services/AssetManager.service",
+					"QueryOptions": "/SAPAssetManager/Rules/Crew/FSM/S4/FSMS4CrewMembersQueryOptions.js"
+				}
+			}
+		]
+	}]
+}

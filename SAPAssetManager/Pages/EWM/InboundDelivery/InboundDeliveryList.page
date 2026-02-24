@@ -1,0 +1,59 @@
+{
+  "_Type": "Page",
+  "_Name": "InboundDeliveryList",
+  "Caption": "$(L,inbound_delivery_list)",
+  "OnLoaded": "/SAPAssetManager/Rules/Filter/ListPageWithFilterOnLoaded.js",
+  "OnReturning": "/SAPAssetManager/Rules/EWM/InboundDelivery/InboundDeliveryListOnReturning.js",
+  "ActionBar": {
+  "Items": [
+    {
+      "_Type": "Fragment",
+      "Fragment": "/SAPAssetManager/Pages/Fragments/FilterButton.fragment",
+      "Properties": {
+        "OnPress": "/SAPAssetManager/Actions/EWM/InboundDelivery/InboundDeliveryFilterViewNav.action"
+      }
+    },
+    {
+      "_Type": "Fragment",
+      "Fragment": "/SAPAssetManager/Pages/Fragments/SyncButton.fragment"
+    }
+  ]
+  },
+  "Controls": [
+    {
+      "_Type": "Control.Type.SectionedTable",
+      "_Name": "SectionedTable",
+      "FilterFeedbackBar": {
+        "_Type": "Control.Type.FilterFeedbackBar",
+        "_Name": "FilterFeedback",
+        "ShowAllFilters": true
+      },
+      "Sections": [
+        {
+          "_Type": "Section.Type.ObjectTable",
+          "_Name": "SectionObjectTable",
+          "EmptySection": {
+            "Caption": "$(L,no_inbound_delivery_available)"
+          },
+          "Header": {
+            "Caption": "/SAPAssetManager/Rules/EWM/InboundDelivery/InboundDeliveryCountCaption.js",
+            "UseTopPadding": false
+          },
+          "ObjectCell": "/SAPAssetManager/Pages/Fragments/EWM/InboundDeliveryCell.fragment",
+          "Search": {
+            "Enabled": true,
+            "Delay": 500,
+            "MinimumCharacterThreshold": 3,
+            "Placeholder": "$(L,search)",
+            "BarcodeScanner": true
+          },
+          "Target": {
+            "EntitySet": "WarehouseInboundDeliveries",
+            "Service": "/SAPAssetManager/Services/AssetManager.service",
+            "QueryOptions": "/SAPAssetManager/Rules/EWM/InboundDelivery/InboundDeliveryListQuery.js"
+          }
+        }
+      ]
+    }
+  ]
+}

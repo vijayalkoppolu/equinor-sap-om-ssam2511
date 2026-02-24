@@ -1,0 +1,72 @@
+
+{
+	"Caption": "QR Code",
+    "OnLoaded": "/SAPAssetManager/Rules/ConfirmationScenarios/GenerateQRCodeOnLoaded.js",
+    "ActionBar": {
+        "Items": [
+			{
+				"Position": "Left",
+				"SystemItem": "$(PLT,'','Cancel','','Cancel')",
+				"Text": "$(L,close)",
+				"Caption": "$(L,close)",
+				"OnPress": "/SAPAssetManager/Rules/ConfirmationScenarios/CloseGenerateQRCodePage.js"
+			},
+			{
+				"Position": "Right",
+				"Text": "$(L,regenerate_qr_code)",
+				"Caption": "$(L,regenerate_qr_code)",
+				"OnPress": "/SAPAssetManager/Rules/ConfirmationScenarios/GenerateQRCodeAndRefreshWrapper.js"
+			}
+		]
+    },
+	"Controls": [
+		{
+			"Sections": [
+			{
+				"_Type": "Section.Type.FormCell",
+				"Controls": [
+				{
+					"Caption": "$(L,note)",
+					"IsEditable": true,
+					"IsVisible": false,
+					"PlaceHolder": "$(L,note)",
+					"Value": "",
+					"_Name": "LongText",
+					"IsAutoResizing": true,
+					"HelperText": "$(L,comment_helper_text)",
+					"OnValueChange": "/SAPAssetManager/Rules/ConfirmationScenarios/GenerateQRCodeCommentOnChange.js",
+					"_Type": "Control.Type.FormCell.Note"
+				}
+				]
+			},
+			{
+				"_Name": "SectionImage",
+				"_Type": "Section.Type.Image",
+				"Image": "/SAPAssetManager/Rules/ConfirmationScenarios/GetQRCodeImage.js",
+				"Caption": "QR Code",
+				"Visible": true,
+				"ContentMode": "ScaleToFill",
+				"Alignment": "center",
+				"Width": "/SAPAssetManager/Rules/ConfirmationScenarios/DetermineQRCodeHeightWidth.js",
+				"Height": "/SAPAssetManager/Rules/ConfirmationScenarios/DetermineQRCodeHeightWidth.js"
+			},
+			{
+				"_Type": "Section.Type.FormCell",
+				"Controls": [
+					{
+						"Text": "",
+						"_Name": "CountDownMessage",
+						"Style": "CooperationCenteredBlack",
+						"TextWrap": true,
+						"_Type": "Control.Type.FormCell.Label"
+					}
+				]
+			}
+            ],
+			"_Name": "SectionedTable",
+			"_Type": "Control.Type.SectionedTable"
+		}
+	],
+	"_Name": "GenerateQRCode",
+	"_Type": "Page"
+}

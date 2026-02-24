@@ -1,0 +1,36 @@
+{
+	"_Type": "Action.Type.ODataService.UpdateEntity",
+	"Target": {
+	"EntitySet": "FldLogsInitRetProducts",
+	"Service": "/SAPAssetManager/Services/AssetManager.service",
+        "ReadLink": "{@odata.readLink}"
+	},
+	 "OnFailure": "/SAPAssetManager/Actions/CreateUpdateDelete/UpdateEntityFailureMessage.action",
+	"Properties": {
+		
+
+        "Product" : "{Product}" ,
+       "FldLogsRemotePlant" : "{FldLogsRemotePlant}" ,
+       "ReferenceDocumentItem" : "{ReferenceDocumentItem}",
+       "FldLogsReferenceDocumentNumber" : "{FldLogsReferenceDocumentNumber}", 
+       "FlogMaintenanceOrder" : "{FlogMaintenanceOrder}", 
+       "RemoteStorageLocation" : "{RemoteStorageLocation}",
+       "FldLogsRecommendedAction" : "#Control:RecommActionLstPkr/#SelectedValue",
+       "SupplyingStorageLocation" : "#Control:DestStoreLocLstPkr/#SelectedValue",
+       "FieldLogisticsTransferPlant" : "#Control:DestPlantLstPkr/#SelectedValue",
+       "FldLogsReturnComment" : "#Control:Comments/#Value",
+       "LoadingQtyInOrderUnit" : "#Control:LoadingQuantity/#Value",
+       "FldLogsVoyageDestStage" : "#Control:ReceivingPointListPkr/#SelectedValue"
+	},
+	"Headers": {
+        "OfflineOData.TransactionID": "{{#Property:Product}}{{#Property:FldLogsReferenceDocumentNumber}}{{#Property:FldLogsRemotePlant}}{{#Property:RemoteStorageLocation}}{{#Property:FlogMaintenanceOrder}}{{#Property:ReferenceDocumentItem}}"        
+    },
+     "RequestOptions": {
+         "UpdateMode": "Replace",
+         "UnmodifiableRequest": true
+    },
+	"OnSuccess": "/SAPAssetManager/Actions/FL/Common/UpdateEntitySuccessMessage.action",
+    "ValidationRule": "/SAPAssetManager/Rules/FL/ReturnsByProduct/ValidatePickQty.js",
+    "ShowActivityIndicator": true,
+    "ActivityIndicatorText" : "  " 
+}

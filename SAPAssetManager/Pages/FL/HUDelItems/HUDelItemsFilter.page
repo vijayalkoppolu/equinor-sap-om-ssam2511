@@ -1,0 +1,142 @@
+{
+    "OnActivityBackPressed": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/CancelCheckOnBackNavAndroid.js",
+    "ActionBar": {
+        "Items": [
+            {
+                "Position": "Left",
+                "SystemItem": "Cancel",
+                "Caption": "$(L,cancel)",
+                "OnPress": "/SAPAssetManager/Actions/Page/CancelPage.action"
+            },
+            {
+                "Position": "Right",
+                "SystemItem": "/SAPAssetManager/Rules/Filter/FilterSystemItem.js",
+                "Text": "/SAPAssetManager/Rules/Filter/FilterText.js",
+                "OnPress": "/SAPAssetManager/Rules/Filter/ApplyFilterAndSave.js"
+            }
+        ]
+    },
+    "Caption":"$(L,filter)",
+    "Result": "/SAPAssetManager/Rules/FL/HUDelItems/ListView/HUDelItemsSearchFilterResults.js",
+    "Controls":
+    [{
+        "Sections":
+        [
+            {
+                "Controls": [{
+                    "_Type": "Fragment",
+                    "Fragment": "/SAPAssetManager/Pages/Fragments/Filter/MultiSortByFilter.fragment",
+                    "Properties": {
+                        "Items": [
+                            {
+                                "ReturnValue":"Material",
+                                "DisplayValue":"$(L,material)"
+                            },
+                            {
+                                "ReturnValue":"ReferenceDocNumber",
+                                "DisplayValue":"$(L,reference_doc_number)"
+                            },
+                            {
+                                "ReturnValue":"HandlingUnitID",
+                                "DisplayValue":"$(L,hudelitem_id)"
+                            },
+                            {
+                                "ReturnValue":"ShippingPoint",
+                                "DisplayValue":"$(L,fl_shipping_point)"
+                            }
+                        ]
+                    }
+                }]
+            },
+            {
+                "Caption": "$(L,filter_by)",
+                "Controls":
+                [{
+                    "_Name": "VoyageNumberFilter",
+                    "_Type": "Control.Type.FormCell.ListPicker",
+                    "Caption": "$(L,fl_voyage_number)",
+                    "AllowMultipleSelection": true,
+                    "IsPickerDismissedOnSelection": true,
+                    "IsSearchCancelledAfterSelection": true,
+                    "Search": {
+                        "Enabled": true,
+                        "Delay": 500,
+                        "MinimumCharacterThreshold": 3,
+                        "Placeholder": "$(L,search)",
+                        "BarcodeScanner": true
+                    },
+                    "PickerItems": "/SAPAssetManager/Rules/FL/Voyages/VoyageNumberPickerItems.js",
+                    "FilterProperty": "VoyageNumber",
+                    "OnValueChange": "/SAPAssetManager/Rules/Filter/RedrawFilterToolbar.js"
+                },
+                {
+                    "_Name": "MaterialFilter",
+                    "_Type": "Control.Type.FormCell.ListPicker",
+                    "Caption": "$(L,material)",
+                    "IsPickerDismissedOnSelection": true,
+                    "IsSearchCancelledAfterSelection": true,
+                    "Search": {
+                        "Enabled": true,
+                        "Delay": 500,
+                        "MinimumCharacterThreshold": 3,
+                        "Placeholder": "$(L,search)",
+                        "BarcodeScanner": true
+                    },
+                    "PickerItems": "/SAPAssetManager/Rules/FL/HUDelItems/ListView/MaterialIDPickerItems.js",
+                    "FilterProperty": "Material",
+                    "OnValueChange": "/SAPAssetManager/Rules/Filter/RedrawFilterToolbar.js"
+                },
+                {
+                    "_Name": "HandlingUnitIDFilter",
+                    "_Type": "Control.Type.FormCell.ListPicker",
+                    "Caption": "$(L,hudelitem_id)",
+                    "IsPickerDismissedOnSelection": true,
+                    "IsSearchCancelledAfterSelection": true,
+                    "Search": {
+                        "Enabled": true,
+                        "Delay": 500,
+                        "MinimumCharacterThreshold": 3,
+                        "Placeholder": "$(L,search)",
+                        "BarcodeScanner": true
+                    },
+                    "PickerItems": "/SAPAssetManager/Rules/FL/HUDelItems/ListView/HandlingUnitIDPickerItems.js",
+                    "FilterProperty": "HandlingUnitID",
+                    "OnValueChange": "/SAPAssetManager/Rules/Filter/RedrawFilterToolbar.js"
+                },
+                        {
+                    "_Name": "ReferenceDocNumberFilter",
+                    "_Type": "Control.Type.FormCell.ListPicker",
+                    "Caption": "$(L,reference_doc_number)",
+                    "IsPickerDismissedOnSelection": true,
+                    "IsSearchCancelledAfterSelection": true,
+                    "Search": {
+                        "Enabled": true,
+                        "Delay": 500,
+                        "MinimumCharacterThreshold": 3,
+                        "Placeholder": "$(L,search)",
+                        "BarcodeScanner": true
+                    },
+                    "PickerItems": "/SAPAssetManager/Rules/FL/HUDelItems/ListView/ReferenceDocNumberPickerItems.js",
+                    "FilterProperty": "ReferenceDocNumber",
+                    "OnValueChange": "/SAPAssetManager/Rules/Filter/RedrawFilterToolbar.js"
+                }
+                ]
+            }
+        ],
+        "_Name":"FormCellContainer",
+        "_Type":"Control.Type.FormCellContainer"
+    }],
+    "FioriToolbar": {
+        "_Name": "ContainersSearchFilterFioriToolbar",
+        "_Type": "Control.Type.FioriToolbar",
+        "Items": [
+            {
+				"_Type": "Fragment",
+                "Fragment": "/SAPAssetManager/Pages/Fragments/Filter/ResetFilterToolbarItem.fragment"
+			}
+        ]
+    },
+    "_Type":"Page",
+    "_Name":"HUDelItemsFilterPage",
+    "OnLoaded": "/SAPAssetManager/Rules/FL/HUDelItems/ListView/HUDelItemsSearchFilterOnLoaded.js"
+}

@@ -1,0 +1,23 @@
+{
+"_Type": "Control.Type.ObjectCell",
+"AccessoryType": "DisclosureIndicator",
+"Title": "#Property:Material",
+"Subhead":"#Property:ReferenceDocNumber",
+"Footnote": "/SAPAssetManager/Rules/FL/PackageItems/PackageItemsFootnote.js",
+"Description": "#Property:ShippingPoint",
+"StatusText": "#Property:FldLogsContainerItemStatus_Nav/FldContainerItemStatusDesc",
+"SubstatusText": "/SAPAssetManager/Rules/FL/PackageItems/PackageItemsSubstatus.js",
+"OnPress": "/SAPAssetManager/Rules/FL/PackageItems/PackageItemDetailsPageNav.js",
+"AccessoryButtonIcon": "sap-icon://write-new",
+"Styles": {
+            "AccessoryButtonIcon": "AccessoryButtonIcon"
+},
+"AvatarStack": {
+    "Avatars": [{
+        "Style": "$(PLT, FLDeliveryIcon, FLDeliveryIconAndroid)",
+        "Image": "sap-icon://grid"
+    }], 
+    "ImageHasBorder": true,
+    "ImageIsCircular": false
+}
+}

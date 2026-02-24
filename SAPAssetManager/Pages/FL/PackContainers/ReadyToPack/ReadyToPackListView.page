@@ -1,0 +1,50 @@
+{
+    "Caption": "$(L,fld_pack_containers)",
+    "ActionBar": {
+        "Items": [
+           
+            {
+                "Position": "Right",
+                "Icon": "$(PLT,sap-icon://filter,sap-icon://filter, '' , sap-icon://filter)",
+                "Caption": "/SAPAssetManager/Rules/Filter/FilterButtonCaption.js",
+                "OnPress": "/SAPAssetManager/Rules/FL/PackContainers/FLPackContainersFilterNav.js",
+                "_Name": "FilterButton"
+            },
+             "/SAPAssetManager/Pages/Fragments/SyncButton.fragment"
+        ]
+    },
+    "Controls": [
+        {
+            "Items": [
+                {
+                    "_Name": "ReadyToPackItems",
+                    "Caption": "$(L,ready_to_pack)",
+                    "_Type": "Control.Type.TabItem",
+                    "PageToOpen": "/SAPAssetManager/Pages/FL/PackContainers/ReadyToPack/ReadyToPackItemsListView.page"
+                },
+                {
+                    "_Name": "PackedPackages",
+                    "Caption": "$(L,fld_packed_packages)",
+                    "_Type": "Control.Type.TabItem",
+                    "PageToOpen": "/SAPAssetManager/Pages/FL/PackContainers/PackedPackages/PackedPackagesListView.page"
+                },
+                {
+                    "_Name": "PackedContainers",
+                    "Caption": "$(L,packed_containers)",
+                    "_Type": "Control.Type.TabItem",
+                    "PageToOpen": "/SAPAssetManager/Pages/FL/PackContainers/PackedContainers/PackedContainersListView.page"
+                }
+            ],
+            "Position": "Top",
+            "_Type": "Control.Type.Tabs",
+            "_Name": "TabsControl"
+        }
+    ],
+    "DataSubscriptions": [
+        "FldLogsPackCtnRdyPcks", "FldLogsPackCtnPkdPkgs", "FldLogsPackCtnPkdCtns"
+    ],
+    "_Type": "Page",
+    "_Name": "ReadyToPackListView",
+    "OnReturning": "/SAPAssetManager/Rules/FL/ReadyToPack/FLPackContainerTabsListViewOnReturning.js",
+    "OnResume": "/SAPAssetManager/Rules/FL/ReadyToPack/FLPackContainerTabsListViewOnReturning.js"
+}

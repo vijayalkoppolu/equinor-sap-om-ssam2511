@@ -1,0 +1,11 @@
+{
+    "ObjectHeader": {
+        "HeadlineText": "{{#Property:FuncLocDesc}}",
+        "BodyText": "{{#Property:FuncLocId}}",
+        "Subhead": "/SAPAssetManager/Rules/FunctionalLocation/FunctionalLocationHeaderSubhead.js",
+        "StatusText": "/SAPAssetManager/Rules/FunctionalLocation/FunctionalLocationStatus.js",
+        "DetailImage": "/SAPAssetManager/Rules/FunctionalLocation/FunctionaLocationDetailImage.js"
+    },
+    "_Name": "FuntionalLocationDescriptionSection",
+    "_Type": "Section.Type.ObjectHeader"
+}

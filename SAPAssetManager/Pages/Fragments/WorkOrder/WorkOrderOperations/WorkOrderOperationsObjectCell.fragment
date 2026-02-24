@@ -1,0 +1,29 @@
+{
+    "_Type": "Control.Type.ObjectCell",
+    "PreserveIconStackSpacing": true,
+    "Icons": "/SAPAssetManager/Rules/Operations/OperationsListViewIconImages.js",
+    "AccessoryType": "DisclosureIndicator",
+    "Title": "{{#Property:OperationShortText}} ({{#Property:OperationNo}})",
+    "Subhead": "/SAPAssetManager/Rules/WorkOrders/Operations/WorkOrderOperationOrderAndPhase.js",
+    "Footnote": "/SAPAssetManager/Rules/Operations/OperationTechObjects.js",
+    "StatusText": "/SAPAssetManager/Rules/WorkOrders/Operations/WorkOrderOperationsListViewFormat.js",
+    "SubstatusText": "/SAPAssetManager/Rules/WorkOrders/Operations/WorkOrderOperationSubPhase.js",
+    "Styles": {
+        "StatusText": "/SAPAssetManager/Rules/Supervisor/Reject/RejectedStatusStyle.js",
+        "SubstatusText":  "/SAPAssetManager/Rules/WorkOrders/Operations/OperationsListViewSubstatusTextStyle.js"
+    },
+    "Description": "/SAPAssetManager/Rules/WorkOrders/Operations/WorkOrderOperationsListViewDescription.js",
+    "Tags": [
+        {
+            "Text": "/SAPAssetManager/Rules/WorkOrders/Operations/OperationDueDate.js",
+            "Color": "/SAPAssetManager/Rules/WorkOrders/Operations/OperationDueDateColor.js"
+        },{
+            "Text": "{MainWorkCenterPlant}"
+        },
+        {
+            "Text": "{MainWorkCenter}"
+        }
+    ],
+    "OnPress": "/SAPAssetManager/Rules/WorkOrders/Operations/Details/WorkOrderOperationDetailsNav.js",
+    "Selected": "/SAPAssetManager/Rules/WorkOrders/Operations/WorkOrderOperationSelected.js"
+}

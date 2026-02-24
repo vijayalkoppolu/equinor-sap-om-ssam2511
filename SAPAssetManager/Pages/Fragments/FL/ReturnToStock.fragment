@@ -1,0 +1,8 @@
+{		
+    "_Name": "ReturnStock",
+	"_Type": "FioriToolbarItem.Type.Button",
+	"Enabled": true,
+	"ButtonType": "Primary",
+	"Title": "$(L,return_to_stock)",
+	"OnPress": "/SAPAssetManager/Rules/FL/WorkOrders/BulkUpdate/ReturnAllItems.js"					
+}

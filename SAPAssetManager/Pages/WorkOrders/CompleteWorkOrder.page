@@ -1,0 +1,379 @@
+{
+    "Caption" : "/SAPAssetManager/Rules/WorkOrders/Complete/CompletePageCaption.js",
+    "OnReturning": "/SAPAssetManager/Rules/WorkOrders/Complete/CompleteWorkOrderPageOnReturning.js",
+    "OnActivityBackPressed": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/CancelCheckOnBackNavAndroid.js",
+    "ActionBar": {
+        "_Name": "CompleteWorkOrder",
+        "Items": [
+            {
+                "Position": "Left",
+                "_Name": "Cancel",
+                "Text": "$(L,cancel)",
+                "SystemItem": "Cancel",
+                "OnPress": "/SAPAssetManager/Rules/WorkOrders/Complete/CancelCompletePageMessage.js"
+            },
+            {
+                "Position": "Right",
+                "_Name": "Done",
+                "SystemItem": "$(PLT,'Done','', '','Done')",
+                "Caption": "$(L,done)",
+                "OnPress": "/SAPAssetManager/Rules/WorkOrders/Complete/FinalizeCompletePageMessage.js"
+            }
+        ]
+    },
+    "Controls": [
+        {
+            "Sections": [
+                {
+					"_Type": "Section.Type.ObjectTable",
+					"_Name": "UseAIPromptSection",
+                    "Visible": "/SAPAssetManager/Rules/WorkOrders/Complete/AIService/IsAIJobCompletionFeatureEnabled.js",
+                    "ObjectCells": [{
+                        "ObjectCell": {
+                            "Title": "$(L, use_ai_prompt)",
+                            "AccessoryType": "DisclosureIndicator",
+							"AccessoryButtonIcon": "sap-icon://navigation-up-arrow",
+                            "Icons": [
+                                "$(PLT,/SAPAssetManager/Images/ai.png, /SAPAssetManager/Images/ai.android.png)"
+                            ],
+                            "OnAccessoryButtonPress": "/SAPAssetManager/Rules/WorkOrders/Complete/AIService/ToggleAIPromptSection.js",
+                            "_Type": "ObjectTable.Type.ObjectCell"
+                        }
+                    }]
+				},
+                {
+					"_Type": "Section.Type.ObjectTable",
+					"_Name": "UseAIPromptSectionHide",
+                    "Visible": false,
+                    "ObjectCells": [{
+                        "ObjectCell": {
+                            "Title": "$(L, use_ai_prompt)",
+                            "AccessoryType": "DisclosureIndicator",
+							"AccessoryButtonIcon": "sap-icon://navigation-down-arrow",
+                            "Icons": [
+                                "$(PLT,/SAPAssetManager/Images/ai.png,/SAPAssetManager/Images/ai.android.png)"
+                            ],
+                            "OnAccessoryButtonPress": "/SAPAssetManager/Rules/WorkOrders/Complete/AIService/ToggleAIPromptSection.js",
+                            "_Type": "ObjectTable.Type.ObjectCell"
+                        }
+                    }]
+				},
+                {
+					"Separators": {
+						"HeaderSeparator": false
+					},
+					"Controls": [
+						{
+							"IsAutoResizing": true,
+							"_Type": "Control.Type.FormCell.Note",
+							"_Name": "FreeTextControl",
+							"IsVisible": true,
+							"Separator": false,
+							"PlaceHolder": "$(L, ai_record_placeholder)",
+							"Enabled": true,
+							"IsEditable": true,
+                            "MaxNumberOfLines": 20,
+                            "OnValueChange": "/SAPAssetManager/Rules/WorkOrders/Complete/AIService/RecordedTextChange.js"
+						},
+						{
+							"Separators": {
+								"ControlSeperator": false
+							},
+							"_Type": "Control.Type.FormCell.Button",
+							"_Name": "RecordButton",
+							"Separator": false,
+							"Title": "$(L, record)",
+							"Alignment": "Center",
+							"ButtonType": "Primary",
+							"Semantic": "Tint",
+							"Image": "sap-icon://microphone",
+							"ImagePosition": "Leading",
+							"OnPress": "/SAPAssetManager/Rules/WorkOrders/Complete/AIService/TranscribeLiveRecording.js"
+						},
+                        {
+							"Separators": {
+								"ControlSeperator": false
+							},
+							"_Type": "Control.Type.FormCell.Button",
+							"_Name": "ReRecordButton",
+							"Separator": false,
+							"Title": "$(L, re_record)",
+							"Alignment": "Center",
+							"ButtonType": "Secondary",
+							"Semantic": "Tint",
+							"Image": "sap-icon://microphone",
+                            "IsVisible": false,
+							"OnPress": "/SAPAssetManager/Rules/WorkOrders/Complete/AIService/TranscribeLiveRecording.js"
+						},
+                        {
+							"Separators": {
+								"ControlSeperator": false
+							},
+							"_Type": "Control.Type.FormCell.Button",
+							"_Name": "SubmitButton",
+							"Separator": false,
+							"Title": "$(L, smart_forms_submit)",
+							"Alignment": "Center",
+							"ButtonType": "Primary",
+							"Semantic": "Tint",
+                            "IsVisible": false,
+							"OnPress": "/SAPAssetManager/Rules/WorkOrders/Complete/AIService/ProcessRecordedText.js"
+						},
+                        {
+							"Separators": {
+								"ControlSeperator": false
+							},
+							"_Type": "Control.Type.FormCell.Button",
+							"_Name": "StopRecording",
+							"Separator": false,
+							"Title": "$(L, stop_recording)",
+							"Alignment": "Center",
+							"ButtonType": "Secondary",
+							"Semantic": "Negative",
+                            "Image": "sap-icon://stop",
+                            "IsVisible": false,
+							"OnPress": "/SAPAssetManager/Rules/WorkOrders/Complete/AIService/StopRecording.js"
+						}
+                       
+					],
+					"Header": {
+						"_Type": "SectionCommon.Type.Header",
+						"_Name": "SectionCommonTypeHeader0",
+						"UseTopPadding": false,
+						"Items": [
+							{
+								"_Type": "SectionHeaderItem.Type.Label",
+								"_Name": "Caption",
+								"Visible": true,
+								"Position": "Left",
+								"Title": "$(L, ai_record_caption)"
+							},
+							{
+								"_Type": "SectionHeaderItem.Type.Button",
+								"_Name": "HelpButton",
+								"Title": "$(L, help)",
+								"ButtonType": "Text",
+								"Semantic": "Tint",
+								"ImagePosition": "Leading",
+								"Visible": true,
+								"Enabled": true,
+								"Position": "Right",
+								"OnPress": "/SAPAssetManager/Actions/AIService/OpenAISamples.action"
+							}
+						]
+					},
+                    "Visible": "/SAPAssetManager/Rules/WorkOrders/Complete/AIService/IsAIJobCompletionFeatureEnabled.js",
+					"_Type": "Section.Type.FormCell",
+					"_Name": "AIRecordSection"
+				},
+                {
+                    "SimplePropertyCells": [
+                        {
+                            "SimplePropertyCell": {
+                                "AccessoryType": "DisclosureIndicator",
+                                "KeyName" : "$(L,signature)*",
+                                "Visible": "/SAPAssetManager/Rules/WorkOrders/Complete/Signature/SetWOMandatorySignatureVisible.js",
+                                "Value":  "/SAPAssetManager/Rules/WorkOrders/Complete/Signature/SignatureValue.js",
+                                "OnPress": "/SAPAssetManager/Rules/WorkOrders/Complete/Signature/ChangeSignature.js"
+                            }
+                        },
+                        {
+                            "SimplePropertyCell": {
+                                "KeyName" : "$(L,field_is_required)",
+                                "Visible": false,
+                                "Styles": {
+                                    "KeyName": "InlineValidationRed"
+                                }
+                            }
+                        },
+                        {
+                            "SimplePropertyCell": {
+                                "KeyName" : "$(L,digit_signature)*",
+                                "Value":  "/SAPAssetManager/Rules/WorkOrders/Complete/Signature/DigitalSignatureValue.js",
+                                "Visible": "/SAPAssetManager/Rules/WorkOrders/Complete/Signature/SetWOMandatoryDigitalSignatureVisible.js",
+                                "AccessoryType": "DisclosureIndicator",
+                                "OnPress": "/SAPAssetManager/Rules/WorkOrders/Complete/Signature/ChangeDigitalSignature.js"
+                            }
+                        },
+                        {
+                            "SimplePropertyCell": {
+                                "KeyName" : "$(L,field_is_required)",
+                                "Visible": false,
+                                "Styles": {
+                                    "KeyName": "InlineValidationRed"
+                                }
+                            }
+                        },
+                        {
+                            "SimplePropertyCell": {
+                                "KeyName" : "$(L,smartforms)*",
+                                "Value": "/SAPAssetManager/Rules/WorkOrders/Complete/Smartforms/SmartformsValue.js",
+                                "Visible": "/SAPAssetManager/Rules/WorkOrders/Complete/Smartforms/IsMandatorySmartFormStepVisible.js",
+                                "OnPress": "/SAPAssetManager/Actions/Forms/FSM/FSMFormsCompletionListNav.action",
+                                "AccessoryType": "DisclosureIndicator"
+                            }
+                        },
+                        {
+                            "SimplePropertyCell": {
+                                "KeyName" : "$(L,missing_mandatory_smartforms)",
+                                "Visible": false,
+                                "Styles": {
+                                    "KeyName": "InlineValidationRed"
+                                }
+                            }
+                        },
+                        {
+                            "SimplePropertyCell": {
+                                "KeyName" : "$(L,sdf_sap_dynamic_forms)*",
+                                "Value": "/SAPAssetManager/Rules/WorkOrders/Complete/SDF/SDFValue.js",
+                                "Visible": "/SAPAssetManager/Rules/WorkOrders/Complete/SDF/SetWOSDFVisible.js"
+                            }
+                        },
+                        {
+                            "SimplePropertyCell": {
+                                "KeyName" : "$(L,sdf_mandatory_forms_required)",
+                                "Visible": false,
+                                "Styles": {
+                                    "KeyName": "InlineValidationRed"
+                                }
+                            }
+                        }
+                    ],
+                    "Layout": {
+                        "NumberOfColumns": 1,
+                        "MinimumInteritemSpacing": "$(PLT,66,0)"
+                    },
+                    "Header": {
+                        "UseTopPadding": false,
+                        "Caption": "/SAPAssetManager/Rules/WorkOrders/Complete/RequiredFiledsCaption.js"
+                    },
+                    "_Name": "MandatorySection",
+                    "_Type" : "Section.Type.SimplePropertyCollection"
+                },
+                {
+                    "SimplePropertyCells": [
+                        {
+                            "SimplePropertyCell": {
+                                "AccessoryType": "DisclosureIndicator",
+                                "KeyName" : "$(L,signature)",
+                                "Visible": "/SAPAssetManager/Rules/WorkOrders/Complete/Signature/SetWOSignatureVisible.js",
+                                "Value":  "/SAPAssetManager/Rules/WorkOrders/Complete/Signature/SignatureValue.js",
+                                "OnPress": "/SAPAssetManager/Rules/WorkOrders/Complete/Signature/ChangeSignature.js"
+                            }
+                        },
+                        {
+                            "SimplePropertyCell": {
+                                "KeyName" : "$(L,smartforms)",
+                                "Value": "/SAPAssetManager/Rules/WorkOrders/Complete/Smartforms/SmartformsValue.js",
+                                "Visible": "/SAPAssetManager/Rules/WorkOrders/Complete/Smartforms/IsSmartFormStepVisible.js",
+                                "OnPress": "/SAPAssetManager/Actions/Forms/FSM/FSMFormsCompletionListNav.action",
+                                "AccessoryType": "DisclosureIndicator"
+                            }
+                        },
+                        {
+                            "SimplePropertyCell": {
+                                "AccessoryType": "DisclosureIndicator",
+                                "KeyName" : "$(L,confirmation)",
+                                "Value": "/SAPAssetManager/Rules/WorkOrders/Complete/Confirmation/ConfirmationValue.js",
+                                "Visible": "/SAPAssetManager/Rules/WorkOrders/Complete/Confirmation/IsConfirmationStepVisible.js",
+                                "OnPress": "/SAPAssetManager/Rules/WorkOrders/Complete/Confirmation/ChangeConfirmation.js"
+                            }
+                        },
+                        {
+                            "SimplePropertyCell": {
+                                "AccessoryType": "DisclosureIndicator",
+                                "KeyName" : "$(L,time)",
+                                "Value": "/SAPAssetManager/Rules/WorkOrders/Complete/Time/TimeValue.js",
+                                "OnPress": "/SAPAssetManager/Rules/WorkOrders/Complete/Time/ChangeTime.js",
+                                "Visible": "/SAPAssetManager/Rules/Operations/IsTimeStepVisible.js"
+                            }
+                        },
+                        {
+                            "SimplePropertyCell": {
+                                "AccessoryType": "DisclosureIndicator",
+                                "KeyName" : "$(L,expenses_service)",
+                                "Visible": "/SAPAssetManager/Rules/WorkOrders/Complete/Expenses/SetWOExpenseVisible.js",
+                                "Value": "/SAPAssetManager/Rules/WorkOrders/Complete/Expenses/ExpensesValue.js",
+                                "OnPress": "/SAPAssetManager/Rules/WorkOrders/Complete/Expenses/ChangeExpenses.js"
+                            }
+                        },
+                        {
+                            "SimplePropertyCell": {
+                                "AccessoryType": "DisclosureIndicator",
+                                "KeyName" : "$(L,mileage)",
+                                "Visible": "/SAPAssetManager/Rules/WorkOrders/Complete/Mileage/SetWOMileageVisible.js",
+                                "Value": "/SAPAssetManager/Rules/WorkOrders/Complete/Mileage/MileageValue.js",
+                                "OnPress": "/SAPAssetManager/Rules/WorkOrders/Complete/Mileage/ChangeMileage.js"
+                            }
+                        },
+                        {
+                            "SimplePropertyCell": {
+                                "KeyName" : "$(L,update_notification)",
+                                "Value": "/SAPAssetManager/Rules/WorkOrders/Complete/Notification/NotificationValue.js",
+                                "Visible": "/SAPAssetManager/Rules/WorkOrders/Complete/Notification/SetWONotificationVisible.js",
+                                "AccessoryType": "DisclosureIndicator",
+                                "OnPress": "/SAPAssetManager/Rules/WorkOrders/Complete/Notification/ChangeNotification.js"
+                            }
+                        },
+                        {
+                            "SimplePropertyCell": {
+                                "KeyName" : "$(L,digit_signature)",
+                                "Value":  "/SAPAssetManager/Rules/WorkOrders/Complete/Signature/DigitalSignatureValue.js",
+                                "Visible": "/SAPAssetManager/Rules/WorkOrders/Complete/Signature/SetWODigitalSignatureVisible.js",
+                                "AccessoryType": "DisclosureIndicator",
+                                "OnPress": "/SAPAssetManager/Rules/WorkOrders/Complete/Signature/ChangeDigitalSignature.js"
+                            }
+                        },
+                        {
+                            "SimplePropertyCell": {
+                                "KeyName" : "$(L,notes)",
+                                "Value": "/SAPAssetManager/Rules/WorkOrders/Complete/Note/NoteValue.js",
+                                "OnPress": "/SAPAssetManager/Rules/WorkOrders/Complete/Note/ChangeNote.js",
+                                "Visible": "/SAPAssetManager/Rules/WorkOrders/Complete/Note/SetWONoteVisible.js",
+                                "AccessoryType": "DisclosureIndicator"
+                            }
+                        },
+                        {
+                            "SimplePropertyCell": {
+                                "KeyName" : "$(L,linear_data)",
+                                "Value": "/SAPAssetManager/Rules/WorkOrders/Complete/LAM/LAMValue.js",
+                                "OnPress": "/SAPAssetManager/Rules/WorkOrders/Complete/LAM/ChangeLAM.js",
+                                "Visible": "/SAPAssetManager/Rules/WorkOrders/Complete/LAM/SetWOLAMVisible.js",
+                                "AccessoryType": "DisclosureIndicator"
+                            }
+                        }
+                    ],
+                    "Layout": {
+                        "NumberOfColumns": 1,
+                        "MinimumInteritemSpacing": "$(PLT,66,0)"
+                    },
+                    "Header": {
+                        "UseTopPadding": true
+                    },
+                    "_Name": "OptionalSection",
+                    "_Type" : "Section.Type.SimplePropertyCollection"
+                },
+                {
+                    "Header": {
+                        "UseTopPadding": true
+                    },
+                    "Buttons": [
+                        {
+                            "Title" : "$(L,reset)",
+                            "OnPress": "/SAPAssetManager/Rules/WorkOrders/Complete/ResetCompleteScreenFieldsMessage.js",
+                            "Visible": "/SAPAssetManager/Rules/WorkOrders/Complete/ResetButtonVisible.js",
+                            "TextAlignment": "Center",
+                            "_Name": "ResetButton"
+                        }
+                    ],
+                    "_Name": "Buttons",
+                    "_Type": "Section.Type.ButtonTable"
+                }
+            ],
+            "_Type": "Control.Type.SectionedTable",
+            "_Name":  "SectionedTable"
+        }
+    ],
+    "_Type": "Page",
+    "_Name": "CompleteOrderScreen"
+}

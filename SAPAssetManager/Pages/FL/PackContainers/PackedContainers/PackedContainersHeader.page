@@ -1,0 +1,98 @@
+
+{
+    "Caption": "$(L,header)",
+    "Controls": [
+        {
+            "Sections": [
+                	{
+					"Header": {
+                        "UseTopPadding": true,
+                        "Caption": "$(L, transport_information)"
+                    },
+                    "KeyAndValues": [
+                        {
+                            "_Name": "DestinationStorageLocation",
+                            "KeyName": "$(L,fld_destination_storage_location)",
+                            "Value": "$(DV, '{FldLogsDestStorLocID}', '-')"
+                        },
+                        {
+                            "_Name": "ShippingPoint",
+                            "KeyName": "$(L,fld_shipping_point)",
+                            "Value": "$(DV, '{FldLogsVoyageSrceStage}', '-')"
+                        },
+                        {
+                            "_Name": "ReceivingPoint",
+                            "KeyName": "$(L,fld_receiving_point)",
+                            "Value": "$(DV, '{FldLogsVoyageDestStage}', '-')"
+                        },
+                        {
+                            "_Name": "ActualWeight",
+                            "KeyName": "$(L,fld_actual_weight)",
+                            "Value": "$(DV, '{FldLogsCtnActualWeight} {FldLogsCtnActualWeightUnit}', '-')"
+                        },
+                        {
+                            "_Name": "CurrentPlant",
+                            "KeyName": "$(L,fld_current_plant)",
+                            "Value": "$(DV, {FldLogsCtnUnitCurrentPlant}, '-')"
+                        },
+                        {
+                            "_Name": "CurrentShippingPoint",
+                            "KeyName": "$(L,fld_current_shipping_point)",
+                            "Value": "$(DV, {FldLogsCtnUnitCurShipgPoint}, '-')"
+                        },
+                        {
+                            "_Name": "LocationID",
+                            "KeyName": "$(L,fld_location_id)",
+                            "Value": "$(DV, {FldLogsShptLocationID}, '-')"
+                        },
+                        {
+                            "_Name": "ExternalReferenceNumber", 
+                            "KeyName": "$(L,fld_external_reference_number)",
+                            "Value": "$(DV, {FldLogsContainerUnitExternalID}, '-')"
+                        }
+                    ],
+                    "_Type": "Section.Type.KeyValue",
+					"_Name": "HeaderKeyValueTable"
+				},
+                {
+					"Header": {
+                        "UseTopPadding": true,
+                        "Caption": "$(L, seal_information)"
+                    },
+					"KeyAndValues": [
+                        {
+                            "_Name": "SealNumber1",
+                            "KeyName": "$(L,fld_seal_number_1)",
+                            "Value": "$(DV, '{FldLogsSealNumber1}', '-')"
+                        },
+                        {
+                            "_Name": "SealNumber2",
+                            "KeyName": "$(L,fld_seal_number_2)",
+                            "Value": "$(DV, '{FldLogsSealNumber2}', '-')"
+                        },
+                        {
+                            "_Name": "SealNumber3",
+                            "KeyName": "$(L,fld_seal_number_3)",
+                            "Value": "$(DV, '{FldLogsSealNumber3}', '-')"
+                        },
+                        {
+                            "_Name": "SealNumber4",
+                            "KeyName": "$(L,fld_seal_number_4)",
+                            "Value": "$(DV, '{FldLogsSealNumber4}', '-')"
+                        },
+                        {
+                            "_Name": "SealNumber5",
+                            "KeyName": "$(L,fld_seal_number_5)",
+                            "Value": "$(DV, '{FldLogsSealNumber5}', '-')"
+                        }
+                       ],
+					"_Type": "Section.Type.KeyValue",
+					"_Name": "HeaderKeyValueTable1"
+				}],
+            "_Name": "SectionedTable0",
+            "_Type": "Control.Type.SectionedTable"
+        }
+    ],
+    "_Name": "PackedContainersHeaderPage",
+    "_Type": "Page"
+}

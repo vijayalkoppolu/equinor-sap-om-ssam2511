@@ -1,0 +1,71 @@
+{
+	"Caption": "$(L,emw_wo_tasks)",
+	"Controls": [
+		{
+			"Sections": [
+				{
+					"Header": {
+						"Caption": "/SAPAssetManager/Rules/EWM/WarehouseTask/Confirmation/LocalConfirmationsCaptionCount.js",
+						"UseTopPadding": false
+					},
+					"EmptySection": {
+						"Caption": "$(L,ewm_no_local_confirmed_tasks)"
+					},
+					"ObjectCell": {
+						   "AccessoryType": "DisclosureIndicator",
+							"DetailImageIsCircular": false,
+							"PreserveIconStackSpacing": false,
+							"Title": "/SAPAssetManager/Rules/EWM/WarehouseTask/ListView/WarehouseTaskTitle.js",
+							"Subhead": "/SAPAssetManager/Rules/EWM/WarehouseTask/WarehouseTaskSubhead.js",
+							"Description": "{WarehouseTask_Nav/WarehouseProcessCategory_Nav/Description} , {WarehouseTask_Nav/ActivityArea} , {WarehouseTask_Nav/Batch}",
+							"Footnote": "/SAPAssetManager/Rules/EWM/WarehouseTask/ListView/WarehouseTaskFootnote.js",
+							"Tags": "/SAPAssetManager/Rules/EWM/WarehouseTask/ListView/WarehouseTaskTags.js",
+							"StatusText": "/SAPAssetManager/Rules/EWM/WarehouseTask/ListView/WarehouseTaskLocalConfirmationStatus.js",
+							"SubstatusText": "{ActualQuantity} {WarehouseTask_Nav/UoM}",
+							"OnPress": "/SAPAssetManager/Actions/EWM/WarehouseTasks/WarehouseTaskNav.action",
+							"AccessoryButtonIcon": "sap-icon://write-new",
+							"OnAccessoryButtonPress": "/SAPAssetManager/Rules/EWM/WarehouseTask/Confirmation/WarehouseTaskLocalConfirmationNav.js",
+							"Styles": {
+        						"AccessoryButtonIcon": "AccessoryButtonIcon"
+  							},
+							"AvatarStack": {
+								"Avatars": [{
+									"Image": "$(PLT,/SAPAssetManager/Images/ewm.whtask.png,/SAPAssetManager/Images/ewm.whtask.android.png)"
+								}],
+								"ImageHasBorder": true,
+								"ImageIsCircular": false
+    					}
+					},
+					"Search": {
+						"Enabled": true,
+						"Delay": 500,
+						"MinimumCharacterThreshold": 3,
+						"Placeholder": "$(L,search)",
+						"BarcodeScanner": true
+					},
+					"Target": {
+						"EntitySet": "WarehouseTaskConfirmations",
+						"QueryOptions": "/SAPAssetManager/Rules/EWM/WarehouseTask/Confirmation/LocalConfirmationsQueryOptions.js",
+						"Service": "/SAPAssetManager/Services/AssetManager.service"
+					},
+					"DataSubscriptions": [
+						"WarehouseOrders",
+						"WarehouseTasks",
+						"WarehouseTaskConfirmations",
+						"WarehouseTaskSerialNumber",
+						"WarehouseExceptionCodes",
+						"WarehouseStorageBins",
+						"WarehouseMovementReasons",
+						"WarehouseActivityAreas"
+						],
+					"_Name": "WarehouseTasksSectionObjectTable",
+					"_Type": "Section.Type.ObjectTable"
+				}
+			],
+			"_Name": "SectionedTable",
+			"_Type": "Control.Type.SectionedTable"
+		}
+	],
+	"_Name": "WarehouseTaskLocalConfirmationsPage",
+	"_Type": "Page"
+}

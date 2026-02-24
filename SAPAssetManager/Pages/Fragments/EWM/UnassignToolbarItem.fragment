@@ -1,0 +1,8 @@
+{
+    "_Name": "UnassignButton",
+    "_Type": "FioriToolbarItem.Type.Button",
+    "Title": "$(L, unassign)",
+    "ButtonType": "Text",
+    "OnPress": "/SAPAssetManager/Actions/EWM/PhysicalInventory/ShowReleaseWarningDialog.action",
+    "Visible": "/SAPAssetManager/Rules/EWM/WarehouseTask/ListView/IsUnassignButtonVisible.js"
+}

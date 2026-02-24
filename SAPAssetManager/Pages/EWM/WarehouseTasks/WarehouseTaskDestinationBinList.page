@@ -1,0 +1,36 @@
+{
+    "Caption": "$(L, destination_bin)",
+    "Controls": [{
+            "Sections": [{
+                "Search":
+			{
+				"Enabled" : true,
+				"Delay": 500,
+				"MinimumCharacterThreshold": 3,
+				"Placeholder": "$(L,search)",
+				"BarcodeScanner": true
+			},
+                    "EmptySection": {
+                        "Caption": "$(L,no_destination_bins)"
+                    },
+                    "ObjectCell": {
+                        "Title": "{StorageBin}",
+                        "PreserveIconStackSpacing": false,
+                        "OnPress": "/SAPAssetManager/Rules/EWM/WarehouseTask/DestinationBin/OnDestBinSelectAction.js"
+                    },
+                    "Target": {
+                        "EntitySet": "WarehouseStorageBins",
+                        "Service": "/SAPAssetManager/Services/AssetManager.service",
+                        "QueryOptions": "$orderby=StorageBin"
+                    },
+                    "_Type": "Section.Type.ObjectTable",
+                    "_Name": "EWMWHTaskConfirmationDestinationBins"
+                }
+            ],
+            "_Type": "Control.Type.SectionedTable",
+            "_Name": "SectionedTable"
+        }
+    ],
+    "_Name": "EWMWarehouseTaskConfirmationDestinationBinPage",
+    "_Type": "Page"
+}

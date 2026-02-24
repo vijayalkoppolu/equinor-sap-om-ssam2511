@@ -1,0 +1,82 @@
+{
+    "_Type":"Page",
+    "_Name":"FSMS4CrewFilterPage",
+    "OnLoaded": "/SAPAssetManager/Rules/Filter/FilterOnLoaded.js",
+    "OnActivityBackPressed": "/SAPAssetManager/Rules/WorkOrders/CreateUpdate/CancelCheckOnBackNavAndroid.js",
+    "ActionBar": {
+        "Items": [
+            {
+                "Position": "Left",
+                "_Name": "Cancel",
+                "SystemItem": "Cancel",
+                "Caption": "$(L,cancel)",
+                "OnPress": "/SAPAssetManager/Actions/Page/CancelPage.action"
+            },
+            {
+                "Position": "Right",
+                "_Name": "Filter",
+                "SystemItem": "/SAPAssetManager/Rules/Filter/FilterSystemItem.js",
+                "Text": "/SAPAssetManager/Rules/Filter/FilterText.js",
+                "OnPress": "/SAPAssetManager/Rules/Filter/ApplyFilterAndSave.js"
+            }
+        ]
+    },
+    "Caption":"$(L,filter)",
+    "Result":"/SAPAssetManager/Rules/Crew/FSM/S4/FSMS4CrewFilterResults.js",
+    "Controls":[
+        {
+            "_Name":"FormCellContainer",
+            "_Type":"Control.Type.FormCellContainer",
+            "Sections": [
+                {
+                    "Controls": [{
+                        "_Type": "Fragment",
+                        "Fragment": "/SAPAssetManager/Pages/Fragments/Filter/MultiSortByFilter.fragment",
+                            "Properties": {
+                                "Items": [
+                                {
+                                    "ReturnValue":"Name",
+                                    "DisplayValue":"$(L,name)"
+                                },
+                                {
+                                    "ReturnValue":"Description",
+                                    "DisplayValue":"$(L,description)"
+                                }
+                            ]
+                        }
+                    }]
+                },
+                {
+                    "Controls": [{
+                        "_Name": "StatusFilter",
+                        "_Type": "Control.Type.FormCell.Filter",
+                        "AllowMultipleSelection": true,
+                        "AllowEmptySelection": true,
+                        "Caption": "$(L,status)",
+                        "FilterProperty": {
+                            "name": "Status",
+                            "values": [ 
+                                {
+                                    "DisplayValue": "$(L,wcm_active)",
+                                    "ReturnValue": "ACTIVE"
+                                },
+                                {
+                                    "DisplayValue": "$(L,wcm_inactive)",
+                                    "ReturnValue": "INACTIVE"
+                                }
+                            ]
+                        },
+                        "OnValueChange": "/SAPAssetManager/Rules/Filter/RedrawFilterToolbar.js"
+                    }]
+                }
+            ]
+        }
+    ],
+    "FioriToolbar": {
+        "_Name": "EquipmentFilterFioriToolbar",
+        "_Type": "Control.Type.FioriToolbar",
+        "Items": [
+            "/SAPAssetManager/Pages/Fragments/Filter/ResetFilterToolbarItem.fragment"
+        ]
+    }
+}

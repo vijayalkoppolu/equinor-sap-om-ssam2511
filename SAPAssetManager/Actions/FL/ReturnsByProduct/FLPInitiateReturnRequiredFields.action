@@ -1,0 +1,11 @@
+{
+	"_Type": "Action.Type.CheckRequiredFields",
+	"OnFailure": "/SAPAssetManager/Rules/Common/UpdateRequiredFailed.js",
+	"OnSuccess": "/SAPAssetManager/Rules/FL/ReturnsByProduct/FLPInitiateReturn.js",
+	"RequiredFields": [
+		"RecommActionLstPkr",
+		"ReturnableQuantity",
+		"ReturnableQuantityUOMLstPkr",
+		"DestStoreLocLstPkr"
+	]
+}

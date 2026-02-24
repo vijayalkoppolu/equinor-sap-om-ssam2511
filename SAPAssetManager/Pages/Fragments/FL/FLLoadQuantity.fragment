@@ -1,0 +1,7 @@
+{
+    "_Type": "FioriToolbarItem.Type.Button",
+    "_Name": "FLLoadQuantityButton",
+    "Title": "$(L, fld_load_quantity)",
+    "Enabled": false,
+    "OnPress": "/SAPAssetManager/Rules/FL/ReturnsByProduct/BulkUpdate/ReturnAllItems.js"
+}

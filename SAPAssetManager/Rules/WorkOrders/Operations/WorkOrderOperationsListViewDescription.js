@@ -1,0 +1,35 @@
+
+import WorkOrderOperationAssignedToListWrapper from '../../Supervisor/Assign/WorkOrderOperationAssignedToListWrapper';
+import IsPhaseModelEnabled from '../../Common/IsPhaseModelEnabled';
+import PhaseLibrary from '../../PhaseModel/PhaseLibrary';
+export default function WorkOrderOperationsListViewDescription(context) {
+    return WorkOrderOperationAssignedToListWrapper(context).then(assignee => {
+        if (IsPhaseModelEnabled(context)) {
+            let binding = context.getBindingObject();
+            return PhaseLibrary.isPhaseModelActiveInDataObject(context, binding).then(isPhaseModelActive => {
+                if (isPhaseModelActive) {
+                    let descriptionFields = [assignee];
+
+                    if (binding) {
+                        // Excuation Stage
+                        if (binding.OperationCategory) {
+                            descriptionFields.push(binding.OperationCategory);
+                        }
+                    }
+
+                    return Promise.all(descriptionFields).then(fieldData => {
+                        let result = '';
+                        let i = 0; while (i < fieldData.length - 1) {
+                            result += fieldData[i++] + '\n';
+                        }
+                        result += fieldData[i];
+                        return result;
+                    });
+                }
+
+                return assignee;
+            });
+        }
+        return assignee;
+    });
+}

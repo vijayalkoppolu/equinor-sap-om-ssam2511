@@ -1,0 +1,8 @@
+{
+    "_Type": "Control.Type.FormCell.Button",
+    "_Name": "WhDestinationBinAdd",
+    "Title": "$(L,select_destination_bin)",
+    "OnPress": "/SAPAssetManager/Actions/EWM/WarehouseTasks/DestinationBin/WarehouseTaskDestinationBinPageNav.action",
+    "TextAlignment": "Center",
+    "ButtonType": "Text"
+}
